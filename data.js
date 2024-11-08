@@ -17,7 +17,7 @@ const data = {
             greeting: "Hi, I'm ",
             moto: "My moto: ",
             motos: ["Code", "Create", "Inspire"],
-            desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings.\n\nOutside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced."
+            desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings.<br /><br />Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced."
         }
     },
     navLinks: [
