@@ -2,7 +2,7 @@ const data = {
     name: "Palash Kanti Kundu",
     shortName: "Palash",
     labels: {
-        blogs: "Blogs",
+        blogs: "Contents",
         projects: "Projects",
         swe: "Software Engineering",
         music: "Music",
@@ -32,11 +32,13 @@ const data = {
                 id: "static-file-hosting",
                 title: "Simple Static File Hosting",
                 url: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
-                publishDate: "November 08, 2024"
+                publishDate: "November 08, 2024",
+                type: "markdown"
             }
         ],
         music: [
-            { id: 1, publishDate: "Jan 2014", title: "Youtube", url: "/blog/1" }
+            { id: 1, publishDate: "Jan 2014", title: "Youtube", url: "hMBpAPGqX8k", type: "video" },
+            { id: 2, publishDate: "Jan 2014", title: "Both", video: "hMBpAPGqX8k", md: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md", type: "both" }
         ]
     },
     projects: [
