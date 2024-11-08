@@ -22,7 +22,7 @@ const data = {
     },
     navLinks: [
         { label: "Home", link: "/" },
-        { label: "Blogs", link: "/blogs" },
+        { label: "Contents", link: "/contents" },
         { label: "Projects", link: "/projects" },
         { label: "About", link: "/about" }
     ],
