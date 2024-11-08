@@ -7,6 +7,11 @@ const data = {
         music: "Music",
         blogNotExists: "Blog does not exist"
     },
+    contents:{
+        blogs:{
+            intro: "Software Engineering is what I do for a living, music is what I do to live."
+        }
+    },
     navLinks: [
         { label: "Home", link: "/" },
         { label: "Blogs", link: "/blogs" },
@@ -15,8 +20,10 @@ const data = {
     ],
     blogs: {
         swe: [
-            { id: "tic-tac-toe", publishDate: "Jan 2014", title: "Tic Tac Toe", url: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
-publishDate: "November 08, 2024"			}
+            {
+                id: "tic-tac-toe", publishDate: "Jan 2014", title: "Tic Tac Toe", url: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
+                publishDate: "November 08, 2024"
+            }
         ],
         music: [
             { id: 1, publishDate: "Jan 2014", title: "Youtube", url: "/blog/1" }
