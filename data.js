@@ -2,14 +2,14 @@ const data = {
     name: "Palash Kanti Kundu",
     shortName: "Palash",
     labels: {
-        blogs: "Contents",
+        contents: "Contents",
         projects: "Projects",
         swe: "Software Engineering",
         music: "Music",
-        blogNotExists: "Blog does not exist"
+        contentNotExists: "Content does not exist"
     },
     contents: {
-        blogs: {
+        contents: {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both."
         },
         home: {
@@ -26,7 +26,7 @@ const data = {
         { label: "Projects", link: "/projects" },
         { label: "About", link: "/about" }
     ],
-    blogs: {
+    contents: {
         swe: [
             {
                 id: "static-file-hosting",
