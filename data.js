@@ -8,7 +8,7 @@ const data = {
         music: "Music",
         contentNotExists: "Content does not exist"
     },
-    contents: {
+    pages: {
         contents: {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both."
         },
