@@ -24,6 +24,7 @@ Recently, I thought of revamping my whole website. The domain just hosts my educ
 - Upload your files on the repository
 - Access it by following the directory structure
 ![Access JS Files](https://palash90.github.io/site-assets/blogs/static-file-hosting/js-hosting.png "Scripts")
+
 ![Access Images](https://palash90.github.io/site-assets/blogs/static-file-hosting/image-hosting.png "Images")
 - Now use these resources in your Markdown files
 - Use some kind of Markdown renderer, like the one you are reading this on
