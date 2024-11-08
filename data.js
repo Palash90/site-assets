@@ -15,7 +15,7 @@ const data = {
     ],
     blogs: {
         swe: [
-            { id: "tic-tac-toe", publishDate: "Jan 2014", title: "Tic Tac Toe", url: "https://drive.google.com/file/d/1-Ox7241Ow15yQlrgi0-OCPfT5W-l2Gx6/view?usp=sharing" }
+            { id: "tic-tac-toe", publishDate: "Jan 2014", title: "Tic Tac Toe", url: "https://palash90.github.io/site-assets/blogs/misc/README.md" }
         ],
         music: [
             { id: 1, publishDate: "Jan 2014", title: "Youtube", url: "/blog/1" }
