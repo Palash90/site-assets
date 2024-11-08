@@ -1,6 +1,6 @@
 const data = {
     name: "Palash Kanti Kundu",
-    shorName: "Palash",
+    shortName: "Palash",
     labels: {
         blogs: "Blogs",
         projects: "Projects",
