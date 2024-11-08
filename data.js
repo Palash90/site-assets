@@ -30,7 +30,7 @@ const data = {
         swe: [
             {
                 id: "static-file-hosting",
-                title: "Tic Tac Toe",
+                title: "Simple Static File Hosting",
                 url: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
                 publishDate: "November 08, 2024"
             }
