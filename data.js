@@ -30,34 +30,7 @@ const data = {
         { label: "Projects", link: "/projects" },
         { label: "About", link: "/about" }
     ],
-    contents: {
-        swe: [
-            {
-                id: "static-file-hosting",
-                title: "Simple Static File Hosting",
-                mdUrl: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
-                publishDate: "November 08, 2024",
-                type: "markdown"
-            }
-        ],
-        music: [
-            {
-                id: 1,
-                publishDate: "Jan 2014",
-                title: "Youtube",
-                videoId: "hMBpAPGqX8k",
-                type: "video"
-            },
-            {
-                id: 2,
-                publishDate: "Jan 2014",
-                title: "Both",
-                videoId: "hMBpAPGqX8k",
-                mdUrl: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
-                type: "both"
-            }
-        ]
-    },
+    contents: contents,
     projects: [
         { id: 1, name: "Iron Learn", desc: "A pure Rust Machine Learning Library", type: "rust", url: "https://github.com/Palash90/iron_learn" },
         { id: 2, name: "HDL Emulator", desc: "An online Web Based HDL Emulator for Teaching Purpose", type: "react", url: "/component/hdlEmulator" }
