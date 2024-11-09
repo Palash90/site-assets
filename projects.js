@@ -12,5 +12,11 @@ const projects = [
         desc: "An online Web Based HDL Emulator for Teaching Purpose", 
         type: "react", 
         url: "/component/hdlEmulator" 
+    },
+    { 
+        id: 3, name: "Iron Learn", 
+        desc: "A pure Rust Machine Learning Library", 
+        type: "rust", 
+        url: "https://github.com/Palash90/vi"
     }
 ]
