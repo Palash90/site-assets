@@ -1,5 +1,5 @@
 const site_asset_cdn = "https://palash90.github.io/site-assets";
-const raw_github_content_cdn = "https://raw.githubusercontent.com/Palash90";
+const raw_cdn = "https://raw.githubusercontent.com/Palash90";
 
 const contents = {
     swe: [
@@ -14,14 +14,14 @@ const contents = {
             id: "vi-essentials",
             title: "vi Essentials",
             publishDate: "November 01, 2020",
-            mdUrl: raw_github_content_cdn + "/vi/refs/heads/master/README.md",
+            mdUrl: raw_cdn + "/vi/refs/heads/master/README.md",
             type: "markdown"
         },
         {
             id: "go-essentials",
             title: "Go Essentials",
             publishDate: "November 01, 2020",
-            mdUrl: raw_github_content_cdn + "/go-tut/refs/heads/main/README.md",
+            mdUrl: raw_cdn + "/go-tut/refs/heads/main/README.md",
             type: "markdown"
         }
     ],

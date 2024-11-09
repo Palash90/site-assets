@@ -1,4 +1,4 @@
-const raw_github_content_cdn = "https://raw.githubusercontent.com/Palash90";
+const raw_content_cdn = "https://raw.githubusercontent.com/Palash90";
 
 const projects = [
     {
@@ -7,7 +7,7 @@ const projects = [
         desc: "A pure Rust Machine Learning Library",
         type: "rust",
         url: "https://github.com/Palash90/iron_learn",
-        mdUrl: raw_github_content_cdn + "/iron_learn/refs/heads/main/README.md"
+        mdUrl: raw_content_cdn + "/iron_learn/refs/heads/main/README.md"
     },
     {
         id: "hdl-emulator",
@@ -15,7 +15,7 @@ const projects = [
         desc: "An online Web Based HDL Emulator for Teaching Purpose",
         type: "react-old",
         url: "https://emulator.palashkantikundu.in/",
-        mdUrl: raw_github_content_cdn + "/emulator/refs/heads/main/README.md"
+        mdUrl: raw_content_cdn + "/emulator/refs/heads/main/README.md"
     },
     {
         id: "dist-fs",
@@ -23,6 +23,6 @@ const projects = [
         desc: "A simple distributed file system implementation",
         type: "java",
         url: "https://github.com/Palash90/dist-fs",
-        mdUrl: raw_github_content_cdn + "/dist-fs/refs/heads/main/README.md"
+        mdUrl: raw_content_cdn + "/dist-fs/refs/heads/main/README.md"
     }
 ]
