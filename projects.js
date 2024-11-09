@@ -21,6 +21,6 @@ const projects = [
         desc: "A booklet on vi editor", 
         type: "markdown", 
         url: "https://github.com/Palash90/vi",
-        mdUrl: "https://github.com/Palash90/vi/blob/master/README.md"
+        mdUrl: "https://raw.githubusercontent.com/Palash90/vi/refs/heads/master/README.md"
     }
 ]
