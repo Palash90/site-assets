@@ -10,14 +10,14 @@ const contents = {
     ],
     music: [
         {
-            id: 1,
+            id: "1",
             publishDate: "Jan 2014",
             title: "Youtube",
             videoId: "hMBpAPGqX8k",
             type: "video"
         },
         {
-            id: 2,
+            id: "2",
             publishDate: "Jan 2014",
             title: "Both",
             videoId: "hMBpAPGqX8k",
