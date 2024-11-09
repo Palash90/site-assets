@@ -25,9 +25,9 @@ const projects = [
     },
     { 
         id: "dist-fs",
-        name: "Simple Java Distributed File System", 
-        desc: "A booklet on vi editor", 
-        type: "markdown", 
+        name: "Distributed File System", 
+        desc: "A simple distributed file system implementation", 
+        type: "java", 
         url: "https://github.com/Palash90/dist-fs",
         mdUrl: "https://raw.githubusercontent.com/Palash90/dist-fs/refs/heads/main/README.md"
     }
