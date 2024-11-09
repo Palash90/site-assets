@@ -1,6 +1,6 @@
 const projects = [
     { 
-        id: "1", 
+        id: "iron-learn", 
         name: "Iron Learn", 
         desc: "A pure Rust Machine Learning Library", 
         type: "rust", 
@@ -8,17 +8,19 @@ const projects = [
         mdUrl:"https://raw.githubusercontent.com/Palash90/iron_learn/refs/heads/main/README.md"
     },
     { 
-        id: "2", 
+        id: "hdl-emulator", 
         name: "HDL Emulator", 
         desc: "An online Web Based HDL Emulator for Teaching Purpose", 
-        type: "react", 
-        url: "/component/hdlEmulator" 
+        type: "react-old", 
+        url: "https://emulator.palashkantikundu.in/",
+        mdUrl: "https://raw.githubusercontent.com/Palash90/emulator/refs/heads/main/README.md"
     },
     { 
-        id: "3",
-        name: "Iron Learn", 
-        desc: "A pure Rust Machine Learning Library", 
-        type: "rust", 
-        url: "https://github.com/Palash90/vi"
+        id: "vi-essentials",
+        name: "vi Essentials", 
+        desc: "A booklet on vi editor", 
+        type: "markdown", 
+        url: "https://github.com/Palash90/vi",
+        mdUrl: "https://github.com/Palash90/vi/blob/master/README.md"
     }
 ]
