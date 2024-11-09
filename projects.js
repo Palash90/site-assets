@@ -22,5 +22,13 @@ const projects = [
         type: "markdown", 
         url: "https://github.com/Palash90/vi",
         mdUrl: "https://raw.githubusercontent.com/Palash90/vi/refs/heads/master/README.md"
+    },
+    { 
+        id: "dist-fs",
+        name: "Simple Java Distributed File System", 
+        desc: "A booklet on vi editor", 
+        type: "markdown", 
+        url: "https://github.com/Palash90/dist-fs",
+        mdUrl: "https://raw.githubusercontent.com/Palash90/dist-fs/refs/heads/main/README.md"
     }
 ]
