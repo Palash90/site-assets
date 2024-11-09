@@ -31,10 +31,7 @@ const data = {
         { label: "About", link: "/about" }
     ],
     contents: contents,
-    projects: [
-        { id: 1, name: "Iron Learn", desc: "A pure Rust Machine Learning Library", type: "rust", url: "https://github.com/Palash90/iron_learn" },
-        { id: 2, name: "HDL Emulator", desc: "An online Web Based HDL Emulator for Teaching Purpose", type: "react", url: "/component/hdlEmulator" }
-    ],
+    projects: projects,
     about: {
         jobs: [
             { name: "Cognizant Technology Solutions", start: "December 2022", end: "Present", location: "Bengaluru, India", role: "Cloud Deverloper III" },
