@@ -1,3 +1,4 @@
+const cdn = "https://palash90.github.io/site-assets/"
 const data = {
     name: "Palash Kanti Kundu",
     shortName: "Palash",
@@ -23,6 +24,9 @@ const data = {
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: "
+        },
+        about: {
+            mdUrl: cdn + "ME.md"
         }
     },
     navLinks: [
