@@ -16,14 +16,6 @@ const projects = [
         mdUrl: "https://raw.githubusercontent.com/Palash90/emulator/refs/heads/main/README.md"
     },
     { 
-        id: "vi-essentials",
-        name: "vi Essentials", 
-        desc: "A booklet on vi editor", 
-        type: "markdown", 
-        url: "https://github.com/Palash90/vi",
-        mdUrl: "https://raw.githubusercontent.com/Palash90/vi/refs/heads/master/README.md"
-    },
-    { 
         id: "dist-fs",
         name: "Distributed File System", 
         desc: "A simple distributed file system implementation", 
