@@ -6,6 +6,20 @@ const contents = {
             mdUrl: "https://palash90.github.io/site-assets/blogs/static-file-hosting/README.md",
             publishDate: "November 08, 2024",
             type: "markdown"
+        },
+        {
+            id: "vi-essentials",
+            title: "vi Essentials",
+            publishDate: "November 01, 2020",
+            mdUrl: "https://raw.githubusercontent.com/Palash90/vi/refs/heads/master/README.md",
+            type: "markdown"
+        },
+        {
+            id: "go-essentials",
+            title: "Go Essentials",
+            publishDate: "November 01, 2020",
+            mdUrl: "https://raw.githubusercontent.com/Palash90/go-tut/refs/heads/main/README.md",
+            type: "markdown"
         }
     ],
     music: [
