@@ -5,6 +5,8 @@ const staticLinks = [
     "https://palashkantikundu.in/",
     "https://www.palashkantikundu.in/",
     "https://tech.palashkantikundu.in/",
+    "https://music.palashkantikundu.in/",
+    "https://guitalele-tutorials.palashkantikundu.in/",
     "https://vi-essentials.palashkantikundu.in/",
     "https://go-essentials.palashkantikundu.in/"
 ]
