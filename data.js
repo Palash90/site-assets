@@ -15,8 +15,8 @@ const data = {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
             h1Color: "tomato",
             pColor: "",
-            sweHeadColor:"#21f0a9",
-            musicHeadColor:"#fc12ac"
+            sweHeadColor: "#21f0a9",
+            musicHeadColor: "#fc12ac"
         },
         home: {
             tag: "Crafting code, creating harmony.",
@@ -38,10 +38,12 @@ const data = {
         },
         about: {
             mdUrl: cdn + "ME.md",
+            resume: cdn + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
+            resumeName: cdn + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf"
         }
     },
-    techStack:{
-        iconColor:{
+    techStack: {
+        iconColor: {
             rust: "#B7410E",
             java: "blue",
             javascript: "red",
