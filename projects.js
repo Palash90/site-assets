@@ -16,7 +16,7 @@ const projects = [
         desc: "An online Web Based HDL Emulator for Teaching Purpose",
         type: "javascript",
         playUrl: "https://emulator.palashkantikundu.in/",
-        githubUrl: "",
+        githubUrl: "https://github.com/Palash90/emulator",
         mdUrl: raw_content_cdn + "/emulator/refs/heads/main/README.md"
     },
     {
