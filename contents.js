@@ -1,5 +1,4 @@
 const site_asset_cdn = "https://palash90.github.io/site-assets";
-const raw_cdn = "https://raw.githubusercontent.com/Palash90";
 
 const contents = {
     swe: [
