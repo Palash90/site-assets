@@ -10,6 +10,13 @@ const contents = {
             type: "markdown"
         },
         {
+            id: "grafana-on-aws",
+            title: "Configure Grafana on AWS",
+            mdUrl: site_asset_cdn + "/blogs/aws-grafana/README.md",
+            publishDate: "June 11, 2024",
+            type: "markdown"
+        },
+        {
             id: "vi-essentials",
             title: "vi Essentials",
             publishDate: "November 01, 2020",
