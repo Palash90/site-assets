@@ -30,10 +30,20 @@ const data = {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
             h1Color: "tomato",
-            pColor: ""
+            pColor: "",
+            titleColor: "teal",
+            bodyColor: ""
         },
         about: {
             mdUrl: cdn + "ME.md",
+        }
+    },
+    techStack:{
+        iconColor:{
+            rust: "brown",
+            java: "red",
+            javascript: "red",
+            react: "teal"
         }
     },
     navLinks: [
