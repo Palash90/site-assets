@@ -31,7 +31,7 @@ const data = {
             techStack: "Technology: ",
             h1Color: "tomato",
             pColor: "",
-            titleColor: "teal",
+            titleColor: "#21f0a9",
             bodyColor: ""
         },
         about: {
