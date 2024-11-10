@@ -32,7 +32,7 @@ const projects = [
         name: "Tic Tac Slide",
         desc: "An innovation over simple tic tac toe for added fun",
         type: "react",
-        playUrl: path_var + "/component/tic-tac-slide",
+        playUrl: path_prefix + "/component/tic-tac-slide",
         githubUrl: ""
     }
 ]
