@@ -53,6 +53,12 @@ const data = {
             java: "blue",
             javascript: "red",
             react: "teal"
+        },
+        title: {
+            rust: "Rust",
+            java: "Java",
+            javascript: "JavaScript",
+            react: "React.js"
         }
     },
     navLinks: [
