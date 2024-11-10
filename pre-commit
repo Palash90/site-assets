@@ -1,2 +1,3 @@
+#!/bin/sh
 node generate-sitemap.js
 git add sitemap.xml
