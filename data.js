@@ -31,7 +31,7 @@ const data = {
         }
     },
     navLinks: [
-        { label: "Home", link: "/" },
+        { label: "Home", link: "/#" },
         { label: "Blogs", link: path_var + "/contents" },
         { label: "Projects", link: path_var + "/projects" },
         { label: "About", link: path_var + "/about" }
