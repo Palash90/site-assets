@@ -30,7 +30,6 @@ const projects = [
         name: "Tic Tac Slide",
         desc: "An innovation over simple tic tac toe for added fun",
         type: "react",
-        url: "https://github.com/Palash90/dist-fs",
-        mdUrl: raw_content_cdn + "/dist-fs/refs/heads/main/README.md"
+        url: "https://github.com/Palash90/tic-tac-slide"
     }
 ]
