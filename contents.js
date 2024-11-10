@@ -14,7 +14,7 @@ const contents = {
             id: "vi-essentials",
             title: "vi Essentials",
             publishDate: "November 01, 2020",
-            mdUrl: raw_cdn + "/vi/refs/heads/master/README.md",
+            mdUrl: site_asset_cdn + "/blogs/vi/README.md",
             type: "markdown"
         },
         {
