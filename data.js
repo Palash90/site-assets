@@ -21,7 +21,8 @@ const data = {
             h1Color: "tomato",
             pColor: "",
             sweHeadColor: "#21f0a9",
-            musicHeadColor: "#fc12ac"
+            musicHeadColor: "#fc12ac",
+            itemsPerPage: 30
         },
         home: {
             tag: "Crafting code, creating harmony.",
