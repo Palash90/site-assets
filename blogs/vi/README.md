@@ -646,7 +646,7 @@ the difference.
 
 Let's have a quick hands-on of these movement commands. To
 do this, open vi editor with a file full of text or download
-[this file](https://github.com/palash90/vi/blob/master/data.txt) and open in vi.
+[this file](https://palash90.github.io/site-assets/blog/vi/data.txt) and open in vi.
 
 Move to the directory you have downloaded the file and open
 using vi -  
