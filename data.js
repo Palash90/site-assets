@@ -22,7 +22,7 @@ const data = {
             pColor: "",
             sweHeadColor: "#21f0a9",
             musicHeadColor: "#fc12ac",
-            itemsPerPage: 30
+            itemsPerPage: 50
         },
         home: {
             tag: "Crafting code, creating harmony.",
