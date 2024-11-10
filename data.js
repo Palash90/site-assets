@@ -40,8 +40,8 @@ const data = {
     },
     techStack:{
         iconColor:{
-            rust: "brown",
-            java: "red",
+            rust: "#B7410E",
+            java: "blue",
             javascript: "red",
             react: "teal"
         }
