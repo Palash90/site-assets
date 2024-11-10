@@ -12,7 +12,9 @@ const data = {
     },
     pages: {
         contents: {
-            intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both."
+            intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
+            h1Color: "tomato",
+            pColor: ""
         },
         home: {
             tag: "Crafting code, creating harmony.",
@@ -20,11 +22,15 @@ const data = {
             moto: "My moto: ",
             motos: ["Code", "Create", "Inspire"],
             desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
-            profilePicUrl: cdn + "/profile.jpg"
+            profilePicUrl: cdn + "/profile.jpg",
+            h1Color: "tomato",
+            pColor: "teal"
         },
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
-            techStack: "Technology: "
+            techStack: "Technology: ",
+            h1Color: "tomato",
+            pColor: ""
         },
         about: {
             mdUrl: cdn + "ME.md",
