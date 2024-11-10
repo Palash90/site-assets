@@ -1,4 +1,5 @@
 const raw_content_cdn = "https://raw.githubusercontent.com/Palash90";
+const path_prefix = "/#"
 
 const projects = [
     {
@@ -31,7 +32,7 @@ const projects = [
         name: "Tic Tac Slide",
         desc: "An innovation over simple tic tac toe for added fun",
         type: "react",
-        playUrl: "https://github.com/Palash90/tic-tac-slide",
+        playUrl: path_var + "/component/tic-tac-slide",
         githubUrl: ""
     }
 ]
