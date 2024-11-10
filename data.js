@@ -12,6 +12,9 @@ const data = {
     },
     pages: {
         contents: {
+            header: "Blogs",
+            techHeader: "Tech Blogs",
+            musicHeader: "Music Blogs",
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
             techIntro: "Something tech",
             musicIntro: "Something Music",

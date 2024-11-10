@@ -19,4 +19,4 @@ const allProjects = findProp("projects").filter(p => p.type === "react" && p.pla
 
 const allLinks = [...staticLinks, ...allNavLinks, ...allBlogs, ...allProjects]
 
-console.log(allLinks)
+tech.console.log(allLinks)
