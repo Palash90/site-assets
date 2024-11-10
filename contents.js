@@ -21,7 +21,7 @@ const contents = {
             id: "go-essentials",
             title: "Go Essentials",
             publishDate: "November 01, 2020",
-            mdUrl: raw_cdn + "/go-tut/refs/heads/main/README.md",
+            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
             type: "markdown"
         }
     ],
