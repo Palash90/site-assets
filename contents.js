@@ -27,19 +27,11 @@ const contents = {
     ],
     music: [
         {
-            id: "1",
-            publishDate: "Jan 2014",
-            title: "Youtube",
+            id: "sliding-shape-guitalele",
+            publishDate: "October 16, 2014",
+            title: "Sliding Shape Guitalele",
             videoId: "hMBpAPGqX8k",
             type: "video"
-        },
-        {
-            id: "2",
-            publishDate: "Jan 2014",
-            title: "Both",
-            videoId: "hMBpAPGqX8k",
-            mdUrl: site_asset_cdn + "/blogs/static-file-hosting/README.md",
-            type: "both"
         }
     ]
 }
