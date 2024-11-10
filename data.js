@@ -1,5 +1,5 @@
 const cdn = "https://palash90.github.io/site-assets/"
-const path_var = "/new_site"
+const path_var = "/new_site/#"
 const data = {
     name: "Palash Kanti Kundu",
     shortName: "Palash",
