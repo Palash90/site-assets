@@ -30,7 +30,7 @@ siteMap += "</urlset>"
 
 try {
     fs.writeFileSync('sitemap.xml', siteMap);
-    console.log('File written successfully');
+    console.log('Sitemap file written successfully');
 } catch (err) {
     console.error(err);
 }
