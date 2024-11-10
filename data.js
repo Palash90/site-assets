@@ -13,6 +13,8 @@ const data = {
     pages: {
         contents: {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
+            techIntro: "Something tech",
+            musicIntro: "Something Music",
             h1Color: "tomato",
             pColor: "",
             sweHeadColor: "#21f0a9",
@@ -52,7 +54,8 @@ const data = {
     },
     navLinks: [
         { label: "Home", link: path_var + "/" },
-        { label: "Blogs", link: path_var + "/contents" },
+        { label: "Tech Blogs", link: path_var + "/contents/tech" },
+        { label: "Music Blogs", link: path_var + "/contents/music" },
         { label: "Projects", link: path_var + "/projects" },
         { label: "About", link: path_var + "/about" }
     ],
