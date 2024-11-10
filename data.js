@@ -14,7 +14,9 @@ const data = {
         contents: {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
             h1Color: "tomato",
-            pColor: ""
+            pColor: "",
+            sweHeadColor:"#0ce161",
+            musicHeadColor:"#fc12ac"
         },
         home: {
             tag: "Crafting code, creating harmony.",
