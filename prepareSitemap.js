@@ -1,3 +1,4 @@
+const fs = require('fs');
 const siteUrl = "https://palashkantikundu.in/"
 
 const staticLinks = [
@@ -19,4 +20,17 @@ const allProjects = findProp("projects").filter(p => p.type === "react" && p.pla
 
 const allLinks = [...staticLinks, ...allNavLinks, ...allBlogs, ...allProjects]
 
-tech.console.log(allLinks)
+var siteMap = '<urlset  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+
+allLinks.map(l => {
+    siteMap += "<url><loc>" + l + "</loc></url>"
+})
+
+siteMap += "</urlset>"
+
+try {
+    fs.writeFileSync('sitemap.xml', siteMap);
+    console.log('File written successfully');
+} catch (err) {
+    console.error(err);
+}
