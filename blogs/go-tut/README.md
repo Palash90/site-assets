@@ -86,7 +86,7 @@ Exercise File: [1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/1.g
 
 ## Variable Declaration
 
-Exercise Files: [2.1.go](ex/2.1.go), [2.2.go](ex/2.2.go), [2.3.go](ex/2.3.go), [2.4.go](ex/2.4.go)
+Exercise Files: [2.1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/2.1.go), [2.2.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/2.2.go), [2.3.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/2.3.go), [2.4.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/2.4.go)
 
 1. Variable declaration is a mix of javascript var and C/Java type declaration - `var x int` 
 1. Go has many integer definitions - `int8`, `int16`, `int32`, `int64`, `int`. The `int` type defaults to 32 bit or 64 bit based on platform. So, be careful if you have specific use case. Oherwise, you may go out of space or may get errors supporting your desired values.
@@ -102,7 +102,7 @@ Exercise Files: [2.1.go](ex/2.1.go), [2.2.go](ex/2.2.go), [2.3.go](ex/2.3.go), [
 
 ## Strong type check system
 
-Exercise Files: [3.1.go](ex/3.1.go), [3.2.go](ex/3.2.go), [3.3.go](ex/3.3.go), [3.4.go](ex/3.4.go), [3.5.go](ex/3.5.go)
+Exercise Files: [3.1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/3.1.go), [3.2.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/3.2.go), [3.3.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/3.3.go), [3.4.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/3.4.go), [3.5.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/3.5.go)
 
 1. Go has a very strong type check system in place
 1. Go does not allow you to assign integer variables to float variables
@@ -116,7 +116,7 @@ Exercise Files: [3.1.go](ex/3.1.go), [3.2.go](ex/3.2.go), [3.3.go](ex/3.3.go), [
 
 ## Branching
 
-Exercise Files: [4.1.go](ex/4.1.go) (Requires an integer console argument), [4.2.go](ex/4.2.go)
+Exercise Files: [4.1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/4.1.go) (Requires an integer console argument), [4.2.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/4.2.go)
 
 Usage: go run 4.1.go 7
        go run 4.2.go 1
@@ -134,7 +134,7 @@ Usage: go run 4.1.go 7
 
 ## Looping
 
-Exercise File: [5.go](ex/5.go), [fizzbuzz.go](ex/fizzbuzz.go)
+Exercise File: [5.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/5.go), [fizzbuzz.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/fizzbuzz.go)
 
 1. go has only `for` loop
 1. `for` can be used as `while` and `while true` loop as well
@@ -142,7 +142,7 @@ Exercise File: [5.go](ex/5.go), [fizzbuzz.go](ex/fizzbuzz.go)
 
 ## Basic Understanding of Strings
 
-Exercise File: [6.go](ex/6.go)
+Exercise File: [6.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/6.go)
 
 1. String is an immutable byte (uint8) array in go
 1. In the built in package, you get some string handling operations like, we get `strlen()` in C
@@ -154,7 +154,7 @@ Exercise File: [6.go](ex/6.go)
 
 ## Basic Understanding of Slices
 
-Exercise File: [7.go](ex/7.go)
+Exercise File: [7.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/7.go)
 
 1. A `slice` is a wrapper over actual array in go
 1. The declaration of `array` and `slice` are similar except you remove the length in definition of `slice` while `array` is fixed length
@@ -167,7 +167,7 @@ Exercise File: [7.go](ex/7.go)
 
 ## Map
 
-Exercise File: [8.go](ex/8.go)
+Exercise File: [8.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/8.go)
 
 1. `map` in go is same as `Map<T, T>` in java or `Dictionary<T, T>` in dotnet or `dict` in python
 1. You declare a `map` using `map` keyword
@@ -183,7 +183,7 @@ Exercise File: [8.go](ex/8.go)
 
 ## Functions
 
-Exercise File: [9.go](ex/9.go)
+Exercise File: [9.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/9.go)
 
 1. You define functions in go similar to C functions or Java functions, only the return type or variable types are declared post the variable or function definition.
 
@@ -207,7 +207,7 @@ e.g. `quotient, remainder, error := divide(5,0)`. You can also discard values th
 
 ## Pointers
 
-Exercise Files: [10.1.go](ex/10.1.go), [10.2.go](ex/10.2.go)
+Exercise Files: [10.1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/10.1.go), [10.2.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/10.2.go)
 
 1. Like Java, primitive types are passed by value, even primitive arrays and strings. Remember `string` is an array of `uint`
 1. All other values are passed by reference including slices
@@ -215,7 +215,7 @@ Exercise Files: [10.1.go](ex/10.1.go), [10.2.go](ex/10.2.go)
 
 ## Destructors
 
-Exercise File: [11.go](ex/11.go)
+Exercise File: [11.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/11.go)
 
 1. The `__del__()` in python or `finalize()` in Java can be compared to `defer` keywords in go
 1. Go autoamatically cleans up the memory using garbage collector but for other resources like file, network, you can use the `defer`
@@ -225,7 +225,7 @@ Exercise File: [11.go](ex/11.go)
 
 ## Structs
 
-Exercise File: [12.go](ex/12.go)
+Exercise File: [12.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/12.go)
 
 1. Like C, you can define your own `struct`, this works similar as a class in Java or C#. The definition can be done using `type` and `struct` keywords.
 1. You need to create the instance of the `struct` to be used in your code
