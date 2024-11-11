@@ -73,7 +73,7 @@ const data = {
     projects: projects,
     about: {
         jobs: [
-            { name: "Cognizant Technology Solutions", start: "December 2022", end: "Present", location: "Bengaluru, India", role: "Cloud Deverloper III" },
+            { name: "Hewlett Packard Enterprise", start: "December 2022", end: "Present", location: "Bengaluru, India", role: "Cloud Deverloper III" },
             { name: "GE Renewable Energy", start: "December 2018", end: "November 2022", location: "Hyderabad, India", role: "Senior Software Engineer" },
             { name: "Oracle India Pvt. Ltd.", start: "January 2016", end: "December 2018", location: "Hyderabad, India", role: "Senior Applications Engineer" },
             { name: "HCL Technologies", start: "November 2014", end: "November 2015", location: "Kolkata, India", role: "Senior Software Engineer" },
