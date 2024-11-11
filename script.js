@@ -116,7 +116,7 @@ const data = {
             profilePicUrl: cdn + "/assets/profile.jpg",
             h1Color: "#00b0ff",
             pColor: "#1abc9c",
-            mainStyle: "main-app-mw",
+            mainStyle: "main-app-lora",
             secondaryStyle: "content-body-opensans",
             class: "",
 
