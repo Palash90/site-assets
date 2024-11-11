@@ -246,6 +246,58 @@
     padding: 0.2em 0.4em;
     border-radius: 3px;
 }
+/* General Markdown Styles */
+.tech-blog-2 {
+    color: #e0e0e0; /* Light text for readability */
+    line-height: 1.6;
+}
+
+/* Headers */
+.tech-blog-2 h1, .tech-blog-2 h2, .tech-blog-2 h3 {
+    color: #00b0ff; /* Tech-focused blue */
+    font-weight: 600;
+}
+
+/* Links */
+.tech-blog-2 a {
+    color: #00b0ff; /* Blue for tech links */
+    text-decoration: none;
+}
+
+.tech-blog-2 a:hover {
+    text-decoration: underline;
+    color: #0087cc; /* Slightly darker blue on hover */
+}
+
+/* Code Blocks */
+.tech-blog-2 pre {
+    background-color: #2c2c2c;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tech-blog-2 code {
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Lists */
+.tech-blog-2 ul, .tech-blog-2 ol {
+    margin-left: 20px;
+}
+
+/* Blockquotes */
+.tech-blog-2 blockquote {
+    border-left: 4px solid #00b0ff;
+    padding-left: 15px;
+    color: #b0b0b0;
+    font-style: italic;
+}
+
 /* Aqua-themed Headings */
 .music-content h1, .music-content h2, .music-content h3 {
     color: #00d1d1; /* Aqua for main heading color */
