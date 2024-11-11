@@ -22,24 +22,24 @@ const contents = {
         },
         {
             id: "go-essentials",
-            title: "Go Essentials",
+            title: "Go Essentials Both",
             publishDate: "Nov 01, 2020",
             mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
             videoId: "hMBpAPGqX8k"
         },
         {
-            id: "go-essentials",
-            title: "Go Essentials",
+            id: "go-essentials-1",
+            title: "Go Essentials Video Only",
             publishDate: "Nov 01, 2020",
             videoId: "hMBpAPGqX8k"
         }
     ],
     music: [
         {
-            id: "go-essentials",
-            title: "Go Essentials",
+            id: "go-essentials-2",
+            title: "Go Essentials Blog Only",
             publishDate: "Nov 01, 2020",
-            videoId: "hMBpAPGqX8k"
+            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
         },
         {
             id: "sliding-shape-guitalele",
