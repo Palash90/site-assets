@@ -1,4 +1,4 @@
-![alt text](https://palash90.github.io/site-assets/Golang.png)
+![alt text](https://palash90.github.io/site-assets/blogs/go-tut/Golang.png)
 
 
 ---  

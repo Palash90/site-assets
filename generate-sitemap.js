@@ -2,11 +2,11 @@ const fs = require('fs');
 const vm = require('vm');
 
 const files = [
-    './projects.js',
-    './contents.js',
-    './data.js',
-    './findProps.js',
-    './prepareSitemap.js',
+    './site-contents/projects.js',
+    './site-contents/contents.js',
+    './site-contents/data.js',
+    './site-contents/findProps.js',
+    './site-contents/prepareSitemap.js',
 ];
 let sandbox = {
     require,
