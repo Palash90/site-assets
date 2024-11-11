@@ -115,7 +115,14 @@ const data = {
             h1Color: "#00b0ff",
             pColor: "#1abc9c",
             mainStyle: "main-app",
-            secondaryStyle: "content-body"
+            secondaryStyle: "content-body",
+            class: "",
+            techBlogHeader: "Recent Music Blogs | ",
+            musicBlogHeader: "Recent Music Blogs | ",
+            musicBlogShowAll: "Show All | ",
+            techBlogShowAll: "All | ",
+            techBlogTag: "Things I learned or implemented recently",
+            musicBlogTag: "Things I explored recently"
         },
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
