@@ -117,11 +117,13 @@ const data = {
             mainStyle: "main-app",
             secondaryStyle: "content-body",
             class: "",
+            
             techBlogHeader: "Recent Music Blogs | ",
-            musicBlogHeader: "Recent Music Blogs | ",
-            musicBlogShowAll: "Show All | ",
-            techBlogShowAll: "All | ",
             techBlogTag: "Things I learned or implemented recently",
+            techBlogShowAll: "Show All",
+
+            musicBlogHeader: "Recent Music Blogs | ",
+            musicBlogShowAll: "Show All",
             musicBlogTag: "Things I explored recently"
         },
         projects: {
