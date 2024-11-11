@@ -246,15 +246,16 @@
 .music-content h1 {
     font-size: 2.4rem;
     font-weight: 700;
-    border-bottom: 2px solid #e84393; /* Underline effect for H1 */
+    border-bottom: 2px solid #e84393; /* Underline for H1 */
+    padding-bottom: 0.2em;
 }
 
 .music-content h2 {
     font-size: 2rem;
     font-weight: 600;
-    color: #fd79a8; /* Light magenta for H2 */
-    border-left: 5px solid #fd79a8;
-    padding-left: 0.5rem;
+    color: #fd79a8; /* Lighter magenta for H2 */
+    border-bottom: 1px solid #fd79a8; /* Underline for H2 */
+    padding-bottom: 0.15em;
 }
 
 .music-content h3 {
@@ -273,8 +274,8 @@
 .music-content blockquote {
     font-style: italic;
     color: #fdcb6e; /* Soft yellow for blockquote text */
-    border-left: 4px solid #fdcb6e;
     padding-left: 1em;
+    border-left: 3px solid #fdcb6e; /* Minimal left border for blockquotes */
 }
 
 /* Lists */
