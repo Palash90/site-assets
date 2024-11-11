@@ -1,0 +1,35 @@
+/* General Markdown Styles */
+.music-blog-2 {
+    color: #d3d3d3; /* Soft light text */
+    line-height: 1.6;
+}
+
+/* Headers */
+.music-blog-2 h1, .music-blog-2 h2, .music-blog-2 h3 {
+    color: #8a2be2; /* Music-related purple */
+    font-weight: 600;
+}
+
+/* Links */
+.music-blog-2 a {
+    color: #8a2be2; /* Purple for music links */
+    text-decoration: none;
+}
+
+.music-blog-2 a:hover {
+    text-decoration: underline;
+    color: #6a1e9c; /* Darker purple on hover */
+}
+
+/* Lists */
+.music-blog-2 ul, .music-blog-2 ol {
+    margin-left: 20px;
+}
+
+/* Blockquotes */
+.music-blog-2 blockquote {
+    border-left: 4px solid #8a2be2;
+    padding-left: 15px;
+    color: #b0b0b0;
+    font-style: italic;
+}

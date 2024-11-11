@@ -116,10 +116,10 @@ const data = {
             h1Color: "tomato",
             pColor: "",
             sweHeadColor: "#00b0ff",
-            musicHeadColor: "#00d1d1",
+            musicHeadColor: "#8a2be2",
             itemsPerPage: 50,
             techBlogClass: "tech-blog-content",
-            musicBlogClass: "music-content",
+            musicBlogClass: "music-blog-2   ",
             genericBlogClass: "blog-content",
             linkClass: "tech-blog-content"
         },

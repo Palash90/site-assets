@@ -19,7 +19,8 @@ var cssFiles = [
     "./site-contents/app.css",
     "./site-contents/about.css",
     "./site-contents/tech-blog.css",
-    "./site-contents/music-blog.css"
+    "./site-contents/music-blog.css",
+    "./site-contents/music-blog-2.css"
 ];
 
 mergeCode(jsFiles, "script.js")
