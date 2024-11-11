@@ -1,0 +1,51 @@
+/* About Me Section */
+.about-2 {
+    color: #e0e0e0; /* Light text for readability */
+    line-height: 1.7;
+}
+
+/* Headers */
+.about-2 h1, .about-2 h2, .about-2 h3 {
+    color: #f1c40f; /* Golden color for a professional look */
+    font-weight: 600;
+    font-family: "Lora", serif;
+    font-style: italic;
+}
+
+/* Paragraph Styling */
+.about-2 p {
+    margin: 1em 0;
+    font-size: 1.1rem;
+    font-family: "Roboto", sans-serif;
+}
+
+/* List Styling */
+.about-2 ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+}
+
+.about-2 ul li {
+    margin: 0.5em 0;
+    font-size: 1.05rem;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Links */
+.about-2 a {
+    color: #f1c40f; /* Gold for consistency with headers */
+    text-decoration: none;
+}
+
+.about-2 a:hover {
+    text-decoration: underline;
+    color: #d4ac0d; /* Slightly darker gold on hover */
+}
+
+/* Blockquotes */
+.about-2 blockquote {
+    border-left: 4px solid #f1c40f;
+    padding-left: 15px;
+    color: #b0b0b0;
+    font-style: italic;
+}

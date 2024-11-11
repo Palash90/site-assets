@@ -2,6 +2,8 @@
 .music-blog-2 {
     color: #d3d3d3; /* Soft light text */
     line-height: 1.6;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
 }
 
 /* Headers */

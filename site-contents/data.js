@@ -52,7 +52,7 @@ const data = {
             mdUrl: cdn + "/assets/ME.md",
             resume: cdn + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
             resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
-            blogClass: "about"
+            blogClass: "about-2"
         }
     },
     techStack: {
