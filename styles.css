@@ -124,7 +124,7 @@
     font-weight: 600;
     color: #74b9ff;
     /* Medium-light blue */
-    border-left: 4px solid #74b9ff;
+    /*border-left: 4px solid #74b9ff;*/
     padding-left: 0.5rem;
 }
 
@@ -232,55 +232,55 @@
 }
 /* Music Blog Content Container */
 .music-content {
-    color: #e0e0e0; /* Light gray text for readability on dark background */
+    color: #e0f7fa; /* Light aqua for readability on a dark background */
     font-family: 'Merriweather', serif;
     line-height: 1.75;
 }
 
-/* Magenta-themed Headings */
+/* Aqua-themed Headings */
 .music-content h1, .music-content h2, .music-content h3 {
-    color: #e84393; /* Magenta for headings */
+    color: #00d1d1; /* Aqua for main heading color */
     line-height: 1.3;
 }
 
 .music-content h1 {
     font-size: 2.4rem;
     font-weight: 700;
-    border-bottom: 2px solid #e84393; /* Underline for H1 */
+    border-bottom: 2px solid #00d1d1; /* Aqua underline for H1 */
     padding-bottom: 0.2em;
 }
 
 .music-content h2 {
     font-size: 2rem;
     font-weight: 600;
-    color: #fd79a8; /* Lighter magenta for H2 */
-    border-bottom: 1px solid #fd79a8; /* Underline for H2 */
+    color: #00e5ff; /* Light aqua for H2 */
+    border-bottom: 1px solid #00e5ff; /* Aqua underline for H2 */
     padding-bottom: 0.15em;
 }
 
 .music-content h3 {
     font-size: 1.6rem;
     font-weight: 600;
-    color: #fab1a0; /* Soft peachy color for H3 */
+    color: #80deea; /* Softer aqua color for H3 */
 }
 
 /* Paragraph Styling */
 .music-content p {
     font-size: 1.1rem;
-    color: #dfe6e9;
+    color: #b2ebf2; /* Light aqua for paragraph text */
 }
 
 /* Blockquotes */
 .music-content blockquote {
     font-style: italic;
-    color: #fdcb6e; /* Soft yellow for blockquote text */
+    color: #4dd0e1; /* Softer aqua tone for blockquote text */
     padding-left: 1em;
-    border-left: 3px solid #fdcb6e; /* Minimal left border for blockquotes */
+    border-left: 3px solid #4dd0e1; /* Minimal left border for blockquotes */
 }
 
 /* Lists */
 .music-content ul, .music-content ol {
-    color: #dfe6e9;
+    color: #b2ebf2;
 }
 
 .music-content li {
@@ -289,22 +289,22 @@
 
 /* Links */
 .music-content a {
-    color: #e84393;
+    color: #00d1d1; /* Aqua for links */
     font-weight: 500;
 }
 
 .music-content a:hover {
-    color: #fd79a8;
+    color: #00e5ff;
     text-decoration: underline;
 }
 
 /* Table Styling */
 .music-content table th, .music-content table td {
-    color: #dfe6e9;
-    border: 1px solid #636e72;
+    color: #b2ebf2;
+    border: 1px solid #4dd0e1;
 }
 
 .music-content table th {
     font-weight: bold;
-    color: #e84393; /* Magenta for table headers */
+    color: #00d1d1; /* Aqua for table headers */
 }
