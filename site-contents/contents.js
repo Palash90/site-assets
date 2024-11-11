@@ -38,6 +38,13 @@ const contents = {
             title: "Sliding Shape Guitalele",
             videoId: "hMBpAPGqX8k",
             type: "video"
+        },{
+            id: "sliding-shape-guitalele-1",
+            publishDate: "Oct 16, 2024",
+            title: "Sliding Shape Guitalele",
+            videoId: "hMBpAPGqX8k",
+            type: "video",
+            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
         }
     ]
 }
