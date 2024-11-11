@@ -114,10 +114,10 @@ const data = {
             profilePicUrl: cdn + "/assets/profile.jpg",
             h1Color: "#00b0ff",
             pColor: "#1abc9c",
-            mainStyle: "main-app",
-            secondaryStyle: "content-body",
+            mainStyle: "main-app-mw",
+            secondaryStyle: "content-body-opensans",
             class: "",
-            
+
             techBlogHeader: "Recent Music Blogs | ",
             techBlogTag: "Things I learned or implemented recently",
             techBlogShowAll: "Show All",

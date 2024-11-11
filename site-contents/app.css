@@ -1,12 +1,25 @@
-.main-app {
+.main-app-mw {
     font-family: "Merriweather", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: italic;
 }
 
-.content-body {
+.main-app-lora {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.content-body-roboto {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
+
+.content-body-opensans {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}   
