@@ -132,7 +132,8 @@ const data = {
             profilePicUrl: cdn + "/assets/profile.jpg",
             h1Color: "tomato",
             pColor: "aqua",
-            mainStyle: "lora-app"
+            mainStyle: "main-app",
+            secondaryStyle: "content-body"
         },
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
