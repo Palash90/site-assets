@@ -44,29 +44,25 @@ const contents = {
             id: "static-file-hosting",
             title: "Simple Static File Hosting",
             mdUrl: site_asset_cdn + "/blogs/static-file-hosting/README.md",
-            publishDate: "Nov 08, 2024",
-            type: "markdown"
+            publishDate: "Nov 08, 2024"
         },
         {
             id: "grafana-on-aws",
             title: "Configure Grafana on AWS",
             mdUrl: site_asset_cdn + "/blogs/aws-grafana/README.md",
-            publishDate: "Jun 11, 2024",
-            type: "markdown"
+            publishDate: "Jun 11, 2024"
         },
         {
             id: "vi-essentials",
             title: "vi Essentials",
             publishDate: "Nov 01, 2020",
-            mdUrl: site_asset_cdn + "/blogs/vi/README.md",
-            type: "markdown"
+            mdUrl: site_asset_cdn + "/blogs/vi/README.md"
         },
         {
             id: "go-essentials",
             title: "Go Essentials",
             publishDate: "Nov 01, 2020",
-            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
-            type: "markdown"
+            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md"
         }
     ],
     music: [
@@ -74,14 +70,12 @@ const contents = {
             id: "sliding-shape-guitalele",
             publishDate: "Oct 16, 2024",
             title: "Sliding Shape Guitalele",
-            videoId: "hMBpAPGqX8k",
-            type: "video"
+            videoId: "hMBpAPGqX8k"
         },{
             id: "sliding-shape-guitalele-1",
             publishDate: "Oct 16, 2024",
             title: "Sliding Shape Guitalele",
             videoId: "hMBpAPGqX8k",
-            type: "video",
             mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
         }
     ]
