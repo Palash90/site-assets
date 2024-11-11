@@ -2,7 +2,7 @@ const cdn = "https://palash90.github.io/site-assets/"
 const path_var = "/#"
 const data = {
     name: "Palash Kanti Kundu",
-    shortName: "Palash 👋",
+    shortName: "Palash",
     labels: {
         contents: "Blogs",
         projects: "Projects",
