@@ -1,8 +1,14 @@
-.lora-app {
+.main-app {
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: italic;
+}
+
+.content-body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* Container for Markdown Content */
