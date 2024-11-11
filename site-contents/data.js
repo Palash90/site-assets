@@ -23,7 +23,7 @@ const data = {
             sweHeadColor: "#74b9ff",
             musicHeadColor: "#00d1d1",
             itemsPerPage: 50,
-            techBlogClass: "tech-blog-2",
+            techBlogClass: "tech-blog-content",
             musicBlogClass: "music-content",
             genericBlogClass: "blog-content",
             linkClass: "tech-blog-content"
