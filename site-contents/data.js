@@ -26,7 +26,7 @@ const data = {
             techBlogClass: "tech-blog-content",
             musicBlogClass: "music-blog-2   ",
             genericBlogClass: "blog-content",
-            linkClass: "tech-blog-content"
+            linkClass: "tech-blog-2"
         },
         home: {
             tag: "Crafting code, creating harmony.",
