@@ -43,9 +43,9 @@ const data = {
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
-            h1Color: "tomato",
+            h1Color: "#2980b9",
             pColor: "",
-            titleColor: "#21f0a9",
+            titleColor: "#3498db",
             bodyColor: ""
         },
         about: {
