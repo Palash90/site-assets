@@ -19,6 +19,7 @@ var cssFiles = [
     "./site-contents/app.css",
     "./site-contents/about.css",
     "./site-contents/tech-blog.css",
+    "./site-contents/tech-blog2.css",
     "./site-contents/music-blog.css"
 ];
 
