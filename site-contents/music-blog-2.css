@@ -8,19 +8,19 @@
 
 /* Headers */
 .music-blog-2 h1, .music-blog-2 h2, .music-blog-2 h3 {
-    color: #8a2be2; /* Music-related purple */
+    color: #1abc9c; /* Music-related purple */
     font-weight: 600;
 }
 
 /* Links */
 .music-blog-2 a {
-    color: #8a2be2; /* Purple for music links */
+    color: #1abc9c; /* Purple for music links */
     text-decoration: none;
 }
 
 .music-blog-2 a:hover {
     text-decoration: underline;
-    color: #6a1e9c; /* Darker purple on hover */
+    color: #16a085; /* Darker purple on hover */
 }
 
 /* Lists */
@@ -30,7 +30,7 @@
 
 /* Blockquotes */
 .music-blog-2 blockquote {
-    border-left: 4px solid #8a2be2;
+    border-left: 4px solid #1abc9c;
     padding-left: 15px;
     color: #b0b0b0;
     font-style: italic;
