@@ -34,14 +34,6 @@ const contents = {
             publishDate: "Oct 16, 2024",
             title: "Sliding Shape Guitalele",
             videoId: "hMBpAPGqX8k"
-        },
-        {
-            id: "sliding-shape-guitalele-1",
-            publishDate: "Oct 16, 2024",
-            title: "Sliding Shape Guitalele",
-            videoId: "hMBpAPGqX8k",
-            mdUrl: site_asset_cdn + "/assets/ME.md",
-            lastUpdated: "Nov 09, 2024"
         }
     ]
 }
