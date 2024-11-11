@@ -10,7 +10,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
 /* Container for Markdown Content */
 .about {
     line-height: 1.6;
@@ -52,7 +51,7 @@
 .about p {
     margin: 1em 0;
     font-size: 1.1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 /* List Styling */
@@ -64,7 +63,7 @@
 .about ul li {
     margin: 0.5em 0;
     font-size: 1.05rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Blockquote Styling */
