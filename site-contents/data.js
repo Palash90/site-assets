@@ -25,7 +25,8 @@ const data = {
             itemsPerPage: 50,
             techBlogClass: "tech-blog-content",
             musicBlogClass: "music-blog-content",
-            genericBlogClass: "blog-content"
+            genericBlogClass: "blog-content",
+            linkClass: "tech-blog-content"
         },
         home: {
             tag: "Crafting code, creating harmony.",
