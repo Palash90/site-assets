@@ -79,6 +79,7 @@ const contents = {
             title: "Sliding Shape Guitalele",
             videoId: "hMBpAPGqX8k",
             mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
+            lastUpdated: "Nov 09, 2024"
         }
     ]
 }
@@ -92,7 +93,9 @@ const data = {
         projects: "Projects",
         swe: "Software Engineering",
         music: "Music",
-        contentNotExists: "Content does not exist"
+        contentNotExists: "Content does not exist",
+        publishedOn: "Published on: ",
+        lastUpdated: "Last updated on: "
     },
     pages: {
         contents: {

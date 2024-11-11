@@ -8,7 +8,9 @@ const data = {
         projects: "Projects",
         swe: "Software Engineering",
         music: "Music",
-        contentNotExists: "Content does not exist"
+        contentNotExists: "Content does not exist",
+        publishedOn: "Published on: ",
+        lastUpdated: "Last updated on: "
     },
     pages: {
         contents: {
