@@ -40,7 +40,7 @@
 .about p {
     margin: 1em 0;
     font-size: 1.1rem;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* List Styling */
@@ -52,6 +52,7 @@
 .about ul li {
     margin: 0.5em 0;
     font-size: 1.05rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Blockquote Styling */
