@@ -138,7 +138,7 @@ const data = {
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
-            h1Color: "#2980b9",
+            h1Color: "#1abc9c",
             pColor: "",
             titleColor: "#3498db",
             bodyColor: ""
