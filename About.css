@@ -1,0 +1,94 @@
+/* Container for Markdown Content */
+.about {
+    line-height: 1.6;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+.about h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 0.3em;
+    margin-top: 1.2em;
+}
+
+.about h2,
+.about h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #3498db;
+    margin-top: 1em;
+}
+
+.about h3.hobby-heading {
+    font-size: 1.5rem;
+    color: #e67e22;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-left: 5px solid #e67e22;
+    padding-left: 0.5em;
+    margin-top: 1.2em;
+}
+
+/* Paragraph Styling */
+.about p {
+    margin: 1em 0;
+    font-size: 1.1rem;
+    
+}
+
+/* List Styling */
+.about ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+}
+
+.about ul li {
+    margin: 0.5em 0;
+    font-size: 1.05rem;
+}
+
+/* Blockquote Styling */
+.about blockquote {
+    font-style: italic;
+    background-color: #ecf0f1;
+    border-left: 5px solid #3498db;
+    padding: 0.8em;
+    margin: 1.5em 0;
+    color: #555;
+}
+
+/* Link Styling */
+.about a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.about a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Contact Info Styling */
+.about .contact-info {
+    background-color: #f1f1f1;
+    padding: 1em;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.about .contact-info a {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.about .contact-info a:hover {
+    color: #d35400;
+}
