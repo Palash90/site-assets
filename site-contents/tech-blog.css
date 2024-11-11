@@ -1,5 +1,5 @@
 /* Blog Content Container */
-.blog-content {
+.tech-blog-content {
     color: #e0e0e0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -8,22 +8,22 @@
 }
 
 /* Headings */
-.blog-content h1,
-.blog-content h2,
-.blog-content h3 {
+.tech-blog-content h1,
+.tech-blog-content h2,
+.tech-blog-content h3 {
     color: #a1c4fd;
     /* Cool light blue for headings */
     line-height: 1.3;
 }
 
-.blog-content h1 {
+.tech-blog-content h1 {
     font-size: 2.2rem;
     font-weight: 700;
     border-bottom: 2px solid #a1c4fd;
     /* Underline effect for H1 */
 }
 
-.blog-content h2 {
+.tech-blog-content h2 {
     font-size: 1.8rem;
     font-weight: 600;
     color: #74b9ff;
@@ -32,7 +32,7 @@
     padding-left: 0.5rem;
 }
 
-.blog-content h3 {
+.tech-blog-content h3 {
     font-size: 1.4rem;
     font-weight: 600;
     color: #fdcb6e;
@@ -40,15 +40,15 @@
 }
 
 /* Paragraph Text */
-.blog-content p {
+.tech-blog-content p {
     font-size: 1.1rem;
     color: #b2bec3;
     /* Light gray for paragraphs */
 }
 
 /* Code Blocks */
-.blog-content pre,
-.blog-content code {
+.tech-blog-content pre,
+.tech-blog-content code {
     color: #dfe6e9;
     /* Very light gray for code */
     font-family: 'Courier New', monospace;
@@ -56,13 +56,13 @@
     border-radius: 4px;
 }
 
-.blog-content code {
+.tech-blog-content code {
     font-size: 0.95rem;
     /*color: #81ecec; /* Aqua for inline code */
 }
 
 /* Blockquotes */
-.blog-content blockquote {
+.tech-blog-content blockquote {
     font-style: italic;
     color: #fab1a0;
     /* Soft orange-pink for blockquote text */
@@ -71,34 +71,34 @@
 }
 
 /* Lists */
-.blog-content ul,
-.blog-content ol {
+.tech-blog-content ul,
+.tech-blog-content ol {
     color: #dfe6e9;
 }
 
-.blog-content li {
+.tech-blog-content li {
     margin: 0.5em 0;
 }
 
 /* Links */
-.blog-content a {
+.tech-blog-content a {
     color: #74b9ff;
     font-weight: 500;
 }
 
-.blog-content a:hover {
+.tech-blog-content a:hover {
     color: #81ecec;
     text-decoration: underline;
 }
 
 /* Table Styling */
-.blog-content table th,
-.blog-content table td {
+.tech-blog-content table th,
+.tech-blog-content table td {
     color: #dfe6e9;
     border: 1px solid #636e72;
 }
 
-.blog-content table th {
+.tech-blog-content table th {
     font-weight: bold;
     color: #74b9ff;
     /* Slightly lighter color for table headers */
@@ -107,7 +107,7 @@
 
 
 /* Code Block Styling for Command-Line Look */
-.blog-content pre {
+.tech-blog-content pre {
     color: #00ff9d;
     /* Neon green text for command-line feel */
     background-color: #1e1e1e;
@@ -126,7 +126,7 @@
 }
 
 /* Inline Code Styling */
-.blog-content code {
+.tech-blog-content code {
     color: #00ff9d;
     /* Same neon green for inline code */
     background-color: #1e1e1e;

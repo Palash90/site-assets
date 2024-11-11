@@ -103,7 +103,10 @@ const data = {
             pColor: "",
             sweHeadColor: "#21f0a9",
             musicHeadColor: "#fc12ac",
-            itemsPerPage: 50
+            itemsPerPage: 50,
+            techBlogClass: "tech-blog-content",
+            musicBlogClass: "music-blog-content",
+            genericBlogClass: "blog-content"
         },
         home: {
             tag: "Crafting code, creating harmony.",
@@ -126,7 +129,8 @@ const data = {
         about: {
             mdUrl: cdn + "/assets/ME.md",
             resume: cdn + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
-            resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf"
+            resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
+            blogClass: "about"
         }
     },
     techStack: {
