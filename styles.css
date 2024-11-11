@@ -112,7 +112,6 @@
 
 /* Blog Content Container */
 .tech-blog-content {
-    color: #e0e0e0;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -246,50 +245,8 @@
     padding: 0.2em 0.4em;
     border-radius: 3px;
 }
-/* Aqua-themed Headings */
-.music-content h1, .music-content h2, .music-content h3 {
-    color: #00d1d1; /* Aqua for main heading color */
-}
-
-.music-content h1 {
-    border-bottom: 2px solid #00d1d1; /* Aqua underline for H1 */
-    padding-bottom: 0.2em;
-}
-
-.music-content h2 {
-    color: #00e5ff; /* Light aqua for H2 */
-    border-bottom: 1px solid #00e5ff; /* Aqua underline for H2 */
-    padding-bottom: 0.15em;
-}
-
-.music-content h3 {
-    color: #80deea; /* Softer aqua color for H3 */
-}
-
-/* Blockquotes */
-.music-content blockquote {
-    color: #4dd0e1; /* Softer aqua tone for blockquote text */
-    border-left: 3px solid #4dd0e1; /* Minimal left border for blockquotes */
-}
-
-/* Links */
-.music-content a {
-    color: #00d1d1; /* Aqua for links */
-}
-
-.music-content a:hover {
-    color: #00e5ff;
-    text-decoration: underline;
-}
-
-/* Table Styling */
-.music-content table th {
-    color: #00d1d1; /* Aqua for table headers */
-}
-
 /* General Markdown Styles */
 .music-blog-2 {
-    color: #d3d3d3; /* Soft light text */
     line-height: 1.6;
     font-family: "Roboto", sans-serif;
     font-style: normal;
@@ -327,7 +284,6 @@
 
 /* About Me Section */
 .about-2 {
-    color: #e0e0e0; 
     line-height: 1.7;
 }
 
