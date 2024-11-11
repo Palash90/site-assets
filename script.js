@@ -115,7 +115,7 @@ const data = {
             musicIntro: "Exploring the World of Music, One Post at a Time.",
             h1Color: "tomato",
             pColor: "",
-            sweHeadColor: "#74b9ff",
+            sweHeadColor: "#00b0ff",
             musicHeadColor: "#00d1d1",
             itemsPerPage: 50,
             techBlogClass: "tech-blog-content",
