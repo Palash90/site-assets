@@ -62,10 +62,23 @@ const contents = {
             id: "go-essentials",
             title: "Go Essentials",
             publishDate: "Nov 01, 2020",
-            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md"
+            mdUrl: site_asset_cdn + "/blogs/go-tut/README.md",
+            videoId: "hMBpAPGqX8k"
+        },
+        {
+            id: "go-essentials",
+            title: "Go Essentials",
+            publishDate: "Nov 01, 2020",
+            videoId: "hMBpAPGqX8k"
         }
     ],
     music: [
+        {
+            id: "go-essentials",
+            title: "Go Essentials",
+            publishDate: "Nov 01, 2020",
+            videoId: "hMBpAPGqX8k"
+        },
         {
             id: "sliding-shape-guitalele",
             publishDate: "Oct 16, 2024",
