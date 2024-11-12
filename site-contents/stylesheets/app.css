@@ -1,29 +1,64 @@
-:root {
-    --bs-primary: #FFA500;  /* Base orange */
-    --bs-primary-hover: #E69500;  /* Darker orange for hover */
-    --bs-primary-active: #CC8500;  /* Darker orange for active */
-    
+.orange-theme {
+    --bs-primary: #FFA500;
+    /* Base orange */
+    --bs-primary-hover: #E69500;
+    /* Darker orange for hover */
+    --bs-primary-active: #CC8500;
+    /* Darker orange for active */
+
     /* Background and Card Background */
-    --bs-body-bg: #FFE6CC;  /* Very pale orange background */
-    --bs-card-bg: #FFB84D;  /* Soft pastel orange for cards */
-    
+    --bs-body-bg: #FFE6CC;
+    /* Very pale orange background */
+    --bs-card-bg: #FFB84D;
+    /* Soft pastel orange for cards */
+
     /* Text Colors */
-    --bs-body-color: #B57400;  /* Darker shade of orange for text */
-    --bs-muted: #CC8500;  /* Slightly muted dark orange */
-    
+    --bs-body-color: #B57400;
+    /* Darker shade of orange for text */
+    --bs-muted: #CC8500;
+    /* Slightly muted dark orange */
+
     /* Link Colors */
-    --bs-link-color: #FF6F00;  /* Bright orange for links */
-    --bs-link-hover-color: #E69500;  /* Darker orange for link hover */
-    
+    --bs-link-color: #FF6F00;
+    /* Bright orange for links */
+    --bs-link-hover-color: #E69500;
+    /* Darker orange for link hover */
+
     /* Navbar Colors */
-    --bs-navbar-bg: #CC8500;  /* Dark orange for navbar */
-    --bs-navbar-color: #fff;  /* White text on navbar */
-    
+    --bs-navbar-bg: #CC8500;
+    /* Dark orange for navbar */
+    --bs-navbar-color: #fff;
+    /* White text on navbar */
+
     /* Button Colors */
-    --bs-btn-bg: #FFA500;  /* Base orange button */
-    --bs-btn-border-color: #E69500;  /* Darker button border */
-    --bs-btn-hover-bg: #E69500;  /* Darker orange for button hover */
-  }
+    --bs-btn-bg: #FFA500;
+    /* Base orange button */
+    --bs-btn-border-color: #E69500;
+    /* Darker button border */
+    --bs-btn-hover-bg: #E69500;
+    /* Darker orange for button hover */
+
+    --bs-modal-bg: #FFB84D;
+    /* Soft pastel orange for modal background */
+    --bs-modal-header-bg: #FFA500;
+    /* Base orange for modal header */
+    --bs-modal-header-color: #fff;
+    /* White text for modal header */
+    --bs-modal-body-bg: #FFE6CC;
+    /* Very light orange for modal body */
+    --bs-modal-footer-bg: #E69500;
+    /* Darker orange for modal footer */
+    --bs-modal-border-color: #E69500;
+    /* Border color for modal */
+    --bs-modal-btn-bg: #FFA500;
+    /* Button background inside modal */
+    --bs-modal-btn-hover-bg: #E69500;
+    /* Button hover background inside modal */
+    --bs-modal-btn-border-color: #E69500;
+    /* Button border inside modal */
+    --bs-modal-btn-color: #fff;
+    /* Button text color inside modal */
+}
 
 .main-app-mw {
     font-family: "Merriweather", serif;
