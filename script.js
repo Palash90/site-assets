@@ -9,4 +9,3 @@ function findProp(prop) {
     }
     return obj;
 }
-console.log(findProp('pages.home.desc'))
