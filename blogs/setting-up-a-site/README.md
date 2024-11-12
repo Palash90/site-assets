@@ -10,6 +10,9 @@
 1. Color
     - Color Wheel and psychology 
 1. Custom color pallete with bootstrap css variables
+    - Did not work.
+    - I made the markdown css
+    - Then I created common variables for all the header colors. My page does not have much of various elements to color for
 1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 1. Make a sitemap
 1. Style the sitemap

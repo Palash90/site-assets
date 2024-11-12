@@ -29,7 +29,7 @@ const data = {
             h1Color: getCommon('themeHeaderColor'),
             pColor: getCommon('themePColor'),
 
-            linkClass: "tech-blog-2"
+            linkClass: ""
         },
         home: {
             tag: "Crafting code, creating harmony.",
