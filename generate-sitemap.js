@@ -2,7 +2,7 @@ const fs = require('fs');
 const vm = require('vm');
     
 const files = [
-    'script.js',
+    './consolidated_script.js',
     './site-contents/prepareSitemap.js',
 ];
 let sandbox = {

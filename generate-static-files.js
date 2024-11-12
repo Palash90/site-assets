@@ -24,10 +24,9 @@ var cssFiles = [
     "./site-contents/stylesheets/about.css",
     "./site-contents/stylesheets/tech-blog.css",
     "./site-contents/stylesheets/music-blog-2.css",
-    "./site-contents/stylesheets/about-2.css"
+    "./site-contents/stylesheets/about-2.css",
+    "./site-contents/js/generateConsolidatedScript.js"
 ];
 
-mergeCode(jsFiles, "script.js")
+mergeCode(jsFiles, "consolidated_script.js")
 mergeCode(cssFiles, "styles.css")
-
-mergeCode(["script.js", "./site-contents/js/generateConsolidatedScript.js"], "consolidated_script.js")

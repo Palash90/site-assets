@@ -269,5 +269,5 @@ code += findPropsStr + "\n"
 code +="console.log(findProp('pages.home.desc'))"
 
 
-fs.writeFileSync("script_1.js", code)
+fs.writeFileSync("script.js", code)
 
