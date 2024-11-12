@@ -1,10 +1,10 @@
 .custom-theme-tomato {
-    --bs-heading-color: tomato !important;
-    --bs-card-title-color: tomato !important;
+    --bs-heading-color: #6CA1D1 !important;
+    --bs-card-title-color: #A5D8E9 !important;
 }
 
 .custom-theme-tomato p {
-    color: bisque;
+    color: cyan;
 }
 
 .main-app-mw {
