@@ -1,10 +1,10 @@
 .custom-theme {
     --bs-heading-color: #00D9E9 !important;
-    --bs-card-title-color: #58a9c6 !important;
+    --bs-card-title-color: #4f7df9 !important;
 }
 
 .custom-theme p {
-    color: #b0e6f8;
+    color: #ceeffa;
 }
 
 .main-app-mw {
