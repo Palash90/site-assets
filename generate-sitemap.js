@@ -1,11 +1,8 @@
 const fs = require('fs');
 const vm = require('vm');
-
+    
 const files = [
-    './site-contents/projects.js',
-    './site-contents/contents.js',
-    './site-contents/data.js',
-    './site-contents/findProps.js',
+    'script.js',
     './site-contents/prepareSitemap.js',
 ];
 let sandbox = {
