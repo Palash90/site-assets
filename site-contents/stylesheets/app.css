@@ -1,62 +1,62 @@
 .orange-theme {
-    --bs-primary: #FFA500;
+    --bs-primary: #FFA500 !important;
     /* Base orange */
-    --bs-primary-hover: #E69500;
+    --bs-primary-hover: #E69500 !important;
     /* Darker orange for hover */
-    --bs-primary-active: #CC8500;
+    --bs-primary-active: #CC8500 !important;
     /* Darker orange for active */
 
     /* Background and Card Background */
-    --bs-body-bg: #FFE6CC;
+    --bs-body-bg: #FFE6CC !important;
     /* Very pale orange background */
-    --bs-card-bg: #FFB84D;
+    --bs-card-bg: #FFB84D !important;
     /* Soft pastel orange for cards */
 
     /* Text Colors */
-    --bs-body-color: #B57400;
+    --bs-body-color: #B57400 !important;
     /* Darker shade of orange for text */
-    --bs-muted: #CC8500;
+    --bs-muted: #CC8500 !important;
     /* Slightly muted dark orange */
 
     /* Link Colors */
-    --bs-link-color: #FF6F00;
+    --bs-link-color: #FF6F00 !important;
     /* Bright orange for links */
-    --bs-link-hover-color: #E69500;
+    --bs-link-hover-color: #E69500 !important;
     /* Darker orange for link hover */
 
     /* Navbar Colors */
-    --bs-navbar-bg: #CC8500;
+    --bs-navbar-bg: #CC8500 !important;
     /* Dark orange for navbar */
-    --bs-navbar-color: #fff;
+    --bs-navbar-color: #fff !important;
     /* White text on navbar */
 
     /* Button Colors */
-    --bs-btn-bg: #FFA500;
+    --bs-btn-bg: #FFA500 !important;
     /* Base orange button */
-    --bs-btn-border-color: #E69500;
+    --bs-btn-border-color: #E69500 !important;
     /* Darker button border */
-    --bs-btn-hover-bg: #E69500;
+    --bs-btn-hover-bg: #E69500 !important;
     /* Darker orange for button hover */
 
-    --bs-modal-bg: #FFB84D;
+    --bs-modal-bg: #FFB84D !important;
     /* Soft pastel orange for modal background */
-    --bs-modal-header-bg: #FFA500;
+    --bs-modal-header-bg: #FFA500 !important;
     /* Base orange for modal header */
-    --bs-modal-header-color: #fff;
+    --bs-modal-header-color: #fff !important;
     /* White text for modal header */
-    --bs-modal-body-bg: #FFE6CC;
+    --bs-modal-body-bg: #FFE6CC !important;
     /* Very light orange for modal body */
-    --bs-modal-footer-bg: #E69500;
+    --bs-modal-footer-bg: #E69500 !important;
     /* Darker orange for modal footer */
-    --bs-modal-border-color: #E69500;
+    --bs-modal-border-color: #E69500 !important;
     /* Border color for modal */
-    --bs-modal-btn-bg: #FFA500;
+    --bs-modal-btn-bg: #FFA500 !important;
     /* Button background inside modal */
-    --bs-modal-btn-hover-bg: #E69500;
+    --bs-modal-btn-hover-bg: #E69500 !important;
     /* Button hover background inside modal */
-    --bs-modal-btn-border-color: #E69500;
+    --bs-modal-btn-border-color: #E69500 !important;
     /* Button border inside modal */
-    --bs-modal-btn-color: #fff;
+    --bs-modal-btn-color: #fff !important;
     /* Button text color inside modal */
 }
 
