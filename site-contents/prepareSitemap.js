@@ -22,7 +22,8 @@ const allProjects = findProp("projects").filter(p => p.type === "react" && p.pla
 
 const allLinks = [...staticLinks, ...allNavLinks, ...allBlogs, ...allProjects]
 
-var siteMap = '<urlset  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+var siteMap = '<?xml-stylesheet type="text/xsl" href="https://www.sitemap.style/xslt/vanilla-water.xslt" ?>'
+siteMap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
 allLinks.map(l => {
     siteMap += "<url><loc>" + l + "</loc></url>"
