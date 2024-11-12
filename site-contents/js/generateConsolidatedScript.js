@@ -10,5 +10,6 @@ code += findPropsStr + "\n"
 code +="console.log(findProp('pages.home.desc'))"
 
 
-fs.writeFileSync("script_1.js", code)
+console.log("Writing consolidated code to file")
+fs.writeFileSync("script.js", code)
 

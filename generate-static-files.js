@@ -17,6 +17,7 @@ var jsFiles = [
     "./site-contents/js/projects.js",
     "./site-contents/js/data.js",
     "./site-contents/js/findProps.js",
+    "./site-contents/js/generateConsolidatedScript.js"
 ];
 
 var cssFiles = [
@@ -24,8 +25,7 @@ var cssFiles = [
     "./site-contents/stylesheets/about.css",
     "./site-contents/stylesheets/tech-blog.css",
     "./site-contents/stylesheets/music-blog-2.css",
-    "./site-contents/stylesheets/about-2.css",
-    "./site-contents/js/generateConsolidatedScript.js"
+    "./site-contents/stylesheets/about-2.css"
 ];
 
 mergeCode(jsFiles, "consolidated_script.js")
