@@ -83,7 +83,8 @@ const data = {
         { label: "Tech Blogs", link: getCommon("path_var") + "/contents/tech" },
         { label: "Music Blogs", link: getCommon("path_var") + "/contents/music" },
         { label: "Projects", link: getCommon("path_var") + "/projects" },
-        { label: "About", link: getCommon("path_var") + "/about" }
+        { label: "About", link: getCommon("path_var") + "/about" },
+        { label: "Sitemap", link: "https://sitemap.palashkantikundu.in/" }
     ],
     contents: contents,
     projects: projects,
