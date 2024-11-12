@@ -6,6 +6,6 @@
     - Issue with github.com routing protocol
 1. Make the website as dynamic as possible with static hosted js
 1. Catch eyes with different fonts
-1. Dynamically generate the website source data using git pre-commit
+1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 1. Make a sitemap
 1. Style the sitemap
