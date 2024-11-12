@@ -27,7 +27,7 @@ const data = {
             sweHeadColor: getCommon('themeHeaderColor'),
             musicHeadColor: getCommon('themeHeaderColor'),
             h1Color: getCommon('themeHeaderColor'),
-            pColor: getCommon(themePColor),
+            pColor: getCommon('themePColor'),
 
             linkClass: "tech-blog-2"
         },
