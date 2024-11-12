@@ -19,11 +19,16 @@ const data = {
             techIntro: "Code, Insights, and the Art of Problem-Solving.",
             musicIntro: "Exploring the World of Music, One Post at a Time.",
             itemsPerPage: 50,
-            
+
             techBlogClass: "tech-blog-content markdown-tomato",
             musicBlogClass: "music-blog-2 markdown-tomato",
             genericBlogClass: "blog-content markdown-tomato",
-           
+
+            sweHeadColor: getCommon('themeHeaderColor'),
+            musicHeadColor: getCommon('themeHeaderColor'),
+            h1Color: getCommon('themeHeaderColor'),
+            pColor: getCommon(themePColor),
+
             linkClass: "tech-blog-2"
         },
         home: {
@@ -44,11 +49,17 @@ const data = {
 
             musicBlogHeader: "Recent Music Blogs | ",
             musicBlogShowAll: "Show All",
-            musicBlogTag: "Things I explored recently"
+            musicBlogTag: "Things I explored recently",
+
+            h1Color: getCommon(themeHeaderColor),
+            pColor: getCommon(themePColor)
         },
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
+
+            h1Color: getCommon(themeHeaderColor),
+            pColor: getCommon(themePColor)
         },
         about: {
             mdUrl: getCommon("cdn") + "/assets/ME.md",
