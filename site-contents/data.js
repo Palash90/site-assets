@@ -43,7 +43,7 @@ const data = {
             secondaryStyle: "content-body-opensans",
             class: "",
 
-            techBlogHeader: "Recent Music Blogs | ",
+            techBlogHeader: "Recent Tech Blogs | ",
             techBlogTag: "Things I learned or implemented recently",
             techBlogShowAll: "Show All",
 
