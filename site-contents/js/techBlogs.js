@@ -16,6 +16,12 @@ var sweContents = [
         title: "vi Essentials",
         publishDate: "Nov 01, 2020",
         mdUrl: getCommon("cdn") + "/blogs/vi/README.md"
+    },
+    {
+        id: "go-essentials",
+        title: "Go Essentials",
+        publishDate: "Nov 01, 2020",
+        mdUrl: getCommon("cdn") + "/blogs/go-tut/README.md"
     }
 ];
 
