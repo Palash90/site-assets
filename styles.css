@@ -5,6 +5,7 @@
 }
 
 .main-app-mw {
+    --bs-heading-color: #FAB12F;
     font-family: "Merriweather", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -12,6 +13,7 @@
 }
 
 .main-app-lora {
+    --bs-heading-color: #FAB12F;
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-weight: 400;
