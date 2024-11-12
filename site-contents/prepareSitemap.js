@@ -29,12 +29,14 @@ siteMap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 siteMap += '\n'
 
 allLinks.map(l => {
-    siteMap += "\t<url>"
-    siteMap += '\n'
-    siteMap += '\t\t<loc>' + l + '</loc>'
-    siteMap += '\n'
-    siteMap += '\t</url>'
-    siteMap += '\n'
+    if(l.indexOf('sitemap') === -1) {
+        siteMap += "\t<url>"
+        siteMap += '\n'
+        siteMap += '\t\t<loc>' + l + '</loc>'
+        siteMap += '\n'
+        siteMap += '\t</url>'
+        siteMap += '\n'
+    }
 })
 
 siteMap += "</urlset>"
