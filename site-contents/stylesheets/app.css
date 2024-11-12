@@ -1,5 +1,10 @@
-.main-app-mw {
+.orange-theme {
     --bs-heading-color: #FAB12F;
+    --bs-body-color: #b0b0b0;
+    --bs-card-title-color: #FFB26F;
+}
+
+.main-app-mw {
     font-family: "Merriweather", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -7,7 +12,6 @@
 }
 
 .main-app-lora {
-    --bs-heading-color: #FAB12F;
     font-family: "Lora", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -24,4 +28,4 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-}   
+}

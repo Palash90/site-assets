@@ -34,7 +34,7 @@ const data = {
             desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
             profilePicUrl: getCommon("cdn") + "/assets/profile.jpg",
 
-            mainStyle: "main-app-lora",
+            mainStyle: "main-app-lora orange-theme",
             secondaryStyle: "content-body-opensans",
             class: "",
 
