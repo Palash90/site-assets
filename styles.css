@@ -1,9 +1,9 @@
-.custom-theme-tomato {
+.custom-theme {
     --bs-heading-color: #6CA1D1 !important;
     --bs-card-title-color: #A5D8E9 !important;
 }
 
-.custom-theme-tomato p {
+.custom-theme p {
     color: cyan;
 }
 
