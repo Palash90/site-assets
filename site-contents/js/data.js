@@ -51,15 +51,15 @@ const data = {
             musicBlogShowAll: "Show All",
             musicBlogTag: "Things I explored recently",
 
-            h1Color: getCommon(themeHeaderColor),
-            pColor: getCommon(themePColor)
+            h1Color: getCommon('themeHeaderColor'),
+            pColor: getCommon('themePColor')
         },
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
 
-            h1Color: getCommon(themeHeaderColor),
-            pColor: getCommon(themePColor)
+            h1Color: getCommon('themeHeaderColor'),
+            pColor: getCommon('themePColor')
         },
         about: {
             mdUrl: getCommon("cdn") + "/assets/ME.md",
