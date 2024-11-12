@@ -1,8 +1,6 @@
 .custom-theme {
     --bs-heading-color: tomato !important;
     --bs-card-title-color: tomato !important;
-    --bs-card-color: tomato !important;
-    --bs-body-color: tomato !important;
 }
 
 .main-app-mw {
