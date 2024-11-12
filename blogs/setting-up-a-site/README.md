@@ -9,7 +9,7 @@
     - Font types
 1. Color
     - Color Wheel and psychology 
-
+1. Custom color pallete with bootstrap css variables
 1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 1. Make a sitemap
 1. Style the sitemap
