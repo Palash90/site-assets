@@ -28,7 +28,10 @@
     font-weight: 400;
     font-style: normal;
 }
-* Headings */
+.markdown p {
+    color: #dfe6e9;
+}
+/* Headings */
 .markdown-tomato h1 {
     color: #D84B16;
     /* Base Tomato for h1 */
@@ -131,7 +134,6 @@
     background-color: #FF6F3C;
     /* Lighter Tomato on row hover */
 }
-
 /* Container for Markdown Content */
 .about {
     line-height: 1.6;
