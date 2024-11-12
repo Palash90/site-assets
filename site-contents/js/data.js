@@ -18,14 +18,12 @@ const data = {
             intro: "Software Engineering is what I do for a living, music is what I do to live. Here you can find both.",
             techIntro: "Code, Insights, and the Art of Problem-Solving.",
             musicIntro: "Exploring the World of Music, One Post at a Time.",
-            h1Color: "tomato",
-            pColor: "",
-            sweHeadColor: "#00b0ff",
-            musicHeadColor: "#1abc9c",
             itemsPerPage: 50,
+            
             techBlogClass: "tech-blog-content",
             musicBlogClass: "music-blog-2   ",
             genericBlogClass: "blog-content",
+           
             linkClass: "tech-blog-2"
         },
         home: {
@@ -35,8 +33,7 @@ const data = {
             motos: ["Code", "Create", "Inspire"],
             desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
             profilePicUrl: getCommon("cdn") + "/assets/profile.jpg",
-            h1Color: "#00b0ff",
-            pColor: "#1abc9c",
+
             mainStyle: "main-app-lora",
             secondaryStyle: "content-body-opensans",
             class: "",
@@ -52,10 +49,6 @@ const data = {
         projects: {
             intro: "If any idea catches my attention, I try to implement the same.",
             techStack: "Technology: ",
-            h1Color: "#1abc9c",
-            pColor: "",
-            titleColor: "#3498db",
-            bodyColor: ""
         },
         about: {
             mdUrl: getCommon("cdn") + "/assets/ME.md",
