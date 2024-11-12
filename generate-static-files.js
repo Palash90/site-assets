@@ -9,18 +9,23 @@ function mergeCode(files, fileName) {
 }
 
 var jsFiles = [
-    "./site-contents/projects.js",
-    "./site-contents/contents.js",
-    "./site-contents/data.js",
-    "./site-contents/findProps.js"
+    "./site-contents/js/common.js",
+    "./site-contents/js/contentArrayManipulator.js",
+    "./site-contents/js/techBlogs.js",
+    "./site-contents/js/musicBlogs.js",
+    "./site-contents/js/contents.js",
+    "./site-contents/js/projects.js",
+    "./site-contents/js/data.js",
+    "./site-contents/js/findProps.js",
+    "./site-contents/js/generateConsolidatedScript.js"
 ];
 
 var cssFiles = [
-    "./site-contents/app.css",
-    "./site-contents/about.css",
-    "./site-contents/tech-blog.css",
-    "./site-contents/music-blog-2.css",
-    "./site-contents/about-2.css"
+    "./site-contents/stylesheets/app.css",
+    "./site-contents/stylesheets/about.css",
+    "./site-contents/stylesheets/tech-blog.css",
+    "./site-contents/stylesheets/music-blog-2.css",
+    "./site-contents/stylesheets/about-2.css"
 ];
 
 mergeCode(jsFiles, "script.js")

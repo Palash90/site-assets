@@ -1,5 +1,3 @@
-const cdn = "https://palash90.github.io/site-assets/"
-const path_var = "/#"
 const data = {
     name: "Palash Kanti Kundu",
     shortName: "Palash",
@@ -36,7 +34,7 @@ const data = {
             moto: "My moto: ",
             motos: ["Code", "Create", "Inspire"],
             desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
-            profilePicUrl: cdn + "/assets/profile.jpg",
+            profilePicUrl: getCommon("cdn") + "/assets/profile.jpg",
             h1Color: "#00b0ff",
             pColor: "#1abc9c",
             mainStyle: "main-app-lora",
@@ -60,8 +58,8 @@ const data = {
             bodyColor: ""
         },
         about: {
-            mdUrl: cdn + "/assets/ME.md",
-            resume: cdn + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
+            mdUrl: getCommon("cdn") + "/assets/ME.md",
+            resume: getCommon("cdn") + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
             resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
             blogClass: "about-2"
         }
@@ -81,11 +79,11 @@ const data = {
         }
     },
     navLinks: [
-        { label: "Home", link: path_var + "/" },
-        { label: "Tech Blogs", link: path_var + "/contents/tech" },
-        { label: "Music Blogs", link: path_var + "/contents/music" },
-        { label: "Projects", link: path_var + "/projects" },
-        { label: "About", link: path_var + "/about" }
+        { label: "Home", link: getCommon("path_var") + "/" },
+        { label: "Tech Blogs", link: getCommon("path_var") + "/contents/tech" },
+        { label: "Music Blogs", link: getCommon("path_var") + "/contents/music" },
+        { label: "Projects", link: getCommon("path_var") + "/projects" },
+        { label: "About", link: getCommon("path_var") + "/about" }
     ],
     contents: contents,
     projects: projects,
