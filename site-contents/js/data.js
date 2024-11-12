@@ -37,7 +37,7 @@ const data = {
             profilePicUrl: getCommon("cdn") + "/assets/profile.jpg",
             h1Color: "#00b0ff",
             pColor: "#1abc9c",
-            mainStyle: "main-app-lora",
+            mainStyle: "main-app-mw",
             secondaryStyle: "content-body-opensans",
             class: "",
 

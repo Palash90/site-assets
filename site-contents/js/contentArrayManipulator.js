@@ -26,7 +26,7 @@ const getDateString = (date) => {
     let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
     let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
-    return `${day}-${month}-${year}`;
+    return `${month} ${day}, ${year}`;
 }
 
 const modifyArray = (arr) => {
