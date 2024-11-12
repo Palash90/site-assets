@@ -38,20 +38,18 @@
 .tech-blog-content code {
     color: #dfe6e9;
     font-family: "Fira Code", monospace;
-    border: 1px solid #636e72; /* Dark border to define code blocks */
     border-radius: 4px;
 }
 
 .tech-blog-content code {
     font-size: 0.95rem;
-    color: #81ecec; /* Aqua for inline code */
+    color: #81ecec;
 }
 
 /* Blockquotes */
 .tech-blog-content blockquote {
     font-style: italic;
     color: #fab1a0;
-    /* Soft orange-pink for blockquote text */
     border-left: 4px solid #fab1a0;
     padding-left: 1em;
 }
