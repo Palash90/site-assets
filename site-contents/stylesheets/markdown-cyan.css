@@ -4,6 +4,10 @@
    /* Base Cyan for h1 */
  }
 
+ .markdown-cyan p {
+   color: #b6cbd5;
+ }
+
  .markdown-cyan h2 {
    color: #00D9E9;
    /* Light Cyan for h2 */
@@ -88,8 +92,9 @@
  }
 
  .markdown-cyan th {
-   background-color: #00D9E9;
+   background-color: #38959d;
    /* Light Cyan for table headers */
+   color: #07363f;
  }
 
  .markdown-cyan tr:nth-child(even) {

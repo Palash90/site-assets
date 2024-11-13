@@ -4,6 +4,10 @@
     /* Base Tomato for h1 */
 }
 
+.markdown p {
+    color: rgb(225, 205, 202);
+}
+
 .markdown-tomato h2 {
     color: #FF6F3C;
     /* Lighter Tomato for h2 */
