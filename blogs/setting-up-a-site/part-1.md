@@ -32,8 +32,8 @@ The very first thing that comes to mind is the layout. How the web page should l
 
 For my case, I had some idea of having 4 pages in my website, that I want to host. I drew them on the page to think around the next step. Following is what I came up in the first draft. The right now website is almost the same one, except that few things have been added and shifted little here and there.
 
-[cdn]: https://palashkantikundu.in
-[home]: sitemap.xml
+[cdn]: "https://palashkantikundu.in/"
+[home]: "sitemap.xml"
 
 ![Home page draft image](image_url "Home Page Draft")
 1. The top most bar will be navigation bar
