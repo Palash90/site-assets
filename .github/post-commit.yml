@@ -3,7 +3,7 @@ name: Run Node.js and Bash Scripts, then Commit to Another Branch
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch. Adjust as needed.
+      - source-code  # Trigger on push to the main branch. Adjust as needed.
 
 jobs:
   run-scripts-and-commit:
