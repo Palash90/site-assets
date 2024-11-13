@@ -21,7 +21,7 @@ const data = {
             itemsPerPage: 50,
 
             techBlogClass: "tech-blog-content markdown",
-            musicBlogClass: "music-blog-2 markdown",
+            musicBlogClass: "blog-content markdown",
             genericBlogClass: "blog-content markdown",
 
             sweHeadColor: getCommon('themeHeaderColor'),

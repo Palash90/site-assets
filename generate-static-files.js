@@ -24,7 +24,7 @@ var cssFiles = [
     "./site-contents/stylesheets/app.css",
     "./site-contents/stylesheets/markdown.css",
     "./site-contents/stylesheets/tech-blog.css",
-    "./site-contents/stylesheets/music-blog-2.css",
+    "./site-contents/stylesheets/blog-content.css",
 ];
 
 mergeCode(jsFiles, "consolidated_script.js")

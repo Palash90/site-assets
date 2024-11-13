@@ -1,31 +1,35 @@
 /* General Markdown Styles */
-.music-blog-2 {
+.blog-content {
     line-height: 1.6;
     font-family: "Roboto", sans-serif;
     font-style: normal;
 }
 
 /* Headers */
-.music-blog-2 h1, .music-blog-2 h2, .music-blog-2 h3 {
-    font-weight: 600;
+.blog-content h1, .blog-content h2, .blog-content h3 {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* Links */
-.music-blog-2 a {
+.blog-content a {
     text-decoration: none;
 }
 
-.music-blog-2 a:hover {
+.blog-content a:hover {
     text-decoration: underline;
 }
 
 /* Lists */
-.music-blog-2 ul, .music-blog-2 ol {
+.blog-content ul, .blog-content ol {
+    list-style-type: disc;
     margin-left: 20px;
 }
 
 /* Blockquotes */
-.music-blog-2 blockquote {
+.blog-content blockquote {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-left: 15px;
