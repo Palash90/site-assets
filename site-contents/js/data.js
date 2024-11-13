@@ -20,9 +20,9 @@ const data = {
             musicIntro: "Exploring the World of Music, One Post at a Time.",
             itemsPerPage: 50,
 
-            techBlogClass: "tech-blog-content markdown markdown-cyan",
-            musicBlogClass: "music-blog-2 markdown markdown-cyan",
-            genericBlogClass: "blog-content markdown markdown-cyan",
+            techBlogClass: "tech-blog-content markdown markdown",
+            musicBlogClass: "music-blog-2 markdown markdown",
+            genericBlogClass: "blog-content markdown markdown",
 
             sweHeadColor: getCommon('themeHeaderColor'),
             musicHeadColor: getCommon('themeHeaderColor'),

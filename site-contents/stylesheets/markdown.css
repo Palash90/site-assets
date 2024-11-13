@@ -1,0 +1,96 @@
+:root {
+  --md-body-text: #b6cbd5;
+  --md-light-header: #49C8DE;
+  --md-ultra-light-header: #28CDEB;
+  --md-dark-header: #6CA1D1;
+  --md-super-dark-header: #08424c;
+  --md-light-background: #50bbce;
+  --md-complimentary-blockquote: #E85813;
+}
+
+.markdown p {
+  color: var(--md-body-text);
+}
+
+.markdown h1 {
+  color: var(--md-light-header);
+}
+
+.markdown h2 {
+  color: var(--md-ultra-light-header);
+}
+
+.markdown h3 {
+  color: var(--md-dark-header);
+}
+
+.markdown h4 {
+  color: var(--md-ultra-light-header);
+}
+
+.markdown h5 {
+  color: var(--md-light-header);
+}
+
+.markdown h6 {
+  color: var(--md-dark-header);
+}
+
+.markdown a {
+  color: var(--md-light-header);
+}
+
+.markdown a:hover {
+  color: var(--md-ultra-light-header);
+}
+
+.markdown ul,
+.markdown ol {
+  color: var(--md-body-text);
+}
+
+.markdown li strong {
+  color: var(--md-dark-header);
+}
+
+.markdown pre {
+  background-color: var(--md-ultra-light-header);
+}
+
+.markdown blockquote {
+  background-color: var(--md-super-dark-header);
+  border-left: 4px solid var(--md-complimentary-blockquote);
+  color: var(--md-body-text);
+}
+
+.markdown del {
+  color: var(--md-light-background);
+}
+
+.markdown hr {
+  border: 1px solid var(--md-light-header);
+}
+
+.markdown th,
+markdown td {
+  border: 1px solid var(--md-light-header);
+  color: var(--md-dark-header);
+}
+
+.markdown th {
+  background-color: var(--md-dark-header);
+  color: var(--md-dark-header);
+}
+
+.markdown tr:nth-child(even) {
+  background-color: var(--md-dark-header);
+}
+
+.markdown tr:hover {
+  background-color: var(--md-light-header);
+  color: var(--md-super-dark-header);
+}
+
+.markdown td {
+  color: var(--md-body-text);
+}

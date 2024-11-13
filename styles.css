@@ -32,208 +32,101 @@
     font-weight: 400;
     font-style: normal;
 }
-/* Headings */
-.markdown-tomato h1 {
-    color: #D84B16;
-    /* Base Tomato for h1 */
+:root {
+  --md-body-text: #b6cbd5;
+  --md-light-header: #49C8DE;
+  --md-ultra-light-header: #28CDEB;
+  --md-dark-header: #6CA1D1;
+  --md-super-dark-header: #08424c;
+  --md-light-background: #50bbce;
+  --md-complimentary-blockquote: #E85813;
 }
 
 .markdown p {
-    color: rgb(225, 205, 202);
+  color: var(--md-body-text);
 }
 
-.markdown-tomato h2 {
-    color: #FF6F3C;
-    /* Lighter Tomato for h2 */
+.markdown h1 {
+  color: var(--md-light-header);
 }
 
-.markdown-tomato h3 {
-    color: #B44010;
-    /* Dark Tomato for h3 */
+.markdown h2 {
+  color: var(--md-ultra-light-header);
 }
 
-.markdown-tomato h4 {
-    color: #FF6F3C;
-    /* Lighter Tomato for h4 */
+.markdown h3 {
+  color: var(--md-dark-header);
 }
 
-.markdown-tomato h5 {
-    color: #D84B16;
-    /* Base Tomato for h5 */
+.markdown h4 {
+  color: var(--md-ultra-light-header);
 }
 
-.markdown-tomato h6 {
-    color: #B44010;
-    /* Dark Tomato for h6 */
+.markdown h5 {
+  color: var(--md-light-header);
 }
 
-/* Links */
-.markdown-tomato a {
-    color: #D84B16;
-    /* Base Tomato for links */
+.markdown h6 {
+  color: var(--md-dark-header);
 }
 
-.markdown-tomato a:hover {
-    color: #FF6F3C;
-    /* Lighter tomato on hover */
+.markdown a {
+  color: var(--md-light-header);
 }
 
-/* Code Blocks */
-.markdown-tomato pre {
-    background-color: #FF6F3C;
-    /* Lighter Tomato for code block background */
-    color: #B44010;
-    /* Dark Tomato text in code blocks */
+.markdown a:hover {
+  color: var(--md-ultra-light-header);
 }
 
-/* Inline Code */
-.markdown-tomato code {
-    background-color: #B44010;
-    /* Dark Tomato for inline code background */
-    color: #FFD2A6;
-    /* Very Light Tomato text */
+.markdown ul,
+.markdown ol {
+  color: var(--md-body-text);
 }
 
-/* Blockquotes */
-.markdown-tomato blockquote {
-    background-color: #333333;
-    /* Slightly lighter dark background for blockquote */
-    border-left: 4px solid #D84B16;
-    /* Base Tomato for left border */
-    color: #FFD2A6;
-    /* Lightest Tomato text */
+.markdown li strong {
+  color: var(--md-dark-header);
 }
 
-/* Strikethrough */
-.markdown-tomato del {
-    color: #FFD2A6;
-    /* Lightest Tomato for strikethrough text */
+.markdown pre {
+  background-color: var(--md-ultra-light-header);
 }
 
-/* Horizontal Rule */
-.markdown-tomato hr {
-    border: 1px solid #D84B16;
-    /* Base Tomato for the horizontal rule */
+.markdown blockquote {
+  background-color: var(--md-super-dark-header);
+  border-left: 4px solid var(--md-complimentary-blockquote);
+  color: var(--md-body-text);
 }
 
-/* Tables */
-.markdown-tomato th,
-.markdown-tomato td {
-    border: 1px solid #D84B16;
-    /* Base Tomato table borders */
-    color: #FFD2A6;
-    /* Very Light Tomato text */
+.markdown del {
+  color: var(--md-light-background);
 }
 
-.markdown-tomato th {
-    background-color: #FF6F3C;
-    /* Lighter Tomato for table headers */
+.markdown hr {
+  border: 1px solid var(--md-light-header);
 }
 
-.markdown-tomato tr:nth-child(even) {
-    background-color: #B44010;
-    /* Dark Tomato for alternate rows */
+.markdown th,
+markdown td {
+  border: 1px solid var(--md-light-header);
+  color: var(--md-dark-header);
 }
 
-.markdown-tomato tr:hover {
-    background-color: #FF6F3C;
-    /* Lighter Tomato on row hover */
-}
-:root {
-  --body-text: #b6cbd5;
-  --light-header: #49C8DE;
-  --ultra-light-header: #28CDEB;
-  --dark-header: #6CA1D1;
-  --super-dark-header: #08424c;
-  --light-background: #50bbce;
-  --complimentary-blockquote: #E85813;
+.markdown th {
+  background-color: var(--md-dark-header);
+  color: var(--md-dark-header);
 }
 
-.markdown-cyan p {
-  color: var(--body-text);
+.markdown tr:nth-child(even) {
+  background-color: var(--md-dark-header);
 }
 
-.markdown-cyan h1 {
-  color: var(--light-header);
+.markdown tr:hover {
+  background-color: var(--md-light-header);
+  color: var(--md-super-dark-header);
 }
 
-.markdown-cyan h2 {
-  color: var(--ultra-light-header);
-}
-
-.markdown-cyan h3 {
-  color: var(--dark-header);
-}
-
-.markdown-cyan h4 {
-  color: var(--ultra-light-header);
-}
-
-.markdown-cyan h5 {
-  color: var(--light-header);
-}
-
-.markdown-cyan h6 {
-  color: var(--dark-header);
-}
-
-.markdown-cyan a {
-  color: var(--light-header);
-}
-
-.markdown-cyan a:hover {
-  color: var(--ultra-light-header);
-}
-
-.markdown-cyan ul,
-.markdown-cyan ol {
-  color: var(--body-text);
-}
-
-.markdown-cyan li strong {
-  color: var(--dark-header);
-}
-
-.markdown-cyan pre {
-  background-color: var(--ultra-light-header);
-}
-
-.markdown-cyan blockquote {
-  background-color: var(--super-dark-header);
-  border-left: 4px solid var(--complimentary-blockquote);
-  color: var(--body-text);
-}
-
-.markdown-cyan del {
-  color: var(--light-background);
-}
-
-.markdown-cyan hr {
-  border: 1px solid var(--light-header);
-}
-
-.markdown-cyan th,
-markdown-cyan td {
-  border: 1px solid var(--light-header);
-  color: var(--dark-header);
-}
-
-.markdown-cyan th {
-  background-color: var(--dark-header);
-  color: var(--dark-header);
-}
-
-.markdown-cyan tr:nth-child(even) {
-  background-color: var(--dark-header);
-}
-
-.markdown-cyan tr:hover {
-  background-color: var(--light-header);
-  color: var(--super-dark-header);
-}
-
-.markdown-cyan td {
-  color: var(--body-text);
+.markdown td {
+  color: var(--md-body-text);
 }
 /* Container for Markdown Content */
 .about {
