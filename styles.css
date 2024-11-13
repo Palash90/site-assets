@@ -141,11 +141,12 @@
 }
 :root {
   --body: #b6cbd5;
+  --light-header: #00B8D9;
 }
 
 /* Headings */
 .markdown-cyan h1 {
-  color: #00B8D9;
+  color: var(--light-header);
   /* Base Cyan for h1 */
 }
 
@@ -169,7 +170,7 @@
 }
 
 .markdown-cyan h5 {
-  color: #00B8D9;
+  color: var(--light-header);
   /* Base Cyan for h5 */
 }
 
@@ -180,7 +181,7 @@
 
 /* Links */
 .markdown-cyan a {
-  color: #00B8D9;
+  color: var(--light-header);
   /* Contrast Ratio: 6.51 : 1 */
   /* Base Cyan for links */
 }
@@ -219,7 +220,7 @@
 .markdown-cyan blockquote {
   background-color: #333333;
   /* Slightly lighter dark background for blockquote */
-  border-left: 4px solid #00B8D9;
+  border-left: 4px solid var(--light-header);
   /* Base Cyan for left border */
   color: #A5D8E9;
   /* Very Light Cyan text */
@@ -233,7 +234,7 @@
 
 /* Horizontal Rule */
 .markdown-cyan hr {
-  border: 1px solid #00B8D9;
+  border: 1px solid var(--light-header);;
   /* Base Cyan for the horizontal rule */
 }
 
