@@ -4,7 +4,7 @@ name: Run Node.js and Bash Scripts, then Commit to Another Branch
 on:
   push:
     branches:
-      - source-code  # Trigger on push to the main branch. Adjust as needed.
+      - source-code
 
 jobs:
   run-scripts-and-commit:
@@ -26,7 +26,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Adjust this to the version you need.
+          node-version: '16'
 
       - name: Run Node.js script
         run: |
@@ -53,7 +53,8 @@ jobs:
         run: |
           git status
 
-      - name: Show changes made to the branch
+      - name: Commit and push
         run: |
           git commit -m "Run file generation"
+          git push
 
