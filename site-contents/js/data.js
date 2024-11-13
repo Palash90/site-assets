@@ -20,9 +20,9 @@ const data = {
             musicIntro: "Exploring the World of Music, One Post at a Time.",
             itemsPerPage: 50,
 
-            techBlogClass: "tech-blog-content markdown markdown",
-            musicBlogClass: "music-blog-2 markdown markdown",
-            genericBlogClass: "blog-content markdown markdown",
+            techBlogClass: "tech-blog-content markdown",
+            musicBlogClass: "music-blog-2 markdown",
+            genericBlogClass: "blog-content markdown",
 
             sweHeadColor: getCommon('themeHeaderColor'),
             musicHeadColor: getCommon('themeHeaderColor'),
@@ -67,7 +67,7 @@ const data = {
             mdUrl: getCommon("cdn") + "/assets/ME.md",
             resume: getCommon("cdn") + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
             resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
-            blogClass: "about-2"
+            blogClass: "markdown"
         }
     },
     techStack: {

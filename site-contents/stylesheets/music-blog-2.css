@@ -26,8 +26,8 @@
 
 /* Blockquotes */
 .music-blog-2 blockquote {
-    border-left: 4px solid #1abc9c;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     padding-left: 15px;
-    color: #b0b0b0;
     font-style: italic;
 }
