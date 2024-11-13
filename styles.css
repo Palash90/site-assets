@@ -11,12 +11,12 @@
     --md-complimentary-blockquote: #C84900;
 }
 .custom-theme {
-    --bs-heading-color: #00D9E9 !important;
-    --bs-card-title-color: #4f7df9 !important;
+    --bs-heading-color: var(--md-light) !important;
+    --bs-card-title-color: var(--md-dark) !important;
 }
 
 .custom-theme p {
-    color: #ceeffa;
+    color: var(--md-body-text);
 }
 
 .main-app-mw {
