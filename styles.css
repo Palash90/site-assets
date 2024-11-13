@@ -139,127 +139,132 @@
     background-color: #FF6F3C;
     /* Lighter Tomato on row hover */
 }
- /* Headings */
- .markdown-cyan h1 {
-   color: #00B8D9;
-   /* Base Cyan for h1 */
- }
+:root {
+  --body: #b6cbd5;
+}
 
- .markdown-cyan p {
-   color: #b6cbd5;
- }
+/* Headings */
+.markdown-cyan h1 {
+  color: #00B8D9;
+  /* Base Cyan for h1 */
+}
 
- .markdown-cyan h2 {
-   color: #00D9E9;
-   /* Light Cyan for h2 */
- }
+.markdown-cyan p {
+  color: var(--body);
+}
 
- .markdown-cyan h3 {
-   color: #6CA1D1;
-   /* Tech Blue for h3 */
- }
+.markdown-cyan h2 {
+  color: #00D9E9;
+  /* Light Cyan for h2 */
+}
 
- .markdown-cyan h4 {
-   color: #00D9E9;
-   /* Light Cyan for h4 */
- }
+.markdown-cyan h3 {
+  color: #6CA1D1;
+  /* Tech Blue for h3 */
+}
 
- .markdown-cyan h5 {
-   color: #00B8D9;
-   /* Base Cyan for h5 */
- }
+.markdown-cyan h4 {
+  color: #00D9E9;
+  /* Light Cyan for h4 */
+}
 
- .markdown-cyan h6 {
-   color: #6CA1D1;
-   /* Tech Blue for h6 */
- }
+.markdown-cyan h5 {
+  color: #00B8D9;
+  /* Base Cyan for h5 */
+}
 
- /* Links */
- .markdown-cyan a {
-   color: #00B8D9;
-   /* Base Cyan for links */
- }
+.markdown-cyan h6 {
+  color: #6CA1D1;
+  /* Tech Blue for h6 */
+}
 
- .markdown-cyan a:hover {
-   color: #00D9E9;
-   /* Light Cyan on hover */
- }
+/* Links */
+.markdown-cyan a {
+  color: #00B8D9;
+  /* Contrast Ratio: 6.51 : 1 */
+  /* Base Cyan for links */
+}
+
+.markdown-cyan a:hover {
+  color: #00D9E9;
+  /* Light Cyan on hover */
+}
 
 .markdown-cyan ul,
 .markdown-cyan ol {
-    color: #b6cbd5;
+  color: #b6cbd5;
 }
 
- .markdown-cyan li strong {
-   color: #26c0c0;
- }
+.markdown-cyan li strong {
+  color: #26c0c0;
+}
 
- /* Code Blocks */
- .markdown-cyan pre {
-   background-color: #00D9E9;
-   /* Light Cyan for code block background */
-   color: #1E5C8D;
-   /* Tech Blue text in code blocks */
- }
+/* Code Blocks */
+.markdown-cyan pre {
+  background-color: #00D9E9;
+  /* Light Cyan for code block background */
+  color: #1E5C8D;
+  /* Tech Blue text in code blocks */
+}
 
- /* Inline Code */
- .markdown-cyan code {
-   background-color: #1E5C8D;
-   /* Tech Blue for inline code background */
-   color: #A5D8E9;
-   /* Very Light Cyan text */
- }
+/* Inline Code */
+.markdown-cyan code {
+  background-color: #1E5C8D;
+  /* Tech Blue for inline code background */
+  color: #A5D8E9;
+  /* Very Light Cyan text */
+}
 
- /* Blockquotes */
- .markdown-cyan blockquote {
-   background-color: #333333;
-   /* Slightly lighter dark background for blockquote */
-   border-left: 4px solid #00B8D9;
-   /* Base Cyan for left border */
-   color: #A5D8E9;
-   /* Very Light Cyan text */
- }
+/* Blockquotes */
+.markdown-cyan blockquote {
+  background-color: #333333;
+  /* Slightly lighter dark background for blockquote */
+  border-left: 4px solid #00B8D9;
+  /* Base Cyan for left border */
+  color: #A5D8E9;
+  /* Very Light Cyan text */
+}
 
- /* Strikethrough */
- .markdown-cyan del {
-   color: #A5D8E9;
-   /* Very Light Cyan for strikethrough text */
- }
+/* Strikethrough */
+.markdown-cyan del {
+  color: #A5D8E9;
+  /* Very Light Cyan for strikethrough text */
+}
 
- /* Horizontal Rule */
- .markdown-cyan hr {
-   border: 1px solid #00B8D9;
-   /* Base Cyan for the horizontal rule */
- }
+/* Horizontal Rule */
+.markdown-cyan hr {
+  border: 1px solid #00B8D9;
+  /* Base Cyan for the horizontal rule */
+}
 
- /* Tables */
- .markdown-cyan th,
- markdown-cyan td {
-   border: 1px solid #08afcd;
-   /* Base Cyan table borders */
-   color: #08424c;
-   /* Very Light Cyan text */
- }
+/* Tables */
+.markdown-cyan th,
+markdown-cyan td {
+  border: 1px solid #08afcd;
+  /* Base Cyan table borders */
+  color: #08424c;
+  /* Very Light Cyan text */
+}
 
- .markdown-cyan th {
-   background-color: #15b0bc;
-   /* Light Cyan for table headers */
-   color: #07363f;
- }
+.markdown-cyan th {
+  background-color: #15b0bc;
+  /* Light Cyan for table headers */
+  color: #07363f;
+}
 
- .markdown-cyan tr:nth-child(even) {
-   background-color: #024e5a;
-   /* Darker Cyan for alternate rows */
- }
+.markdown-cyan tr:nth-child(even) {
+  background-color: #024e5a;
+  /* Darker Cyan for alternate rows */
+}
 
- .markdown-cyan tr:hover {
-   background-color: #007B8F;
-   /* Light Cyan on row hover */
- }
+.markdown-cyan tr:hover {
+  background-color: #007B8F;
+  /* Light Cyan on row hover */
+}
 
- .markdown-cyan td {
-   color: #b6cbd5;
- }
+.markdown-cyan td {
+  color: #b6cbd5;
+}
 /* Container for Markdown Content */
 .about {
     line-height: 1.6;
