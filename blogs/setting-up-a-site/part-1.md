@@ -43,7 +43,7 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 1. The second row left column, I will have a short list of my technology blogs
 1. The second row right column, I will have a short lisr of my music blogs
 
-![Blog page draft image](cdn/sitemap.xml "Blog Page Draft")
+![Blog page draft image]([cdn]/sitemap.xml "Blog Page Draft")
 1. The blog page will have a header
 1. The topmost 
 
