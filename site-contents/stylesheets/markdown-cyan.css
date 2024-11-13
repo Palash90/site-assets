@@ -44,6 +44,11 @@
    /* Light Cyan on hover */
  }
 
+.markdown-cyan ul,
+.markdown-cyan ol {
+    color: #b6cbd5;
+}
+
  .markdown-cyan li strong {
    color: #26c0c0;
  }

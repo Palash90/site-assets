@@ -185,6 +185,11 @@
    /* Light Cyan on hover */
  }
 
+.markdown-cyan ul,
+.markdown-cyan ol {
+    color: #b6cbd5;
+}
+
  .markdown-cyan li strong {
    color: #26c0c0;
  }
@@ -412,11 +417,6 @@
 }
 
 /* Lists */
-.tech-blog-content ul,
-.tech-blog-content ol {
-    color: #dfe6e9;
-}
-
 .tech-blog-content li {
     font-family: 'Open Sans', sans-serif;
     margin: 0.5em 0;
