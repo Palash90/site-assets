@@ -1,4 +1,3 @@
-[home-page]: https://palash90.github.io/site-assets/blogs/setting-up-a-site/home-page.png
 # Hosting a website online from scratch - Part 1
 This will be a multi-part series on how to host a website on internet from scratch. This will be a developer focused series and if you are a developer and want to host your website, keep on reading. You may get some idea of the process.
 
@@ -44,7 +43,7 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 1. The second row left column, I will have a short list of my technology blogs
 1. The second row right column, I will have a short lisr of my music blogs
 
-![Blog page draft image]([home-page] "Blog Page Draft")
+![Blog page draft image](home-page "Blog Page Draft")
 1. The blog page will have a header
 1. The topmost 
 
