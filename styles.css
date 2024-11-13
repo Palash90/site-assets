@@ -185,6 +185,10 @@
    /* Light Cyan on hover */
  }
 
+ .markdown-cyan li strong {
+   color: #26c0c0;
+ }
+
  /* Code Blocks */
  .markdown-cyan pre {
    background-color: #00D9E9;
