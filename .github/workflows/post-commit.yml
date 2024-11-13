@@ -41,7 +41,7 @@ jobs:
           git fetch origin
           git checkout main
           git pull
-          git merge source-code --allow-unrelated-histories
+          git merge -s ours origin/source-code -m "Force merge to overwrite with local changes --allow-unrelated-histories
       
       - name: Show files after checking out
         run: |
@@ -55,6 +55,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |         
-          git push --set-upstream origin main
+          git push --set-upstream origin main --force
 
 
