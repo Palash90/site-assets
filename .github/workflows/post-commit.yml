@@ -39,7 +39,6 @@ jobs:
       - name: Checkout target branch
         run: |
           git checkout -b main
-          git pull origin main
           git merge source-code
       
       - name: Show files after checking out
