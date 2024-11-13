@@ -43,7 +43,7 @@ jobs:
       - name: Checkout target branch
         run: |
           git fetch origin
-          git checkout -b main origin/main || git checkout -b main
+          git checkout main
       
       - name: Show files after checking out
         run: |
@@ -51,6 +51,7 @@ jobs:
 
       - name: Commit changes to target branch
         run: |
+          git branch --set-upstream-to=origin/main main
           git pull
           git add --all
       
