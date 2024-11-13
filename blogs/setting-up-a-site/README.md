@@ -13,6 +13,8 @@
     - Did not work.
     - I made the markdown css
     - Then I created common variables for all the header colors. My page does not have much of various elements to color for
+    - Then moved and created my own variable set for markdown css. 
+    - Created one more theme
 1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 1. Make a sitemap
 1. Style the sitemap

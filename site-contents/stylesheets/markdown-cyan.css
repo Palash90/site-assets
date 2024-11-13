@@ -1,53 +1,43 @@
 :root {
-  --body: #b6cbd5;
+  --body-text: #b6cbd5;
   --light-header: #00B8D9;
-}
-
-/* Headings */
-.markdown-cyan h1 {
-  color: var(--light-header);
-  /* Base Cyan for h1 */
+  --lighter-header: var(--lighter-header);
 }
 
 .markdown-cyan p {
-  color: var(--body);
+  color: var(--body-text);
+}
+
+.markdown-cyan h1 {
+  color: var(--light-header);
 }
 
 .markdown-cyan h2 {
-  color: #00D9E9;
-  /* Light Cyan for h2 */
+  color: var(--lighter-header);
 }
 
 .markdown-cyan h3 {
   color: #6CA1D1;
-  /* Tech Blue for h3 */
 }
 
 .markdown-cyan h4 {
-  color: #00D9E9;
-  /* Light Cyan for h4 */
+  color: var(--lighter-header);
 }
 
 .markdown-cyan h5 {
   color: var(--light-header);
-  /* Base Cyan for h5 */
 }
 
 .markdown-cyan h6 {
   color: #6CA1D1;
-  /* Tech Blue for h6 */
 }
 
-/* Links */
 .markdown-cyan a {
   color: var(--light-header);
-  /* Contrast Ratio: 6.51 : 1 */
-  /* Base Cyan for links */
 }
 
 .markdown-cyan a:hover {
-  color: #00D9E9;
-  /* Light Cyan on hover */
+  color: var(--lighter-header);
 }
 
 .markdown-cyan ul,
@@ -59,67 +49,47 @@
   color: #26c0c0;
 }
 
-/* Code Blocks */
 .markdown-cyan pre {
-  background-color: #00D9E9;
-  /* Light Cyan for code block background */
+  background-color: var(--lighter-header);
   color: #1E5C8D;
-  /* Tech Blue text in code blocks */
 }
 
-/* Inline Code */
 .markdown-cyan code {
   background-color: #1E5C8D;
-  /* Tech Blue for inline code background */
   color: #A5D8E9;
-  /* Very Light Cyan text */
 }
 
-/* Blockquotes */
 .markdown-cyan blockquote {
   background-color: #333333;
-  /* Slightly lighter dark background for blockquote */
   border-left: 4px solid var(--light-header);
-  /* Base Cyan for left border */
   color: #A5D8E9;
-  /* Very Light Cyan text */
 }
 
-/* Strikethrough */
 .markdown-cyan del {
   color: #A5D8E9;
-  /* Very Light Cyan for strikethrough text */
 }
 
-/* Horizontal Rule */
 .markdown-cyan hr {
   border: 1px solid var(--light-header);;
-  /* Base Cyan for the horizontal rule */
 }
 
-/* Tables */
 .markdown-cyan th,
 markdown-cyan td {
   border: 1px solid #08afcd;
-  /* Base Cyan table borders */
   color: #08424c;
-  /* Very Light Cyan text */
 }
 
 .markdown-cyan th {
   background-color: #15b0bc;
-  /* Light Cyan for table headers */
   color: #07363f;
 }
 
 .markdown-cyan tr:nth-child(even) {
   background-color: #024e5a;
-  /* Darker Cyan for alternate rows */
 }
 
 .markdown-cyan tr:hover {
   background-color: #007B8F;
-  /* Light Cyan on row hover */
 }
 
 .markdown-cyan td {
