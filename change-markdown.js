@@ -23,16 +23,16 @@ const replaceVariablesInFile = (filePath) => {
             modifiedData = modifiedData.replace(regex, variableMap[key]);
         });
 
-        var filePath = "/target/" + filePath
-        const dir = path.dirname(filePath);
+        var targetFilePath = "/target/" + filePath
+        const dir = path.dirname(targetFilePath);
         fs.mkdirSync(dir, { recursive: true });
-        
+
         // Write the modified data back to the file
-        fs.writeFile(filePath, modifiedData, 'utf8', (err) => {
+        fs.writeFile(targetFilePath, modifiedData, 'utf8', (err) => {
             if (err) {
-                console.error(`Error writing file ${filePath}: ${err}`);
+                console.error(`Error writing file ${targetFilePath}: ${err}`);
             } else {
-                console.log(`File updated: ${filePath}`);
+                console.log(`File updated: ${targetFilePath}`);
             }
         });
     });
