@@ -106,7 +106,6 @@ const data = {
             { institution: "College of Engineering and Management, Kolaghat", start: "July 2007", end: "Jun 2011", degree: "Bachelor of Technology" }
         ]
     },
-    test:"Hello Main committed by github action flow",
-    hello:"Cool Stuff"
+    test:"Hello Main committed by github action flow"
 }
 
