@@ -42,7 +42,7 @@ jobs:
       - name: Add the new files
         run: |
           git add --all
-          git commit -m "Commit generated files"
+          git commit -m "Commit generated files" --allow-empty
 
       - name: Checkout target branch
         run: |
