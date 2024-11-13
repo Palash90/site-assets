@@ -30,3 +30,5 @@ var cssFiles = [
 
 mergeCode(jsFiles, "consolidated_script.js")
 mergeCode(cssFiles, "styles.css")
+
+console.log("Static files generated successfully")
