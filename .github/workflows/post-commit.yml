@@ -61,6 +61,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git pull
           git commit -m "Run file generation by github actions bot"
           git push --set-upstream origin main
           
