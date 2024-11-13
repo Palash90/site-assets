@@ -141,8 +141,12 @@
 }
 :root {
   --body-text: #b6cbd5;
-  --light-header: #00B8D9;
-  --lighter-header: var(--lighter-header);
+  --light-header: #25b0c9;
+  --ultra-light-header: "";
+  --dark-header:"";
+  --super-dark-header:"";
+  --light-background:"";
+  --ultra-light-background:"";
 }
 
 .markdown-cyan p {
@@ -357,7 +361,6 @@ markdown-cyan td {
 .tech-blog-content h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    padding-left: 0.5rem;
 }
 
 .tech-blog-content h3 {

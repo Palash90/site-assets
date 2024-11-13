@@ -1,7 +1,11 @@
 :root {
   --body-text: #b6cbd5;
-  --light-header: #00B8D9;
-  --lighter-header: var(--lighter-header);
+  --light-header: #25b0c9;
+  --ultra-light-header: "";
+  --dark-header:"";
+  --super-dark-header:"";
+  --light-background:"";
+  --ultra-light-background:"";
 }
 
 .markdown-cyan p {

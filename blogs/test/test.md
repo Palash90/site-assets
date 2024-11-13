@@ -47,13 +47,6 @@ Replace `language` with the specific programming language for syntax highlightin
 
 **Example:**
 
-```markdown
-```python
-def greet(name):
-  print(f"Hello, {name}!")
-
-greet("World")
-
 | Header 1 | Header 2 | Header 3 |
 |---|---|---|
 | Row 1, Column 1 | Row 1, Column 2 | Row 1, Column 3 |
