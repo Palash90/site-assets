@@ -38,9 +38,9 @@ jobs:
 
       - name: Checkout target branch
         run: |
-          git checkout main
-          git pull origin main --allow-unrelated-histories
-          git merge source-code --allow-unrelated-histories
+          git checkout -b main
+          git pull origin main
+          git merge source-code
       
       - name: Show files after checking out
         run: |
@@ -54,6 +54,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |         
-          git commit -m "Run file generation by github actions bot" --allow-empty
           git push --set-upstream origin main
+
 
