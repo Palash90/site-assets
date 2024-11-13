@@ -41,7 +41,7 @@ jobs:
           git fetch origin
           git checkout main
           git pull
-          git merge -s ours origin/source-code -m "Force merge to overwrite with local changes --allow-unrelated-histories
+          git merge -s ours origin/source-code -m "Force merge to overwrite with local changes" --allow-unrelated-histories
       
       - name: Show files after checking out
         run: |
