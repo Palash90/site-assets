@@ -41,7 +41,7 @@ This is ~~strikethrough~~ text.
 
 ```language
 code block
-
+```
 
 Replace `language` with the specific programming language for syntax highlighting (e.g., `python`, `javascript`, `ruby`).
 
