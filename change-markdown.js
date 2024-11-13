@@ -23,7 +23,7 @@ const replaceVariablesInFile = (filePath) => {
             modifiedData = modifiedData.replace(regex, variableMap[key]);
         });
 
-        var targetFilePath = "/target/" + filePath
+        var targetFilePath = "target/" + filePath
         const dir = path.dirname(targetFilePath);
         fs.mkdirSync(dir, { recursive: true });
 
