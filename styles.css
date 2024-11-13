@@ -113,7 +113,7 @@ markdown td {
 
 .markdown th {
   background-color: var(--md-dark-header);
-  color: var(--md-dark-header);
+  color: var(--md-super-dark-header);
 }
 
 .markdown tr:nth-child(even) {
