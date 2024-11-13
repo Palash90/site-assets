@@ -9,7 +9,6 @@ on:
 jobs:
   run-scripts-and-commit:
     runs-on: ubuntu-latest
-
     steps:
       - name: Set up Git user info
         run: |
