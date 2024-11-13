@@ -56,7 +56,7 @@ jobs:
         run: |
           git branch --set-upstream-to=origin/main main
           git pull
-          git add --all
+          git merge
       
       - name: Show changes made to the branch
         run: |
