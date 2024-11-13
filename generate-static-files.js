@@ -22,7 +22,7 @@ var jsFiles = [
 
 var cssFiles = [
     "./site-contents/stylesheets/app.css",
-    "./site-contents/stylesheets/markdown.css",
+    "./site-contents/stylesheets/markdown-colors.css",
     "./site-contents/stylesheets/tech-blog.css",
     "./site-contents/stylesheets/blog-content.css",
 ];

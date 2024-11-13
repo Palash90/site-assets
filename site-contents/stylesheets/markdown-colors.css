@@ -2,95 +2,95 @@
   --md-body-text: #b6cbd5;
   --md-light-header: #49C8DE;
   --md-ultra-light-header: #28CDEB;
-  --md-dark-header: #6CA1D1;
-  --md-super-dark-header: #08424c;
+  --md-dark-header: #77a7d4;
+  --md-super-dark-header: #062e35;
   --md-light-background: #50bbce;
   --md-complimentary-blockquote: #E85813;
 }
 
-.markdown p {
+.markdown-color p {
   color: var(--md-body-text);
 }
 
-.markdown h1 {
+.markdown-color h1 {
   color: var(--md-light-header);
 }
 
-.markdown h2 {
+.markdown-color h2 {
   color: var(--md-ultra-light-header);
 }
 
-.markdown h3 {
+.markdown-color h3 {
   color: var(--md-dark-header);
 }
 
-.markdown h4 {
+.markdown-color h4 {
   color: var(--md-ultra-light-header);
 }
 
-.markdown h5 {
+.markdown-color h5 {
   color: var(--md-light-header);
 }
 
-.markdown h6 {
+.markdown-color h6 {
   color: var(--md-dark-header);
 }
 
-.markdown a {
+.markdown-color a {
   color: var(--md-light-header);
 }
 
-.markdown a:hover {
+.markdown-color a:hover {
   color: var(--md-ultra-light-header);
 }
 
-.markdown ul,
-.markdown ol {
+.markdown-color ul,
+.markdown-color ol {
   color: var(--md-body-text);
 }
 
-.markdown li strong {
-  color: var(--md-dark-header);
+.markdown-color li strong {
+  color: var(--md-light-background);
 }
 
-.markdown pre {
+.markdown-color pre {
   background-color: var(--md-ultra-light-header);
 }
 
-.markdown blockquote {
+.markdown-color blockquote {
   background-color: var(--md-super-dark-header);
   border-left: 4px solid var(--md-complimentary-blockquote);
   color: var(--md-body-text);
 }
 
-.markdown del {
+.markdown-color del {
   color: var(--md-light-background);
 }
 
-.markdown hr {
+.markdown-color hr {
   border: 1px solid var(--md-light-header);
 }
 
-.markdown th,
-.markdown td {
+.markdown-color th,
+.markdown-color td {
   border: 1px solid var(--md-light-header);
   color: var(--md-dark-header);
 }
 
-.markdown th {
+.markdown-color th {
   background-color: var(--md-dark-header);
   color: var(--md-super-dark-header);
 }
 
-.markdown tr:nth-child(even) {
+.markdown-color tr:nth-child(even) {
   background-color: var(--md-super-dark-header);
 }
 
-.markdown tr:hover {
+.markdown-color tr:hover {
   background-color: var(--md-light-background);
   color: var(--md-super-dark-header);
 }
 
-.markdown td {
+.markdown-color td {
   color: var(--md-body-text);
 }
