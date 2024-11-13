@@ -34,7 +34,7 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 
 
 
-![Home Page Draft][https://palash90.github.io/site-assets/blogs/setting-up-a-site/part-1.md "Home Page Draft"]
+![Home Page Draft][${setting-up-a-site-part-1-home-page} "Home Page Draft"]
 1. The top most bar will be navigation bar
 1. The bottom most bar is footer with copyright and my name
 1. The middle section will be two rows, each having two columns

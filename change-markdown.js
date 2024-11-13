@@ -3,7 +3,7 @@ const path = require('path');
 
 // Map of variables and their replacement values
 const variableMap = {
-    'setting-up-a-site-part-1-home-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/part-1.md',
+    'setting-up-a-site-part-1-home-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/home-page.png',
     'some_other_variable': 'value_for_some_other_variable',
 };
 
