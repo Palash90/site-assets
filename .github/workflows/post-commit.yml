@@ -29,14 +29,7 @@ jobs:
       - name: Run Node.js script
         run: |
           node ./generate-static-files.js
-      
-      - name: Run Node.js script
-        run: |
           node ./generate-sitemap.js
-      
-      - name: Show files after running the script
-        run: |
-          ls
       
       - name: Add the new files
         run: |
@@ -69,4 +62,3 @@ jobs:
           
           git commit -m "Run file generation by github actions bot" --allow-empty
           git push --set-upstream origin main
-
