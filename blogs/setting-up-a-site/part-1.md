@@ -34,7 +34,7 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 
 
 
-![Home page draft image](image_url "Home Page Draft")
+
 1. The top most bar will be navigation bar
 1. The bottom most bar is footer with copyright and my name
 1. The middle section will be two rows, each having two columns
@@ -46,7 +46,3 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 ![Blog page draft image](home-page "Blog Page Draft")
 1. The blog page will have a header
 1. The topmost 
-
-![Project page draf](image_url "Project Page Draft")
-
-![About page draft](image_url "About Page Draft")
