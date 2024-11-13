@@ -53,3 +53,7 @@ jobs:
         run: |
           git status
 
+      - name: Show changes made to the branch
+        run: |
+          git commit -m "Run file generation"
+
