@@ -59,5 +59,3 @@ jobs:
         run: |
           git commit -m "Run file generation"
           git push --set-upstream origin main
-          
-
