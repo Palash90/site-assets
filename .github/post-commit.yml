@@ -1,0 +1,50 @@
+name: Run Node.js and Bash Scripts, then Commit to Another Branch
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch. Adjust as needed.
+
+jobs:
+  run-scripts-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment (required for running your Node.js script)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Adjust this to the version you need.
+
+      # Step 3: Install dependencies for Node.js script (if any)
+      - name: Install dependencies
+        run: |
+          npm install  # Assumes a package.json exists with required dependencies.
+
+      # Step 4: Run the Node.js script
+      - name: Run Node.js script
+        run: |
+          node ./generate-static-files.js  # Adjust the path to your Node.js script
+
+      # Step 5: Run your Bash script
+      - name: Run Bash script
+        run: |
+          chmod +x ./make-file.sh
+          ./make-file.sh  # Adjust the path to your Bash script
+
+      # Step 6: Checkout the target branch (or create if it doesn't exist)
+      - name: Checkout target branch
+        run: |
+          git fetch origin  # Ensure all branches are available
+          git checkout -b target-branch origin/target-branch || git checkout -b target-branch
+
+      # Step 7: Stage changes and commit them
+      - name: Commit changes to target branch
+        run: |
+          git add .
+          git commit -m "Run Node.js and Bash scripts, update files"
+          git push --set-upstream origin target-branch
