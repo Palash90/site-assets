@@ -38,7 +38,7 @@ jobs:
 
       - name: Checkout target branch
         run: |
-          git checkout -b main
+          git checkout main
           git pull
           git merge source-code
       
