@@ -18,3 +18,6 @@
 1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 1. Make a sitemap
 1. Style the sitemap
+1. Now during publishing of website, I faced with an issue. I was copying and pasting image links left and right however. I found it cumbersome to copy paste and then there is this chance of maintainability issue. What if I later move to some other system for hosting static site assets?
+    - I first thought of using markdown variables. However, there is not support for variables. You can use some kind of link referencing in markdown. However, that did not work properly when I tried to embed a link inside a link component or image component of markdown.
+    - Then I came up with this solution. I tweaked the markdown rendering component in the app. Then I put all my links to the js file with unique ids, then in the app, I got the key and then applied the value in the rendered component.
