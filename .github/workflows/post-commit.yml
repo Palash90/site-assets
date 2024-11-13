@@ -40,12 +40,8 @@ jobs:
         run: |
           git fetch origin  # Ensure all branches are available
           git checkout -b main
+          git pull
       
-      - name: Show files after checking out
-        run: |
-          ls
-
-          
       - name: Commit changes to target branch
         run: |
           git add --all
