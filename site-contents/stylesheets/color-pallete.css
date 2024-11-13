@@ -1,12 +1,12 @@
 :root {
-    --md-body-text: #b6cbd5;
+    --md-body-text: #c0efef;
   
-    --md-light: #49C8DE;
-    --md-ultra-light: #28CDEB;
-    --md-hyper-light: #50bbce;
+    --md-light: #24B4B4;
+    --md-ultra-light: #00E6E6;
+    --md-hyper-light: #76fffd;
   
-    --md-dark: #77a7d4;
-    --md-super-dark: #062e35;
+    --md-dark: #457777;
+    --md-ultra-dark: #1E3333;
     
-    --md-complimentary-blockquote: #E85813;
+    --md-complimentary-blockquote: #C84900;
   }
