@@ -35,6 +35,6 @@ jobs:
 
       - name: Commit changes to target branch
         run: |
-          git add .
+          git add --all
           git commit -m "Run Node.js and Bash scripts, update files"
           git push --set-upstream origin target-branch
