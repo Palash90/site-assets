@@ -39,6 +39,11 @@ jobs:
       - name: Show files after running the script
         run: |
           ls
+      
+      --name: Add the new files
+        run: |
+          git add --all
+          git commit -m
 
       - name: Checkout target branch
         run: |
