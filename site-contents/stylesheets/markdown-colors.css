@@ -80,6 +80,9 @@
 
 .markdown-color tr:hover {
   background-color: var(--md-hyper-light);
+}
+
+.markdown-color tr:hover td{
   color: var(--md-ultra-dark);
 }
 
