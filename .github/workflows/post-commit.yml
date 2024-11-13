@@ -19,6 +19,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show files before running the script
+        run: |
+          ls
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,14 +31,25 @@ jobs:
       - name: Run Node.js script
         run: |
           node ./generate-static-files.js  # Adjust the path to your Node.js script
+      
+      - name: Show files after running the script
+        run: |
+          ls
 
       - name: Checkout target branch
         run: |
           git fetch origin  # Ensure all branches are available
           git checkout -b target-branch origin/target-branch || git checkout -b target-branch
+      
+      - name: Show files after checking out
+        run: |
+          ls
 
       - name: Commit changes to target branch
         run: |
           git add --all
-          git commit -m "Run Node.js and Bash scripts, update files"
-          git push --set-upstream origin target-branch
+      
+      - name: Show changes made to the branch
+        run: |
+          git status
+
