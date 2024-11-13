@@ -87,12 +87,12 @@
  markdown-cyan td {
    border: 1px solid #08afcd;
    /* Base Cyan table borders */
-   color: #0c8aa0;
+   color: #08424c;
    /* Very Light Cyan text */
  }
 
  .markdown-cyan th {
-   background-color: #38959d;
+   background-color: #15b0bc;
    /* Light Cyan for table headers */
    color: #07363f;
  }
