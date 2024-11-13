@@ -45,13 +45,10 @@ jobs:
 
       - name: Checkout target branch
         run: |
-          git fetch origin
-          git checkout main
+          git fetch origin  # Ensure all branches are available
+          git checkout -b main
+          git pull
       
-      - name: Show files after checking out
-        run: |
-          ls
-
       - name: Commit changes to target branch
         run: |
           git branch --set-upstream-to=origin/main main
@@ -65,8 +62,6 @@ jobs:
       - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          
+        run: |         
           git commit -m "Run file generation by github actions bot" --allow-empty
           git push --set-upstream origin main
-
