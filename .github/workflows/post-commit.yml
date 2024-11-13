@@ -38,10 +38,9 @@ jobs:
 
       - name: Checkout target branch
         run: |
-          git fetch origin
           git checkout main
           git pull origin main --allow-unrelated-histories
-          git merge source-code
+          git merge source-code --allow-unrelated-histories
       
       - name: Show files after checking out
         run: |
