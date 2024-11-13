@@ -1,6 +1,6 @@
 .custom-theme {
     --bs-heading-color: var(--md-light) !important;
-    --bs-card-title-color: var(--md-dark) !important;
+    --bs-card-title-color: var(--md-complimentary-blockquote) !important;
 }
 
 .custom-theme p {

@@ -8,11 +8,11 @@
     --md-dark: #007f80;
     --md-ultra-dark: #015656;
 
-    --md-complimentary-blockquote: #C84900;
+    --md-complimentary-blockquote: #ff2b2b;
 }
 .custom-theme {
     --bs-heading-color: var(--md-light) !important;
-    --bs-card-title-color: var(--md-dark) !important;
+    --bs-card-title-color: var(--md-complimentary-blockquote) !important;
 }
 
 .custom-theme p {
