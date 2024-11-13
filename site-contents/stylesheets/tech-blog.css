@@ -95,3 +95,10 @@
     font-family: 'Fira Code', monospace;
     border-radius: 3px;
 }
+
+.about-2 blockquote {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 15px;
+    font-style: italic;
+}

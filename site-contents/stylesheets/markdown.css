@@ -72,7 +72,7 @@
 }
 
 .markdown th,
-markdown td {
+.markdown td {
   border: 1px solid var(--md-light-header);
   color: var(--md-dark-header);
 }

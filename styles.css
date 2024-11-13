@@ -106,7 +106,7 @@
 }
 
 .markdown th,
-markdown td {
+.markdown td {
   border: 1px solid var(--md-light-header);
   color: var(--md-dark-header);
 }
@@ -224,6 +224,13 @@ markdown td {
     background-color: #1e1e1e;
     font-family: 'Fira Code', monospace;
     border-radius: 3px;
+}
+
+.about-2 blockquote {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 15px;
+    font-style: italic;
 }
 /* General Markdown Styles */
 .music-blog-2 {
