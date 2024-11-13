@@ -59,7 +59,7 @@
 
 .markdown-color blockquote {
   background-color: var(--md-super-dark-header);
-  border-left: 4px solid var(--md-complimentary-blockquote);
+  border-left: 10px solid var(--md-complimentary-blockquote);
   color: var(--md-body-text);
 }
 

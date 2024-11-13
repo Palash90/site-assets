@@ -93,7 +93,7 @@
 
 .markdown-color blockquote {
   background-color: var(--md-super-dark-header);
-  border-left: 4px solid var(--md-complimentary-blockquote);
+  border-left: 10px solid var(--md-complimentary-blockquote);
   color: var(--md-body-text);
 }
 
@@ -264,8 +264,8 @@
 
 /* Blockquotes */
 .blog-content blockquote {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-left: 15px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding: 15px;
     font-style: italic;
 }
