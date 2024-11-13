@@ -21,11 +21,6 @@ jobs:
         with:
           node-version: '16'  # Adjust this to the version you need.
 
-      # Step 3: Install dependencies for Node.js script (if any)
-      - name: Install dependencies
-        run: |
-          npm install  # Assumes a package.json exists with required dependencies.
-
       # Step 4: Run the Node.js script
       - name: Run Node.js script
         run: |
