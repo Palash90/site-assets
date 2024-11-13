@@ -168,7 +168,8 @@
 }
 
 .tech-blog-content img {
-    max-width: fit-content;
+    max-width: 50%;
+    height: auto;
 }
 
 /* Code Blocks */
@@ -249,7 +250,8 @@
 }
 
 .blog-content img {
-    max-width: fit-content;
+    max-width: 50%;
+    height: auto;
 }
 
 /* Headers */
