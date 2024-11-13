@@ -32,13 +32,14 @@
     font-weight: 400;
     font-style: normal;
 }
-.markdown p {
-    color: #dfe6e9;
-}
 /* Headings */
 .markdown-tomato h1 {
     color: #D84B16;
     /* Base Tomato for h1 */
+}
+
+.markdown p {
+    color: rgb(225, 205, 202);
 }
 
 .markdown-tomato h2 {
@@ -144,6 +145,10 @@
    /* Base Cyan for h1 */
  }
 
+ .markdown-cyan p {
+   color: #b6cbd5;
+ }
+
  .markdown-cyan h2 {
    color: #00D9E9;
    /* Light Cyan for h2 */
@@ -223,13 +228,14 @@
  markdown-cyan td {
    border: 1px solid #08afcd;
    /* Base Cyan table borders */
-   color: #0c8aa0;
+   color: #08424c;
    /* Very Light Cyan text */
  }
 
  .markdown-cyan th {
-   background-color: #00D9E9;
+   background-color: #15b0bc;
    /* Light Cyan for table headers */
+   color: #07363f;
  }
 
  .markdown-cyan tr:nth-child(even) {
