@@ -40,6 +40,8 @@ jobs:
         run: |
           git fetch origin
           git checkout main
+          git pull origin main --allow-unrelated-histories
+          git merge origin origin/main
           git merge source-code
       
       - name: Show files after checking out
