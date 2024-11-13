@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+.blog-content img {
+    max-width: fit-content;
+}
+
 /* Headers */
 .blog-content h1, .blog-content h2, .blog-content h3 {
     font-family: "Lora", serif;

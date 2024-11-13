@@ -167,6 +167,10 @@
     font-size: 1.1rem;
 }
 
+.tech-blog-content img {
+    max-width: fit-content;
+}
+
 /* Code Blocks */
 .tech-blog-content pre,
 .tech-blog-content code {
@@ -242,6 +246,10 @@
     line-height: 1.6;
     font-family: "Roboto", sans-serif;
     font-style: normal;
+}
+
+.blog-content img {
+    max-width: fit-content;
 }
 
 /* Headers */

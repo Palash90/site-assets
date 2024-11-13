@@ -32,6 +32,10 @@
     font-size: 1.1rem;
 }
 
+.tech-blog-content img {
+    max-width: fit-content;
+}
+
 /* Code Blocks */
 .tech-blog-content pre,
 .tech-blog-content code {
