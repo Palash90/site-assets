@@ -39,7 +39,7 @@ jobs:
       - name: Checkout target branch
         run: |
           git fetch origin  # Ensure all branches are available
-          git checkout -b target-branch origin/target-branch || git checkout -b target-branch
+          git checkout -b main origin/main || git checkout -b main
       
       - name: Show files after checking out
         run: |
