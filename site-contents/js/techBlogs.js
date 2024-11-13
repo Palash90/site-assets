@@ -24,10 +24,10 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/blogs/go-tut/README.md"
     },
     {
-        id: "setting-up-a-site",
-        title: "Hosting a website from scratch",
-        publishDate: "Nov 12, 2020",
-        mdUrl: getCommon("cdn") + "/blogs/setting-up-a-site/README.md"
+        id: "setting-up-a-site-1",
+        title: "Hosting a website from scratch Part 1",
+        publishDate: "Nov 14, 2024",
+        mdUrl: getCommon("cdn") + "/blogs/setting-up-a-site/part-1.md"
     }
 ];
 

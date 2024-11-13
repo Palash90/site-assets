@@ -59,7 +59,9 @@ const data = {
             techStack: "Technology: ",
 
             h1Color: getCommon('themeHeaderColor'),
-            pColor: getCommon('themePColor')
+            pColor: getCommon('themePColor'),
+            titleColor: getCommon('projectCardHeaderColor'),
+            bodyColor: getCommon('projectCardBodyColor')
         },
         about: {
             mdUrl: getCommon("cdn") + "/assets/ME.md",

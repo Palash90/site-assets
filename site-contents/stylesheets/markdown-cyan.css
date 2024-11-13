@@ -63,8 +63,8 @@
   
   /* Tables */
   markdown-cyan th, markdown-cyan td {
-    border: 1px solid #00B8D9; /* Base Cyan table borders */
-    color: #00A0B0; /* Very Light Cyan text */
+    border: 1px solid #08afcd; /* Base Cyan table borders */
+    color: #0c8aa0; /* Very Light Cyan text */
   }
   
   markdown-cyan th {
@@ -72,9 +72,9 @@
   }
   
   markdown-cyan tr:nth-child(even) {
-    background-color: #007B8F; /* Darker Cyan for alternate rows */
+    background-color: #024e5a; /* Darker Cyan for alternate rows */
   }
-  
+
   markdown-cyan tr:hover {
     background-color: #007B8F; /* Light Cyan on row hover */
   }

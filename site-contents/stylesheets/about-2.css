@@ -42,6 +42,9 @@
 
 /* Blockquotes */
 .about-2 blockquote {
+    background-color: rgb(30, 25, 45);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border-left: 4px solid #27ae60;
     padding-left: 15px;
     color: #b0b0b0;
