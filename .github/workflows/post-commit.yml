@@ -56,5 +56,5 @@ jobs:
       - name: Commit and push
         run: |
           git commit -m "Run file generation"
-          git push
+          git push --set-upstream origin target-branch
 
