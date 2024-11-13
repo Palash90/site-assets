@@ -21,6 +21,7 @@ var jsFiles = [
 ];
 
 var cssFiles = [
+    "./site-contents/stylesheets/color-pallete.css",
     "./site-contents/stylesheets/app.css",
     "./site-contents/stylesheets/markdown-colors.css",
     "./site-contents/stylesheets/tech-blog.css",

@@ -1,3 +1,15 @@
+:root {
+    --md-body-text: #b6cbd5;
+  
+    --md-light: #49C8DE;
+    --md-ultra-light: #28CDEB;
+    --md-hyper-light: #50bbce;
+  
+    --md-dark: #77a7d4;
+    --md-super-dark: #062e35;
+    
+    --md-complimentary-blockquote: #E85813;
+  }
 .custom-theme {
     --bs-heading-color: #00D9E9 !important;
     --bs-card-title-color: #4f7df9 !important;
@@ -32,18 +44,7 @@
     font-weight: 400;
     font-style: normal;
 }
-:root {
-  --md-body-text: #b6cbd5;
 
-  --md-light: #49C8DE;
-  --md-ultra-light: #28CDEB;
-  --md-hyper-light: #50bbce;
-
-  --md-dark: #77a7d4;
-  --md-super-dark: #062e35;
-  
-  --md-complimentary-blockquote: #E85813;
-}
 
 .markdown-color p {
   color: var(--md-body-text);
