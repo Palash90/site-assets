@@ -106,3 +106,7 @@
    background-color: #007B8F;
    /* Light Cyan on row hover */
  }
+
+ .markdown-cyan td {
+   color: #b6cbd5;
+ }
