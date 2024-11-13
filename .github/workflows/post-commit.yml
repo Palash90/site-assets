@@ -41,7 +41,7 @@ jobs:
           git fetch origin
           git checkout main
           git pull
-          git merge source-code
+          git merge source-code --allow-unrelated-history
       
       - name: Show files after checking out
         run: |
