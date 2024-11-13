@@ -23,6 +23,10 @@ const replaceVariablesInFile = (filePath) => {
             modifiedData = modifiedData.replace(regex, variableMap[key]);
         });
 
+        var filePath = "/target/" + filePath
+        const dir = path.dirname(filePath);
+        fs.mkdirSync(dir, { recursive: true });
+        
         // Write the modified data back to the file
         fs.writeFile(filePath, modifiedData, 'utf8', (err) => {
             if (err) {
