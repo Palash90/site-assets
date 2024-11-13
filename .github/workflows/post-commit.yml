@@ -39,7 +39,7 @@ jobs:
         run: |
           ls
       
-      --name: Add the new files
+      - name: Add the new files
         run: |
           git add --all
           git commit -m "Commit generated files"
