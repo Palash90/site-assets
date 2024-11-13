@@ -56,3 +56,4 @@ jobs:
         run: |         
           git commit -m "Run file generation by github actions bot" --allow-empty
           git push --set-upstream origin main
+
