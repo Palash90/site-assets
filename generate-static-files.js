@@ -23,7 +23,6 @@ var jsFiles = [
 var cssFiles = [
     "./site-contents/stylesheets/app.css",
     "./site-contents/stylesheets/markdown.css",
-    "./site-contents/stylesheets/about.css",
     "./site-contents/stylesheets/tech-blog.css",
     "./site-contents/stylesheets/music-blog-2.css",
     "./site-contents/stylesheets/about-2.css"

@@ -83,11 +83,11 @@ markdown td {
 }
 
 .markdown tr:nth-child(even) {
-  background-color: var(--md-dark-header);
+  background-color: var(--md-super-dark-header);
 }
 
 .markdown tr:hover {
-  background-color: var(--md-light-header);
+  background-color: var(--md-light-background);
   color: var(--md-super-dark-header);
 }
 
