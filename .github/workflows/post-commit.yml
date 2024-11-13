@@ -26,12 +26,6 @@ jobs:
         run: |
           node ./generate-static-files.js  # Adjust the path to your Node.js script
 
-      # Step 5: Run your Bash script
-      - name: Run Bash script
-        run: |
-          chmod +x ./make-file.sh
-          ./make-file.sh  # Adjust the path to your Bash script
-
       # Step 6: Checkout the target branch (or create if it doesn't exist)
       - name: Checkout target branch
         run: |
