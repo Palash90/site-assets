@@ -33,7 +33,7 @@ var sweContents = [
         id:'test-markdown',
         title: 'Test Markdown',
         publishDate: "Nov 01, 2024",
-        mdUrl: "https://raw.githubusercontent.com/9EED/Markdown-guide/refs/heads/main/README.md"
+        mdUrl: getCommon("cdn") + "/blogs/test/test.md"
     }
 ];
 
