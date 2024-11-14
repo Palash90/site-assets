@@ -31,5 +31,13 @@ const projects = [
         type: "react",
         playUrl: getCommon('path_var') + "/component/tic-tac-slide",
         githubUrl: ""
+    },
+    {
+        id: "math-study",
+        name: "Math Quiz",
+        desc: "A simple basic arithmatic operation quiz game for kids.",
+        type: "react",
+        playUrl: getCommon('path_var') + "/component/math-study",
+        githubUrl: ""
     }
 ]
