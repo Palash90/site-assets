@@ -5,6 +5,8 @@
 1. Static hosting
     - Issue with github.com routing protocol
 1. Make the website as dynamic as possible with static hosted js
+1. The mobile display
+    - React Bootstrap was a life saver
 1. Catch eyes with different fonts
     - Font types
 1. Color
