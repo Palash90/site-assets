@@ -41,9 +41,13 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 1. The second row left column, I will have a short list of my technology blogs
 1. The second row right column, I will have a short lisr of my music blogs
 
+
+
 ![Blog Page Draft](${setting-up-a-site-part-1-blog-page} "Blog Page Draft")
 1. The blog page will have a header, some generic text and an introduction
 1. The next section will be a two column display, on the left will reside all the tech blogs and on the right, all the music related contents
+
+
 
 ![Projects Page Draft](${setting-up-a-site-part-1-proj-page} "Project Page Draft")
 1. Like the blog page, project page will also have a header and some intro
@@ -52,11 +56,34 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 1. A Technology icon like Java, Rust, React etc.
 1. In the footer, there will be a link or button which will redirect me to the project's github page
 
+
+
 ![About Page Draft](${setting-up-a-site-part-1-about-page} "About Page Draft")
 1. The about page is what I hosted for quite long in the past, my resume
 1. It will have all my past experience
 1. All the technology stacks, I have worked with
 1. All the relevant professional details etc.
 
+
 This was the first draft of my design. However, as the development process kicked in, I also realized, I can make it more interactive and added few more features, like adding an icon in each project tile to display the project's README.md file or a Game Console Button to play the game on the website itself etc.
 
+## Figuring out the architecture
+Once these details fell into place, the very next thing I had to decide is how to display part by part. Following is how it went.
+1. I was pretty sure, I will be using React.js for this task. So, that was easy.
+1. The next thing, the library that I am going to use to beautify the pages. There are many competitive players in this area - Bootstrap, MDB etc. I chose Bootstrap and React Icons, mostly these two libraries will suffice all my needs for Reusable Components and handy dandy icons.
+
+The next big challenge in the thinking process was to identify how to store and fetch the blogs. For this, I had to do some research. Then I was looking into my old blogs. I realized, I can move all my blogs to Markdown format. It suddenly occurred to me that, almost all the pages can be markdown, except for the static four. Within that too, I recognized that **About** page can also be rewritten in markdown. So, if I can support markdown rendering, I am done almost 90%.
+
+The **Blogs** page will be a plain list of items. **Projects** is also a list except that the rendering will done on box like component.
+
+At this point, the choice was easy. **react-markdown** is a great fit for my use case.
+
+So, now the question remains, how to store the markdowns???
+
+It is easy to go with the thought process and at the end of 2 hours figuring out that, you have essentially made a whole cloud stack inside your head but not done anything useful. On top of that, I was pretty reluctant to setup a database, a server, some backend Java/node/python code etc. So, I cut short my thoughts there. I have a pretty basic use case to take care with and scalability can take a back seat for now.
+
+The next part of the guessing game was to actually figure out now, where to store the static markdown files. The answer was always in front of me, I just could not recognize it in its plain form. It's **Github**, a perfect cloud storage system available for free. All I had to do was to setup github pages for one of my repositories.
+
+I was sure about one more thing as well. I am not going to write a single hard coded text on the React components, anything that goes to display, should come from a json. The more the merrier.
+
+That was pretty much the design of the site. In the next one, I will show you how to actually set up things up.
