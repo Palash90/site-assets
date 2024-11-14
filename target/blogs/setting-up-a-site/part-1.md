@@ -41,6 +41,22 @@ For my case, I had some idea of having 4 pages in my website, that I want to hos
 1. The second row left column, I will have a short list of my technology blogs
 1. The second row right column, I will have a short lisr of my music blogs
 
-![Blog page draft image](home-page "Blog Page Draft")
-1. The blog page will have a header
-1. The topmost 
+![Blog Page Draft](https://palash90.github.io/site-assets/blogs/setting-up-a-site/blog-page.png "Blog Page Draft")
+1. The blog page will have a header, some generic text and an introduction
+1. The next section will be a two column display, on the left will reside all the tech blogs and on the right, all the music related contents
+
+![Projects Page Draft](https://palash90.github.io/site-assets/blogs/setting-up-a-site/proj-page.png "Project Page Draft")
+1. Like the blog page, project page will also have a header and some intro
+1. Then as the main body, I will keep all projects as some kind of block display.
+1. Each project block will have a header, a body which will hold the short description of the project
+1. A Technology icon like Java, Rust, React etc.
+1. In the footer, there will be a link or button which will redirect me to the project's github page
+
+![About Page Draft](https://palash90.github.io/site-assets/blogs/setting-up-a-site/about-page.png "About Page Draft")
+1. The about page is what I hosted for quite long in the past, my resume
+1. It will have all my past experience
+1. All the technology stacks, I have worked with
+1. All the relevant professional details etc.
+
+This was the first draft of my design. However, as the development process kicked in, I also realized, I can make it more interactive and added few more features, like adding an icon in each project tile to display the project's README.md file or a Game Console Button to play the game on the website itself etc.
+

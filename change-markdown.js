@@ -4,7 +4,9 @@ const path = require('path');
 // Map of variables and their replacement values
 const variableMap = {
     'setting-up-a-site-part-1-home-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/home-page.png',
-    'some_other_variable': 'value_for_some_other_variable',
+    'setting-up-a-site-part-1-blog-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/blog-page.png',
+    'setting-up-a-site-part-1-proj-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/proj-page.png',
+    'setting-up-a-site-part-1-about-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/about-page.png'
 };
 
 // Function to replace patterns in a file
