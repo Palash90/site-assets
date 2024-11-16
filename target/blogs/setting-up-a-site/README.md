@@ -23,3 +23,5 @@
     - Then I came up with this solution. I tweaked the markdown rendering component in the app. Then I put all my links to the js file with unique ids, then in the app, I got the key and then applied the value in the rendered component.
 1. Static hosting
     - Issue with github.com routing protocol
+
+1. Using Termux to change files on the go.
