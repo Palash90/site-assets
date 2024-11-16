@@ -35,6 +35,21 @@ While engineering is my career, music is my therapy. Somewhere along the way, I 
   College of Engineering and Management, Kolaghat  
   July 2007 - June 2011
 
+### Awards
+1. GE Technical Excellence - 2020
+
+### Current Location
+Bengaluru, Karnataka, India 
+
+### Home
+Burdwan, West Bengal, India 
+
+### Languages 
+- Bengali - Native
+- English - Bilingual 
+- Hindi   - Casual, can read and write
+
+
 ### Crafting Ideas Outside of Work
 
 With a solid foundation in software engineering, I’ve had the opportunity to:
