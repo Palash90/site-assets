@@ -18,7 +18,9 @@ So, you can think of this instrument as a Low G tuned Tenor Ukulele with two ext
 
 In other words, this is the same tuning you get if you put a capo on the fifth fret of a guitar. However, guitalele has a less bass response than guitar.
 
-
+## Mnemonics 
+To remember the tuning, you can use this mnemonic that I have come up with - "Amazing Dancer Gulped Cute Exotic Apricot".
+ 
 
 
 
