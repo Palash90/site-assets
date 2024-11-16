@@ -9,7 +9,8 @@ var musicContents = [
         id: "guitalele-tuning",
         publishDate: "Sep 19, 2021",
         title: "Guitalele Introduction and Tuning",
-        videoId: "wBUBEBuk2Jo"
+        videoId: "wBUBEBuk2Jo",
+        mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tuning/README.md"
     }
 ]
 
