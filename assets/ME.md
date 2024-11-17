@@ -54,9 +54,12 @@ Burdwan, West Bengal, India
 
 With a solid foundation in software engineering, I’ve had the opportunity to:
 
-- Develop a **machine learning library** in Rust as a personal project.
-- Implement parts of a **distributed system** inspired by the Google File System.
+- Develop a [machine learning library](https://github.com/Palash90/iron_learn) in Rust as a personal project.
+- Implement parts of a [distributed system](https://github.com/Palash90/dist-fs) inspired by the Google File System.
 - Build various **React.js-based games**, blending my love for logic and creativity.
+  - A fun [HDL Emulator](https://emulator.palashkantikundu.in/) to create simple digital components from basic gates
+  - An [Arithmatic Quiz](https://palashkantikundu.in/#/component/math-study) for my kids
+  - A time pass [Tic Tac Toe](https://palashkantikundu.in/#/component/tic-tac-slide) innovation, for added fun on classic tic-tac-toe
 
 I take pride in contributing to the community by sharing my knowledge through blogs and engaging with fellow engineers. **System design** and **distributed systems** are my areas of interest, and I enjoy dissecting complex problems to arrive at effective solutions.
 
