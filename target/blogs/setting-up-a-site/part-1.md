@@ -74,6 +74,7 @@ This was the first draft of my design. However, as the development process kicke
 Once these details fell into place, the very next thing I had to decide was how to build the system part by part. Following is how it went.
 1. I was pretty sure, I will be using React.js for this task. So, that was easy.
 1. The next thing, the library that I am going to use to beautify the pages. There are many competitive players in this area - Bootstrap, MDB etc. I chose Bootstrap and React Icons; mostly these two libraries will suffice all my needs for Reusable Components and handy dandy icons.
+1. For each of the paths, I would also need router. So, react-router would be my next choice for library.
 
 The next big challenge in the thinking process was to identify how to store and fetch the blogs. For this, I had to do some research.
 
