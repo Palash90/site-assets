@@ -28,12 +28,6 @@ var sweContents = [
         title: "Hosting a website from scratch Part 1",
         publishDate: "Nov 14, 2024",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-1.md"
-    },
-    {
-        id:'test-markdown',
-        title: 'Test Markdown',
-        publishDate: "Nov 01, 2024",
-        mdUrl: getCommon("cdn") + "/target/blogs/test/test.md"
     }
 ];
 
