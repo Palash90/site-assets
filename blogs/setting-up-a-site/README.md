@@ -29,3 +29,4 @@
 1. Using Google analytics
     - Use of ReactGA.pageview
     - Fixing it with ReactGA.send
+1. Just like that, mobile edit
