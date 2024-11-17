@@ -30,3 +30,5 @@
     - Use of ReactGA.pageview
     - Fixing it with ReactGA.send
 1. check
+1. Just like that, mobile edit
+
