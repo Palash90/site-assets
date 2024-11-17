@@ -25,3 +25,6 @@
     - Issue with github.com routing protocol
 
 1. Using Termux to change files on the go.
+1. Using Google analytics
+    - Use of ReactGA.pageview
+    - Fixing it with ReactGA.send
