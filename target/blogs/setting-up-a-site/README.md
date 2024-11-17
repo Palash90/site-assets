@@ -26,6 +26,9 @@
 
 1. Using Termux to change files on the go.
 1. The power of acode and its acodex terminal
+  - After trying for an hour, I liked the IDE and purchased it. But if you don't want, you don't have to purchase. 
+  - With termux in the back, acode and acode terminal just gives thw feel of VS Code like code editing and running. One less barrier. I can write when idea strikes. I still think, python coding would be difficult on small screen. But, the idea was not to write python or any code on mobile.
 1. Using Google analytics
     - Use of ReactGA.pageview
     - Fixing it with ReactGA.send
+
