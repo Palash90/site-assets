@@ -28,3 +28,4 @@
 1. Using Google analytics
     - Use of ReactGA.pageview
     - Fixing it with ReactGA.send
+1. And just like that, this line is now written from mobile
