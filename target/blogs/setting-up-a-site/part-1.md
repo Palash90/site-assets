@@ -4,7 +4,7 @@ This will be a multi-part series on how to host a website on internet from scrat
 ## Motivation
 I have my domain acquired almost a decade now. This is the third time, I am deploying a website on my domain. The last time what I deployed on my domain, was just my Resume. Over the years, I have used some subdomains to showcase some of my past projects. However, they were scattered over places.
 
-This was bugging me for quite a long time. As I was not utilizing the space to its full potential. So, I thought of changing the status quo.
+This was bugging me for quite a long time, as I was not utilizing the space to its full potential. So, I thought of changing the status quo.
 
 ## The requirements
 This is the very first step on starting a new project. You have to understand what you want to build. So, I jotted down the things I expect my website to have. To do this, I hopped around various personal sites and tried to find how others have come up with their websites.
