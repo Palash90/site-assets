@@ -48,8 +48,6 @@ The solution I used, was to host a javascript file with all the relevant blog de
   - `videoId` is for those blogs where I need a video to be also published with it. Mostly used in guitalele tutorials.
   - `publishDate` is to display the date of publish on the blog page. 
       
-      I have also used this field to make draft versions of my blog. If I want the web app to host my blog but not show in the detailed list, I will leave this as blank. Essentially making it publicly invisible but visible to me as a draft version.
-
 Once all these were figured out, the rest was easy to implement. I just have to fetch the content of `mdUrl` on the blog page and wrap it up in `react-markdown` component for blogs or for youtube videos, simply use the page embed or for contents which has both the elements, a react layout container containing both.
 
 ## Projects Page
