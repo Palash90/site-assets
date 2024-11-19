@@ -1,87 +1,94 @@
-# Hosting a website online from scratch - Low Level Design and Implementation
-Once I was done gathering the requirements, followed by designing the web app and choosing libraries, it was time for me to dive deeper into the build process.
+# Hosting a Website Online from Scratch: Low-Level Design and Implementation
 
-The first thing that hit me was the way to handle different pages. I wanted all the pages to have a distinct url, so that it can be bookmarked. The very first thing that I came up with is the routes that I will have in my website. I started with 4 urls initially for each of the pages in the design phase. Then, for each of the pages, I started thinking, if I can make any sub-page for it.
+Once I was done gathering the requirements, designing the web app, and choosing the libraries, it was time to dive deeper into the build process.
 
-Then I divided each page into sub-pages and sections.
+The first thing I focused on was how to handle different pages. I wanted all pages to have distinct URLs so they could be bookmarked. I started by defining the routes I would need for my website. Initially, I created four URLs, one for each page planned during the design phase. Then, for each page, I considered whether it could have sub-pages.
+
+I divided each page into sub-pages and sections for better organization.
 
 ## Navigation Links
-When the webapp is hosting multiple pages, a user needs a way to move back and forth between the pages. For this purpose, I put all my main links, namely `home`, `blogs`, `projects` and `about` in a navigation header component. When I was doing that, I thought of also putting in a footer with a copyright icon. Simple navigation header and footer implemented.
 
-To now navigate between these links, I used `react-router` which displays different page based on user clicked link.
+When a web app hosts multiple pages, users need a way to navigate between them. To address this, I placed all the main links— `Home`, `Blogs`, `Projects`, and `About` in a navigation header component. While doing this, I also decided to add a footer with a copyright icon and my name. A simple navigation header and footer were implemented.
+
+To enable navigation between these links, I used `react-router`, which displays different pages based on the link clicked by the user.
 
 ## Home Page
-Home page did not have much change. It was already designed to have 4 different sections, which would be easy to implement by using the `react-bootstrap` layout. Neither of the sections needed its own page, except for the blog links. Which I anyways have to deal in the next page, so I deferred it till that point. Hence, only one url would suffice for the home page - `/`. I quickly got a picture of mine, some text and some arbitary placeholder for the blog links. Voila, the home page of my website was born.
+
+The `Home` page didn't require much change. It was already designed to have four different sections, which were easy to implement using the `react-bootstrap` layout. None of the sections required their own page, except for the blog links, which I planned to handle on the `Blogs` page. As a result, a single URL sufficed for the Home page: `/`. I quickly added a picture of myself, some text, and placeholder content for the blog links. Voilà! The Home page of my website was born.
 
 ## Blogs Page
-The second page was the `blogs` page, arguably the most difficult to implement. Initially, I made the design to have two sections side by side having a list of blog links. But then it hit me, I have two types of blogs to be delivered. May be a music blog reader would not be much interested in the tech blog and vice versa. Also, if I take two different routes, for music and tech blogs, I can host them seaparately on two sub-domains. Hence, I made the decision of separating the blogs page in two - `Tech Blogs` and `Music Blogs`.
 
-My work was not over on this page. I had to find a way to publish each blog on its own url.
+The Blogs page was the second page I tackled and, arguably, the most complex to implement. Initially, I designed it to display two sections side by side, each containing a list of blog links. However, I realized that I had two distinct types of blogs: music and tech. A music blog reader might not be interested in tech blogs and vice versa. Moreover, creating separate routes for music and tech blogs allowed me to host them on separate subdomains. Thus, I decided to split the `Blogs` page into two: `Tech Blogs` and `Music Blogs`.
 
-Keeping all these points in mind, I created  several routes for the content page -
-1. The main content pages
-   - `/contents/music`
-   - `/contents/tech`
-1.  The individual blog pages like `/content/vi-essentials`, `/content/vi-essentials` etc. 
+But the work didn’t end there. I also needed a way to publish each blog on its own URL.
+
+Considering these points, I created several routes for the content pages:
+
+1. Main Content Pages
+   - /contents/music
+   - /contents/tech
+1. Individual Blog Pages. For example, /content/vi-essentials or /content/aws-grafana.
 
 
-The main `blogs` page design was fairly simple, a simple header, some introduction and a list of elements. Easily achievable by some form of `header`, `paragraph` and `list` component
+The design of the main Blogs page was straightforward: a header, some introductory text, and a list of blog links. This was easily achieved using `header`, `paragraph`, and `list` components.
 
-The next big task was to actually think of how to store and display the blog pages. For display, I already figured out to use `markdown` as my choice. The question remains how to store the files so that, I can easily create, update or edit contents and subsequently update the lists of blogs and the updated blog itself without me touching the main code base.
+The next big task was figuring out how to store and display the blog pages. I had already decided to use `Markdown` for the blog content. The question was how to store the files so that I could easily create, update, or edit content and automatically update the list of blogs without touching the main codebase.
 
-The solution I used, was to host a javascript file with all the relevant blog details. I came up with the following structure for the same.
+The solution I implemented was to host a JavaScript file containing all the relevant blog details. Here’s the structure I used:
 
-  ```json
-  {
-          id: "grafana-on-aws",
-          title: "Configure Grafana on AWS",
-          contentType: 'tech',
-          videoId: "",
-          mdUrl: "/target//blogs/aws-grafana/README.md",
-          publishDate: "Jun 11, 2024"
-  }
-  ```
-  - `id` will give the url an unique id to host the page using content id url parameter
-  - `title` will give the short one liner description of the blog
-  - `contentType` field hints if it should display this in `music` or `tech` blog
-  - `mdUrl` is the actual url of the hosted markdown file, we can load content of this file in `useEffect` hook
-  - `videoId` is for those blogs where I need a video to be also published with it. Mostly used in guitalele tutorials.
-  - `publishDate` is to display the date of publish on the blog page. 
-      
-Once all these were figured out, the rest was easy to implement. I just have to fetch the content of `mdUrl` on the blog page and wrap it up in `react-markdown` component for blogs or for youtube videos, simply use the page embed or for contents which has both the elements, a react layout container containing both.
-
-## Projects Page
- Once the blog page was implemented, I moved to figure out how to build the `Projects` page. This page was comparatively easy to implement. I already figured out, I will be using `Card` elements from `react-bootstrap` and will use `react-icons` to show the technology specific elements, the dynamic data source problem was already solved during the design and implementation of the `blogs` page. All I had to do during the implementation of this page was to reuse already implemented components for this page specific layout. That's it. I came up with the following json structure for this page and put elements in the page according to the design.
 ```json
 {
-        id: "hdl-emulator",
-        name: "HDL Emulator",
-        desc: "An online Web Based HDL Emulator for Teaching Purpose",
-        type: "javascript",
-        playUrl: "https://emulator.palashkantikundu.in/",
-        githubUrl: "https://github.com/Palash90/emulator",
-        mdUrl: getCommon('raw_content_cdn') + "/emulator/refs/heads/main/README.md"
+  id: "grafana-on-aws",
+  title: "Configure Grafana on AWS",
+  contentType: "tech",
+  videoId: "",
+  mdUrl: "/target/blogs/aws-grafana/README.md",
+  publishDate: "Jun 11, 2024"
 }
 ```
-  - `id`: A unique id
-  - `name`: Name of the Project
-  - `desc`: A short one liner description on what the project does.
-  - `type`: Technology used to build the project, used as an icon on the project card.
-  - `playUrl`: If the project is hosted somewhere, direct the user to the page
-  - `githubUrl`: Project repository url
-  - `mdUrl`: Not used initially but then idea struck to use it.
+  - `id`: A unique identifier for the blog, used to generate the URL.
+  - `title`: A short description of the blog.
+  - `contentType`: Indicates whether the blog belongs to the music or tech category.
+  - `mdUrl`: The URL of the hosted Markdown file. This file’s content is loaded using the useEffect hook.
+  - `videoId`: For blogs that include an accompanying video (e.g., guitar tutorials).
+  - `publishDate`: The blog’s publication date.
 
-Once it was built, I thought of enhancing the web page. The first modification I made is to use the `mdUrl` field. I already have a blog rendering component which is nothing but a `markdown` viewer, I can definitely use that component here as well. I used it with a `bootstrap modal` and an info icon to show the project's `README.md`.
+Once this structure was in place, the rest was straightforward. I fetched the content of `mdUrl` on the blog page and displayed it using the `react-markdown` component. For blogs with videos, I embedded the video. For blogs with both Markdown and videos, I used a `react-bootstrap` layout container to display both elements.
 
-The second modification was to actually take the existing react based web apps from other projects like `tic-tac-slide` and merge with the personal website project and directly render in the same web app. For projects like this, I used a game controller icon to hint the user to play the game.
+## Projects Page
 
-If you are still here, it is good time to take a look at the `Projects` page [here](/#/projects) to get a visual feel of the implementations.
+After completing the Blogs page, I moved on to the `Projects` page, which was relatively easier to implement. I decided to use `Card` elements from `react-bootstrap` and `react-icons` to display technology-specific icons. The dynamic data source problem had already been solved during the `Blogs` page implementation, so I reused the same approach. Here’s the JSON structure I used for the `Projects` page:
+
+```json
+{
+  id: "hdl-emulator",
+  name: "HDL Emulator",
+  desc: "An online web-based HDL Emulator for teaching purposes.",
+  type: "javascript",
+  playUrl: "https://emulator.palashkantikundu.in/",
+  githubUrl: "https://github.com/Palash90/emulator",
+  mdUrl: getCommon('raw_content_cdn') + "/emulator/refs/heads/main/README.md"
+}
+```
+
+  - `id`: A unique identifier for the project.
+  - `name`: The project’s name.
+  - `desc`: A brief description of the project.
+  - `type`: The technology used, displayed as an icon on the project card.
+  - `playUrl`: A link to the live project, if hosted.
+  - `githubUrl`: The project’s GitHub repository.
+  - `mdUrl`: A URL to the README file for additional details.
+
+To enhance the page, I reused the Markdown viewer from the Blogs page to display the project’s `README` file in a modal when an info icon is clicked. Additionally, I integrated React-based web apps from other projects, `like tic-tac-slide`, directly into the website. For such projects, I used a game controller icon to hint that the project is playable.
+
+If you are still here, it is good time to take a look at the Projects page [here](/#/projects) to get a visual feel of the implementations.
 
 ## About Page
-When I reached this point, it was clear that, I don't need any special page for this, I can simply resuse the `Blog Page` and host a blog with all my details and wrap that blog in the `about` page. That's it.
 
-The web app is ready, all pages are ready, all navigation links are functional. I wrote a page with all my details, took some of my old blogs and packaged it in `markdown` format, took a few youtube videos and embedded them in the `data.js` file and wore the QA hat.
+By this point, it was clear that the `About` page didn’t need to be a separate design. I reused the Blog Page component to host a blog containing all my details and wrapped it within the About page.
 
-I felt something important missing from it. Took to others and it was easily pointed out - social media and contact details are missing from the website. I took few `react-icons` and packaged them in a component side by side and placed it in both the `home` page and in the `about` page.
+The web app is ready, all pages are ready, all navigation links are functional. I wrote a page with all my details, took some of my old blogs and packaged it in markdown format, took a few youtube videos and embedded them in the `data.js` file and wore the QA hat.
+
+I felt something important missing from it. Took to others and it was easily pointed out - social media and contact details are missing from the website. I took few `react-icons` and packaged them in a component side by side and placed it in both the home page and in the about page.
 
 Finally, the webapp is ready to roll. You can find the source code of this website here - [Source Code](https://github.com/Palash90/site)

@@ -1,4 +1,4 @@
-# Hosting a website online from scratch - The Design Phase
+# Hosting a website online from scratch: The Design Phase
 This will be a multi-part series on how to host a website on internet from scratch. This will be a developer focused series and if you are a developer and want to host your website, keep on reading. You may get some idea of the process.
 
 ## Motivation
