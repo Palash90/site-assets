@@ -28,6 +28,12 @@ var sweContents = [
         title: "Hosting a website from scratch - The Design",
         publishDate: "Nov 14, 2024",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-1.md"
+    },
+     {
+        id: "setting-up-a-site-2",
+        title: "Hosting a website from scratch - Low Level Design and Implementation",
+        publishDate: "Nov 20, 2024",
+        mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-2.md"
     }
 ];
 

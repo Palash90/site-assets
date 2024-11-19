@@ -92,5 +92,3 @@ The web app is ready, all pages are ready, all navigation links are functional. 
 I felt something important missing from it. Took to others and it was easily pointed out - social media and contact details are missing from the website. I took few `react-icons` and packaged them in a component side by side and placed it in both the home page and in the about page.
 
 Finally, the webapp is ready to roll. You can find the source code of this website here - [Source Code](https://github.com/Palash90/site)
-
-
