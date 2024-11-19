@@ -52,11 +52,13 @@ const processDirectory = (dirPath) => {
             const fullPath = path.join(dirPath, file.name);
 
             if (file.isDirectory()) {
+              console.log("Process Directory", file)
                 // Recursively process directories
                 processDirectory(fullPath);
             } else {
                 // Process file
                 if (path.extname(file.name) === ".md") {
+                  console.log("Changing", fullPath)
                     replaceVariablesInFile(fullPath);
                 }
             }
