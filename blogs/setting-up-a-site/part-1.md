@@ -1,4 +1,4 @@
-# Hosting a website online from scratch - Part 1
+# Hosting a website online from scratch - The Design Phase
 This will be a multi-part series on how to host a website on internet from scratch. This will be a developer focused series and if you are a developer and want to host your website, keep on reading. You may get some idea of the process.
 
 ## Motivation
@@ -90,7 +90,7 @@ It is easy to go with the thought process and at the end of 2 hours you may end 
 
 Storing raw markdown files somewhere easily accessible was the topmost choice for me.
 
-With that figured out, the next part of the guessing game was to actually figure out, where to store the static markdown files. The answer was always in front of me, I just could not recognize it in its plain form. It's **Github**, a perfect cloud storage system available for free and almost zero hassle getting data out of it. All I had to do was to setup github pages for one of my repositories.
+With that figured out, the next part of the guessing game was to actually figure out, where to store the static markdown files. The answer was always in front of me, I just could not recognize it in its plain form. It's **Github**, a perfect cloud storage system available for free and almost zero hassle getting data out of it. All I had to do was to setup github pages for one of my repositories. You can view [this page](/#/content/static-file-hosting) on details of how this works.
 
 I was sure about one more thing as well. I am not going to write a single hard coded text on the React components, anything that goes to display, should come from a json. The more, the merrier.
 
