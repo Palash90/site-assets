@@ -1,4 +1,5 @@
 const contents = {
     swe: sweContents,
-    music: musicContents
+    music: musicContents,
+    drafts: drafts
 }

@@ -13,6 +13,7 @@ var jsFiles = [
     "./site-contents/js/contentArrayManipulator.js",
     "./site-contents/js/techBlogs.js",
     "./site-contents/js/musicBlogs.js",
+    "./site-contents/js/drafts.js",
     "./site-contents/js/contents.js",
     "./site-contents/js/projects.js",
     "./site-contents/js/data.js",
