@@ -41,5 +41,8 @@ Follow this process for general blog writing process.
 ## Publishing the draft
 1. Once you are done with your edits and ready to serve the page to the world, simply remove the entry from `drafts.js` an move it to either `techBlogs.js` or `musicBlogs.js` as per the content type.
 
+## Changing the color scheme
+You can change manythings through css but I won't recommend again changing every aspect of the website. Remember, your major requirement is not to make a beautified web app, your main requirement is to publish blogs. However, I have simplified the process of changing the color scheme for the website. You should be able to change the base colors in `site-contents/css/color-pallete.css`.
+
 ## Important Note
 If there is any change in the process, please update here too. Also, this file should not be published. It should be in draft version always.
