@@ -37,3 +37,9 @@ Follow this process for general blog writing process.
     1. For example, I have added the following image with this variable `${`static-file-hosting-github-pages`}` The image tag is this - `![Github Pages enabled](${`static-file-hosting-github-pages`} "Enable github pages")`
     ![Github Pages enabled](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable github pages")
     1. Similarly you can add any files using variable mapping
+
+## Publishing the draft
+1. Once you are done with your edits and ready to serve the page to the world, simply remove the entry from `drafts.js` an move it to either `techBlogs.js` or `musicBlogs.js` as per the content type.
+
+## Important Note
+If there is any change in the process, please update here too. Also, this file should not be published. It should be in draft version always.
