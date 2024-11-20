@@ -20,4 +20,5 @@ else
   echo "Markdown variable extrapolation failed"
 fi
 
+
 git add --all
