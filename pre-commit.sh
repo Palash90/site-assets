@@ -1,7 +1,6 @@
 #!/bin/sh
-node generate-static-files.js
-if [ $? -eq 0 ]; then
-  echo "Node.js script executed successfully"
+if node generate-static-files.js; then
+  echo "Static file generated successfully"
 else
   echo "Static file generation failed"
   exit 1
