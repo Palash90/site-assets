@@ -15,8 +15,6 @@ const mergedCode = files
     .map(path => fs.readFileSync(path, 'utf-8'))
     .join('\n');
 
-console.log(mergedCode)
-
 try {
     vm.runInNewContext(mergedCode, sandbox);
 } catch (error) {
