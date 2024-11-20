@@ -20,7 +20,7 @@ Recently, I thought of revamping my whole website. The domain just hosts my educ
 - You need to create a dedicated repository to host your files
 - You need to enable github pages to do that
 
-![Enable Github Pages](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable Github Pages")
+![Enable Github Pages](${static-file-hosting-github-pages} "Enable Github Pages")
 - Upload your files on the repository
 - Access it by following the directory structure
 ![Access JS Files](https://palash90.github.io/site-assets/blogs/static-file-hosting/js-hosting.png "Scripts")
