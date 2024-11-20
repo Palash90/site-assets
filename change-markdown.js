@@ -58,7 +58,7 @@ const processDirectory = (dirPath) => {
             } else {
                 // Process file
                 if (path.extname(file.name) === ".md") {
-                  console.log("Changing", fullPath)
+                  console.log("\tChanging", fullPath)
                     replaceVariablesInFile(fullPath);
                 }
             }
