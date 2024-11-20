@@ -12,3 +12,4 @@ console.log("Writing consolidated code to file")
 fs.writeFileSync("script.js", code)
 
 process.exit(1)
+
