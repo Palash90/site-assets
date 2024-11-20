@@ -19,6 +19,6 @@ try {
     vm.runInNewContext(mergedCode, sandbox);
 } catch (error) {
     console.error('Error executing merged code:', error);
+    process.exit(1)
 }
 
-console.log("Done");
