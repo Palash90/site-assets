@@ -11,3 +11,5 @@ code += findPropsStr + "\n"
 console.log("Writing consolidated code to file")
 fs.writeFileSync("script.js", code)
 
+throw Error("Arbitery test")
+
