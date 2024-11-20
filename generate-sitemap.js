@@ -15,10 +15,12 @@ const mergedCode = files
     .map(path => fs.readFileSync(path, 'utf-8'))
     .join('\n');
 
+console.log(mergedCode)
+
 try {
     vm.runInNewContext(mergedCode, sandbox);
 } catch (error) {
     console.error('Error executing merged code:', error);
-    process.exit(1)
+    process.exitCode=1
 }
 
