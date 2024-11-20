@@ -6,17 +6,17 @@ else
   exit 1
 fi
 
-node generate-sitemap.js
-if [ $? -eq 0 ]; then
-  echo "Node.js script executed successfully"
+
+if node generate-sitemap.js; then
+  echo "Sitemap generated successfully"
 else
   echo "Sitemap generation failed"
   exit 1
 fi
 
-node change-markdown.js
-if [ $? -eq 0 ]; then
-  echo "Node.js script executed successfully"
+
+if node change-markdown.js; then
+  echo "Markdown variable extrapolated successfully"
 else
   echo "Markdown variable extrapolation failed"
   exit 1
