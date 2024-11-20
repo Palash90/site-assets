@@ -25,3 +25,7 @@ Follow this process for general blog writing process.
 1.  This will enable you to see the draft version on the website, which will be in this location of the site- `/#/content/:contentId`
 1.  If you are on PC, usually the `pre-commit` hook works. However, if you are on mobile devices like mobile or tab and using `Acode` and `Acode Terminal`, you should run `sh pre-commit.sh` from the root directory of this repository.
 1. Once these steps are done, simply commit the changes and push to the repository. Then wait for the deployment to complete and check on the site. The blog should be available to you only. There will be no link on the main pages of the site.
+
+## Adding images or other links
+1. If you want to host images or any other file links on your markdown, there is a process to do that too.
+1. If it is an internal link, simply use the relative path, like this one, if I want to link to static file hosting page, a simple way to add this relative link is this - [Static File Hosting](/#/content/static-file-hosting)
