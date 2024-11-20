@@ -69,7 +69,7 @@ Some unique features of `Go` are -
 1. A built-in formatting tool to avoid the Formatting Problems in a multi developer system.
 
 ## Basics
-Exercise File: [1.go](https://palash90.github.io/site-assets/blogs/go-tut/ex/1.go)
+Exercise File: [1.go](${go-tut-1-go})
 
 1. Similar Commenting Styles from C, C++, Java
 1. Semi-colon are not mandatory.
