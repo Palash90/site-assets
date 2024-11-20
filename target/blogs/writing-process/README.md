@@ -34,5 +34,5 @@ Follow this process for general blog writing process.
     1. Then add a new key-value pair in the `variableMap` of `site-contents/change-markdown.js`
     1. Then use the `key` in the image tag of the `markdown`
     1. During processing of the repo before commit, the `markdown` files will be changed to actual url of the image.
-    1. For example, I have added the following image with this variable `https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png` The image tag is this - `![Github Pages enabled](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable github pages")`
+    1. For example, I have added the following image with this variable `${`static-file-hosting-github-pages`}` The image tag is this - `![Github Pages enabled](${`static-file-hosting-github-pages`} "Enable github pages")`
     ![Github Pages enabled](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable github pages")
