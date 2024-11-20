@@ -36,3 +36,4 @@ Follow this process for general blog writing process.
     1. During processing of the repo before commit, the `markdown` files will be changed to actual url of the image.
     1. For example, I have added the following image with this variable `${`static-file-hosting-github-pages`}` The image tag is this - `![Github Pages enabled](${`static-file-hosting-github-pages`} "Enable github pages")`
     ![Github Pages enabled](${static-file-hosting-github-pages} "Enable github pages")
+    1. Similarly you can add any files using variable mapping
