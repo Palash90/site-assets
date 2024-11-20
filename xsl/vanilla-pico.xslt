@@ -21,7 +21,6 @@
             </head>
             <body>
                 <main class="container">
-                <h1><a href="palashkantikundu.in">Palash Kanti Kundu</a><h1>
                 <h1>Pages on <xsl:value-of select="$hostname"/></h1>
                 <ul>
                     <xsl:for-each select="sitemap:urlset/sitemap:url">
