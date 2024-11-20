@@ -19,13 +19,11 @@ Recently, I thought of revamping my whole website. The domain just hosts my educ
 - First you need to have a github account
 - You need to create a dedicated repository to host your files
 - You need to enable github pages to do that
-
-![Enable Github Pages](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable Github Pages")
+  ![Enable Github Pages](https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png "Enable Github Pages")
 - Upload your files on the repository
 - Access it by following the directory structure
-![Access JS Files](https://palash90.github.io/site-assets/blogs/static-file-hosting/js-hosting.png "Scripts")
-
-![Access Images](https://palash90.github.io/site-assets/blogs/static-file-hosting/image-hosting.png "Images")
+  ![Access JS Files](https://palash90.github.io/site-assets/blogs/static-file-hosting/js-hosting.png "Scripts")
+  ![Access Images](https://palash90.github.io/site-assets/blogs/static-file-hosting/image-hosting.png "Images")
 - Now use these resources in your Markdown files
 - Use some kind of Markdown renderer, like the one you are reading this on
 - Voila, you have your blog website ready
