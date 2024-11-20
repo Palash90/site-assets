@@ -52,7 +52,7 @@ const processDirectory = (dirPath) => {
             const fullPath = path.join(dirPath, file.name);
 
             if (file.isDirectory()) {
-              console.log("Process Directory", file)
+              console.log("Process Directory", file.name)
                 // Recursively process directories
                 processDirectory(fullPath);
             } else {
