@@ -7,10 +7,10 @@ var drafts = [
         contentType:"swe"
     },
     {
-        id: "writing-process",
-        title: "How to write a new blog",
-        mdUrl: getCommon("cdn") + "/target/blogs/writing-process/README.md",
-        publishDate: "Nov 20, 2021",
+        id: "distributed-systems",
+        title: "Internet is Ubiquitos",
+        mdUrl: getCommon("cdn") + "/target/blogs/disteibuted-systems/01.md",
+        publishDate: "",
         contentType:"swe"
     }
 ];
