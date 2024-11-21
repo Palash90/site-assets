@@ -9,7 +9,7 @@ var drafts = [
     {
         id: "distributed-systems",
         title: "Internet is Ubiquitos",
-        mdUrl: getCommon("cdn") + "/target/blogs/disteibuted-systems/01.md",
+        mdUrl: getCommon("cdn") + "/target/blogs/distributed-systems/01.md",
         publishDate: "",
         contentType:"swe"
     }
