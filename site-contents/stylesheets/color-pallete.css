@@ -1,12 +1,14 @@
 :root {
-    --md-body-text: #c9eded;
+    --md-body-text: #94a1b2; /* Neutral muted grey for text readability */
 
-    --md-light: #00d4d4;
-    --md-ultra-light: #2affff;
-    --md-hyper-light: #80ffff;
+    --md-primary: #005f73; /* Deep Blue for primary elements */
+    --md-secondary: #ee9b00; /* Soft Peach for accents and highlights */
 
-    --md-dark: #007f80;
-    --md-ultra-dark: #015656;
+    --md-light: #0a9396; /* Lighter version of the primary */
+    --md-ultra-light: #94d2bd; /* Even lighter for subtle backgrounds */
 
-    --md-complimentary-blockquote: #ff2b2b;
+    --md-dark: #003845; /* Darker version of the primary */
+    --md-ultra-dark: #002329; /* Ultra-dark for depth */
+
+    --md-complimentary-blockquote: #ee9b00; /* Same as secondary */
 }
