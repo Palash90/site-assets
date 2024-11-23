@@ -12,5 +12,12 @@ var drafts = [
         mdUrl: getCommon("cdn") + "/target/blogs/distributed-systems/01.md",
         publishDate: "",
         contentType:"swe"
+    },
+    {
+        id: "writing-process",
+        title: "Add a new element in website",
+        mdUrl: getCommon("cdn") + "/target/blogs/writing-process/README.md",
+        publishDate: "",
+        contentType:"swe"
     }
 ];
