@@ -1,4 +1,4 @@
-# Hosting a website on cloud: The database
+# Hosting a website on the cloud: The database
 
 **I don't have a backend to handle data manipulation for my site. Then how do I publish a new blog or edit an existing one?**
 
