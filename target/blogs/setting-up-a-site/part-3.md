@@ -2,4 +2,6 @@
 
 In our [last post](/#/content/setting-up-a-site-2), we have seen how we can start developing a web app. We have succesfully built all the pages, setup router information and came up with a way to display markdown and youtube videos. That makes our website complete. However, if you review the process, you can see that, if we need to change anything on the website, we cannot do that without redeploying our webapp, In a nutshell, the webapp is not dynamic.
 
-In this post, we will go over the path I took to make the static webapp to dynamic one using some tips and tricks. I was clear that, I am going to use Github Pages for this one too. So, I started with creating a new repo which will hold the static resources. Separate from the main website repo.
+In this post, will go over the path I took to make the static webapp to dynamic one using some tips and tricks. I was clear that, I am going to use Github Pages for this one too. So, I started with creating a new repo which will hold the static resources. Separate from the main website repo.
+
+I separated `script.js` and `styles.css` from the react app and hosted these two files on github pages, through a different repository. I enabled hosting from `main` branch of the repository. If you want to read that in 

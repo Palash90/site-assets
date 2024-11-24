@@ -1,4 +1,4 @@
-# Hosting a Website Online from Scratch: Low-Level Design and Implementation
+# Hosting a website on cloud: Low-Level Design and Implementation
 
 Once I was done gathering the requirements, designing the web app, and choosing the libraries, it was time to dive deeper into the build process.
 
