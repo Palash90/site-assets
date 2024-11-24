@@ -1,16 +1,14 @@
 :root {
-    --md-body-text: #94a1b2; /* Neutral muted grey for text readability */
+    --md-body-text: #e7f5f78f;
 
-    --md-primary: #005f73; /* Deep Blue for primary elements */
-    --md-secondary: #ee9b00; /* Soft Peach for accents and highlights */
+    --md-light: #2181e1; 
+    --md-ultra-light: #58aae4; 
+    --md-hyper-light: #a3d9eb;
 
-    --md-light: #0a9396; /* Lighter version of the primary */
-    --md-ultra-light: #94d2bd; /* Even lighter for subtle backgrounds */
+    --md-dark: #1e4b76; 
+    --md-ultra-dark: #0c1d2e;
 
-    --md-dark: #003845; /* Darker version of the primary */
-    --md-ultra-dark: #002329; /* Ultra-dark for depth */
-
-    --md-complimentary-blockquote: #ee9b00; /* Same as secondary */
+    --md-complimentary-blockquote: #eaa82c; 
 }
 .custom-theme {
     --bs-heading-color: var(--md-light) !important;
