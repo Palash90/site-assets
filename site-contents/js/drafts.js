@@ -25,6 +25,7 @@ var drafts = [
         id: "setting-up-a-site-3",
         title: "",
         publishDate: "Nov 20, 2024",
-        mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-3.md"
+        mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-3.md",
+        contentType:"swe"
     }
 ];
