@@ -1,6 +1,6 @@
 # Hosting a website on cloud: The database
 
-I don't have a backend to handle data manipulation in my site. So, how do I  publish new blogs???
+**I don't have a backend to handle data manipulation for my site. So, how do I  publish new blogs???**
 
 In our [last post](/#/content/setting-up-a-site-2), we have seen how we can develop a web app. We have succesfully built all the pages, setup router information and came up with a way to display markdown and youtube videos. That makes the front end complete. However, if you review the process, you can see that, if we need to change anything on the website(like publishing or editing a blog post), we cannot do that without redeploying our webapp, In a nutshell, the webapp is not dynamic.
 
