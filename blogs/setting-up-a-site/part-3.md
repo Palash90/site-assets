@@ -13,7 +13,7 @@ I separated `script.js` and `styles.css` from the react app and hosted these two
 At this point, I was able to change my website pages by simply making changes on the second repo, without the need of redeploying. This enabled clear separation of tasks. Front end is only responsible for rendering the web page. The second repo, mimics the backend as it handles the data layer.
 
 ## Handling the Maintenance Mess
-Maintaining all data in a huge js file quickly became a nightmare. Finding out places to change 1 line data in a 3000 line javascript file became a pain. I started wandering if somehow I can break this huge file into manageable sections. And write another script to merge all these pieces into one javascript file. This is exactly how things are done. Take a look at the following files.
+Maintaining all data in a huge js file quickly became a nightmare. Finding out places to change 1 line data in a 3000 line javascript file became a pain. I started wandering if somehow I can break this huge file into manageable sections and write another script to merge all these pieces into one javascript file. This is exactly how things are done. Take a look at the following files.
 ```
 $tree
 |_ techBlogs.js
@@ -32,7 +32,7 @@ Once I am done with editing or writing, I run one script before committing my ch
         contentType:"swe"
     }
 ```
-My `script` now works a `key-value` database.
+The `script` now works as a `key-value` database.
 
 I attached a recursive map traverse function along with the consolidated data which on the front end, I can use for selecting the key I want.
 
@@ -57,3 +57,5 @@ Once I achieved this, I found I missed running the script. Then I figured out, t
 ## The simplified process for publishing
 Now all I need to do is to write a blog in familiar, easy to write and version controlled `markdown` format, add the entry to a javascript file and commit. A short phase of waiting and I see my blog live on my site. In fact, this blog you are reading right now, has been published usung the same process.
 
+## Source Code
+Source code for the second repo can be found [here](https://github.com/palash90/site-assets)
