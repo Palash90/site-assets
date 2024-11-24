@@ -10,7 +10,7 @@ In this post, will go over the path I took to make the static webapp to dynamic 
 
 I separated `script.js` and `styles.css` from the react app and hosted these two files on github pages, through a different repository and enabled hosting from `main` branch. If you want to read details on how to do it, read [here](/#/content/static-file-hosting).
 
-At this point, I was able to change my website pages by simply making changes on the second repo, without the need of redeploying. This enabled clear separation of tasks. Front end is only responsible for rendering the web page. The second repo, mimics the backend such that, it handles data.
+At this point, I was able to change my website pages by simply making changes on the second repo, without the need of redeploying. This enabled clear separation of tasks. Front end is only responsible for rendering the web page. The second repo, mimics the backend as it handles the data layer.
 
 ## Handling the Maintenance Mess
 Maintaining all data in a huge js file quickly became a nightmare. Finding out places to change 1 line data in a 3000 line javascript file became a pain. I started wandering if somehow I can break this huge file into manageable sections. And write another script to merge all these pieces into one javascript file. This is exactly how things are done. Take a look at the following files.
