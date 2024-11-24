@@ -57,9 +57,9 @@ With a solid foundation in software engineering, I’ve had the opportunity to:
   - An [Arithmatic Quiz](https://palashkantikundu.in/#/component/math-study) for my kids
   - A time pass [Tic Tac Toe](https://palashkantikundu.in/#/component/tic-tac-slide) innovation, for added fun on classic tic-tac-toe
 
-I take pride in contributing to the community by sharing my knowledge through blogs and engaging with fellow engineers. **System design** and **distributed systems** are my areas of interest, and I enjoy dissecting complex problems to arrive at effective solutions.
+I take pride in contributing to the community by sharing my knowledge through blogs and engaging with fellow engineers. **Rust**, **System design** and **distributed systems** are my areas of interest, and I enjoy dissecting complex problems to arrive at effective solutions.
 
-## The Balance of Tech and Music
+## Code and Chords
 
 > "Software Engineering is what I do for a living, music is what I do to live."
 
