@@ -25,15 +25,22 @@ var sweContents = [
     },
     {
         id: "setting-up-a-site-1",
-        title: "Hosting a website on cloud - The Design",
+        title: "Hosting a website on the cloud - The Design",
         publishDate: "Nov 14, 2024",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-1.md"
     },
      {
         id: "setting-up-a-site-2",
-        title: "Hosting a website on cloud - Low Level Design and Implementation",
+        title: "Hosting a website on the cloud - Low Level Design and Implementation",
         publishDate: "Nov 20, 2024",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-2.md"
+    },
+    {
+        id: "setting-up-a-site-3",
+        title: "Hosting a website on the cloud - The Database",
+        publishDate: "Nov 24, 2024",
+        mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-3.md",
+        contentType:"swe"
     }
 ];
 
