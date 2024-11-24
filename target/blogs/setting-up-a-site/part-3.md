@@ -55,7 +55,7 @@ In a nutshell, the JavaScript file is working as a data source for the frontend 
 Once I achieved this, I found I forgot to run the script. Then I figured out, this can be easily handled by a `pre-commit` script during `git commit`. I used this trick to automate the whole process.
 
 ## The Simplified Process for Publishing
-Now all I need to do is to write a blog in familiar, easy to write and version controlled `markdown` format, add the entry to a javascript file and commit. A short phase of waiting and I see my blog live on my site. In fact, this blog you are reading right now has been published using the same process.
+Now all I need to do is to write a blog in familiar, easy-to-write and version-controlled `markdown` format, add the entry to a JavaScript file and commit. A short phase of waiting and I see my blog live on my site. In fact, this blog you are reading right now has been published using the same process.
 
 ## Source Code
 Source code for the second repo can be found [here](https://github.com/palash90/site-assets)
