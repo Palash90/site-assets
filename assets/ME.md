@@ -5,9 +5,14 @@ From there, my professional journey took flight, starting as a **Programmer Anal
 
 ## Job History
 
+- **Senior Technologist**
+  Infosys,
+  Bengaluru, India
+  November 2024 - Present
+
 - **Cloud Developer III**  
   Hewlett Packard Enterprise, Bengaluru, India  
-  December 2022 - Present
+  December 2022 - November 2024
 
 - **Senior Software Engineer**  
   GE Renewable Energy, Hyderabad, India  
