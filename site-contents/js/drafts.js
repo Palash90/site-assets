@@ -19,6 +19,13 @@ var drafts = [
         publishDate: "",
         contentType:"swe"
     },
+     {
+        id: "smoking-cessation",
+        title: "Add a new element in website",
+        mdUrl: getCommon("cdn") + "/target/blogs/smoking/README.md",
+        publishDate: "",
+        contentType:""
+    },
     {
         id: "writing-process",
         title: "Add a new element in website",
