@@ -27,6 +27,13 @@ var drafts = [
         contentType:""
     },
     {
+        id: "health",
+        title: "Add a new element in website",
+        mdUrl: getCommon("cdn") + "/target/blogs/smoking/health.md",
+        publishDate: "",
+        contentType:""
+    },
+    {
         id: "writing-process",
         title: "Add a new element in website",
         mdUrl: getCommon("cdn") + "/target/blogs/writing-process/README.md",
