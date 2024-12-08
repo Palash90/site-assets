@@ -1,4 +1,4 @@
-# Business Proposal: AI-Powered Smoking Habit Detection and Intervention Tool
+# AI-Powered Smoking Habit Detection and Intervention Tool
 
 ---
 
@@ -31,7 +31,7 @@ Our innovative tool utilizes AI to detect smoking cravings and anxiety triggers 
    - The AI predicts when the user is about to smoke based on their unique behavioral patterns, providing early warnings and intervention.
    
 3. **Personalized Distractions**:  
-   - Once the system detects a craving or anxiety, it sends real-time notifications offering distractions, such as **breathing exercises**, **meditation**, or **interactive games** to redirect the user’s attention.
+   - Once the system detects a craving or anxiety, it sends real-time notifications offering distractions, such as **breathing exercises**, **meditation**, **social media notifications**, **quiz**, **interactive games** or a **simple chat session** to redirect the user’s attention and release dopamine and oxytocin to calm down the anxiety.
    
 4. **Anxiety and Craving Management**:  
    - The tool can analyze heightened anxiety due to cravings or withdrawal, providing targeted interventions to alleviate stress and prevent the user from reaching for a cigarette.
@@ -43,7 +43,7 @@ Our innovative tool utilizes AI to detect smoking cravings and anxiety triggers 
    - The tool provides insights into smoking patterns and progress over time, helping users see how much they have improved and stay motivated. It also offers personalized recommendations to improve quitting strategies.
    
 7. **Privacy and Ethical Considerations**:  
-   - The tool respects user privacy and uses encrypted data storage, allowing users to control what information is shared and offering full transparency regarding data usage.
+   - The tool respects user privacy and uses encrypted data storage, allowing users to control what information is shared and offering full transparency regarding data usage. Keeping privacy and confidentialuty in concern, user can have the option to anonymously interact with community.
 
 ---
 
