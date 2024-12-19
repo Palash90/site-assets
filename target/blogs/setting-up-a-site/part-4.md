@@ -58,7 +58,7 @@ Then, the whole coloring scheme boiled down to just selecting 7 different colors
 ## The Typography
 When it comes to UI, there are many things that matter. One such element is typography. Till this point, the site used whatever default Bootstrap came up with.
 
-But while going theough the section on typography, I got to know about different type of fonta and how to use them effectively. I again started mixing fonts from different types. Some were good, some bad and some really ugly.
+But while going theough the section on typography, I got to know about different type of fonts and how to use them effectively. I again started mixing fonts from different types. Some were good, some bad and some really ugly.
 
 Finally playing with different fonts for a day, I fixed with most widely used `Merriweather`, `Lora`, `Roboto` and `Open Sans`. The site uses combinations of these in different type of contents.
 
