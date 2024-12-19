@@ -37,6 +37,9 @@
 		<loc>https://palashkantikundu.in//#/about</loc>
 	</url>
 	<url>
+		<loc>https://palashkantikundu.in/#/content/setting-up-a-site-4</loc>
+	</url>
+	<url>
 		<loc>https://palashkantikundu.in/#/content/setting-up-a-site-3</loc>
 	</url>
 	<url>
@@ -47,9 +50,6 @@
 	</url>
 	<url>
 		<loc>https://palashkantikundu.in/#/content/grafana-on-aws</loc>
-	</url>
-	<url>
-		<loc>https://palashkantikundu.in/#/content/setting-up-a-site-4</loc>
 	</url>
 	<url>
 		<loc>https://palashkantikundu.in/#/content/static-file-hosting</loc>

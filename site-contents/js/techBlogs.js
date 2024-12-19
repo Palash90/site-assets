@@ -45,7 +45,7 @@ var sweContents = [
         id: "setting-up-a-site-4",
         title: "Hosting a website on the cloud: The User Experience",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-4.md",
-        publishDate: "Dec 19<<<<<<<<<<, 2021",
+        publishDate: "Dec 19, 2024",
         contentType:"swe"
     },
 ];
