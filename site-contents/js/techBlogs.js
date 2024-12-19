@@ -41,7 +41,13 @@ var sweContents = [
         publishDate: "Nov 24, 2024",
         mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-3.md",
         contentType:"swe"
-    }
+    },{
+        id: "setting-up-a-site-4",
+        title: "Hosting a website on the cloud: The User Experience",
+        mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-4.md",
+        publishDate: "Dec 19, 2021",
+        contentType:"swe"
+    },
 ];
 
 sweContents = modifyArray(sweContents)

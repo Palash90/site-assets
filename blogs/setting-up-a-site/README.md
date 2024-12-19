@@ -11,7 +11,6 @@
 ## Part 6 - Dynamic generation of data
 1. Dynamically generate the website source data using git pre-commit. This is exceptionally powerful.
 
-# Incomplete
 ## Part - 4
 1. The mobile display
     - React Bootstrap was a life saver
@@ -31,6 +30,8 @@
     - Then moved and created my own variable set for markdown css. 
     - Created one more theme
 
+
+# Incomplete
 ## Part 6 - Developing sitemap
 1. Make a sitemap
 1. Style the sitemap
