@@ -3,7 +3,7 @@ var sweContents = [
         id: "static-file-hosting",
         title: "Simple Static File Hosting",
         mdUrl: getCommon("cdn") + "/target/blogs/static-file-hosting/README.md",
-        publishDate: "Nov 08, 2021"
+        publishDate: "Nov 08, 2024"
     },
     {
         id: "grafana-on-aws",
