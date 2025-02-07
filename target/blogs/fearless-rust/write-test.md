@@ -37,9 +37,11 @@ If you have already setup a development environment for Rust, you can freely ski
 1. VS Code or any favourite IDE
 1. Rust-Analyzer extension for VS Code
 
-These are all the basics. If you are a new comer to Rust, stick to the series and you will learn the language by doing things. You should practice along with reading this blog.
+These are all the basics. 
 
-However, if you have gone through [The Book](https://doc.rust-lang.org/book/) or learnt Rust from some other resource and wanted to know what next? then this blog/video series is definitely worth considering.
+If you are a new comer to Rust, stick to the series and you will learn the language by making stufs. You should practice along with reading this blog.
+
+If you have gone through [The Book](https://doc.rust-lang.org/book/) or learnt Rust from some other resource and wanted to know what next? then this blog/video series is definitely worth considering.
 
 The Hands On
 ============
