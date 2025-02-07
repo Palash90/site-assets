@@ -48,6 +48,14 @@ var sweContents = [
         publishDate: "Dec 19, 2024",
         contentType:"swe"
     },
+    {
+        id: "fearless-rust-write-test",
+        title: "How to write a new blog",
+        videoId: "ng5FK6wkR58",
+        mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/write-test.md",
+        publishDate: "Feb 08, 2025",
+        contentType: "swe"
+    }
 ];
 
 sweContents = modifyArray(sweContents)
