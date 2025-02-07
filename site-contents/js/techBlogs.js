@@ -50,7 +50,7 @@ var sweContents = [
     },
     {
         id: "fearless-rust-write-test",
-        title: "How to write a new blog",
+        title: "Fearless Rust: Write Test",
         videoId: "ng5FK6wkR58",
         mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/write-test.md",
         publishDate: "Feb 08, 2025",
