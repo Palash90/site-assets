@@ -4,13 +4,13 @@ Fearless Rust
 
 Rust is notorious for it's learning curve and this is the main reason many people start learning rust and leave in between. However, if you stick to it, the concepts are not hard to understand. If you follow the Rust rules, you are going to think better solutions to a problem. Rust compiler is tough to ensure that you don't hammer on your own feet.
 
-That's why, I am trying to practice this language more and more to face more and more compiler errors in toy problems and eventually solve them. So that, I can be prepared to handle more practical and real life solutions.
+That's why, I am trying to practice this language more and more to face more and more compiler errors in toy problems and eventually solve them. So that, I can be prepared to handle more practical problems and devise real life solutions.
 
 Test Driven Development
 =======================
-I have been in industry for more than 13 years now. One thing I have seen for sure is that, almost 60% of the QA Identified bugs are coming from developer mistakes.
+I have been in the industry for more than 13 years now. One thing I have seen for sure is that, almost 60% of the QA Identified bugs are coming from developer mistakes.
 
-While working with a development project in GE, I was assigned a lot of times, silly bugs which was due to my silly mistakes and sometimes, just because, I did not have time to verify my changes. This was the time, I genuinely thought of taking a different approach. Talked to my lead and my manager about my decision of trying TDD or Test Driven Development.
+While working with a development project in GE, I was assigned a lot of bugs which was due to my silly mistakes and sometimes just because, I did not have time to verify my changes. This was the time, I genuinely thought of taking a different approach. Talked to my lead and my manager about my decision of trying TDD or **Test Driven Development**.
 
 They both were kind enough to listen to me and brave enough to spend extra time on TDD during a time crunch situation. What I found was astonishing to me and to others. When I started, I was not "productive" at all for straight 6 weeks because, I was not productive or delivering anything. This 6 weeks, I was trying many versions of test inputs and outputs which can break or make the product. This was the toughest time to justify. In fact, I tailor made a simple library to suit our project by leveraging MS Test. Then after 6 whole weeks, I actually started on the real solution. This took me around 3 days to complete and satisfy all test cases.
 
