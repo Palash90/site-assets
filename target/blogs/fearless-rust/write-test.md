@@ -26,7 +26,7 @@ The Rust compiler is a tough one to satisfy. There are so many checks around the
 
 I draw the analogy of tough compilation rules of Rust to TDD. They may be hard to understand and conceive but once you do, your path is easier ahead.
 
-Memory bugs are definitely the most notorious category of bugs and have the potential to take life or crash a rocket. Rust tries most of this category bugs untill you are doing something `unsafe`. We will talk more about all these in due course of time.
+Memory bugs are definitely the most notorious category of bugs and have the potential to take life or crash a rocket. Rust tries to find most of this category bugs in compile time except you are doing something `unsafe`. We will talk more about all these in due course of time.
 
 The Setup
 =========
