@@ -22,7 +22,7 @@ That's why the very first program, we'll write is a test. And we'll follow this 
 
 Similarity of TDD in Rust Development
 =====================================
-The Rust compiler is a tough one to satisfy. There are so many checks around the resource usage built in the language itself that it is definitely hard to go wrong in the run time. However, make no mistake that bugs still follow. But it is hard to come by when you are writing a Rust Program.
+The Rust compiler is a tough one to satisfy. There are so many checks around the resource usage built in the language itself that it is definitely hard to go wrong in the run time. However, make no mistake that Rust is error free. Bugs still follow. But silly mistakes are easily caught by Rust Compiler preventing them to slip as bugs.
 
 I draw the analogy of tough compilation rules of Rust to TDD. They may be hard to understand and conceive but once you do, your path is easier ahead.
 
