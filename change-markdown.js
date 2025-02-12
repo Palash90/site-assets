@@ -8,7 +8,8 @@ const variableMap = {
     'setting-up-a-site-part-1-proj-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/proj-page.png',
     'setting-up-a-site-part-1-about-page': 'https://palash90.github.io/site-assets/blogs/setting-up-a-site/about-page.png',
     'static-file-hosting-github-pages': 'https://palash90.github.io/site-assets/blogs/static-file-hosting/github-pages-configuration.png',
-    'go-tut-1-go': 'https://palash90.github.io/site-assets/blogs/go-tut/ex/1.go'
+    'go-tut-1-go': 'https://palash90.github.io/site-assets/blogs/go-tut/ex/1.go',
+    'non-blocking-server-architecture': 'https://palash90.github.io/site-assets/blogs/fearless-rust/non-blocking-server.jpg'
 };
 
 // Function to replace patterns in a file

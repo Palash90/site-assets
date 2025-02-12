@@ -38,5 +38,13 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },
+    {
+        id: "fearless-rust-non-blocking-1",
+        title: "Fearless Rust: Write a Non Blocking TCP Server From Scratch - Part 1",
+        videoId: "ng5FK6wkR58",
+        mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/fearless-rust-non-blocking-1.md",
+        publishDate: "Feb 13, 2025",
+        contentType: "swe"
     }
 ];
