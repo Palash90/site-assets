@@ -131,7 +131,7 @@ fn main() -> io::Result<()> {
 ```
 The Server
 ==========
-Once done with the client, its time to write the first version of the server code. The server needs to listen to the port where it is hosted. So that, when there is some input sent by client, the server can get it and process it. Once the process is done, the server sends back the response on the same open channel. This is pretty common in [TCP protocol] (https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and you can read more about it in the linked wikipedia page.
+Once done with the client, its time to write the first version of the server code. The server needs to listen to the port where it is hosted. So that, when there is some input sent by client, the server can get it and process it. Once the process is done, the server sends back the response on the same open channel. This is pretty common in [TCP protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) and you can read more about it in the linked wikipedia page.
 
 In Rust, `TcpListener` can be used to listen to the port. So along with the `Read` and `Write`, the `TcpListener` needs to be imported.
 
@@ -240,9 +240,9 @@ fn main() -> std::io::Result<()> {
 }
 ```
 
-Now let's run both the server and client in different terminals and observer the interaction.
+Now let's run both the server and client in different terminals and observe the interaction.
 
-## The Server Log
+### The Server Log
 ```shell
 Server listening on port 7878
 Connnected
@@ -251,7 +251,7 @@ Connnected
 Received: "Hello from Client 2\r\n"
 ```
 
-## Log from First Client
+### Log from First Client
 ```shell
 mem-db$: hello
 Received: hello
@@ -261,7 +261,7 @@ Error: Os { code: 10053, kind: ConnectionAborted, message: "An established conne
 error: process didn't exit successfully: `target\debug\client.exe` (exit code: 1)
 ```
 
-## Log from Second Client
+### Log from Second Client
 ```shell
 mem-db$: Hello from Client 2
 Received: Hello from Client 2
@@ -273,7 +273,7 @@ error: process didn't exit successfully: `target\debug\client.exe` (exit code: 1
 What just happened here?
 The client crashed just after one interaction, instead of interacting indefinitely. However, server keeps on accepting new client connections. Let's fix this.
 
-If you go back and observe the server code, you will find that, once the server sends the response, it eventually gets out of the `for` loop where the control enters into another open connection, leaving the active connection unattended. The OS eventually closes the unused connection. To avoid this happening, the server needs to listen to the client stream continuously and this can be achieved with an indefinite loop. Inside the loop, the stream read and process instructions can run.
+If you go back and observe the server code, you will find that, once the server sends the response, it eventually gets out of the `for` loop where the control enters into another open connection, leaving the active connection unattended. The OS eventually closes the unused connection. To prevent this from happening, the server needs to listen to the client stream continuously and this can be achieved with an indefinite loop. Inside the loop, the stream read and process instructions can run.
 
 ```rust
 loop{
@@ -300,7 +300,7 @@ loop{
 
 Now the problem gets solved and connection between server and client is kept open. Let's run the server and two clients once again.
 
-## Server log
+### Server log
 ```shell
 Server listening on port 7878
 Connnected
@@ -309,7 +309,7 @@ Received: "Hi Server\r\n"
 Received: "How are you doing\r\n"
 ```
 
-## Client 1 Log
+### Client 1 Log
 ```shell
 mem-db$: hello from client 1
 Received: hello from client 1
@@ -323,7 +323,7 @@ Received: How are you doing
 mem-db$:
 ```
 
-## Client 2 Log
+### Client 2 Log
 ```shell
 mem-db$: Hello from client 2
 ```
@@ -332,7 +332,7 @@ The server is now only handling the first client. It is ignoring the second clie
 
 So, now let's quit the first client and observe what happens.
 
-## Server Log
+### Server Log
 ```shell
 Server listening on port 7878
 Connnected
@@ -344,7 +344,7 @@ Connnected
 Received: "Hello from client 2\r\n"
 ```
 
-## Client 1 Log
+### Client 1 Log
 ```shell
 mem-db$: hello from client 1
 Received: hello from client 1
@@ -359,7 +359,7 @@ mem-db$: quit
 Good Bye
 ```
 
-## Client 2 Log
+### Client 2 Log
 ```shell
 mem-db$: Hello from client 2
 Received: Hello from client 2
@@ -368,7 +368,7 @@ mem-db$:
 ```
 Now the server interacts with client 2 after client 1 disconnects. Now, if the first client is restarted, it will keep on waiting.
 
-## Client 1 Log after restart
+### Client 1 Log after restart
 ```shell
 mem-db$: Hello from client 1 again
 
@@ -404,7 +404,7 @@ thread::spawn(move || loop {
 ```
 Now, the server interacts with each client simultaneously and the server and client log shows that. You can even see in the server log line by line interaction by the clients. I am not going to show the client logs here. That won't be interesting.
 
-## Multi-Threaded Server Log
+### Multi-Threaded Server Log
 ```shell
 Server listening on port 7878
 Connnected
@@ -415,4 +415,5 @@ Received: "Client 1: Hi Server, how are you?\r\n"
 Received: "Client 2: Server dude, you are playing next level\r\n"
 ```
 
-# The problem with multi-threading
+This definitely solves the problem at hand. However, in the next post of this series, I will explain why this approach can cause issues at large scale and why Redis chose a different approach and how I made an attempt to build a miniature version of the same approach.
+

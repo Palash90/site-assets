@@ -55,6 +55,13 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/write-test.md",
         publishDate: "Feb 08, 2025",
         contentType: "swe"
+    },
+    {
+        id: "fearless-rust-non-blocking-1",
+        title: "Fearless Rust: Write a Non Blocking TCP Server From Scratch - Part 1",
+        mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/non-blocking-1.md",
+        publishDate: "Feb 13, 2025",
+        contentType: "swe"
     }
 ];
 
