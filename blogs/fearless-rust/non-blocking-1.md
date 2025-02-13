@@ -10,11 +10,11 @@ Reasons are obvious -
 1. With some few tweaks, it can even be re-modeled as persistent database
 1. I can integrate my other distributed system project - [Distributed File System](https://github.com/Palash90/dist-fs)
 
-Then, I tried learning more about Redis. One thing that caught my eyes were how it handles requests single threadedly. Later I found that, JavaScript also works in similar fashion. In fact, I was a little heart-broken when I knew that `setTimeOut` is actually not part of JavaScript, but __Web API__. Having implemented and used servers earlier, one thing got stuck in my head, "for a client to handle, you need a `thread` making the architecture, one thread per client".
+With that, I tried learning more about Redis. One thing that caught my eyes were how it handles requests single threadedly. Later I found that, JavaScript also works in similar fashion. In fact, I was a little heart-broken when I knew that `setTimeout` is actually not part of JavaScript, but __Web API__. Having implemented and used servers earlier, one thing got stuck in my head, "for a client to handle, you need a `thread`. This makes the architecture, one thread per client".
 
-So, the idea of single thread really caught me into the loop. So much so that, I myself tried to implement a mini version of the same. I built a functional one but by no means, it is perfect. From a real world use case scenario, this is another toy project.
+So, the idea of single thread handling multiplel clients really caught me into the loop. So much so that, I myself tried to implement a mini version of the same. I built a functional one but by no means, it is perfect. From a real world use case scenario, this is just another toy project.
 
-__NOTE:__ This is not the exact same replica of Redis (or JS) Event Loop, Redis handles things differently and more efficiently and at huge scale. What I have done here is just for learning and demonstration purpose. You can grab some idea by going through my journey and this post may help you to understand how Redis actually handles things in real working piece of software which handles thousands of requests per second with just one single thread.
+__DISCLAIMER:__ This is not the exact same replica of Redis (or JS) Event Loop, Redis handles things differently and more efficiently and at huge scale. What I have done here is just for learning and demonstration purpose. You can grab some idea by going through my journey and this post may help you to understand how Redis actually handles things in real working piece of software which handles thousands of requests per second with just one single thread.
 
 The Plan
 ========
@@ -22,15 +22,15 @@ Alright. The disclaimers are at place and now I am ready to describe you my adve
 
 I did not use much of the library support except for the basic `std`. Also, almost have never experimented anything outside [The Book](https://doc.rust-lang.org/stable/book/). So, if you have prior experience with The Book, it should be fairly easy to follow along.
 
-First thing I will show, how to implement the TCP Server and how to respond to client. Then I will show you how a server can interact with multiple clients using `thread`. However, as I am trying to make a single threaded server, I will pivot back to single thread but with some design change.
+First thing I will show, how to implement the simple TCP Server and how to respond to client. Then I will show you how a server can interact with multiple clients using `thread`. However, multi-threaded approach has some problems which Redis tries to solve using single thread (or rather I say a Fixed Number of Threads). Hence, I will too pivot back to single thread but with some design change.
 
-Lastly, I will open up discussion for future extensions like `async/await` or `epoll`.
+Lastly, I will open up discussion for future extensions like `async/await` and/or `epoll`.
 
 Let's start.
 
 The Client
 ==========
-An artist is nothing without his/her fan base. Similarly a server is nothing without its clients. So, I will first start with the client.
+An artist is nothing without his/her fan base. Similarly a server is nothing without its clients. So, I will start with implementing the client.
 
 The client is not doing much here. It is just opening a connection to server and endlessly exchanging information until prompted to `quit`.
 
