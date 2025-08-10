@@ -16,22 +16,6 @@ var drafts = [
         draft: true
     },
     {
-        id: "smoking-cessation",
-        title: "Add a new element in website",
-        mdUrl: getCommon("cdn") + "/target/blogs/smoking/README.md",
-        publishDate: "",
-        contentType: "",
-        draft: true
-    },
-    {
-        id: "health",
-        title: "Add a new element in website",
-        mdUrl: getCommon("cdn") + "/target/blogs/smoking/health.md",
-        publishDate: "",
-        contentType: "",
-        draft: true
-    },
-    {
         id: "writing-process",
         title: "Add a new element in website",
         mdUrl: getCommon("cdn") + "/target/blogs/writing-process/README.md",
