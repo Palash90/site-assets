@@ -32,3 +32,8 @@
     font-weight: 400;
     font-style: normal;
 }
+
+table td,
+table th {
+    padding: 0.5em 1em;
+}
