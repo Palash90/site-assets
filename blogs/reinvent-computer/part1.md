@@ -1,6 +1,6 @@
 # Reinventing the Computer
 
-Over the last few days, I’ve been diving into different machine learning algorithms. While exploring, I hit a surprising roadblock:
+Over the last few years, I’ve been diving into different machine learning algorithms, data storage systems and distributed systems. While exploring, one question caught me off guard:
 
 > How can a machine that only understands ON/OFF signals actually collaborate with humans and join a conversation?
 

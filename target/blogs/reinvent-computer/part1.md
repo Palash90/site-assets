@@ -1,6 +1,6 @@
-# Reinventing the Computer
+# Reinventing the Computer - Part 1
 
-Over the last few days, I’ve been diving into different machine learning algorithms. While exploring, I hit a surprising roadblock:
+Over the last few years, I’ve been diving into different machine learning algorithms and data storage systems. While exploring, I hit a surprising roadblock:
 
 > How can a machine that only understands ON/OFF signals actually collaborate with humans and join a conversation?
 
