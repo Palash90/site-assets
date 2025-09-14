@@ -6,7 +6,7 @@ Over the last few years, I’ve been diving into different machine learning algo
 
 This question sent me back to my college days, when we crammed decades of computational research into four short years — and, as often happens, promptly forgot most of it after graduation. So, I decided to start fresh: to research the topic from the ground up and document the journey.
 
-This series will take us from the very first building blocks of computation all the way to the basics of machine learning.
+In this series, we’ll engineer the journey together—from the foundational building blocks of computation to the core principles of modern computation. Step by step, layer by layer.
 
 ---
 
@@ -135,4 +135,8 @@ Let’s check it:
 | 1 | 1 | 0   |
 
 Perfect. We’ve just created a new logic gate: **XOR** — “exclusive OR.”
+
+---
+
+## More counting
 
