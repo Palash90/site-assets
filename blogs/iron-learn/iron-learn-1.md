@@ -76,7 +76,14 @@ Phew!!!
 ### The Realization and Validation
 After fixing the `NaN`, my next validation was to check if the returned results were correct or not. Well, a 70% success rate. Not bad but still felt something amiss. Curious, I opened a python shell this time to conjure a sklearn-based linear regression program and fed the same data.
 
-As expected, the python program returned a much lower error, around 19% (needless to say the speed difference which I deliberately ignored). I was back on the path of debugging to find out what needs to change for better accuracy.
+As expected, the python program returned a much lower error, around 19% and a mind boggling speed. I was back on the path of debugging to find out what needs to change for better accuracy.
+
+I had two problems at hand:
+1. **Performance** - sklearn's `LinearRegression` module uses normal equation for linear regression. This method is limited to linear regression and polynomial regression problems, essentially serving as an optimization specific to regression tasks. Gradient descent, on the other hand, is a generalized convergence technique that can be applied to a wide range of ML problems beyond regression.Another major performance advantage in Python libraries comes from their highly optimized convergence functions. The last point here is that, many libraries use GPU acceleration under the hood. To achieve similar performance in Rust, I have to understand GPU architectures, GPU programming etc.
+
+However, since my primary goal is to learn about Rust programming and ML, I will hold on to these performance enhancements for now.
+
+2. **Accuracy** - I already knew about the different algorithm used in python libraries and the optimizers deployed in the process. While I knew about a few of them, none seemed to align well with the current state of my codebase. So, I started looking around my code and logs once again.
 
 ### The Fix
 I looked at each line of the code and tried to understand, where I was going wrong. No error caught my eyes. However, I also noticed that my learning rate was very small - **0.000015** with a very low iteration - **1000**.
