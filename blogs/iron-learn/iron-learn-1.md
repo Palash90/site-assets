@@ -1,13 +1,9 @@
 # Resuming my journey on learning the basics of AI
-I have attempted to learn Rust several times in the past. The journey always looked the same: start learning an area of development, implement a few things, understand the concept; and then leave it after some time.
-
-This happened more than once, so I decided to try a different approach this time.
+I have attempted to learn Rust several times in the past. The journey always looked the same: start learning an area of development, implement a few things, understand the concept; and then leave it after some time. This happened more than once, so I decided to try a different approach this time.
 
 I was also curious about how AI works. I don't quite like the "magic" of black boxes and machine learning felt like one to me. So, I set out on a new journey: to merge both of my areas of learning in one project. I decided to write a Rust-based ML library.
 
-It went well. I spent about a month to get to the point where it can do simple linear regression. But then, due to other priorities, the project went on the back burner, collecting dust.
-
-After about 18 months, I found some free time to pursue the library once again and decided to document my journey this time.
+It went well. I spent about a month to get to the point where it can do simple linear regression. But then, due to other priorities, the project went on the back burner, collecting dust. After about 18 months, I found some free time to pursue the library once again and decided to document my journey this time.
 
 And that’s where the story begins...
 
@@ -77,12 +73,12 @@ After this, I was able to see some real numbers instead of `NaN`.
 
 Phew!!!
 
-### The realization and validation
+### The Realization and Validation
 After fixing the `NaN`, my next validation was to check if the returned results were correct or not. Well, a 70% success rate. Not bad but still felt something amiss. Curious, I opened a python shell this time to conjure a sklearn-based linear regression program and fed the same data.
 
 As expected, the python program returned a much lower error, around 19% (needless to say the speed difference which I deliberately ignored). I was back on the path of debugging to find out what needs to change for better accuracy.
 
-### The fix
+### The Fix
 I looked at each line of the code and tried to understand, where I was going wrong. No error caught my eyes. However, I also noticed that my learning rate was very small - **0.000015** with a very low iteration - **1000**.
 
 I bumped up the learning rate, increased it to **0.001**.
@@ -106,6 +102,9 @@ Total test samples: 93
 Mean Squared Error: 60.1019
 Root MSE: 7.7525
 ```
+
+### Closing Thoughts
+Seeing my Rust implementation match sklearn so closely was the perfect validation of this journey. It reminded me that persistence, debugging, and small tweaks can bridge the gap between “almost working” and “production‑ready.”
 
 
 
