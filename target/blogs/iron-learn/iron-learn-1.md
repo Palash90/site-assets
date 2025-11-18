@@ -34,6 +34,45 @@ I rolled up my sleeves and started the debugging process. I put a lot of `printl
 
 I started reading about the issue and took some help from Copilot to understand that the step in the process I was missing was the normalization of data. I implemented a normalization method and invoked it before feeding the data into the linear regression module.
 
+```rust
+fn normalize_features(x: &Tensor<f64>) -> Tensor<f64> {
+    let shape = x.get_shape();
+    let m = shape[0] as usize;
+    let n = shape[1] as usize;
+    let mut normalized_data = vec![0.0; m * n];
+
+    // For each feature
+    for j in 0..n {
+        let mut mean = 0.0;
+        let mut variance = 0.0;
+
+        // Calculate mean
+        for i in 0..m {
+            mean += x.get_data()[i * n + j];
+        }
+        mean /= m as f64;
+
+        // Calculate variance
+        for i in 0..m {
+            let diff = x.get_data()[i * n + j] - mean;
+            variance += diff * diff;
+        }
+        variance /= m as f64;
+        let std_dev = variance.sqrt();
+
+        // Normalize feature
+        for i in 0..m {
+            normalized_data[i * n + j] = if std_dev > 1e-8 {
+                (x.get_data()[i * n + j] - mean) / std_dev
+            } else {
+                x.get_data()[i * n + j] - mean
+            };
+        }
+    }
+
+    Tensor::new(shape.clone(), normalized_data).unwrap()
+}
+```
 After this, I was able to see some real numbers instead of `NaN`.
 
 Phew!!!
@@ -44,9 +83,9 @@ After fixing the `NaN`, my next validation was to check if the returned results 
 As expected, the python program returned a much lower error, around 19% (needless to say the speed difference which I deliberately ignored). I was back on the path of debugging to find out what needs to change for better accuracy.
 
 ### The fix
-I looked at each line of the code and tried to understand, where I was going wrong. No error caught my eyes. However, I also noticed that my learning rate was very small - 0.000015 with a very low iteration - 1000.
+I looked at each line of the code and tried to understand, where I was going wrong. No error caught my eyes. However, I also noticed that my learning rate was very small - **0.000015** with a very low iteration - **1000**.
 
-I bumped up the learning rate, increased it to *0.001*.
+I bumped up the learning rate, increased it to **0.001**.
 
 Voila, my program was producing almost similar results to that of sklearn's.
 
