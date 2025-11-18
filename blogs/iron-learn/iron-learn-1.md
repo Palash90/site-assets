@@ -1,5 +1,5 @@
 # Resuming my journey on learning the basics of AI
-I have attempted to learn Rust several times in the past. The journey always looked the same: start learning an area of development, implement a few things, understand the concept; and then leave it at that after some time.
+I have attempted to learn Rust several times in the past. The journey always looked the same: start learning an area of development, implement a few things, understand the concept; and then leave it after some time.
 
 This happened more than once, so I decided to try a different approach this time.
 
@@ -28,9 +28,7 @@ The solution was working on a synthetic dataset. Hence, I decided to give it a s
 The rabbit hole opened up...
 
 ### Journey with `NaN`
-The first result that I was able to generate with my `prediction` was full of `NaN` values. I was not at all surprised to see that. I tested it against a trivial, made-up dataset.
-
-Things were bound to break in a real-world scenario.
+The first result that I was able to generate with my `prediction` was full of `NaN` values. I was not at all surprised to see that. I tested it against a trivial, made-up dataset. Things were bound to break in a real-world scenario.
 
 I rolled up my sleeves and started the debugging process. I put a lot of `println!` statements in every block of code. The result came faster than expected. At some point, the multiplication was returning numbers so large that they produced `NaN`. My tensors were using floating-point numbers and they were capable of producing `NaN`.
 
@@ -38,7 +36,7 @@ I started reading about the issue and took some help from Copilot to understand 
 
 After this, I was able to see some real numbers instead of `NaN`.
 
-Phew...
+Phew!!!
 
 ### The realization and validation
 After fixing the `NaN`, my next validation was to check if the returned results were correct or not. Well, a 70% success rate. Not bad but still felt something amiss. Curious, I opened a python shell this time to conjure a sklearn-based linear regression program and fed the same data.
