@@ -32,6 +32,14 @@ var drafts = [
         draft: true
     },
     {
+        id: "iron-learn-1",
+        title: "Resuming my journey on learning the basics of AI",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-1.md",
+        publishDate: "",
+        contentType: "swe",
+        draft: true
+    },
+    {
         id: "iron-learn-4",
         title: "Fighting the Rust Compiler Stage",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
