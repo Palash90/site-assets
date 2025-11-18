@@ -28,7 +28,7 @@ The first result that I was able to generate with my `prediction` was full of `N
 
 I rolled up my sleeves and started the debugging process. I put a lot of `println!` statements in every block of code. The result came faster than expected. At some point, the multiplication was returning numbers so large that they produced `NaN`. My tensors were using floating-point numbers and they were capable of producing `NaN`.
 
-I started reading about the issue and took some help from Copilot to understand that the step in the process I was missing was the normalization of data. I implemented a normalization method and invoked it before feeding the data into the linear regression module.
+I started reading about the issue to understand that the step in the process I was missing was the normalization of data. I implemented a normalization method and invoked it before feeding the data into the linear regression module.
 
 ```rust
 fn normalize_features(x: &Tensor<f64>) -> Tensor<f64> {
@@ -90,7 +90,7 @@ I looked at each line of the code and tried to understand, where I was going wro
 
 I bumped up the learning rate, increased it to **0.001**.
 
-Voila, my program was producing almost similar results to that of sklearn's.
+Voila, my program was producing almost similar results to that of sklearn's. 
 
 ### Final Results
 
