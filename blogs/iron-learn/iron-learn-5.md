@@ -356,3 +356,16 @@ pub fn run_ml_cuda() -> cust::error::CudaResult<()> {
 And gave it a spin. To my surprise, the whole process took only 11.34 seconds. I was astonished, the same process took me 1 hour in CPU. 
 
 That's the power of parallelism.
+
+Anyways, I was heart broken too, I again ran into NaN...
+
+Did not have to debug much, it was data type mismatch issue again. Everything in CUDA I wrote was float, except for the matrix multiplication. I changed all of those to double.
+
+After few fixes and some more code, I finally ran the prediction and it was completing with 11 seconds for sure but with only 7.42% accuracy.
+
+Wore the debugging hat again. Few f32 needed change, few matrix dimensions were wrongly set. Once all these fixed, I was able to catch up 54% but my CPU process gave 92% accuracy.
+
+Something is missing. I found that the transpose function was not correctly returning result. So, I changed it. And the new implementation returned 92.85% accuracy with 20000 iterations.
+
+
+
