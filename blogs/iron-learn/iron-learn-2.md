@@ -56,6 +56,8 @@ Accuracy: 93.09%
 
 The next attempt was extreme. So, I decided to actually run the program for 5000 iterations and see if it goes closer to the sklearn program or not. I made the changes in the program, ran it and went for bed that day.
 
+I saw my machine crashing just after about an hour of starting the program with 5000 iterations. I stopped it, switched off my laptop and went back to bed.
+
 My intention was never let it run fast and with 100% accuracy in the first go. I just wanted to learn how things works. So, I am happy with the result my program gave me.
 
 
