@@ -30,14 +30,5 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
-    },
-    {
-        id: "iron-learn-2",
-        title: "93% Accuracy and a System Crash: My Journey with Logistic Regression",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
-        publishDate: "",
-        contentType: "swe",
-        draft: true
-    },
-    
+    },    
 ];
