@@ -77,7 +77,7 @@ var sweContents = [
   {
     id: "iron-learn-2",
     title:
-      "93% Accuracy and a System Crash: My Journey with Logistic Regression",
+      "Making a Binary Classifier",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
     publishDate: "Nov 22, 2025",
     contentType: "swe",
