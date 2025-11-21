@@ -9,7 +9,9 @@ Linear regression models try to learn the linear relation between the input and 
 ### The Sigmoid Function
 The linear model calculates - $z = \mathbf{w}^T X + b$. To turn this value into a probability, we use **Sigmoid function**
 
-$$\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}$$
+$$
+\hat{y} = \sigma(z) = \frac{1}{1 + e^{-z}}
+$$
 
 ![Sigmoid Function](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-2-logistic-fn.png "Sigmoid Function")
 
@@ -41,7 +43,7 @@ Like last time, I again wrote a sklearn program to validate my results. The Pyth
 After fixing all these, I ran it again. This time, I hit 100% accuracy rate.
 
 ## Next steps: More varied data
-I was happy that my program matched accuracy to that of the sklearn's. However, I wondered if my program would break with a larger dataset. An obvious limitation was on the hardware and the program itself. It limits me to smaller datasets. However, I am happy spend some time to see my program return acceptable result. 
+I was happy that my program matched accuracy to that of the sklearn's. However, I wondered if my program would break with a larger dataset. An obvious limitation was on the hardware and the program itself. It limits me to smaller datasets. However, I would be happy to spend some time to see my program return acceptable result. 
 
 ### The dataset
 I searched for another valid and preferably bigger dataset. After checking a few, I finally settled on an email spam dataset. It has a total of 3921 rows, 22 columns each: one spam/ham output, one row number and rest are numeric, text and date-time data.
