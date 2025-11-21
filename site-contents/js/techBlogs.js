@@ -79,7 +79,7 @@ var sweContents = [
     title:
       "93% Accuracy and a System Crash: My Journey with Logistic Regression",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
-    publishDate: "",
+    publishDate: "Nov 22, 2025",
     contentType: "swe",
     draft: true,
   }
