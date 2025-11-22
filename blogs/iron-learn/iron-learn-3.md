@@ -1,4 +1,4 @@
-# Moving the calculations away from CPU to GPU
+# Moving the calculations from CPU to GPU
 The success of the logistic regression program pushed me to do more. However, my matrix multiplication method was taking forever to complete even for a small matrix like 321 * 6. I had to wait for long time to see things working.
 
 I have a CUDA GPU, I was just feeling lazy to configure it for programming for 2 years. However to progress I had to overcame my laziness. I started looking at internet to get my GPU to do the heavy math.

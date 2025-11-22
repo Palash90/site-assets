@@ -1,6 +1,6 @@
 I again started my work on the library. It was silently killing me from inside that, I have a GPU that I bought to do these calculations for me. Just for my laziness I am wasting my time in waiting rather than learning.
 
-Seriously, the wait time to see anything descent was beyond my nerves and also I had to always go with smaller dataset, as my machine could not cope up with that much of data.
+Seriously, the wait time to see anything descent was beyond my nerves and also I had to always go with smaller dataset, as my machine could not cope up with that much of data. It was also very clear to me that, if I have to complete this project, I at some point definitely have to push my CPU sequential program to GPU parrallel program.
 
 I rolled up my sleeve again to find a solution. If nvidia CUDA examples can run on my machine, why can't I take the step forward to program on my own?
 

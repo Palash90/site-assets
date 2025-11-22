@@ -30,5 +30,13 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    }, 
+    {
+        id: "iron-learn-3",
+        title: "Moving the calculations from CPU to GPU",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
+        publishDate: "",
+        contentType: "swe",
+        draft: true
     },    
 ];

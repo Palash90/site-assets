@@ -104,3 +104,13 @@ At this point my inventory include quite a few things actually.
 6. A full logistic regression program which returns accuracy almost identical to other libraries.
 
 While taking a look, I thought of refactoring things a little and also get rid of deprecated warnings.
+
+While refactoring, I saw a python file which I had written in python to build a neural network. I have fed it the XOR dataset to test. I reran the program and it ran successfully.
+
+It sparked my curiosity, what happens if I feed it the real email dataset. As I thought, so I did. Well, it took me a while to get that working with real dataset of pass fail and email spam but it worked on both and I got 92.85% accuracy on 1000 training iterations and 0.1 learning rate.
+
+I thought of running it against the linear data set and see what happens. It failed when my activation function was sigmoid. I had to make a few changes in the program to support linear output.
+
+However, I noticed, without GPU support, even my simple numpy based neural network script also crashed my machine. I know numpy under the hood does many CPU optimizations but they are peanuts in front of massive calculation load of O(n^3).
+
+The success of the python program pushed me to start a new journey.
