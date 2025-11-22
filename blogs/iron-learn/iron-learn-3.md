@@ -59,7 +59,7 @@ The GPU (device) is treated like an external device which communicates with CPU 
         |<---------------------------------------------------|                                   |
         |                                                    | (Kernel completes, results in d_c)
         | 6. Copy Data Device -> Host (cudaMemcpy)           |
-        |      (e.g., d_c -> c)                    		    |
+        |      (e.g., d_c => c)                              |        
         |<---------------------------------------------------|
         |                                                    |
         | 7. Free Device Memory (cudaFree)                   |
