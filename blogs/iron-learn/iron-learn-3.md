@@ -59,13 +59,32 @@ The GPU (device) is treated like an external device which communicates with CPU 
         |<---------------------------------------------------|                                   |
         |                                                    | (Kernel completes, results in d_c)
         | 6. Copy Data Device -> Host (cudaMemcpy)           |
-        |      (e.g., d_c -> c)                    		     |
+        |      (e.g., d_c -> c)                    		    |
         |<---------------------------------------------------|
         |                                                    |
         | 7. Free Device Memory (cudaFree)                   |
         |--------------------------------------------------->|
         |                                                    |
 +----------------+                                 +----------------+
+```
+
+The GPU is basically a host of thread array arranged in hierarchical fashion - Grids, Thread Blocks and then Threads. Each thread executes the same kernel on different data. GPUs have the capability of launching millions of threads per second. This is where the speed comes from. The parallelization is done by the GPU based on the launch parameters like number of threads, number of blocks etc. set by the programmer.
+
+The host launchs a kernel to this massive system of threads, each kernels runs the same operation. As long as each thread can work independently of others, we can run them simultaneously.
+
+```
++----------------------------+
+|          Grid              |
+|  +---------------------+   |
+|  |   Thread Block 0    |   |
+|  |  [T0][T1][T2][T3]   |   |
+|  +---------------------+   |
+|  +---------------------+   |
+|  |   Thread Block 1    |   |
+|  |  [T0][T1][T2][T3]   |   |
+|  +---------------------+   |
+|  ...                       |
++----------------------------+
 ```
 
 **Disclaimer**: I am not a hardware major, so take it with a pinch of salt.
