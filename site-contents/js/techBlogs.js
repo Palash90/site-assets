@@ -85,7 +85,7 @@ var sweContents = [
   }, 
     {
         id: "iron-learn-3",
-        title: "# Accelerating Calculations: From CPU to GPU with Rust and CUDA",
+        title: "Accelerating Calculations: From CPU to GPU with Rust and CUDA",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
         publishDate: "Nov 23, 2025",
         contentType: "swe",
