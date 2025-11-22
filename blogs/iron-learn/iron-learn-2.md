@@ -118,3 +118,4 @@ My machine crashed just after about an hour of starting the program with all 500
 
 My intention was never to make it run fast and with 100% accuracy on the first go. I just wanted to learn how the "magic" works. In that regard, I am very happy with the result.
 
+But the very next day had different plans for me.
