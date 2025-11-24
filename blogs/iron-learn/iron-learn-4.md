@@ -1,10 +1,18 @@
 # Integrating GPU Matrix Multiplication
-At this point, the inventory looks like the following
-1. A rudimentary Tensor Library
-2. Gradient Descent implementation without any optimization
-3. A separate project which has a running GPU Matrix Multiplication program
+In my last attempt, Matrix Multiplication using GPU was achieved.
 
-As my CPU based program taking longer, I thought of changing the Matrix Multiplication routine to utilize GPU. The moment, I put the cust code in my program, it started giving me angry red eyes and screamed at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from cust library has not been implemented for my type.
+So, at that point, the inventory looked like the following:
+1. A rudimentary Tensor Library written in Rust
+2. Gradient Descent implementation without any optimization
+3. A separate project with code to run Matrix Multiplication on GPU
+4. All the wirings were done using Rust, the `cust` library and the external GPU kernel program
+
+In a nutshell, I was ready to put the GPU performance tweak into my library.
+
+**Copy, Paste...**
+
+## Rust Compiler's Full Blow
+The moment, I put the `cust` code in my library, Rust compiler started screameing at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
 
 Ah, the classic trait bound error which I almost forgot after working in python and JS for last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step forward and makes this even harder for any types which refers to raw pointers. `Vec<u32>` and `Vec<T>` are obviously one of those and these are the backbone of my `Tensor`.
 
