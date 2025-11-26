@@ -1,18 +1,16 @@
-# Integrating GPU Matrix Multiplication
-In my last attempt, Matrix Multiplication using GPU was achieved.
+# The Roadblock
+The GPU Matrix Multiplication program was a success. So, at that point, the inventory looked like the following:
+1. A rudimentary **Tensor** Library written in Rust
+2. **Gradient Descent** implementation without advanced optimizers (like **Adams** or **RMSprop**) - basic but works
+3. A separate project with code to run Matrix Multiplication on GPU (the **Flash**)
+4. All the wiring was done using Rust, the `cust` library and the external GPU kernel program
 
-So, at that point, the inventory looked like the following:
-1. A rudimentary Tensor Library written in Rust
-2. Gradient Descent implementation without any optimization
-3. A separate project with code to run Matrix Multiplication on GPU
-4. All the wirings were done using Rust, the `cust` library and the external GPU kernel program
+In a nutshell, I was ready to put the GPU performance tweak into my library and roll in speed.
 
-In a nutshell, I was ready to put the GPU performance tweak into my library.
-
-**Copy, Paste...**
+**Copy, Paste, and...**
 
 ## Rust Compiler's Full Blow
-The moment, I put the `cust` code in my library, Rust compiler started screameing at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
+The moment, I put the `cust` code in my library, Rust compiler started screaming at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
 
 Ah, the classic trait bound error which I almost forgot after working in python and JS for last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step forward and makes this even harder for any types which refers to raw pointers. `Vec<u32>` and `Vec<T>` are obviously one of those and these are the backbone of my `Tensor`.
 
