@@ -24,9 +24,9 @@ var drafts = [
         draft: true
     },
     {
-        id: "reinvent-computer-1",
-        title: "Reinventing the Computer - Part 1",
-        mdUrl: getCommon("cdn") + "/target/blogs/reinvent-computer/part1.md",
+        id: "iron-learn-4",
+        title: "Iron Learn: The Roadblock",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
         publishDate: "",
         contentType: "swe",
         draft: true

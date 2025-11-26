@@ -1,16 +1,22 @@
-# Integrating GPU Matrix Multiplication
-At this point, the inventory looks like the following
-1. A rudimentary Tensor Library
-2. Gradient Descent implementation without any optimization
-3. A separate project which has a running GPU Matrix Multiplication program
+# The Roadblock
+The GPU Matrix Multiplication program was a success; or so I thought. So, at that point, the inventory looked like the following:
+1. A rudimentary **Tensor** Library written in Rust
+2. **Gradient Descent** implementation without advanced optimizers (like **Adam** or **RMSprop**) - basic but works
+3. A separate project with code to run Matrix Multiplication on GPU (the **Flash**)
+4. All the wiring was done using Rust, the `cust` library and the external GPU kernel program
 
-As my CPU based program taking longer, I thought of changing the Matrix Multiplication routine to utilize GPU. The moment, I put the cust code in my program, it started giving me angry red eyes and screamed at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from cust library has not been implemented for my type.
+In a nutshell, I was ready to put the GPU performance tweak into my library and roll with speed.
 
-Ah, the classic trait bound error which I almost forgot after working in python and JS for last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step forward and makes this even harder for any types which refers to raw pointers. `Vec<u32>` and `Vec<T>` are obviously one of those and these are the backbone of my `Tensor`.
+**Copy, Paste, and...**
+
+## Rust Compiler's Full Blow
+The moment I put the `cust` code in my library, the Rust compiler started screaming at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
+
+Ah, the classic trait bound error which I almost forgot after working in **Python** and **JS** for the last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step further and makes this even harder for any types which refer to raw pointers. `Vec<u32>` and `Vec<T>` are obviously one of those and these are the backbone of my `Tensor`.
 
 I tried looking around the compiler errors. I started writing the `DeviceCopy` impl blocks for `Tensor`. I went through many error cycles and finally discarded all my changes.
 
-Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference. Curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
+Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference? A Curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
 
 ```rust
 // Allocate device buffers and copy inputs
@@ -19,9 +25,9 @@ let mut d_b = DeviceBuffer::from_slice(&host_b)?;
 let mut d_c = DeviceBuffer::from_slice(&host_c)?;
 ```
 
-There it was. If my type `T` is a trait that implements `Copy` and is non-refernce by it's type, then I can use the same code.
+There it was. If my type `T` is a trait that implements `Copy` and is non-reference by its type, then I can use the same code.
 
-With this new found learning, I went back to my `Numeric` trait and found that, it is already bound by `Copy` trait and all the known implementations of this trait are already the primitive types which are non-referential already. I added the following trait bound to my `Numeric` trait as follows -
+With this newfound learning, I went back to my `Numeric` trait and found that, it is already bound by `Copy` trait and all the known implementations of this trait are already the primitive types which are non-referential already. I added the following trait bound to my `Numeric` trait as follows -
 
 ```rust
 pub trait Numeric:
@@ -119,31 +125,37 @@ fn _gpu_mul(&self, rhs: &Self) -> Result<Self, String> {
 
 ```
 
-Ran the program and to my surprise, it took longer than the CPU Multiplication program and it seemed like my GPU is blocked for quite some time. Something amiss for sure. I halted the program after waiting around 2 minutes.
+I ran the program, and to my surprise, it took longer than the original CPU-based Matrix Multiplication program. It seemed like my GPU was blocked for quite some time. Something was amiss, for sure. I halted the program after waiting around for two minutes. It definitely was not the "Flash" performance I expected. Time for another debugging session.
 
-I looked through the program, I am initializing the context twice in the GPU Multiplication function. I removed one instance and ran it again. Same issue again. Then I thought, isn't it that, my `Gradient Descent` runs in a loop and the multiplication function is called within that loop multiple times. So, the context is initializing multiple times. How about I move the initialization part somewhere else?
+The bubble just burst...
+
+## The Debugging Phase
+Looking through the program, I noticed I was initializing the context twice in the GPU Multiplication function. I removed one instance and ran it again. Same issue again. Then I thought, 'Isn't it that my `Gradient Descent` runs in a loop and the multiplication function is called within that loop multiple times? This had to be the reasonable explanation: the context was being initialized multiple times, causing the delay. How about I move the initialization part somewhere else?'
 
 I moved the initialization in the entry point itself - the `main` function and ran it again.
 
-The result shattered me - It took 55 seconds, longer than CPU Multiplication and I am back with `NaN` output in linear regression and 30% accuracy for logistics regression.
+The result shattered me: It took 55 seconds - longer than CPU Multiplication, and I was back with `NaN` output in linear regression and 30% accuracy for logistics regression.
 
 Debug time...
 
-First I checked, if my CPU Multiplication method still works or not. My trustworthy CPU Matrix Multiplication function still works and gives the same result as before.
+First I checked, if my CPU Multiplication method still works or not. My trustworthy CPU-based Matrix Multiplication function still works and gives the same result as before.
 
 Definitely it is the GPU matrix multiplication program that takes longer and still computes inaccurate result.
 
-The first change I made was to bring down the iterations to 10 and print each step in the GPU 
+The first change I made was to bring down the iterations to 10 and print each step in the GPU-based function
 
-Each multiplication was taking
+For each multiplication, the hardware was completing calculations as follows:
 
 - GPU = ~750-800 µs
 - CPU = ~20 - 25 µs
 
-I dove deeper into the results, added more logs. In conclusion, the most time was taken by data copy between main memory to GPU and GPU to main memory, a fraction of the time was actually taken by the actual matrix multiplication.
+Yeah, you read it right. CPU-based program rocks, GPU shocks...
 
-Ok, first problem understood. If we can run the whole training loop inside CUDA, we will see performance boost. New plan of action -
+I dove deeper into the results, adding more logs after each step. In conclusion, most of the time was taken by data copy (Host to Device and Device to Host), while only a fraction was actually spent on GPU kernel execution.
 
+Okay, the first issue was nailed down: **data transfer overhead**. I chalked up a plan. If I run the whole training loop inside CUDA, I will see performance boost. 
+
+### New course of action
 1. Copy both the input matrices from json to main memory
 2. Copy the same into GPU
 3. Run the training loop
@@ -152,15 +164,18 @@ Ok, first problem understood. If we can run the whole training loop inside CUDA,
 6. Store the results
 6. Next time onwards use it for prediction (either through GPU or CPU)
 
-But what about the accuracy part?
+But what about the **inaccuracy** part?
+
 Let's dive a little deeper into that.
 
-I ran all the test cases with gpu matrix multiplication. Almost all tests that were associated with matrix multiplication failed. I then switched back to cpu matrix multiplication. It all ran fine.
+I ran all the test cases using the GPU matrix multiplication function. Almost all tests that were associated with matrix multiplication failed. I then switched back to the CPU-based matrix multiplication. All tests ended in green tick this time.
 
-## The acceptance
-I already had spent more than two days around fixing things here and there, integrating CUDA code etc. Now I see, two major challenges, if I have to gain the speed boost, I need to move the whole linear regression code inside CUDA, otherwise time spent in transporting data back and forth CPU/GPU would eat up a lot of time. To do that, I have to write everything in C, which defies my initial purpose of learning Rust and Machine Learning as a whole.
+## Accepting the Limits
+I had already spent more than two days fixing things here and there, integrating CUDA code, and tackling related issues. I saw **two major challenges**: first, if I wanted to gain the speed boost, I'd need to move the whole regression module inside CUDA, otherwise time spent transporting data back and forth between CPU and GPU would eat up all the gains. To do that, I would have to write everything in C, which defeats my initial purpose of learning Rust and Machine Learning as a whole.
 
-The second challenge is that, I have been very rusty with C language as I have not touched it almost 16 years now. So, I have to learn everything in C and then only I would be able to write CUDA code and then I will be able to continue my learning journey with Rust and ML.
+The second challenge was that I had become very rusty with the **C language** as I hadn't touched it in almost 16 years. This meant I would have to learn C thoroughly just to write the CUDA code, delaying my original learning journey with Rust and ML.
 
-Hence, I accepted that, I won't work on GPU at this stage. Down the line somewhere if I really feel the need for it, I will do it. But till then, I am happy with running small data sets and longer execution time.
+Hence, I accepted that I wouldn't work on the GPU at that stage. Down the line, if I really feel the need for it, I'll revisit the topic. Until then, I'd be content running small datasets with longer execution times.
+
+Little did I know, the next day would bring my biggest facepalm moments in my programming journey...
 
