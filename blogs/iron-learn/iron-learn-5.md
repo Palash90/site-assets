@@ -1,11 +1,20 @@
-I again started my work on the library. It was silently killing me from inside that, I have a GPU that I bought to do these calculations for me. Just for my laziness I am wasting my time in waiting rather than learning.
+# The Comeback
+After failing in my last attempt at integrating the CUDA code into my library, I resorted to CPU. Logistic Regression was running perfectly fine for a small 100-row, 2-column dataset. The logical next step was a two-layer neural network.
 
-Seriously, the wait time to see anything descent was beyond my nerves and also I had to always go with smaller dataset, as my machine could not cope up with that much of data. It was also very clear to me that, if I have to complete this project, I at some point definitely have to push my CPU sequential program to GPU parrallel program.
+The neural network doubled the number of matrix multiplications. The logistic regression program was taking around an hour just for a run of 1000 iterations, which already made me impatient. The small two-layer toy neural network took it even further: approximately two hours to run 1000 iterations.
 
-I rolled up my sleeve again to find a solution. If nvidia CUDA examples can run on my machine, why can't I take the step forward to program on my own?
+And this was just the beginning, just two layers. If I actually had to do some complex work, I would have to go beyond two layers and most probably I would need more than one perceptron in each layer and that would contribute to polynomial growth in the computational complexity of the program.
 
+The waiting was silently killing me. I had a GPU that I bought as a learning aid to perform those calculations for me. Just because of my laziness, I was wasting my time staring at the screen rather than learning.
 
-I noticed, with my GPU and nvcc 12.0+, I can access something called as cuBLASDx, a GEMM (GEneral Matrix Multiplication) wrapper. I thought of giving it a try.
+The wait time for a decent output was beyond my patience, and I was compelled to work with smaller datasets, making all my attempts feel like merely a `Hello World` program. It appeared crystal clear to me that if I had to complete this project, I definitely had to push my CPU-based, sequential program to a GPU-based, parallel program.
+
+I rolled up my sleeves again to find a solution. 
+
+__If NVIDIA CUDA examples can run on my machine, why can't my program...__
+
+## Another Failure Attempt
+I noticed, with my NVIDIA RTX 3050 Laptop GPU and nvcc 12.0+, I can access something called as cuBLASDx, a GEMM (GEneral Matrix Multiplication) wrapper. I thought of giving it a try.
 
 I started reading the documentation and guide hosted on NVIDIA website.
 
@@ -21,6 +30,7 @@ However, the error, I got broke me a little. My GPU was built with Ampere Archit
 
 Hence, I can't run cuBLASx GEMM modules on my GPU.
 
+# Another Pivot
 I again changed my course of action. I went back to start simple and start with matrix addition instead. I wrote a simple matrix addition program and ran for 10 numbers, it went fine.
 
 ```c
@@ -85,14 +95,13 @@ int main() {
 
 ```
 
-
-
-
 I bumped it up to 1,00,000,000 and it started returning 0. I again brought it back to lower numbers. It went fine for 10, 100, 1000 but started returning 0 when went for 10000.
 
-This was unusual for me. I wore my debugging hat. First mistake was the size of the pointer. I was making a float array, but was initializing to `size(int)`. I fixed it.
+This was unusual for me. I wore my debugging hat. First mistake was the size of the pointer. I was making a float array, but was initializing to `size(int)`. I fixed it. 
 
-Then, there it was, I was allocating only one block with 1024, instead of allocating for my matrix size. Changed it as follows
+Typical type error...
+
+Then, there it was, I was allocating only one block with 1024, instead of allocating memory according to the size of my matrix. Changed it as follows
 
 ```c
 int threadsPerBlock = 1024;
@@ -100,7 +109,7 @@ int blocks = (n + threadsPerBlock - 1) / threadsPerBlock;
 add<<<blocks, threadsPerBlock>>>(d_a, d_b, d_c, n);
 ``` 
 
-Then it started working. I got it running in C. Now, I have to get it running in Rust now.
+Then it started working. I got it running in C. I had to get it running in Rust.
 
 The first step is to separate out the cuda code and the C code. I deleted the main function from the cuda code and ran the following to get the ptx output, which we'll feed to our Rust code.
 
@@ -368,4 +377,4 @@ Wore the debugging hat again. Few f32 needed change, few matrix dimensions were 
 Something is missing. I found that the transpose function was not correctly returning result. So, I changed it. And the new implementation returned 92.85% accuracy with 20000 iterations.
 
 
-
+Finally, I could use my GPU inside my Rust Library. The GPU actually aided my learning for the first time...
