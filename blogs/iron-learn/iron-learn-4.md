@@ -12,9 +12,9 @@ In a nutshell, I was ready to put the GPU performance tweak into my library and 
 ## Rust Compiler's Full Blow
 The moment I put the `cust` code into my library, the Rust compiler started screaming at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
 
-Ah, the classic trait bound error I almost forgot after working in **Python** and **JS** for the last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step further and makes this even harder for any types which refer to raw pointers. `Vec<u32>` and `Vec<T>` obviously belong to that group, and these are the backbone of my `Tensor`.
+Ah, the classic trait bound error I almost forgot after working in **Python** and **JS** for the last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step further and makes this even harder for any types which refer to raw pointers. `Vec<u32>` and `Vec<T>` obviously belong to that group, and they are the backbone of my `Tensor`.
 
-I started checking the compiler errors and then started implementing the `DeviceCopy` for `Tensor`. I went through many error cycles and finally discarded all my changes.
+I started checking the compiler errors and then began implementing the `DeviceCopy` for `Tensor`. I went through many error cycles and finally discarded all my changes.
 
 Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference? A curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
 
@@ -142,7 +142,7 @@ Debugging time...
 
 First, I checked if my CPU Multiplication method still works. My trustworthy CPU-based Matrix Multiplication function still works and gives the same result as before.
 
-It is definitely the GPU matrix multiplication program that takes longer and still computes inaccurate results.
+It was definitely the GPU matrix multiplication program that was taking longer and was still computing inaccurate results.
 
 The first change I made was to bring down the iterations to 10 and print each step in the GPU-based function.
 
