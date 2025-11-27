@@ -71,8 +71,7 @@ var sweContents = [
     title: "Iron Learn: Resuming my journey on learning the basics of AI",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-1.md",
     publishDate: "Nov 18, 2025",
-    contentType: "swe",
-    draft: true,
+    contentType: "swe"
   },
   {
     id: "iron-learn-2",
@@ -80,24 +79,21 @@ var sweContents = [
       "Iron Learn: Making my Machine Decide Based on Data",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
     publishDate: "Nov 22, 2025",
-    contentType: "swe",
-    draft: true,
+    contentType: "swe"
   }, 
     {
         id: "iron-learn-3",
         title: "Iron Learn: The Joy of Running Parallel",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
         publishDate: "Nov 23, 2025",
-        contentType: "swe",
-        draft: true
+        contentType: "swe"
     },
     {
         id: "iron-learn-4",
         title: "Iron Learn: The Bubble Burst",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
-        publishDate: "",
-        contentType: "swe",
-        draft: true
+        publishDate: "Nov 27, 2025",
+        contentType: "swe"
     }
 ];
 
