@@ -153,7 +153,7 @@ For each multiplication, the hardware was completing calculations as follows:
 
 Yeah, you read it right. CPU-based program rocks, GPU shocks...
 
-I dove deeper into the results, adding more logs after each step. In conclusion, most of the time was taken by data copy (Host to Device and Device to Host), while only a fraction was actually spent on GPU kernel execution.
+I dove deeper into the results, adding more logs after each step. The logs unmasked the culprit, most of the time was taken by data copy (Host to Device and Device to Host), while only a fraction was actually spent on GPU kernel execution.
 
 Okay, the first issue was nailed down: **data transfer overhead**. I chalked up a plan. If I run the whole training loop inside CUDA, I will see performance boost. 
 
