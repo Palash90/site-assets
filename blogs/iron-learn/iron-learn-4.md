@@ -27,7 +27,7 @@ let mut d_c = DeviceBuffer::from_slice(&host_c)?;
 
 There it was. If my type `T` is a trait that implements `Copy` and is non-reference by its type, then I can use the same code.
 
-With this newfound learning, I went back to my `Numeric` trait and found that, it is already bound by `Copy` trait and all the known implementations of this trait are already the primitive types which are non-referential already. I added the following trait bound to my `Numeric` trait as follows -
+With this newfound learning, I went back to my `Numeric` trait and found that, it is already bound by `Copy` trait and all the known implementations of this trait are the primitive types which are non-referential already. I added the `DeviceCopy` trait bound to my `Numeric` trait as follows -
 
 ```rust
 pub trait Numeric:
@@ -136,7 +136,7 @@ Looking through the program, I noticed I was initializing the context twice in t
 
 I moved the initialization in the entry point itself - the `main` function and ran it again.
 
-The result shattered me: It took 55 seconds - longer than CPU Multiplication, and I was back with `NaN` output in linear regression and 30% accuracy for logistics regression.
+The result shattered me: It took 55 seconds - longer than CPU Multiplication, and I was back with `NaN` output in linear regression and 30% accuracy for logistic regression.
 
 Debug time...
 
