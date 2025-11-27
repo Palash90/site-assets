@@ -1,8 +1,8 @@
-# The Roadblock
-The GPU Matrix Multiplication program was a success; or so I thought. So, at that point, the inventory looked like the following:
+# The Bubble Burst
+The GPU Matrix Multiplication program was a success; or so I thought. At that point, the inventory looked like the following:
 1. A rudimentary **Tensor** Library written in Rust
 2. **Gradient Descent** implementation without advanced optimizers (like **Adam** or **RMSprop**) - basic but works
-3. A separate project with code to run Matrix Multiplication on GPU (the **Flash**)
+3. A separate project with code to run Matrix Multiplication on GPU
 4. All the wiring was done using Rust, the `cust` library and the external GPU kernel program
 
 In a nutshell, I was ready to put the GPU performance tweak into my library and roll with speed.
@@ -154,6 +154,32 @@ Yeah, you read it right. CPU-based program rocks, GPU shocks...
 I dove deeper into the results, adding more logs after each step. In conclusion, most of the time was taken by data copy (Host to Device and Device to Host), while only a fraction was actually spent on GPU kernel execution.
 
 Okay, the first issue was nailed down: **data transfer overhead**. I chalked up a plan. If I run the whole training loop inside CUDA, I will see performance boost. 
+
+### New course of action
+1. Copy both the input matrices from json to main memory
+2. Copy the same into GPU
+3. Run the training loop
+4. Get the data back from GPU
+5. Get the weight and bias matrix back from GPU
+6. Store the results
+6. Next time onwards use it for prediction (either through GPU or CPU)
+
+But what about the **inaccuracy** part?
+
+Let's dive a little deeper into that.
+
+I ran all the test cases using the GPU matrix multiplication function. Almost all tests that were associated with matrix multiplication failed. I then switched back to the CPU-based matrix multiplication. All tests ended in green tick this time.
+
+## Accepting the Limits
+I had already spent more than two days fixing things here and there, integrating CUDA code, and tackling related issues. I saw **two major challenges**: first, if I wanted to gain the speed boost, I'd need to move the whole regression module inside CUDA, otherwise time spent transporting data back and forth between CPU and GPU would eat up all the gains. To do that, I would have to write everything in C, which defeats my initial purpose of learning Rust and Machine Learning as a whole.
+
+The second challenge was that I had become very rusty with the **C language** as I hadn't touched it in almost 16 years. This meant I would have to learn C thoroughly just to write the CUDA code, delaying my original learning journey with Rust and ML.
+
+Hence, I accepted that I wouldn't work on the GPU at that stage. Down the line, if I really feel the need for it, I'll revisit the topic. Until then, I'd be content running small datasets with longer execution times.
+
+Little did I know, the next day would bring my biggest facepalm moments in my programming journey...
+
+aining loop inside CUDA, I will see performance boost. 
 
 ### New course of action
 1. Copy both the input matrices from json to main memory

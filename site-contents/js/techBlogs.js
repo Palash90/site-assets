@@ -68,7 +68,7 @@ var sweContents = [
   },
   {
     id: "iron-learn-1",
-    title: "Resuming my journey on learning the basics of AI",
+    title: "Iron Learn: Resuming my journey on learning the basics of AI",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-1.md",
     publishDate: "Nov 18, 2025",
     contentType: "swe",
@@ -77,7 +77,7 @@ var sweContents = [
   {
     id: "iron-learn-2",
     title:
-      "Making a Binary Classifier",
+      "Iron Learn: Making my Machine Decide Based on Data",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
     publishDate: "Nov 22, 2025",
     contentType: "swe",
@@ -85,12 +85,20 @@ var sweContents = [
   }, 
     {
         id: "iron-learn-3",
-        title: "Accelerating Calculations: From CPU to GPU with Rust and CUDA",
+        title: "Iron Learn: The Joy of Running Parallel",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
         publishDate: "Nov 23, 2025",
         contentType: "swe",
         draft: true
-    },    
+    },
+    {
+        id: "iron-learn-4",
+        title: "Iron Learn: The Bubble Burst",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
+        publishDate: "",
+        contentType: "swe",
+        draft: true
+    }
 ];
 
 sweContents = modifyArray(sweContents);
