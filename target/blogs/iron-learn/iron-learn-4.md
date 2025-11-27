@@ -41,7 +41,7 @@ pub trait Numeric:
 
 And it threw me new error on `Complex` type, which is an implementation of `Numeric` type but does not implement `DeviceCopy`. I could implement this simply for my `Complex` struct implementation. As the members in the struct are both `f64`, thus already natively implemented in the original `cust` library.
 
-I simply added the `DeviceCopy` to my original list of `derive` implementations.
+I simply added the `DeviceCopy` to my original list of `derive` implementations of `Complex` type.
 
 ```rust
 #[derive(Debug, PartialEq, Copy, Clone, DeviceCopy)]
