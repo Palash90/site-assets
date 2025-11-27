@@ -10,11 +10,11 @@ In a nutshell, I was ready to put the GPU performance tweak into my library and 
 **Copy, Paste, and...**
 
 ## Rust Compiler's Full Blow
-The moment I put the `cust` code in my library, the Rust compiler started screaming at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
+The moment I put the `cust` code into my library, the Rust compiler started screaming at me with multiple errors. The compiler correctly pointed out that `DeviceCopy` trait from `cust` library has not been implemented for my custom types.
 
-Ah, the classic trait bound error which I almost forgot after working in **Python** and **JS** for the last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step further and makes this even harder for any types which refer to raw pointers. `Vec<u32>` and `Vec<T>` are obviously one of those and these are the backbone of my `Tensor`.
+Ah, the classic trait bound error I almost forgot after working in **Python** and **JS** for the last 14 months. Rust is so secure, it won't let me play with memory carelessly. Well, the `cust` library takes a step further and makes this even harder for any types which refer to raw pointers. `Vec<u32>` and `Vec<T>` obviously belong to that group, and these are the backbone of my `Tensor`.
 
-I tried looking around the compiler errors. I started writing the `DeviceCopy` impl blocks for `Tensor`. I went through many error cycles and finally discarded all my changes.
+I started checking the compiler errors and then started implementing the `DeviceCopy` for `Tensor`. I went through many error cycles and finally discarded all my changes.
 
 Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference? A curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
 
@@ -125,7 +125,7 @@ fn _gpu_mul(&self, rhs: &Self) -> Result<Self, String> {
 
 ```
 
-I ran the program, and to my surprise, it took longer than the original CPU-based Matrix Multiplication program. It seemed like my GPU was blocked for quite some time. Something was amiss, for sure. I halted the program after waiting for approximately two minutes. It definitely was not the "Flash" performance I expected.
+I ran the program, and to my surprise, it took longer than the original CPU-based Matrix Multiplication program. It seemed like my GPU was blocked for quite some time. Something was amiss, for sure. I halted the program after waiting for approximately two minutes. It was definitely not the "Flash" performance I expected.
 
 The bubble just burst...
 
@@ -138,13 +138,13 @@ I moved the initialization in the entry point itself - the `main` function and r
 
 The result shattered me: It took 55 seconds - longer than CPU Multiplication, and I was back with `NaN` output in linear regression and 30% accuracy for logistic regression.
 
-Debug time...
+Debugging time...
 
-First I checked, if my CPU Multiplication method still works or not. My trustworthy CPU-based Matrix Multiplication function still works and gives the same result as before.
+First, I checked if my CPU Multiplication method still works. My trustworthy CPU-based Matrix Multiplication function still works and gives the same result as before.
 
-Definitely it is the GPU matrix multiplication program that takes longer and still computes inaccurate result.
+It is definitely the GPU matrix multiplication program that takes longer and still computes inaccurate results.
 
-The first change I made was to bring down the iterations to 10 and print each step in the GPU-based function
+The first change I made was to bring down the iterations to 10 and print each step in the GPU-based function.
 
 For each multiplication, the hardware was completing calculations as follows:
 
@@ -158,7 +158,7 @@ I dove deeper into the results, adding more logs after each step. The logs unmas
 Okay, the first issue was nailed down: **data transfer overhead**. I chalked up a plan. If I run the whole training loop inside CUDA, I will see performance boost. 
 
 ### A new course of action
-1. Copy both the input matrices from json to main memory
+1. Copy both the input matrices from JSON to main memory
 2. Copy the same into GPU
 3. Run the training loop
 4. Get the computed weight and bias matrix back from GPU
