@@ -16,7 +16,7 @@ Ah, the classic trait bound error which I almost forgot after working in **Pytho
 
 I tried looking around the compiler errors. I started writing the `DeviceCopy` impl blocks for `Tensor`. I went through many error cycles and finally discarded all my changes.
 
-Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference? A Curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
+Then it struck me, my `Tensor` type can't implement `DeviceCopy` because it has a reference type - `Vec` inside it. However, I used `Vec` to implement the matrix multiplication on GPU and that also used `Vec`. What was the difference? A curious me again looked around the GPU Matrix Multiplication Code and I found that, it takes a slice of the `Vec<T>`.
 
 ```rust
 // Allocate device buffers and copy inputs
@@ -125,9 +125,11 @@ fn _gpu_mul(&self, rhs: &Self) -> Result<Self, String> {
 
 ```
 
-I ran the program, and to my surprise, it took longer than the original CPU-based Matrix Multiplication program. It seemed like my GPU was blocked for quite some time. Something was amiss, for sure. I halted the program after waiting around for two minutes. It definitely was not the "Flash" performance I expected. Time for another debugging session.
+I ran the program, and to my surprise, it took longer than the original CPU-based Matrix Multiplication program. It seemed like my GPU was blocked for quite some time. Something was amiss, for sure. I halted the program after waiting for approximately two minutes. It definitely was not the "Flash" performance I expected.
 
 The bubble just burst...
+
+Time for another debugging session.
 
 ## The Debugging Phase
 Looking through the program, I noticed I was initializing the context twice in the GPU Multiplication function. I removed one instance and ran it again. Same issue again. Then I thought, 'Isn't it that my `Gradient Descent` runs in a loop and the multiplication function is called within that loop multiple times? This had to be the reasonable explanation: the context was being initialized multiple times, causing the delay. How about I move the initialization part somewhere else?'
@@ -155,13 +157,12 @@ I dove deeper into the results, adding more logs after each step. In conclusion,
 
 Okay, the first issue was nailed down: **data transfer overhead**. I chalked up a plan. If I run the whole training loop inside CUDA, I will see performance boost. 
 
-### New course of action
+### A new course of action
 1. Copy both the input matrices from json to main memory
 2. Copy the same into GPU
 3. Run the training loop
-4. Get the data back from GPU
-5. Get the weight and bias matrix back from GPU
-6. Store the results
+4. Get the computed weight and bias matrix back from GPU
+5. Store the results
 6. Next time onwards use it for prediction (either through GPU or CPU)
 
 But what about the **inaccuracy** part?
@@ -177,17 +178,16 @@ The second challenge was that I had become very rusty with the **C language** as
 
 Hence, I accepted that I wouldn't work on the GPU at that stage. Down the line, if I really feel the need for it, I'll revisit the topic. Until then, I'd be content running small datasets with longer execution times.
 
-Little did I know, the next day would bring my biggest facepalm moments in my programming journey...
+Little did I know, the next day would bring one of my biggest facepalm moments in my programming journey...
 
 aining loop inside CUDA, I will see performance boost. 
 
-### New course of action
+### A new course of action
 1. Copy both the input matrices from json to main memory
 2. Copy the same into GPU
 3. Run the training loop
-4. Get the data back from GPU
-5. Get the weight and bias matrix back from GPU
-6. Store the results
+4. Get the computed weight and bias matrix back from GPU
+5. Store the results
 6. Next time onwards use it for prediction (either through GPU or CPU)
 
 But what about the **inaccuracy** part?
@@ -203,5 +203,5 @@ The second challenge was that I had become very rusty with the **C language** as
 
 Hence, I accepted that I wouldn't work on the GPU at that stage. Down the line, if I really feel the need for it, I'll revisit the topic. Until then, I'd be content running small datasets with longer execution times.
 
-Little did I know, the next day would bring my biggest facepalm moments in my programming journey...
+Little did I know, the next day would bring one of my biggest facepalm moments in my programming journey...
 
