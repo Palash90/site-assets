@@ -39,7 +39,7 @@ pub trait Numeric:
     + std::ops::Div<Output = Self>
 ```
 
-And it threw me new error on `Complex` type, which is an implementation of `Numeric` type. I could implement this simply for my `Complex` struct implementation. As the members in the struct are both `f64`, thus already natively implemented in the original `cust` library.
+And it threw me new error on `Complex` type, which is an implementation of `Numeric` type but does not implement `DeviceCopy`. I could implement this simply for my `Complex` struct implementation. As the members in the struct are both `f64`, thus already natively implemented in the original `cust` library.
 
 I simply added the `DeviceCopy` to my original list of `derive` implementations.
 
