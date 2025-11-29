@@ -1,9 +1,9 @@
 :root {
-    --md-body-text: #e7f5f78f;
+    --md-body-text: #c1f7f68f;
 
     --md-light: #2181e1; 
-    --md-ultra-light: #6e92e6; 
-    --md-hyper-light: #a3d9eb;
+    --md-ultra-light: #4878e9; 
+    --md-hyper-light: #75b8ff;
 
     --md-dark: #1e4b76; 
     --md-ultra-dark: #0c1d2e;
@@ -224,7 +224,7 @@ table th {
     font-weight: 400;
     font-style: normal;
     /* font-family: 'Courier New', monospace;*/
-    border-left: 4px solid #00ff9d;
+    border-left: 4px solid #e3f988;
     /* Bright border to simulate prompt line */
     padding: 1em;
     border-radius: 5px;
@@ -234,7 +234,7 @@ table th {
 
 /* Inline Code Styling */
 .tech-blog-content code {
-    color: #00ff9d;
+    color: #9acd32;
     /* Same neon green for inline code */
     background-color: #1e1e1e;
     font-family: 'Fira Code', monospace;
