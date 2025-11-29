@@ -36,7 +36,7 @@ const data = {
             greeting: "Hi, I'm ",
             moto: "My moto: ",
             motos: ["Code", "Create", "Inspire"],
-            desc: "I’m a software engineer with 13 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
+            desc: "I’m a software engineer with 14 years of experience, specializing in tech stacks like Java, Python, C#, React.js and Rust. Apart from my day-to-day office work, I’ve built a machine learning library, implemented parts of a distributed system, few react.js based games, and am passionate about system design. I also contribute to community through my blogs to share insights and learnings. \n \n  Outside of software engineering, I pursue music, specifically creating guitalele tutorials, which helps me stay creative and balanced.\n\n",
             profilePicUrl: getCommon("cdn") + "/assets/profile.jpg",
 
             mainStyle: "main-app-lora custom-theme",
@@ -65,8 +65,8 @@ const data = {
         },
         about: {
             mdUrl: getCommon("cdn") + "/assets/ME.md",
-            resume: getCommon("cdn") + "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
-            resumeName: "Palash_Kanti_Kundu_13YOE_BackEnd_AI.pdf",
+            resume: getCommon("cdn") + "Palash_Kanti_Kundu_14YOE_BackEnd_AI.pdf",
+            resumeName: "Palash_Kanti_Kundu_14YOE_BackEnd_AI.pdf",
             blogClass: "blog-content markdown-color"
         }
     },
