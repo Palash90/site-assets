@@ -134,4 +134,33 @@ At this point the inventory looked like this.
 5. A Python script to run GPU powered neural network
 
 
+After I was done playing with the python script for some time, finally I jumped back into my Rust Program. All the code was written inside one single big 500+ line file, ignoring my personal coding hygeine. Hence I started tidying up things a little.
 
+I also needed to make the gradient descent and all other modules hardware agnostic. They just call tensor methods and things should work for them, without worrying about backend implementation.
+
+The Plan
+=========
+1. Make a `TensorFamily` enum to determine where the logic is gonna run
+1. Write a  `TensorBackend` struct which holds all the methods of `Tensor`
+1. Implement the `CpuTensor` and `GpuTensor` for `TensorBackend`
+1. Finally, rewrite the `Tensor` back which works as the `Factory`
+
+While doing so, stumbled upon some new learning on Rust - the dynamic trait and another rabbit hole...
+
+The Pivot
+=========
+1. I was dumped with multiple errors while I tried to use `dyn` trait for `TensorBackend`. I tried to resolve a few. Some I fixed, I understood few new concepts and why Rust was trying to block me to go for a recursive memory allocation pattern.
+
+After spending around 2 hours, a question came to my mind, why even I am trying to that. The way CPU and GPU calculations are going to happen are completely different.
+
+I can send back the result from my CPU based program after each calculation but GPU based program should not return result after every operation, rather it should return result only when asked for.
+
+With this new idea, I abandoned all my work and started fresh with writing GPU based program separately. If I need to unify the logic at some point, I will do it then. Now is not the time.
+
+After few more rounds of error, I stopped completely. Then after a short walk around the block, this came to my mind, how about I run the neural network on CPU first and then integrate to GPU later.
+
+With that thought, I wrote the rust cpu based program following the python neural network script.
+
+I had to fight with the compiler for quite a few issues and then, I had to write a few new methods too. I got to know about the difference of numpy in syntax of - @ and *.
+
+After around 3 hours, I was able to finally run my first Rust Neural Network program and was showing similar results like the one in python program.

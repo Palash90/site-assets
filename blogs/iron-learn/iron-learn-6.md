@@ -2,93 +2,7 @@ I know all my GPU kernels are still not the most highly optimized set. But I rea
 
 I will rather deep dive in learning the next step of machine learning than making my code super efficient.
 
-But one thing, I can do for sure is to write a build script for the GPU Kernels to build automatically.
-
-```
-use std::path::PathBuf;
-use std::process::Command;
-use std::io::{self, Write, ErrorKind};
-
-fn main() {
-    // 1. Define the input CUDA source file and the desired output PTX file name.
-    let kernel_src = "kernels/gradient_descent.cu";
-    let kernel_ptx_name = "gradient_descent.ptx";
-
-    // 2. Tell Cargo which files to watch:
-    println!("cargo:rerun-if-changed=build.rs");
-    println!("cargo:rerun-if-changed={}", kernel_src);
-
-    // 3. Get the output directory path set by Cargo (MANDATORY location for Rust linking).
-    let out_dir = PathBuf::from(std::env::var("OUT_DIR").unwrap());
-    let ptx_path = out_dir.join(kernel_ptx_name);
-    
-    // Attempt to compile CUDA kernel
-    let compilation_result = Command::new("nvcc")
-        .arg(kernel_src)
-        .arg("-o")
-        .arg(&ptx_path)
-        .args(&["-ptx", "-arch=sm_50", "--allow-unsupported-compiler", "-lcublas"])
-        .status();
-
-    match compilation_result {
-        Ok(status) => {
-            if status.success() {
-                // Compilation succeeded, PTX file is in $OUT_DIR
-                println!("cargo:warning=Successfully compiled CUDA kernel to: {}", ptx_path.display());
-
-                // --- NEW STEP: Copy the PTX file to the project's kernels/ directory for easy inspection ---
-                let kernel_copy_dir = PathBuf::from("kernels");
-                let kernel_copy_path = kernel_copy_dir.join(kernel_ptx_name);
-                
-                // Ensure the 'kernels' directory exists before copying
-                if let Err(e) = std::fs::create_dir_all(&kernel_copy_dir) {
-                     println!("cargo:warning=Could not create 'kernels/' directory for copy: {}", e);
-                }
-
-                match std::fs::copy(&ptx_path, &kernel_copy_path) {
-                    Ok(_) => {
-                        println!("cargo:warning=Copied PTX file to project root for inspection: {}", kernel_copy_path.display());
-                    }
-                    Err(e) => {
-                        // Log a warning, but don't panic as the build technically succeeded
-                        println!("cargo:warning=Failed to copy PTX file to kernels/ directory: {}", e);
-                    }
-                }
-                // ------------------------------------------------------------------------------------------
-
-            } else {
-                // nvcc was found, but compilation failed (e.g., syntax error in .cu file)
-                panic!(
-                    "nvcc was found but failed to compile {}. Exit code: {}. Check your CUDA code.",
-                    kernel_src,
-                    status.code().unwrap_or(-1)
-                );
-            }
-        }
-        Err(e) => {
-            if e.kind() == ErrorKind::NotFound {
-                // === GRACEFUL FALLBACK: NVCC NOT FOUND ===
-                println!("cargo:warning=NVCC not found ({}). Skipping CUDA compilation and creating an EMPTY placeholder PTX file.", e);
-                println!("cargo:warning=Please ensure your main Rust code checks if the included PTX string is empty and falls back to CPU execution.");
-
-                // Create the empty file the main Rust code expects to exist via `include_str!`.
-                let mut file = std::fs::File::create(&ptx_path)
-                    .unwrap_or_else(|e| panic!("Failed to create placeholder PTX file at {}: {}", ptx_path.display(), e));
-                
-                writeln!(file, "").unwrap_or_else(|e| panic!("Failed to write to placeholder PTX file at {}: {}", ptx_path.display(), e));
-                
-            } else {
-                // Some other I/O error (permission denied, etc.)
-                panic!("Failed to execute nvcc command: {:?}", e);
-            }
-        }
-    }
-}
-```
-
-I ran it and it went successfully.
-
-Everything now just perfect. It was so satisfying to see GPU getting used by my own program, I could not resist the urge, I bumped up the iteration loop to 10 million epochs. My GPU frequently went 100% usage. Wow!!! A cherishable moment.
+But there is no harm in doing some kind of baseline check while my machine does the hard work and I take rest. It was so satisfying to see GPU getting used by my own program, I could not resist the urge, I bumped up the iteration loop to 10 million epochs. My GPU frequently went 100% usage. Wow!!! A cherishable moment.
 
 10 million iterations took almost 45 minutes in my machine, still less than the time it took for CPU to run only 5000 iterations. Accuracy also hit 93.09% this time.
 
@@ -103,9 +17,19 @@ At this point my inventory include quite a few things actually.
 5. A complete orchestrator of Gradient Descent
 6. A full logistic regression program which returns accuracy almost identical to other libraries.
 
-While taking a look, I thought of refactoring things a little and also get rid of deprecated warnings.
+I started with a python script and eventually rewrote it in rust.
 
-While refactoring, I saw a python file which I had written in python to build a neural network. I have fed it the XOR dataset to test. I reran the program and it ran successfully.
+**Some mathematical idea of what does a neural network do**
+
+Basically what it does is as follows ====>
+
+It takes the linear algebra layer (matrix multiplication) and wraps a non-linear function around it.
+
+**This is the moment you should describe why we need non-linearity**
+
+**This is the exact moment, you should bridge the gap with multi-variable calculus and chain rule**
+
+I have fed it the XOR dataset to test. I reran the program and it ran successfully.
 
 It sparked my curiosity, what happens if I feed it the real email dataset. As I thought, so I did. Well, it took me a while to get that working with real dataset of pass fail and email spam but it worked on both and I got 92.85% accuracy on 1000 training iterations and 0.1 learning rate.
 
@@ -113,4 +37,4 @@ I thought of running it against the linear data set and see what happens. It fai
 
 However, I noticed, without GPU support, even my simple numpy based neural network script also crashed my machine. I know numpy under the hood does many CPU optimizations but they are peanuts in front of massive calculation load of O(n^3).
 
-The success of the python program pushed me to start a new journey.
+The initial success of the python program pushed me to start a new journey.
