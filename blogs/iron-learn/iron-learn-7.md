@@ -164,3 +164,42 @@ With that thought, I wrote the rust cpu based program following the python neura
 I had to fight with the compiler for quite a few issues and then, I had to write a few new methods too. I got to know about the difference of numpy in syntax of - @ and *.
 
 After around 3 hours, I was able to finally run my first Rust Neural Network program and was showing similar results like the one in python program.
+
+This thought came to my mind. Neural networks are good in estimating functions. What if I write any arbitary random function and sample points from the graph and try out the test again.
+
+I came up with this equation (don't try to put your mind in it, its a garbage function)
+
+```
+a(x)=((x^(2)+x^(3)+x^(4)+x^(6))/(x^(5)))
+```
+And this gave me this plot
+
+![alt text](image.png)
+
+I made an arbitary rule, the blue points are true and red points are false.
+
+Then I sampled some 25 points for training data and 6 for testing. First attempt went unsuccessful. I could not find the reason. I tried it with my python cupy program. That also failed. I then wrote a sklearn script and it went successful. 
+
+This came to me as another challenge. After doing some tweaks, I found the issue, I was normalizing the input and denormalizing the output, which made the prediction result incorrect. I removed the normalization and denormalization layer and it started working.
+
+A fair result for 10000 epoch and 30 data points
+
+```shell
+
+╔════════════════════════════════╗
+║ Iron Learn v5
+║ Mode: CPU
+║ Learning Rate: 0.0001
+║ Epochs: 100
+║ Data Path: data.json
+╚════════════════════════════════╝
+
+Predicted: 0.0000, Actual: 0.0000, ✓
+Predicted: 0.9999, Actual: 1.0000, ✓
+Predicted: 1.0000, Actual: 1.0000, ✓
+Predicted: 0.0000, Actual: 0.0000, ✓
+Predicted: 0.0024, Actual: 0.0000, ✓
+Predicted: 0.0000, Actual: 0.0000, ✓
+
+```
+
