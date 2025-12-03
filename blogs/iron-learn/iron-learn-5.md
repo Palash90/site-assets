@@ -1,39 +1,22 @@
 # The Comeback
-After failing in my last attempt at integrating the CUDA code into my library, I resorted to CPU. Logistic Regression was running perfectly fine for a small 100-row, 2-column dataset. The logical next step was a two-layer neural network.
+After failing in my last attempt at integrating the CUDA code into my library, I resorted to the CPU. The logistic regression program was running perfectly fine for a small 100-row, 2-column dataset. The logical next step was to build a two-layer neural network.
 
-The neural network doubled the number of matrix multiplications. The logistic regression program was taking around an hour just for a run of 1000 iterations, which already made me impatient. The small two-layer toy neural network took it even further: approximately two hours to run 1000 iterations.
+The neural network doubled the number of matrix multiplications. The logistic regression program was taking around an hour for just 1000 iterations, which already made me impatient. The small two-layer toy neural network took it even further: approximately two hours to run 1000 iterations.
 
-And this was just the beginning, just two layers. If I actually had to do some complex work, I would have to go beyond two layers and most probably I would need more than one perceptron in each layer and that would contribute to polynomial growth in the computational complexity of the program.
+And this was just the beginning, with just two layers. If I actually had to do some complex work, I would have to go beyond two layers and most probably I would need more than one perceptron in each layer and that would contribute to a polynomial growth in the computational complexity of the program.
 
-The waiting was silently killing me. I had a GPU that I bought as a learning aid to perform those calculations for me. Just because of my laziness, I was wasting my time staring at the screen rather than learning.
+It felt very frustrating to wait for so long, especially when I could have spent some time and made the GPU work.
 
-The wait time for a decent output was beyond my patience, and I was compelled to work with smaller datasets, making all my attempts feel like merely a `Hello World` program. It appeared crystal clear to me that if I had to complete this project, I definitely had to push my CPU-based, sequential program to a GPU-based, parallel program.
+The wait time for a decent output was beyond my patience, compelling me to work with smaller datasets, which made all my attempts feel like merely a `Hello World` program. It appeared crystal clear to me that if I were to complete this project, I would definitely have to push my CPU-based, sequential program to a GPU-based, parallel program.
 
 I rolled up my sleeves again to find a solution. 
 
-__If NVIDIA CUDA examples can run on my machine, why can't my program...__
+__If NVIDIA CUDA examples can run on the GPU, the individual Rust Program can run on the GPU, why can't my library program **run** on GPU?__
 
-## Another Failure Attempt
-I noticed, with my NVIDIA RTX 3050 Laptop GPU and nvcc 12.0+, I can access something called as cuBLASDx, a GEMM (GEneral Matrix Multiplication) wrapper. I thought of giving it a try.
+## Another Pivot
+I changed my course of action. I started simply with element-wise addition this time. I wrote a simple program and ran it for 10 elements: it went fine. 
 
-I started reading the documentation and guide hosted on NVIDIA website.
-
-First thing to get hold of is the library itself. It does not come default with CUDA Toolkit. I downloaded and the second thing I was missing was GCC 7+. I had GCC 6.3.0 and MSVC but MSVC was not supported by the cuBLASDx. So, I had to download GCC 19
-
-Next was to install MathDX Package, which I had to download too.
-
-After downloading all the required softwares, finally when I tried to compile my CUDA program, I got into lot of issues around C++ installations. It was a real frustrating experience. I installed different versions of Visual Studio. I could not understand what happened. Finally left the thought of writing the program.
-
-Then came to my mind, Linux is usually easier in these aspects. Hence, I started the store app, installed Ubuntu on my Windows and installed all required modules and it worked. No missing package error, no missing software error.
-
-However, the error, I got broke me a little. My GPU was built with Ampere Architecture but cuBLASDx works with sm_70 or higher architecture.
-
-Hence, I can't run cuBLASx GEMM modules on my GPU.
-
-# Another Pivot
-I again changed my course of action. I went back to start simple and start with matrix addition instead. I wrote a simple matrix addition program and ran for 10 numbers, it went fine.
-
-```c
+```cuda
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <stdio.h>
@@ -41,12 +24,10 @@ I again changed my course of action. I went back to start simple and start with 
 #include <time.h>
 
 __global__ void add(const float* A, const float* B, float* C, int N) {
-    // To DO: Device a row major indexing
 	int rowID = threadIdx.y + blockIdx.y * blockDim.y; 	// Row address
 	int colID = threadIdx.x + blockIdx.x * blockDim.x;	// Column Address
 	int elemID;											// Element address
 
-    // a_ij = a[i][j], where a is in row major order
 	if(rowID < N && colID < N){
 		elemID = colID + rowID * N; 				
 		C[elemID] = A[elemID] + B[elemID];
@@ -57,7 +38,7 @@ int main() {
     int n = 10000;
     float *a, *b, *c;
     float *d_a, *d_b, *d_c;
-    float size = n * sizeof(float);
+    float size = n;
 
     a = (float *)malloc(size);
     b = (float *)malloc(size);
@@ -95,11 +76,14 @@ int main() {
 
 ```
 
-I bumped it up to 1,00,000,000 and it started returning 0. I again brought it back to lower numbers. It went fine for 10, 100, 1000 but started returning 0 when went for 10000.
+I bumped the array size to 100,000,000, and it started returning 0 for many elements. I brought it back to lower numbers. It went fine for 10, 100 and 1000 elements, but started returning 0 when I went for 10000.
 
-This was unusual for me. I wore my debugging hat. First mistake was the size of the pointer. I was making a float array, but was initializing to `size(int)`. I fixed it. 
+This was unusual for me. I put on my debugging hat. The first mistake was in calculating memory. I was making a float array, but I was initializing to `n`(the element count) instead of $n \times sizeof(\text{float})$..
 
-Typical type error...
+__Typical type/memory error...__
+
+## The Memory Management
+I again ran the program hoping to get a correct response this time. It did not go well this time too.
 
 Then, there it was, I was allocating only one block with 1024, instead of allocating memory according to the size of my matrix. Changed it as follows
 
