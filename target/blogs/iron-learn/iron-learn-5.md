@@ -378,8 +378,6 @@ Something was still missing. I found that the transpose function was not correct
 |Metric                       |CPU Performance (Baseline)|GPU Performance (Final Fix)|
 |-----------------------------|--------------------------|---------------------------|
 |Time (5000 Iterations)       |≈ 1 Hour                  |11.34 seconds              |
-|-----------------------------|--------------------------|---------------------------|
 |"Accuracy (20,000 Iterations)|92%                       |92.85%                     |
-|-----------------------------|--------------------------|---------------------------|
 
 Finally, I could use my **GPU** through my **Rust Library**. The **GPU** actually aided my learning for the first time...
