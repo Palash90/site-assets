@@ -1,9 +1,9 @@
 # The Comeback
-After failing in my last attempt at integrating the CUDA code into my library, I resorted to the CPU. The logistic regression program was running perfectly fine for a small 100-row, 2-column dataset. The logical next step was to build a two-layer neural network.
+After failing in my last attempt at integrating the CUDA code into my library, I resorted to the CPU. The logistic regression program was running perfectly fine for a small 100-row, 2-column, dataset. The next logical step was to build a two-layer "toy" neural network.
 
 The neural network doubled the number of matrix multiplications. The logistic regression program was taking around an hour for just 1000 iterations, which already made me impatient. The small two-layer toy neural network took it even further: approximately two hours to run 1000 iterations.
 
-And this was just the beginning, with just two layers. If I actually had to do some complex work, I would have to go beyond two layers and most probably I would need more than one perceptron in each layer and that would contribute to a polynomial growth in the computational complexity of the program.
+And this was just the beginning, with just two layers. If I actually had to do some complex work, I would have to go beyond two layers and most probably I would need more than one perceptron in each layer, which would contribute to a polynomial growth in the computational complexity of the program.
 
 It felt very frustrating to wait for so long, especially when I could have spent some time and made the GPU work.
 
@@ -15,6 +15,8 @@ __If NVIDIA CUDA examples can run on the GPU, the individual Rust Program can ru
 
 ## Another Pivot
 I changed my course of action. I started simply with element-wise addition this time. I wrote a simple program and ran it for 10 elements: it went fine. 
+
+This is the simple CUDA code I used to verify the element-wise addition functionality. It confirmed the basic steps of memory allocation and kernel launch.
 
 ```cuda
 #include <cuda.h>
@@ -78,14 +80,14 @@ int main() {
 
 I bumped the array size to 100,000,000, and it started returning 0 for many elements. I brought it back to lower numbers. It went fine for 10, 100 and 1000 elements, but started returning 0 when I went for 10000.
 
-This was unusual for me. I put on my debugging hat. The first mistake was in calculating memory. I was making a float array, but I was initializing to `n`(the element count) instead of $n \times sizeof(\text{float})$..
+This was unusual for me. I put on my debugging hat. The first mistake was in calculating memory. I was making a float array, but I was initializing to $n$ (the element count) instead of $n \times sizeof(\text{float})$..
 
 __Typical type/memory error...__
 
 ## The Memory Management
-I again ran the program hoping to get a correct response this time. It did not go well this time too.
+I ran the program again, hoping to get a correct response this time. It did not go well this time either.
 
-Then, there it was, I was allocating only one block with 1024, instead of allocating memory according to the size of my matrix. Changed it as follows
+Then, there it was: I was launching only one block with 1024 threads, instead of launching sufficient number of threads according to the size of my matrix. With this clue, I changed the initialization as follows -
 
 ```c
 int threadsPerBlock = 1024;
@@ -93,19 +95,26 @@ int blocks = (n + threadsPerBlock - 1) / threadsPerBlock;
 add<<<blocks, threadsPerBlock>>>(d_a, d_b, d_c, n);
 ``` 
 
-Then it started working. I got it running in C. I had to get it running in Rust.
+I ran the program with giant arrays of size 100,000,000. It started giving the correct result instead of returning `0`. The solution was right there.
 
-The first step is to separate out the cuda code and the C code. I deleted the main function from the cuda code and ran the following to get the ptx output, which we'll feed to our Rust code.
+**Fun time! I played mindlessly with this program until I lost interest in it.**
+
+## The Integration
+Once my last toy stopped amusing me, I went on to build a new one. I took another building block - **Rust**, and started integrating my Vector Addition program into my library.
+
+The first step was to separate the CUDA kernel from the main logic. I deleted the main function from the cuda code and ran the following to generate the `ptx` output, which I would consume in the library.
 
 ```shell
 iron_learn/kernels$ nvcc -c matrix_mul.cu -o matrix_mul.ptx --ptx
 ```
 
-I also added a flag in the `main` runnable app in my rust program to indicate if the program should be run on CPU or on GPU.
+I also planned to add a new flag in the `main` runnable app in my Rust program to indicate if the program should be run on CPU or on GPU.
 
-After fixing various issues for around 2 hours, I finally was able to again back on track, this time with a flag to indicate, if I want the program to run on cpu or gpu.
+After fixing various issues for around 2 hours, I was finally on track, this time with a flag to indicate whether I wanted the program to run on cpu or gpu.
 
-To do this, I had to go through few steps. First, I created a Application Context to keep the context alive and it was a great learning altogether. Now, the appcontext works as a singleton to hold all my application parameters that I want to keep alive throughout the application.
+To do this, I had to go through a few steps. First, I created an application context to keep the CUDA context alive throughout the lifetime of the program. CUDA context is slow to initialize, so it is a wise choice to keep the CUDA context alive.
+
+I used Rust's `OnceLock`. This ensures thread safety and prevents race condition - ensuring the global CUDA context was initialized only once. It definitely was a great learning altogether. The application context works as a **singleton** to hold all my application parameters that I wanted to keep alive throughout the entire run.
 
 ```Rust
 use std::sync::OnceLock;
@@ -140,22 +149,26 @@ pub fn init_context(
 }
 ```
 
-After doing dozens of changes, still cuda code was giving me proper result. I wrote a C program to validate my CUDA code. It was giving correct result too.
+That kept the CUDA context alive, but after doing dozens of changes, the CUDA code wasn't giving me the proper result. I wrote a C program to validate my CUDA code. It was giving correct result.
 
-Then it struck me, I may be sending data in wrong format. My tensor code was all in a single vector, a linear 1D array of data. But CUDA expects it in a matrix format. With this new found idea, I started comparing my C code and Rust code. Few things were wrong.
+## The Debugging Hat, One more time 😔
 
-1. I was sending wrong matrix row columns for calculations
-2. I was using `f64` but my cuda code was expecting float
-3. That's why my C Program did not complain and worked fine, as it was already taking floating point.
-4. So, now what I have to do change my cuda to expect f64
+At some point, it struck me: I might be sending data in wrong format. My tensor code was a linear 1D array of data. But the CUDA kernel was treating it as a 2D matrix. With this newfound idea, I started comparing my C code and Rust code.
 
-Learning- Precision matters
+Few things were off actually:
 
-After successfully integrating the CUDA code in my program, I found it is now taking longer than my CPU Code, around 44 seconds for 10 iteration. I had seen this before, it is caused by copy to device and reverse copy to host for each gpu multiplication. So, my CUDA Code may be performing in microseconds but copying is taking time.
+1. I was sending wrong matrix row columns for calculations. 🤦
+2. I was using `f64` (double precision) but my cuda code was expecting `f32` (single precision)
+3. The C Program did not complain and worked fine, as it was already taking `float`.
+4. What I had to do was to change my CUDA code to standardize the precision to `f64`, instead of `f32`
 
-I verified my thought process with another log. For 10 iterations, 20 matrix multiplications are running. Around 200 milliseconds are spent for the actual matrix multiplications, while the process takes 44 seconds.
+**Learning:** Precision matters
 
-So, to get the full benefit, I have to move my whole logic inside the cuda program.
+After successfully integrating the CUDA code in my program, I found it was taking longer than my CPU Code, around 44 seconds for 10 iteration. I had seen this before, it was caused by copying data to device and copying it back to host for each gpu multiplication. So, my CUDA Code may have been performing in microseconds but data transfer was taking longer time, defeating the purpose of vectorization.
+
+I verified my thought process with another log. For 10 iterations, 20 matrix multiplications are running. Around 200 milliseconds are spent on the actual matrix multiplications, while the whole process takes 44 seconds.
+
+So, to get the full benefit, I had to move my whole logic inside the CUDA program.
 
 I wrote few small GPU Modules to run inside cuda
 
@@ -171,7 +184,7 @@ extern "C" __global__ void matrixMulKernel(double *A, double *B, double *C, int 
 
     if (Row < numARows && Col < numBColumns)
     {
-        float Cvalue = 0.0;
+        double Cvalue = 0.0;
 
         for (int k = 0; k < numAColumns; ++k)
         {
@@ -346,19 +359,27 @@ pub fn run_ml_cuda() -> cust::error::CudaResult<()> {
 }
 ```
 
-And gave it a spin. To my surprise, the whole process took only 11.34 seconds. I was astonished, the same process took me 1 hour in CPU. 
+And gave it a spin. To my surprise, the whole process took only **11.34 seconds**. I was astonished; the same process took me **1 hour** in CPU. 
 
-That's the power of parallelism.
+**That's the power of parallelism.**
 
-Anyways, I was heart broken too, I again ran into NaN...
+## The Final Nail in the Coffin
 
-Did not have to debug much, it was data type mismatch issue again. Everything in CUDA I wrote was float, except for the matrix multiplication. I changed all of those to double.
+Although I integrated the CUDA code in my library, I was disheartened. Speed without accuracy meant nothing. The joy was short-lived when I again ran into NaN...
 
-After few fixes and some more code, I finally ran the prediction and it was completing with 11 seconds for sure but with only 7.42% accuracy.
+I did not have to debug much; it was data type mismatch issue again. Everywhere in the CUDA code I wrote $f32$, except for the matrix multiplication inputs. I changed the remaining $f32$ calls to use $f64$ (double precision) for consistency.
 
-Wore the debugging hat again. Few f32 needed change, few matrix dimensions were wrongly set. Once all these fixed, I was able to catch up 54% but my CPU process gave 92% accuracy.
+After a few fixes and some more code, I finally ran the prediction and it was completing with 11 seconds for sure but with only 7.42% accuracy.
 
-Something is missing. I found that the transpose function was not correctly returning result. So, I changed it. And the new implementation returned 92.85% accuracy with 20000 iterations.
+I wore the debugging hat again, for the last time. A few $f32$ needed changing, and a few matrix dimensions were wrongly set. Once all these were fixed, I was able to catch up **54%** accuracy but my **CPU** process gave **92%** accuracy.
 
+Something was still missing. I found that the transpose function was not correctly returning the result. So, I changed the implementation. And the new implementation returned **92.85%** accuracy over **20,000** iterations.
 
-Finally, I could use my GPU inside my Rust Library. The GPU actually aided my learning for the first time...
+|Metric                       |CPU Performance (Baseline)|GPU Performance (Final Fix)|
+|-----------------------------|--------------------------|---------------------------|
+|Time (5000 Iterations)       |≈ 1 Hour                  |11.34 seconds              |
+|-----------------------------|--------------------------|---------------------------|
+|"Accuracy (20,000 Iterations)|92%                       |92.85%                     |
+|-----------------------------|--------------------------|---------------------------|
+
+Finally, I could use my **GPU** through my **Rust Library**. The **GPU** actually aided my learning for the first time...
