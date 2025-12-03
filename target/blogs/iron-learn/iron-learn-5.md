@@ -363,7 +363,7 @@ And gave it a spin. To my surprise, the whole process took only **11.34 seconds*
 
 **That's the power of parallelism.**
 
-## The Final Nail in the Coffin
+## The Cherishable Moment
 
 Although I integrated the CUDA code in my library, I was disheartened. Speed without accuracy meant nothing. The joy was short-lived when I again ran into NaN...
 
