@@ -22,5 +22,12 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },
+    {
+        id: "iron-learn-4",
+        title: "Iron Learn: The Bubble Burst",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
+        publishDate: "Nov 27, 2025",
+        contentType: "swe"
     }
 ];

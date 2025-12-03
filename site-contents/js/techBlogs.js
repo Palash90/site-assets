@@ -89,10 +89,10 @@ var sweContents = [
         contentType: "swe"
     },
     {
-        id: "iron-learn-4",
-        title: "Iron Learn: The Bubble Burst",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
-        publishDate: "Nov 27, 2025",
+        id: "iron-learn-5",
+        title: "Iron Learn: The Comeback",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-5.md",
+        publishDate: "Dec 03, 2025",
         contentType: "swe"
     }
 ];
