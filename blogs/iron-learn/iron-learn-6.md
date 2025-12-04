@@ -50,7 +50,10 @@ Then it measures the loss and follows the same process as earlier to get into an
 ### Neural Network
 So far so good, we can predict a continuous variable which follows a straight line, we can predict a binary value.
 
-However, in real world, not everything is either a line or in simple $true$/$false$ category. We can have 
+However, in real world, not everything is either a line or in simple $true$/$false$ category. We can have data that follows a non-linear path. So, we need to introduce non-linearity in our process too. We do that by wrapping our linear function output in a non-linear function. And it has been observed that, if we stack multiple layers of the chain of linear and non-linear functions, we can mimic any arbitary function by looking at the input and output.
+
+That's exactly what is done in a neural network.
+![Neural Network](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-6-nn.png "Neural Network")
 
 **This is the moment you should describe why we need non-linearity**
 
