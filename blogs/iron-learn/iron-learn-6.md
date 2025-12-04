@@ -1,4 +1,5 @@
-I know all my GPU kernels are still not the most highly optimized set. But I really don't care much at this point. I have just enough performance boost that 20000 loops of training runs under 10 seconds, which was taking 1 hour few dayss ago.
+# Building the First Neural Network
+My program was running succesfully and was using GPU to do the heavy lifting and bring the complexity down from $O(n^3)$ to $(n)$. I was happy, I integrated the logistic regression and used the GPU there as well. I know my GPU kernel programs are still not the best in optimization standards, but I really don't care too much at this point. I had sufficient performance boost to run 20000 loops of training runs under 10 seconds, which was taking 1 hour few days ago.
 
 I will rather deep dive in learning the next step of machine learning than making my code super efficient.
 
