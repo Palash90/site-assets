@@ -66,13 +66,13 @@ $$
 
 **Example**
 $$
-Let y=(3x^2+5)^4
-\frac{dy}{dx} = 4(3x^2 + 5)^3 \cdot (6x)
-
-or
-
-\frac{dy}{dx} = 24x(3x^2 + 5)^3
+\begin{aligned}
+\text{Let } y &= (3x^2 + 5)^4 \\
+\text{then} \quad \frac{dy}{dx} &= 4(3x^2 + 5)^3 \cdot (6x) \\
+\text{or} \quad \frac{dy}{dx} &= 24x(3x^2 + 5)^3
+\end{aligned}
 $$
+
 
 
 
