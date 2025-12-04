@@ -22,5 +22,11 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },{
+        id: "iron-learn-6",
+        title: "Iron Learn: Building the First Neural Network",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
+        publishDate: "Dec 06, 2025",
+        contentType: "swe"
     }
 ];

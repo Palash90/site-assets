@@ -1,30 +1,56 @@
 # Building the First Neural Network
-My program was running succesfully and was using GPU to do the heavy lifting and bring the complexity down from $O(n^3)$ to $(n)$. I was happy, I integrated the logistic regression and used the GPU there as well. I know my GPU kernel programs are still not the best in optimization standards, but I really don't care too much at this point. I had sufficient performance boost to run 20000 loops of training runs under 10 seconds, which was taking 1 hour few days ago.
+My program was running successfully and was using GPU to do the heavy lifting and bring the complexity down from $O(n^3)$ to a highly parallelized, faster execution. Having successfully integrated the CUDA code into the logistic regression module, I was happy. I know my GPU kernel programs are not the best in optimization standards, but I really didn't care too much at that point. I had sufficient performance boost to run 20000 training loops under 10 seconds, which was taking almost 4 hours a few days ago.
 
-I will rather deep dive in learning the next step of machine learning than making my code super efficient.
+I'd rather deep dive into learning the next step of machine learning than focus on making my code super efficient.
 
-But there is no harm in doing some kind of baseline check while my machine does the hard work and I take rest. It was so satisfying to see GPU getting used by my own program, I could not resist the urge, I bumped up the iteration loop to 10 million epochs. My GPU frequently went 100% usage. Wow!!! A cherishable moment.
+But there is no harm in doing some kind of baseline check while my machine does the hard work and I take rest. It was so satisfying to see GPU getting used by my own program, I could not resist the urge, I bumped up the number of epochs to 10 million. My GPU frequently went 100% usage. Wow!!! A cherishable moment.
 
 10 million iterations took almost 45 minutes in my machine, still less than the time it took for CPU to run only 5000 iterations. Accuracy also hit 93.09% this time.
 
-After playing for some other data and few hyperparameter tuning, I took my next step in the journey. To build a neural network.
+After experimenting with other data and fine-tuning a few hyperparameters, I took my next step in the journey - building a neural network.
 
-At this point my inventory include quite a few things actually.
+At that point my inventory included quite a few modules:
 
 1. An almost accurate CPU Powered Tensor library
-2. A Gradient Descent implementation which runs on CPU
-3. Few reusable cuda programs
-4. A fully fledged GPU powered Tensor kernels. 
-5. A complete orchestrator of Gradient Descent
-6. A full logistic regression program which returns accuracy almost identical to other libraries.
+1. A Gradient Descent implementation
+1. Few reusable CUDA kernel programs
+1. A complete Gradient Descent orchestrator
+1. A logistic regression program which returns accuracy almost identical to `sklearn` library.
 
-I started with a python script and eventually rewrote it in rust.
+## The Maths Behind
+The main objective of machine learning is to minimize the loss, calculated by the difference of actual test values and predicted values. To do this we heavily rely on mathematics.
 
-**Some mathematical idea of what does a neural network do**
+### Linear Regression
+For a refresher, let's revisit how Linear Regression works.
+The objective of Linear Regression is to find a fitting straight line through the data. The equation for a line is represented as follows:
 
-Basically what it does is as follows ====>
+$$
+y = mx + c
+$$
 
-It takes the linear algebra layer (matrix multiplication) and wraps a non-linear function around it.
+In linear regression, we have to find the $m$ and the $c$ from $y$ and $x$ where $x$ is input data and $y$ is the output for that $x$.
+
+Linear Regression starts with the inputs($x$) and some random weight matrix ($m$) and bias matrix ($c$) and follow a series of matrix multiplication and addition routine to arrive at the prediction. Then it checks the predicted result with actual target values, taken from the test data and calculates the loss.
+
+![Linear Regression](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-6-linear_regression.png "Linear Regression")
+
+The loss is then used to manipulate the weights using calculus by finding the minima. And it does the same process over multiple times. Eventually the predicted output starts matching very close to the actual output.
+
+### Logistic Regression
+The logistic regression also does the same thing, only with an extra step. It does the same $y = mx + c$ calculation and then it wraps the result into a sigmoid function:
+
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+
+![Logistic Regression](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-6-linear_regression.png "Logistic Regression")
+
+Then it measures the loss and follows the same process as earlier to get into an optimal solution.
+
+### Neural Network
+So far so good, we can predict a continuous variable which follows a straight line, we can predict a binary value.
+
+However, in real world, not everything is either a line or in simple $true$/$false$ category. We can have 
 
 **This is the moment you should describe why we need non-linearity**
 
