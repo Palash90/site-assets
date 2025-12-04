@@ -55,9 +55,26 @@ However, in real world, not everything is either a line or in simple $true$/$fal
 That's exactly what is done in a neural network.
 ![Neural Network](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-6-nn.png "Neural Network")
 
-**This is the moment you should describe why we need non-linearity**
+Well, so we get the non-linear output following a series of different linear and non-linear function outputs. But, to minimize the loss, we have to update the starting weight and bias matrices. But the loss will only be calculated in the end, after the prediction is made.
 
-**This is the exact moment, you should bridge the gap with multi-variable calculus and chain rule**
+What could be the solution?
+
+Seems like centuries ago great mathematicians have already solved the problem. The answer is $Chain Rule$:
+$$
+\frac{dy}{dx} = f'(g(x)) \cdot g'(x)
+$$
+
+**Example**
+$$
+Let y=(3x^2+5)^4
+\frac{dy}{dx} = 4(3x^2 + 5)^3 \cdot (6x)
+
+or
+
+\frac{dy}{dx} = 24x(3x^2 + 5)^3
+$$
+
+
 
 I have fed it the XOR dataset to test. I reran the program and it ran successfully.
 
