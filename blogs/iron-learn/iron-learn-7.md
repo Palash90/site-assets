@@ -1,3 +1,5 @@
+<!-- This is the part of the story, when I literally wanted to switch over to Rust Neural Network but had  to pivot due to fickle mindedness -->
+
 It's time to write the neural network module in Rust, following the similar logic in the python script.
 
 But something caught my attention. Before proceeding with neural network I wanted to check, what happens when I send linear regression to GPU.
@@ -18,7 +20,8 @@ Total samples: 93
 Mean Squared Error: 59.6779
 Root MSE: 7.7251
 ```
-
+<!-- After fixing the linear regression on GPU, I returned to Python Neural Network program -->
+<!-- The last post ending was for CPU-Based, now in this I will integrate the GPU in python -->
 Once I was happy with the results, I turned to the python neural network script. I found that, it only runs a simple XOR test dataset. I already had worked with bigger datasets before. So, running XOR test dataset, did not feel right to me. I tried to run the linear regression and logistic regression datasets on the neural network. Ideally, they should run properly without issue.
 
 I wired the JSON file to the script and started running the neural network. Oh boy, I just opened another rabbit hole.
