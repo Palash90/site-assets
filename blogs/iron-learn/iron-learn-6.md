@@ -59,7 +59,7 @@ Well, so we get the non-linear output following a series of different linear and
 
 What could be the solution?
 
-Seems like centuries ago great mathematicians have already solved the problem. The answer is $Chain Rule$:
+Seems like centuries ago great mathematicians have already solved the problem. The answer is - Chain Rule:
 $$
 \frac{dy}{dx} = f'(g(x)) \cdot g'(x)
 $$
@@ -67,7 +67,8 @@ $$
 **Example**
 $$
 \begin{aligned}
-\text{Let } y &= (3x^2 + 5)^4 \\
+\text{Let } y &= (3x^2 + 5)^4 
+\text{So, } f'(g(x)) = 4 \cdot (3x^2 + 5)^3 \text{and} g'(x) = 6 \cdot x
 \text{then} \quad \frac{dy}{dx} &= 4(3x^2 + 5)^3 \cdot (6x) \\
 \text{or} \quad \frac{dy}{dx} &= 24x(3x^2 + 5)^3
 \end{aligned}
