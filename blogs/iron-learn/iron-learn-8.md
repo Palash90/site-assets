@@ -82,7 +82,15 @@ But final blow came to it when I found that, the neural network I have built hea
 
 Then, out of curiosity, I started finding about it, how Integer neural networks work. I came to an idea that, my methodology works but instead of rounding, some other idea quantization is at play. I did not bother to look for it. Will know in the due course of time.
 
-At that point, my main motto was to fix the build issues, generics issues and make my program running again. And probably, use f32 instead of f64
+At that point, my main motto was to fix the build issues, generics issues and make my program running again. And probably, use f32 instead of f64.
+
+I made all the changes. It was around 30 seconds, and the tensor program started failing with IllegalMemoryAddress and again return values were NaN once again.
+
+I learnt Rust, fought with the compiler, worked with FFI, invoked external device, wrote CUDA Programs, saw some success. Pretty much a lot of understanding of Rust now.
+
+I agree, Iron Learn was too ambitious as a goal to pursue, that too single handedly. I think, it's better I shut it down at this point. 
+
+I am just taking that. No more Iron Learn.
 
 <!-- Note to self -->
 Need to implementation
