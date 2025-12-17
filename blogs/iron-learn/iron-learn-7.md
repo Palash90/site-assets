@@ -177,7 +177,7 @@ a(x)=((x^(2)+x^(3)+x^(4)+x^(6))/(x^(5)))
 ```
 And this gave me this plot
 
-![alt text](image.png)
+![alt text](actual-plot.png)
 
 I made an arbitary rule, the blue points are true and red points are false.
 
