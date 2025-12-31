@@ -107,6 +107,12 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
         publishDate: "Dec 06, 2025",
         contentType: "swe"
+    },{
+        id: "iron-learn-7",
+        title: "Iron Learn: CUDA Integration with Python",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
+        publishDate: "Dec 31, 2025",
+        contentType: "swe"
     }
 ];
 

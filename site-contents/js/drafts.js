@@ -22,11 +22,5 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
-    },{
-        id: "iron-learn-7",
-        title: "Iron Learn: CUDA Integration with Python",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
-        publishDate: "Dec 31, 2025",
-        contentType: "swe"
     }
 ];
