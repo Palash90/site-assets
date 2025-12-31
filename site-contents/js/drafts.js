@@ -23,10 +23,10 @@ var drafts = [
         contentType: "swe",
         draft: true
     },{
-        id: "iron-learn-6",
-        title: "Iron Learn: Building the First Neural Network",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
-        publishDate: "Dec 06, 2025",
+        id: "iron-learn-7",
+        title: "Iron Learn: CUDA Integration with Python",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
+        publishDate: "Dec 31, 2025",
         contentType: "swe"
     }
 ];

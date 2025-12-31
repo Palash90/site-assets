@@ -1,18 +1,18 @@
-<!-- This is the part of the story, when I literally wanted to switch over to Rust Neural Network but had  to pivot due to fickle mindedness -->
+# CUDA Integration with Python
 
-It's time to write the neural network module in Rust, following the similar logic in the python script.
+After successfully running the Neural Network and testing it with XOR operation and finding a successful result, I became very excited. I had to replicate the same in Rust now but my mind won't let me do that. Whenever, I tried to write a single line of Rust code, my mind wandered 'what would happen, if I feed it a complex equation?'. It started questioning, 'what would happen if I run the linear regression data through neural network?', 'what would it do with the logistic regression dataset?', 'will it work with CUDA?', 'will the regression program work with CUDA?'
 
-But something caught my attention. Before proceeding with neural network I wanted to check, what happens when I send linear regression to GPU.
+So many unanswered questions. It broke my flow.
 
-To verify, I first installed cupy for python so that, my python scripts can also use the power of GPU
+## The CUDA based Linear Regression Program
 
-I switched over to rust program to implemnt the linear regression on gpu
+As I was already working with CUDA at that, the most low hanging fruits for me were to integrate CUDA in both python and RUST program for everything. I switched over to the linear regression program to execute it on gpu. 
 
-Surprisingly, this did not work. My CPU bound program was giving very low MSE - 7.75 but GPU bound program was going to 40
+(Un)surprisingly, this did not work. My CPU bound program was giving very low MSE - 7.75 but GPU bound program was returning 40.
 
-Another debugging time.
+Debugger Hat...
 
-After searching for line by line, I found that, I was returning an zeroed matrix back from GPU in my linear prediction function. I changed to the actual output and then it started behaving normal.
+After searching the code line by line, I found I was returning a zeroed matrix back from GPU in my linear prediction function. I fixed it to return the actual output instead and it started behaving normal.
 
 ```shell
 Results:
@@ -20,35 +20,47 @@ Total samples: 93
 Mean Squared Error: 59.6779
 Root MSE: 7.7251
 ```
-<!-- After fixing the linear regression on GPU, I returned to Python Neural Network program -->
-<!-- The last post ending was for CPU-Based, now in this I will integrate the GPU in python -->
-Once I was happy with the results, I turned to the python neural network script. I found that, it only runs a simple XOR test dataset. I already had worked with bigger datasets before. So, running XOR test dataset, did not feel right to me. I tried to run the linear regression and logistic regression datasets on the neural network. Ideally, they should run properly without issue.
 
-I wired the JSON file to the script and started running the neural network. Oh boy, I just opened another rabbit hole.
+Similarly, I wrote another CUDA program for logistic regression and it also went fine. Unfortunately, I somehow missed capturing the results of the CUDA Logistic Program.
 
-No seriously man...
+One question shot down: Rust CUDA program can work with the regression datasets. Let's move on.
 
-After an hour of internet research, I found that cupy does the trick. I shot my WSL, installed cupy and replaced numpy with cupy in the script and there it was.
+## CUDA integration with python
+Once I was happy with the results, I turned to the python neural network script which runs the simple XOR test dataset. I already had worked with bigger datasets before. So, running XOR test dataset, did not feel right to me. I planned to run the linear regression and logistic regression datasets on the neural network too. Ideally, they should run properly without issue.
 
-The same that worked within 10 minutes in numpy version was not even running 1000 iterations within 10 minutes. Thankfully, been there earlier with my RUST code. It clicked to me almost instantaneously about host to device and device to host data copy overhead.
+I wired the JSON file to the script and started running the neural network. 
 
-I ran back to the library documentation and found a fix for that and applied it.
+Oh boy, I just opened another rabbit hole.
 
-This started back decent. I was able to run the same script now within 10-15 seconds.
+No seriously...
 
-Honestly, I am getting addicted to the speed...
+On a huge data load, CPU is not powerful enough to work sequentially, even though all the miniscule parallellization numpy does on the array to distribute the load across CPUs. Aparently, the email spam/ham dataset was enough to trigger the dataload, my CPU could not handle anymore. I tried to find a solution in the scikit-learn. Found that, the library has limited GPU Support through `cupy` and there are some setup challenges. As I already understood the maths and I already had a `numpy` version of Neural Network program handy with me, it was easier for me to switch my `numpy` program to `cupy`. Obviously, I would miss a lot of optimizations but that would give me the push to learn optimization techniques down the road too.
 
-I just started with single layer. Not much load. I then added two more layers, just for fun. The linear regression output brought down the MSE even lower
+
+Solution was planned, I shot my WSL, installed `cup`y and replaced `numpy` with cupy in the script and there lied another quick sand which drowned me again.
+
+The same program that worked within 10 minutes with thousands of iterations in numpy version was not even running 1000 iterations in 10 minutes in cupy version. Thankfully, been there earlier with my RUST code. It clicked me almost instantaneously about host to device and device to host data copy overhead.
+
+I ran back to the library documentation, found a fix for that and applied it.
+
+## The take away
+
+After fixing the H2D and D2H copy overhead, the program worked decently. I was able to run the same script now within 10-15 seconds, a mere 60x speedup.
+
+Honestly, I got addicted to the speed...
+
+After a long day of fighting through setup and debugging, a little play time was approved.
+
+I just started playing with it. First a single layer. Not much load. I then added two more layers, just for fun.
+
+With this, the neural network brought down the MSE of the linear regression dataset even lower
 
 ```
-Test MSE: 52.3265
+Test MSE: 52.3265 (From earlier 59.6779)
 Test MAE: 5.3395
 ```
-The effort was worth it once again. Seeing the network learn step by step in each output, was literally satifying. And with the speed, I can choose a lower learning and higher epoch (number of training iterations), the network configurations, number of layers, number of nodes in each layer etc. I just took a pause to this satisfying phenomenon by playing with the neural network.
 
-Don't worry, all these concepts will be made clear very soon.
-
-I got some output like following, which got me stuck for some time before I moved on to the Rust program.
+The effort was worth it once again. Seeing the network learn step by step in each output, was satifying. And with the speed, I can choose a lower learning and higher epoch (number of training iterations), the network configurations, number of layers, number of nodes in each layer etc.
 
 ```
 Epoch 1/200000 | Error: 25.926468
@@ -70,19 +82,15 @@ Epoch 15000/200000 | Error: 0.298240
 Epoch 16000/200000 | Error: 0.296392
 ```
 
-While looking into the errors, I also noticed how Gradient Descent works. At first, the errors are high and and the network corrects quickly towards convergence but as time goes by and the network learns, the errors go down and so does the corrections.
+While looking into the errors, I noticed how Gradient Descent works. At first, the errors are high and and the network corrects quickly towards convergence but as time passes by and the network learns, the errors go down and so does the corrections.
 
-I also tried with different learning rates. When I chose a bigger learning rate, the neural network was not converging, it was going back and forth between two points and finally returned more errors.
+I tried different learning rates. When I chose a bigger learning rate, the neural network was not converging, it was going back and forth between two points and finally returned more errors. On the other hand, having a smaller error rate, gave me a smoother convergence but took very long to converge.
 
-While, having a smaller error rate, gave me a smoother convergence but took very long.
+Another revelation was that, for smallest learning rate of 0.005, after around 20000 epochs, the network almost stabilizes but neural network can oscilate with that too.
 
-Another revelation was that, for smallest learning rate of 0.005 after around 20000 epochs, the network almost stabilizes.
+![Epoch-error plot](${iron-learn-7-epoch-err} "Epoch vs Error plot")
 
-With that low learning error also, neural network can oscilate.
-
-[Image = iron-learn-7-epoch-error.png]
-
-And also observed, running more and more training loops does not change the Mean Absolute Error too much.
+Another observation was that running more and more training loops does not change the Mean Absolute Error too much. At some point, saturation is inevitable.
 
 The best result I got with 2 hidden layers are as follows:
 
@@ -118,17 +126,15 @@ Test MSE: 45.5669
 Test MAE: 5.1707
 ```
 
-By the time, I was done with all my experiments, it was already 6 hours passed. But I was very happy. 
+By the time, I was done with all my experiments, it was already 6 hours passed. All these insights helped me understand Neural Net a little better than before.
 
-For two reasons -
-1. I actually ran a whole neural network and saw it learn from data and its mistake
-1. I was thinking, my inefficiently written CUDA program is taking higher time. But that actually was not the case. I tried with python and cupy, that took more time to complete.
+I always doubted the performance of my earlier Logistic Regression program written in Rust. With successful CUDA integration of my program, it was time to do a fair comparison. I made a logistic regression program in the neural network by just using one layer of linear layer and one layer of sigmoid layer.
 
-**I was surprised. My program was taking less time than cupy program**
+The result surprised me, my inefficiently written CUDA program was actually sailing faster than my `cupy` program.
 
-Anyways, I was done for the day.
+I did not bother to find the reason, I was done for the day.
 
-At this point the inventory looked like this.
+Before I log off for the day, here is a quick inventory check:
 
 1. A CPU Linear regression
 2. A CPU Logistic Regression
@@ -136,7 +142,7 @@ At this point the inventory looked like this.
 4. A GPU Logistic Regression
 5. A Python script to run GPU powered neural network
 
-
+## The Refactoring Phase
 After I was done playing with the python script for some time, finally I jumped back into my Rust Program. All the code was written inside one single big 500+ line file, ignoring my personal coding hygeine. Hence I started tidying up things a little.
 
 I also needed to make the gradient descent and all other modules hardware agnostic. They just call tensor methods and things should work for them, without worrying about backend implementation.
