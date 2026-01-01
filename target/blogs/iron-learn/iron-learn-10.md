@@ -120,6 +120,11 @@ Finally Iron Learn was ready. I took it for a spin. I spent another 5 hours trai
 ### The Final 200×200 Reconstruction
 ![Final200*200](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-10-output803000.png)
 
+It is satisfying to watch a neural net learn and here is what I want you to take a look at too:
+### The Timeline
+![Time Lapse](https://palash90.github.io/site-assets/blogs/timeline.gif)
+
+I did not stop just at reconstruction, I tried with different sizes too. Here is one 512×512 reconstruction.
 ### The Reconstruction on 512×512
 ![Final512*512](https://palash90.github.io/site-assets/blogs/output-512-reconstruction.png)
 
