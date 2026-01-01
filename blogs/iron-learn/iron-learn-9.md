@@ -1,7 +1,7 @@
 # Generating Simba Network with Rust
-After successfully approximating the lottery math function (check previous post for context), I decided to challenge the network more. There are so many functions to choose from. Mathematics has evolved a lot from the inception and honestly I know a very little about them. Proving them would be another chore for me. I needed something interesting, something exciting. It struck me, image is nothing but a 2D plot of an arbitary and arguably very complex function. 
+After successfully approximating the lottery math function (check previous post for context), I decided to challenge the network more. There are so many functions to choose from. Mathematics has evolved a lot from the inception and honestly, I know very little about them. Proving them would be another chore for me. I needed something interesting, something exciting. It struck me, image is nothing but a 2D plot of an arbitrary and arguably very complex function. 
 
-What if I can ask the network to approximate it?
+What if I could ask the network to approximate it?
 
 I found a Lion Cub drawing in Black and White and used the following encoder/decoder script to encode/decode pixels into numbers and vice versa: [Image to CSV Encoder Decoder](https://github.com/Palash90/iron_learn/blob/blog-8/python_scripts/image_inputs/image_to_csv.py)
 
@@ -14,10 +14,10 @@ The script struggled at lot of points and I had to fix those to help machine lea
 The original downloaded image was a large 474×474 pixels. It was taking very long to train. To avoid this issue, I had to resize it to 200×200 pixels.
 
 ### The Machine Crash and Restart
-I had occassional machine crashes due to overheating and every time that happened training starts from scratch. This was a huge waste of time and resources. So, I added a save/load mechanism to resume the learning from the last saved checkpoint. The machine can now take a pre-saved model and can start from there.
+I had occasional machine crashes due to overheating and every time that happened training started from scratch. This was a huge waste of time and resources. So, I added a save/load mechanism to resume the learning from the last saved checkpoint. The machine can now take a pre-saved model and can start from there.
 
 ### The Error Oscillation
-No matter how small learning rate I chose, the training always was getting stuck into the error oscillation loop. At one point, it occurred to me that, if I choose very small learning rate like 0.000001 I could save the training but definitely, that would take me longer. Then I thought, what if I can gradually decrease the learning rate programatically. I did some research on my thoughts and found about Cosine Annealing. I applied the cos learning decay function and it started showing smooth learning.
+No matter how small a learning rate I chose, the training always was getting stuck into the error oscillation loop. At one point, it occurred to me that, if I choose very small learning rate like 0.000001 I could save the training but definitely, that would take me longer. Then I thought, what if I can gradually decrease the learning rate programmatically. I did some research on my thoughts and found about Cosine Annealing. I applied the cos learning decay function and it started showing smooth learning.
 
 ```python
 decay_factor = 0.5 * (1 + math.cos(math.pi * i / (epochs+epoch_offset)))
@@ -25,7 +25,7 @@ current_lr = lr_min + (lr_max - lr_min) * decay_factor
 ```
 
 ## The Result: Art through Math
-After fixing all the issues and running the network for almost 1.2 million iterations (around 4 hours on my machine), I could see generated output very close to the input image. The input was a very complex high-dimensional function, far beyond simple XOR gate test set or even the logistic regression dataset. This proves that my neural network was exhibiting properties of Universal Approximation Theorem. I can now use this network to do bigger things.
+After fixing all the issues and running the network for almost 1.2 million iterations (around 4 hours on my machine), I could see generated output very close to the input image. The input was a very complex high-dimensional function, far beyond simple XOR gate test set or even the logistic regression dataset. This was a practical demonstration of the Universal Approximation Theorem: the idea that a neural network can represent almost any continuous function. I can now use this network to do bigger things.
 
 For comparison, here are the results:
 ### Original Image
@@ -60,9 +60,9 @@ While my network used Sigmoid, SIREN uses Sine waves, which are naturally better
 In my next attempt, I actually achieved a sharper, more detailed reconstruction.
 
 ## The Rust Comeback
-The idea I implemented in Python showed some fruiful results. The success of the Python script rejuvenated me. I was ready to take the next challenge. I braced myself to pour some energy into the Rust program. I would have missed the adventure and the learning if I did not come back to Rust.
+The idea I implemented in Python showed some fruitful results. The success of the Python script rejuvenated me. I was ready to take the next challenge. I braced myself to pour some energy into the Rust program. I would have missed the adventure and the learning if I did not come back to Rust.
 
-The journey again resumed which were paused for few days. I wore the Rustacean hat and it took me another week to put everything in place:
+The journey again resumed which had been paused for few days. I wore the Rustacean hat and it took me another week to put everything in place:
 1. I wrote a separate `Tensor` trait and put all the defined methods in it
 2. I wrote a `CpuTensor` struct and the `Tensor` trait implementation for it
 3. I wrote a `GpuTensor` struct and the `Tensor` trait implementation for it
@@ -72,17 +72,17 @@ I was expecting my Rust program to work seamlessly out of the box. Then came the
 
 Another challenge to solve. Another debugging session.
 
-I tried to find the reason. The Rust code showed nothing, except that every `Tensor` operation was taking a long time to compute. I was very surprised. I doubted my CUDA Kernel programs and used `nsys` profiler. 
+I tried to find the reason. The Rust code showed nothing, except that every `Tensor` operation was taking a long time to compute. I was very surprised. I doubted my CUDA Kernel programs and used `nsys` profiler (the NVIDIA Nsight Systems profiler). 
 
 The result was a surprise for me, the major time consuming part of my application was not the CUDA Kernels but the memory allocation and deallocation.
 
-Then I tried to reason it with `cupy`. It also needs memory to perfom its operations, then how is it so fast?
+Then I tried to reason it with `cupy`. It also needs memory to perform its operations, then how is it so fast?
 
 The answer lay in the `Memory Pool`. The library does not depend on default memory allocator, rather it uses a custom memory pool
 
 A logical approach for me was be to look for a memory pool, but I found no direct memory pool implementation in the cust library. I first thought of implementing my own but it would be very painful and error prone. I kept on looking for a solution. I finally found it. The `cust` library might not have a memory pool wrapper but CUDA library did so and `cust` library re-exports those modules under `sys`. It was a huge relief for me. But still it was far from easy to implement. 
 
-I tried incorporating the memory pool. I had to do a lot of consultaion with the documentation to finally make it work. 
+I tried incorporating the memory pool. I had to do a lot of consultation with the documentation to finally make it work. 
 
 Here is a snippet of the code:
 ```rust
@@ -183,14 +183,14 @@ pub fn get_device_buffer<T: Numeric + DeviceCopy>(size: usize) -> CustomDeviceBu
 ```
 
 ## The Raw Pointer Size Issue
-The deal with raw pointers gave me access to low level memory management and fast implementation but I was thrashed by pointer size mismatch issue. I dug into the code of `cust` wrappers. I found the issue, I was allocating for the length of the array but conveniently forgot to account for the data type.
+The deal with raw pointers gave me access to low level memory management and fast implementation but I was thrashed by pointer size mismatch issue. I dug into the code of `cust` wrappers. I found the issue, I was allocating for the length of the array but conveniently forgot to account for the byte-width of the data type.
 
 What I was doing is essentially this, for an array of  `f32` of length 1, I was allocating 1 byte of memory in the GPU rather than 4 bytes. I fixed the mismatch and hoped high that this version will work. It worked but execution time did not go down.
 
 I was literally frustrated and thought of abandoning the project creeped up. I called it a day.
 
 ## The Hidden Bug
-The next morning, with a fresh mind, I started debugging with `nsys`. It was very hard to point out. After a whole day's worth of effort, I finally found the hidden issue: `Tensor::ones`. To calculate `Sigmoid`, the network needed a tensor of 1s. To achieve this, my implmentation was creating a `Vec<f32>` with `1`s and was transfering the `Vec` to the Device, making a H2D copy at every epoch.
+The next morning, with a fresh mind, I started debugging with `nsys`. It was very hard to point out. After a whole day's worth of effort, I finally found the hidden issue: `Tensor::ones`. To calculate `Sigmoid`, the network needed a tensor of 1s. To achieve this, my implementation was creating a `Vec<f32>` with `1`s and was transferring the `Vec` to the Device, making a H2D copy at every epoch.
 
 I wrote a new kernel to initiate memory in GPU with provided value:
 
@@ -278,5 +278,5 @@ However, I was heartbroken initially as cuBLAS Version took almost the same time
 
 Then I started reading about it. cuBLAS works best with really big matrices, which is not the case with the XOR test dataset. Fine for me. It works and I will definitely benefit when I tackle the much larger image reconstruction task.
 
-The story did not end here but energy definitely was taking a hit at that point. It was another two weeks passed already after I resumed working on Rust Tensor Library and still the Simba image reconstruction seemed a far fetched dream. 
-
+## The Conclusion
+The story did not end there but energy and motivation definitely was taking a hit at that point. Another two weeks passed already after I resumed working on Rust Tensor Library and still the Simba image reconstruction seemed a far fetched dream. I basically built a high-performance, custom-tailored engine from the ground up. I’ve moved past the "Initial Shock" of poor performance and tamed the memory allocation beast. While the perfect reconstruction of Simba was still a few training runs away, the infrastructure was capable of handling the load.
