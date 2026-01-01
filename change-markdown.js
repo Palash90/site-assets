@@ -24,9 +24,17 @@ const variableMap = {
     commonPath + "iron-learn/iron-learn-math-chits.png",
   "iron-learn-8-actual-plot": commonPath + "iron-learn/actual-plot.png",
   "iron-learn-9-original": commonPath + "iron-learn/iron-learn-9-original.png",
-  "iron-learn-9-plot_FINAL_1024": commonPath + "iron-learn/iron-learn-9-plot_FINAL_1024.png",
-  "iron-learn-9-plot_final": commonPath + "iron-learn/iron-learn-9-plot_final.png",
-  "iron-learn-9-plot_static": commonPath + "iron-learn/iron-learn-9-plot_static.png",
+  "iron-learn-9-plot_FINAL_1024":
+    commonPath + "iron-learn/iron-learn-9-plot_FINAL_1024.png",
+  "iron-learn-9-plot_final":
+    commonPath + "iron-learn/iron-learn-9-plot_final.png",
+  "iron-learn-9-plot_static":
+    commonPath + "iron-learn/iron-learn-9-plot_static.png",
+  "iron-learn-10-output0": commonPath + "iron-learn/iron-learn-10-output0.png",
+  "iron-learn-10-output803000":
+    commonPath + "iron-learn/iron-learn-10-output803000.png",
+  "iron-learn-10-timeline": commonPath + "timeline.gif",
+  "iron-learn-10-512": commonPath + "output-512-reconstruction.png",
 };
 
 // Function to replace patterns in a file
