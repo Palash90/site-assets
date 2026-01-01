@@ -115,17 +115,17 @@ I put some logs and it brought my old friend - 'Normalization/Denormalization' p
 Finally Iron Learn was ready. I took it for a spin. I spent another 5 hours training the network, this time with more layer (128 layers). Built a 99k parameter image model and here you go with the results:
 
 ### The Static Network Started With
-![Static](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-10-output0.png)
+![Static](https://palash90.github.io/site-assets/blogs/iron-learn/output0.png)
 
 ### The Final 200×200 Reconstruction
-![Final200*200](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-10-output803000.png)
+![Final200*200](https://palash90.github.io/site-assets/blogs/iron-learn/output803000.png)
 
 It is satisfying to watch a neural net learn and here is what I want you to take a look at too:
 ### The Timeline
-![Time Lapse](https://palash90.github.io/site-assets/blogs/timeline.gif)
+![Time Lapse](https://palash90.github.io/site-assets/blogs/iron-learn/timeline.gif)
 
 I did not stop just at reconstruction, I tried with different sizes too. Here is one 512×512 reconstruction.
 ### The Reconstruction on 512×512
-![Final512*512](https://palash90.github.io/site-assets/blogs/output-512-reconstruction.png)
+![Final512*512](https://palash90.github.io/site-assets/blogs/iron-learn/output-512-reconstruction.png)
 
 

@@ -30,11 +30,11 @@ const variableMap = {
     commonPath + "iron-learn/iron-learn-9-plot_final.png",
   "iron-learn-9-plot_static":
     commonPath + "iron-learn/iron-learn-9-plot_static.png",
-  "iron-learn-10-output0": commonPath + "iron-learn/iron-learn-10-output0.png",
+  "iron-learn-10-output0": commonPath + "iron-learn/output0.png",
   "iron-learn-10-output803000":
-    commonPath + "iron-learn/iron-learn-10-output803000.png",
-  "iron-learn-10-timeline": commonPath + "timeline.gif",
-  "iron-learn-10-512": commonPath + "output-512-reconstruction.png",
+    commonPath + "iron-learn/output803000.png",
+  "iron-learn-10-timeline": commonPath + "iron-learn/timeline.gif",
+  "iron-learn-10-512": commonPath + "iron-learn/output-512-reconstruction.png",
 };
 
 // Function to replace patterns in a file
