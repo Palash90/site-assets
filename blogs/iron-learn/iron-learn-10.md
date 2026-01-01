@@ -6,7 +6,7 @@ So I decided on end to end refactoring and  code clean up.
 
 Oh boy!!!
 
-## Boredom Brings Solution
+## The Breakthrough in the Boredom
 I just found my answer in the boredom of refactoring. Suddenly it crossed my mind that 64 bit floating points (`f64`) might be the bottleneck in my `Tensor` Library. To confirm my theory, I switched to the Python script, I switched every array to `float64`, instead of `float32` and ran it. This time, it started taking more than 50 seconds, far more than my Rust Tensor program. 
 
 Yes, I cracked it. It was not Rust, Python, `cupy` or GPU that was making the difference in the execution time, it was the data type. The holy grail of low level programming.
@@ -16,9 +16,9 @@ I switched back to my rust program to fix the remaining clean up, refactoring an
 ## The Rust Type System
 Well, I found the issue and now I have to implement the fix in Rust. I was in the middle of the refactoring. I already separated the network layer, the builder and the loss functions. While doing so I struggled to fix the Generics Issues. I managed to work around those.
 
-But final blow came to it when I found that, the neural network I have built heavily relies on floating point mathematics. Especially, gradient descent, learning rate, scaling and literally every math operation works on floating point mathematics. I had a vague idea on how to solve the problem. I do all my maths in floating point and then round of the final result to Integer.
+But final blow came to it when I found that, the neural network I have built heavily relies on floating point mathematics. Especially, gradient descent, learning rate, scaling and literally every math operation works on floating point mathematics. I had a vague idea on how to solve the problem. I do all my maths in floating point and then round off the final result to Integer.
 
-But just in point, out of curiosity, I started finding about it, how Integer neural networks work. I came to an idea that, my methodology works but instead of rounding, some other idea quantization is at play. I did not bother to look for it. Will know in the due course of time.
+Right then, out of curiosity, I started finding about it, how Integer neural networks work. My idea was covert to float, do the calculation and round off. However I came across some other idea: Quantization. I did not bother to look at it. I will get to know in the due course of time if I even cross its path.
 
 At that point, my main motto was to fix the build issues, generics issues and make my program run again. And probably, use `f32` instead of `f64`.
 
@@ -27,7 +27,7 @@ At that point, my main motto was to fix the build issues, generics issues and ma
 I made all the fixes and built the code. The build was successful and I started running the program. Execution passed 30 seconds, my hope started building up and just then the tensor program started failing with `IllegalMemoryAddress` and forward pass resulted in `NaN` once again.
 
 ## The Great Demotivation
-That run time error tipped me off my threshold. It was enough. I spent enough time and resources to fix everything. I already achieved what I wanted this project to give me. I learnt Rust, fought with the compiler, worked with FFI, invoked external device, wrote CUDA Programs, learnt Machhine Learning and Deep Learning, successfully wrote a neural network, learnt about SIREN. This whole experience has set me to a better Rustacean and a more knowledgable ML Hobbyist path than I was 2 years ago.
+That run time error tipped me off my threshold. It was enough. I spent enough time and resources to fix everything. I already achieved what I wanted this project to give me. I learnt Rust, fought with the compiler, worked with FFI, invoked external device, wrote CUDA Programs, learnt Machhine Learning and Deep Learning, successfully wrote a neural network, learnt about SIREN. This whole experience molded me into a better Rustacean and a more knowledgable ML Hobbyist path than I was 2 years ago.
 
 I accepted my fault in the plan, Iron Learn was too ambitious as a goal to pursue, that too single handedly. I thought, it would be better if I shut it down at that point. 
 
@@ -38,13 +38,13 @@ I made a "Sunset" plan and visited Google Graveyard to console myself "Look, Goo
 I came back with a heavy heart, consulted Gemini and ChatGPT to prepare a mourning speech that I will post in the `README.md` and called it a day.
 
 ## The Drama King
-Next day morning I opened the IDE to write the eulogy. Started playing "Yaariyaan Reprise from Cocktail", one of my favourite emotional song. Shed a few drops of tears. I know it's nothing to the outside world but Iron Learn was one of the finest project I have ever worked with in my 18 years of acquiantance with computers.
+Next day morning I opened the IDE to write the eulogy. Started playing "Yaariyaan Reprise from Cocktail", one of my favourite emotional songs. Shed a few drops of tears. I know it's nothing to the outside world but Iron Learn was one of the finest project I have ever worked with in my 18 years of acquaintance with computers.
 
 Again, don't judge me. I do things at times that make no sense at all or makes the most sense that I don't understand at all.
 
-In bengali, we have a popular proverb - রাখে হরি মারে কে| That exactly what happened to `Iron Learn`.
+In bengali, we have a popular proverb - রাখে হরি মারে কে| (_If god protects, no one can destroy_). That exactly what happened to `Iron Learn`.
 
-I consulted the AI friends and came up with an eulogy for Iron Learn. Started writing the first line.
+I consulted my AI friends and came up with an eulogy for Iron Learn. Started writing the first line.
 
 The same inner voice told me, "Why not give it a last spin?"
 
@@ -64,7 +64,7 @@ After the fix, things started running magically again and I fixed it under 45 mi
 ## The NaN Fix
 After the fixing the memory access, I still had the second one to tackle too.
 
-This one was actually easy and kind of known to me too. I was not having a `clip` function in either of my CPU or GPU tensors and at that time, I was using Binary Cross Entropy function which can result in a NaN due to a log function in use. Log of negatives result in NaN.
+This one was actually easy and kind of known to me too. I was not having a `clip` function in either of my CPU or GPU tensors and at that time, I was using Binary Cross Entropy function which can result in a NaN due to a log function in use. Log of zero or negatives result in NaN.
 
 I implemented the `clip`:
 ```rust
@@ -112,7 +112,7 @@ The next run of the program I could complete the network training and could gene
 I put some logs and it brought my old friend - 'Normalization/Denormalization' pair. This time, lack of normalization was the issue. Once reintroduced, things went smooth. 
 
 ## The 5 Hours of Suspense
-Finally Iron Learn was ready. I took it for a spin. I spent another 5 hours training the network, this time with more layer (128 layers). Built a 99k parameter image model and here you go with the results:
+Finally Iron Learn was ready. I took it for a spin. I spent another 5 hours training the network, this time with more layer (7 layers). Built a 99k parameter image model and here you go with the results:
 
 ### The Static Network Started With
 ![Static](${iron-learn-10-output0})
@@ -120,12 +120,20 @@ Finally Iron Learn was ready. I took it for a spin. I spent another 5 hours trai
 ### The Final 200×200 Reconstruction
 ![Final200*200](${iron-learn-10-output803000})
 
-It is satisfying to watch a neural net learn and here is what I want you to take a look at too:
 ### The Timeline
+It is satisfying to watch a neural net learn and here is how Simba Network learnt:
 ![Time Lapse](${iron-learn-10-timeline})
 
-I did not stop just at reconstruction, I tried with different sizes too. Here is one 512×512 reconstruction.
 ### The Reconstruction on 512×512
+I did not stop just at reconstruction, I tried with different sizes too. Here is one with 512×512 reconstruction.
 ![Final512*512](${iron-learn-10-512})
 
+## Updated Inventory Check (One Last Time):
 
+- Rust: Tamed.
+
+- GPU Kernels: Synced.
+
+- Simba: Reconstructed.
+
+- Black Box: Demystified.
