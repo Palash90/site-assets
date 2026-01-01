@@ -1,22 +1,22 @@
 # The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust
 
-The next day I checked things started evolving properly but slowly. There was no improvement in execution time. It got stuck in that 34 - 37 second time frame. My gut feeling told me, destination is not far. However, when I opened my IDE for debugging, it was not looking so. It was again a mess after all the new code amendments and new experimentations. It was getting tougher to debug without a nice looking code base.
+The next day, I checked things started evolving properly, albeit slowly. There was no improvement in execution time. It got stuck in that 34 - 37 second time frame. My gut feeling told me, the destination was not far. However, when I opened my IDE for debugging, it was not looking so. It was again a mess after all the new code amendments and new experimentation. It was getting tougher to debug without a nice looking code base.
 
 So I decided on end to end refactoring and  code clean up.
 
 Oh boy!!!
 
 ## The Breakthrough in the Boredom
-I just found my answer in the boredom of refactoring. Suddenly it crossed my mind that 64 bit floating points (`f64`) might be the bottleneck in my `Tensor` Library. To confirm my theory, I switched to the Python script, I switched every array to `float64`, instead of `float32` and ran it. This time, it started taking more than 50 seconds, far more than my Rust Tensor program. 
+I found my answer amidst the boredom of refactoring. Suddenly it crossed my mind that 64 bit floating points (`f64`) might be the bottleneck in my `Tensor` Library. To confirm my theory, I switched to the Python script, I switched every array to `float64`, instead of `float32` and ran it. This time, it started taking more than 50 seconds, far more than my Rust Tensor program. 
 
 Yes, I cracked it. It was not Rust, Python, `cupy` or GPU that was making the difference in the execution time, it was the data type. The holy grail of low level programming.
 
-I switched back to my rust program to fix the remaining clean up, refactoring and build issues.
+I switched back to my Rust program to fix the remaining clean up, refactoring and build issues.
 
 ## The Rust Type System
 Well, I found the issue and now I have to implement the fix in Rust. I was in the middle of the refactoring. I already separated the network layer, the builder and the loss functions. While doing so I struggled to fix the Generics Issues. I managed to work around those.
 
-But final blow came to it when I found that, the neural network I have built heavily relies on floating point mathematics. Especially, gradient descent, learning rate, scaling and literally every math operation works on floating point mathematics. I had a vague idea on how to solve the problem. I do all my maths in floating point and then round off the final result to Integer.
+The final blow came when I realized that the neural network I have built heavily relies on floating point mathematics. Especially, gradient descent, learning rate, scaling and literally every math operation works on floating point mathematics. I had a vague idea on how to solve the problem. I do all my maths in floating point and then round off the final result to Integer.
 
 Right then, out of curiosity, I started finding about it, how Integer neural networks work. My idea was covert to float, do the calculation and round off. However I came across some other idea: Quantization. I did not bother to look at it. I will get to know in the due course of time if I even cross its path.
 
@@ -27,7 +27,7 @@ At that point, my main motto was to fix the build issues, generics issues and ma
 I made all the fixes and built the code. The build was successful and I started running the program. Execution passed 30 seconds, my hope started building up and just then the tensor program started failing with `IllegalMemoryAddress` and forward pass resulted in `NaN` once again.
 
 ## The Great Demotivation
-That run time error tipped me off my threshold. It was enough. I spent enough time and resources to fix everything. I already achieved what I wanted this project to give me. I learnt Rust, fought with the compiler, worked with FFI, invoked external device, wrote CUDA Programs, learnt Machhine Learning and Deep Learning, successfully wrote a neural network, learnt about SIREN. This whole experience molded me into a better Rustacean and a more knowledgable ML Hobbyist path than I was 2 years ago.
+That run time error tipped me off my threshold. It was enough. I spent enough time and resources to fix everything. I already achieved what I wanted this project to give me. I learnt Rust, fought with the compiler, worked with FFI, invoked external device, wrote CUDA Programs, learnt Machine Learning and Deep Learning, successfully wrote a neural network, learnt about SIREN. This whole experience molded me into a better Rustacean and a more knowledgeable ML Hobbyist path than I was 2 years ago.
 
 I accepted my fault in the plan, Iron Learn was too ambitious as a goal to pursue, that too single handedly. I thought, it would be better if I shut it down at that point. 
 
@@ -42,7 +42,7 @@ Next day morning I opened the IDE to write the eulogy. Started playing "Yaariyaa
 
 Again, don't judge me. I do things at times that make no sense at all or makes the most sense that I don't understand at all.
 
-In bengali, we have a popular proverb - রাখে হরি মারে কে| (_If god protects, no one can destroy_). That exactly what happened to `Iron Learn`.
+In Bengali, we have a popular proverb - রাখে হরি মারে কে| (_If god protects, no one can destroy_). That exactly what happened to `Iron Learn`.
 
 I consulted my AI friends and came up with an eulogy for Iron Learn. Started writing the first line.
 
@@ -55,7 +55,7 @@ Again ignored the inner voic and started the third line. "I promise you, if not 
 Ok fine. Let's take the final spin.
 
 ## Defying the Flatline
-I cleared up everything I wrote, I discarded the changes in the `README.md` and started finding the root cause of the memory error. It was right there in the Kernel programs. I switched everything to `f32` in the Rust program but my kernels were still referrring to `double`, a change I made back in the days of Logistic Regression when everything I wrote was in `f64`.
+I cleared up everything I wrote, I discarded the changes in the `README.md` and started finding the root cause of the memory error. It was right there in the Kernel programs. I switched everything to `f32` in the Rust program but my kernels were still referring to `double`, a change I made back in the days of Logistic Regression when everything I wrote was in `f64`.
 
 Basically, for every allocated byte block, I was trying to read twice as much and was running into the protected memory space. The GPU version of `segfault`.
 
@@ -64,7 +64,7 @@ After the fix, things started running magically again and I fixed it under 45 mi
 ## The NaN Fix
 After the fixing the memory access, I still had the second one to tackle too.
 
-This one was actually easy and kind of known to me too. I was not having a `clip` function in either of my CPU or GPU tensors and at that time, I was using Binary Cross Entropy function which can result in a NaN due to a log function in use. Log of zero or negatives result in NaN.
+This one was actually easy and kind of known to me too. I did not have a `clip` function in either of my CPU or GPU tensors and at that time, I was using Binary Cross Entropy function which can result in a NaN due to a log function in use. Log of zero or negatives result in NaN.
 
 I implemented the `clip`:
 ```rust
