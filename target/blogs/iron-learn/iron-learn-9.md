@@ -17,7 +17,7 @@ The original downloaded image was a large 474×474 pixels. It was taking very lo
 I had occassional machine crashes due to overheating and every time that happened training starts from scratch. This was a huge waste of time and resources. So, I added a save/load mechanism to resume the learning from the last saved checkpoint. The machine can now take a pre-saved model and can start from there.
 
 ### The Error Oscillation
-No matter how small learning rate I chose, the training always was getting stuck into the error oscillation loop. At one point, it occured to me that, if I choose very small learning rate like 0.000001 I could save the training but definitely, that would take me longer. Then I thought, what if I can gradually decrease the learning rate programatically. I did some research on my thoughts and found about Cosine Annealing. I applied the cos learning decay function and it started showing smooth learning.
+No matter how small learning rate I chose, the training always was getting stuck into the error oscillation loop. At one point, it occurred to me that, if I choose very small learning rate like 0.000001 I could save the training but definitely, that would take me longer. Then I thought, what if I can gradually decrease the learning rate programatically. I did some research on my thoughts and found about Cosine Annealing. I applied the cos learning decay function and it started showing smooth learning.
 
 ```python
 decay_factor = 0.5 * (1 + math.cos(math.pi * i / (epochs+epoch_offset)))
@@ -25,7 +25,7 @@ current_lr = lr_min + (lr_max - lr_min) * decay_factor
 ```
 
 ## The Result: Art through Math
-After fixing all the issues and running the network for almost 1.2 million iterations (around 4 hours on my machine), I could see generated output very close to the input image. The input was a very complex high dimensional function, far beyond simple XOR gate test set or even the logistic regression dataset. This proves that my neural network was exhibiting properties of Universal Approximation Theorem. I can now use this network to do bigger things.
+After fixing all the issues and running the network for almost 1.2 million iterations (around 4 hours on my machine), I could see generated output very close to the input image. The input was a very complex high-dimensional function, far beyond simple XOR gate test set or even the logistic regression dataset. This proves that my neural network was exhibiting properties of Universal Approximation Theorem. I can now use this network to do bigger things.
 
 For comparison, here are the results:
 ### Original Image
@@ -72,7 +72,7 @@ I was expecting my Rust program to work seamlessly out of the box. Then came the
 
 Another challenge to solve. Another debugging session.
 
-I tried to find the reason. The rust code showed nothing, except that every `Tensor` operation was taking a long time to compute. I was very surprised. I doubted my CUDA Kernel programs and used `nsys` profiler. 
+I tried to find the reason. The Rust code showed nothing, except that every `Tensor` operation was taking a long time to compute. I was very surprised. I doubted my CUDA Kernel programs and used `nsys` profiler. 
 
 The result was a surprise for me, the major time consuming part of my application was not the CUDA Kernels but the memory allocation and deallocation.
 
@@ -130,7 +130,7 @@ pub fn get_mem_pool() -> CudaMemoryPool {
         }
 }
 ```
-Once it was done in a `main` program outside of my `Tensor`, I could see thousands of memory blocks allocated and deallocated in milliseconds. Of course, it had a initial price to pay for the Memory Pool creation but in most cases, it would be a one time setup cost.
+Once it was done in a `main` program outside of my `Tensor`, I could see thousands of memory blocks allocated and deallocated in milliseconds. Of course, it had an initial price to pay for the Memory Pool creation but in most cases, it would be a one time setup cost.
 
 ## Integration in GpuTensor
 I took the code and put inside my library.
@@ -207,7 +207,7 @@ extern "C" __global__ void fill_value(float *out, int n, float value)
 This solved the issue of H2D copy and brought down the execution time to 54 seconds, far from 8 seconds.
 
 ## Another Costly Operation
-I was on the lookout for the issue, again took help from `nsys` profiler. This time it showed D2H copy. I found that `sum` reduction function (similar to `np.sum()`) was behind those copies. As `sum` function is an aggregate function and GPU works on a thread based execution principle, initially I thought of doing this calculation in CPU but that backfired heavily. This function gets called on each epoch for loss calculation. A drop in even a few milliseonds would bring down seconds on training for 1000 epochs.
+I was on the lookout for the issue, again took help from `nsys` profiler. This time it showed D2H copy. I found that `sum` reduction function (similar to `np.sum()`) was behind those copies. As `sum` function is an aggregate function and GPU works on a thread based execution principle, initially I thought of doing this calculation in CPU but that backfired heavily. This function gets called on each epoch for loss calculation. A drop in even a few milliseconds would bring down seconds on training for 1000 epochs.
 
 So I wrote a column based reducer instead:
 
