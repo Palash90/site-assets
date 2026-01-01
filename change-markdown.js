@@ -18,8 +18,12 @@ const variableMap = {
   "go-tut-1-go": commonPath + "go-tut/ex/1.go",
   "non-blocking-server-architecture":
     commonPath + "fearless-rust/non-blocking-server.jpg",
-    "iron-learn-7-epoch-err":
+  "iron-learn-7-epoch-err":
     commonPath + "iron-learn/iron-learn-7-epoch-error.png",
+  "iron-learn-8-math-chits":
+    commonPath + "iron-learn/iron-learn-math-chits.png",
+    "iron-learn-8-actual-plot":
+    commonPath + "iron-learn/actual-plot.png",
 };
 
 // Function to replace patterns in a file

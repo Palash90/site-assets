@@ -1,12 +1,12 @@
-# The universal approximation theorem
+# Neural Network in Rust and Proof of Universal Approximation Theorem
 
-## The Refactoring Phase
-After I was done playing with the python script for some time, finally I jumped back into my Rust Program. All the code was written inside one single big 500+ line file, ignoring my personal coding hygeine. Hence I started tidying up things a little.
+Once I was done with the CUDA Integration in Python, this was the time to look back to where I left off with the Rust program. I had to replicate the Neural Network into my Rust Program.
 
-I also needed to make the gradient descent and all other modules hardware agnostic. They just call tensor methods and things should work for them, without worrying about backend implementation.
+I took a look at the code base, all code was dumped into one single file, violating my personal coding hegeine of 'no more than 500 lines in a file, until absolutely necessary'. Apart from that, the way the logistic regression program was written in raw CUDA launches without following any structure, made me concerned that I have to write duplicate modules for Neural Network to support both CPU and GPU.
 
-The Plan
-=========
+I needed a plan to make things unified in`Tensor` level, beyond that, things can differ but any high level implementation should call `Tensor` modules and things should work without worrying about where the math is being performed.
+
+## The Plan
 1. Make a `TensorFamily` enum to determine where the logic is gonna run
 1. Write a  `TensorBackend` struct which holds all the methods of `Tensor`
 1. Implement the `CpuTensor` and `GpuTensor` for `TensorBackend`
@@ -14,27 +14,38 @@ The Plan
 
 While doing so, stumbled upon some new learning on Rust - the dynamic trait and another rabbit hole...
 
-The Pivot
-=========
-1. I was dumped with multiple errors while I tried to use `dyn` trait for `TensorBackend`. I tried to resolve a few. Some I fixed, I understood few new concepts and why Rust was trying to block me to go for a recursive memory allocation pattern.
+## The Pivot
+The plan looked simple on paper. However, it did not work in the real code. The compiler came back with multiple errors. I tried to use `dyn` trait for `TensorBackend`. I tried to resolve a few. Some I fixed, I understood few new concepts and why Rust was trying to block me to go for a recursive memory allocation pattern and I got stuck. Compiler was very reasonable but I was being completely unreasonable in my plan.
 
-After spending around 2 hours, a question came to my mind, why even I am trying to that. The way CPU and GPU calculations are going to happen are completely different.
+After around two hours of fighting with the compiler, I again had another thought of shutting down the project. I questioned my choices and left the desk for a walk around the block.
 
-I can send back the result from my CPU based program after each calculation but GPU based program should not return result after every operation, rather it should return result only when asked for.
+There came the solution, I don't need to make the actual `Tensor` unified. No matter what I did, I would still need to make two different execution methods, one for CPU and another for GPU. The user of the library (ironically, that is just me), would make the choice of using GPU or CPU on their work load. They may have installed high end GPUs but for a simple XOR operation Neural Network test, the GPU will actually be slower. I should not make assumptions and must leave the choice to the user.
 
-With this new idea, I abandoned all my work and started fresh with writing GPU based program separately. If I need to unify the logic at some point, I will do it then. Now is not the time.
+With this new found reconcilation, I returned to my desk. I devised a new design altogether, where the reasonable set of methods will be exposed for both hardwares. Only difference would be: the CPU-bound tensor can query the memory immediately and return result  while the GPU based tensor need an explicit D2H data copy mechanism. Until the D2H call happens, all data resides on GPU memory.
 
-After few more rounds of error, I stopped completely. Then after a short walk around the block, this came to my mind, how about I run the neural network on CPU first and then integrate to GPU later.
+With this new idea, I abandoned all my plan and started fresh with writing GPU based program separately.
 
-With that thought, I wrote the rust cpu based program following the python neural network script.
+However, this also did not go well, after few more rounds of error I stopped GPU programming completely.
 
-I had to fight with the compiler for quite a few issues and then, I had to write a few new methods too. I got to know about the difference of numpy in syntax of - @ and *.
+It was really a devastating and crying moment for me. My dream was shatering in front of my eyes. I knew, no way a heavy workload would be completed by my CPU. I need to work on the GPU side. But something in my mind told me quietly, 'don't worry, you will do it, but just not right now'. Somehow, I followed my inner voice and kept aside my thinking brain for few hours. I wrote the Rust CPU-bound neural network, following the Python script.
 
-After around 3 hours, I was able to finally run my first Rust Neural Network program and was showing similar results like the one in python program.
+After around three hours, I was able to finally run my first Rust Neural Network program. Things went pretty well. To be honest, I never expected it to go so smooth. I ran the XOR test in both Python script and Rust program. They showed not exact but very similar results. It was not the exact same result because, the weight initialization followed random sequence without same seed.
 
-This thought came to my mind. Neural networks are good in estimating functions. What if I write any arbitary random function and sample points from the graph and try out the test again.
+Another success, another idea, another play time...
 
-I came up with this equation (don't try to put your mind in it, its a garbage function)
+Approved!!!
+
+## The Universal Approximation Theorem
+The Universal Approximation Theorem states that, "Given at least one hidden layer in a neural network and enough time neural networks can approximate any continuous function".
+
+Well, now I have a neural network running and it passed the non-linearity test with XOR operation. I can leave the computer switched on overnight to approximate any function. So, why not try it?
+
+I needed a function to be approximated. I became little dramatic here.
+
+I wrote few chits writing `1` to `10`, `+`, `-`, `*`, `/`, `^` and put them in a bowl and picked up 15 times. Please don't judge me. I still have no answer why I did that.
+![Math Chits](${iron-learn-8-math-chits} "Math Chits")
+
+I came up with this equation
 
 ```
 a(x)=((x^(2)+x^(3)+x^(4)+x^(6))/(x^(5)))
