@@ -1,5 +1,5 @@
-# The Simba Network
-After successfully approximating the garbage function, I wanted to challenge the network more. There are so many functions to choose from. Mathematics has evolved a lot from the inception and honestly I know a very little about them. Proving them would be another chore for me. I needed something interesting, something exciting. It struck me, image is nothing but a 2D plot of an arbitary and arguably very complex function. 
+# Generating Simba Network with Rust
+After successfully approximating the lottery math function (check previous post for context), I decided to challenge the network more. There are so many functions to choose from. Mathematics has evolved a lot from the inception and honestly I know a very little about them. Proving them would be another chore for me. I needed something interesting, something exciting. It struck me, image is nothing but a 2D plot of an arbitary and arguably very complex function. 
 
 What if I can ask the network to approximate it?
 
@@ -7,13 +7,14 @@ I found a Lion Cub drawing in Black and White and used the following encoder/dec
 
 Once done, I again launched my Python script to feed the generated CSV data to the neural network.
 
-Few roadblocks were on the way but I found solutions for those:
+## Helping Machine to Draw
+The script struggled at lot of points and I had to fix those to help machine learn how to draw Simba.
 
 ### The Large Image Issue
-The original downloaded image was a large 474 * 474 pixels. It was taking very long to train. To avoid this issue, I had to resize it to 200*200 pixels.
+The original downloaded image was a large 474×474 pixels. It was taking very long to train. To avoid this issue, I had to resize it to 200×200 pixels.
 
 ### The Machine Crash and Restart
-I had occassional machine crashes due to overheating and every time that happened training starts from scratch. This was a huge waste of time and resources. So, I added a save/load mechanism to resume the learning from the last saved checkpoint. The machine can now take a pre-saved model and can start from their.
+I had occassional machine crashes due to overheating and every time that happened training starts from scratch. This was a huge waste of time and resources. So, I added a save/load mechanism to resume the learning from the last saved checkpoint. The machine can now take a pre-saved model and can start from there.
 
 ### The Error Oscillation
 No matter how small learning rate I chose, the training always was getting stuck into the error oscillation loop. At one point, it occured to me that, if I choose very small learning rate like 0.000001 I could save the training but definitely, that would take me longer. Then I thought, what if I can gradually decrease the learning rate programatically. I did some research on my thoughts and found about Cosine Annealing. I applied the cos learning decay function and it started showing smooth learning.
@@ -23,24 +24,27 @@ decay_factor = 0.5 * (1 + math.cos(math.pi * i / (epochs+epoch_offset)))
 current_lr = lr_min + (lr_max - lr_min) * decay_factor 
 ```
 
-### The Result
+## The Result: Art through Math
 After fixing all the issues and running the network for almost 1.2 million iterations (around 4 hours on my machine), I could see generated output very close to the input image. The input was a very complex high dimensional function, far beyond simple XOR gate test set or even the logistic regression dataset. This proves that my neural network was exhibiting properties of Universal Approximation Theorem. I can now use this network to do bigger things.
 
 For comparison, here are the results:
 ### Original Image
-![Original Image](https://github.com/Palash90/iron_learn/blob/main/image/images/original.png)
+![Original Image](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-9-original.png$ "Original Image")
 
 ### The Initial Static
-![Initial Static](https://github.com/Palash90/iron_learn/blob/main/python_scripts/200_final_output/image/plot_20000.png)
+![Initial Static](${iron-learn-9-plot_statics}$)
 
 ### Final Image on 200x200
-![Final Reconstruction](https://github.com/Palash90/iron_learn/blob/main/python_scripts/200_final_output/image/plot_1290000.png)
+![Final Reconstruction](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-9-plot_final.png$)
 
 ### Reconstruction on Higher Resolutions
-At that point, I was pretty sure, the network learnt the underlying function. With that confidence, with the saved the weights and biases, I tried to test it against different blank canvas sizes like 512, 50, 1024 etc. In every blank canvas it drew the image. Following is the same image reconstructed on 1024x1024 resolution:
+At that point, I was pretty sure, the network learnt the underlying function. With that confidence and the saved weights, I tried to test it against different blank canvas sizes like 512, 50, 1024 etc. In every blank canvas it drew the image. 
 
-![Higher Resolution Reconstruction](https://github.com/Palash90/iron_learn/blob/main/python_scripts/200_final_output/plot_FINAL_1024.png)
+Following is the same image reconstructed on 1024x1024 resolution:
 
+![Higher Resolution Reconstruction](https://palash90.github.io/site-assets/blogs/iron-learn/iron-learn-9-plot_FINAL_1024.png$)
+
+Since the network had learned the mathematical concept of the lines rather than just the pixels, the 1024x1024 version didn't look 'pixelated' like a standard zoom—it looked like the network was redrawing its own masterpiece on a bigger canvas.
 
 ## Validation and Next Steps
 I basically made a highly complex, inefficient, uber expensive image scaler. The result was satisfying but not perfect. It proved the point but I needed perfection.
@@ -49,7 +53,9 @@ I posted the resultant image on Reddit and another redditor commented about `SIR
 
 `SIREN` is a neural network which uses Sine activation function instead of ReLU or Tanh. Mostly used for purpose of Implicit Neural Representation, a technique very similar to what I was trying to achieve. `SIREN` is more effective than other neural networks in representing Images, Audios etc.
 
-I implemented a `SIREN` in python with the hope of reconstructing the image to a more perfect one. But my efforts were in vein, it did not work. I finally abandoned the plan of writing `SIREN` after few failures to pursue something else.
+I implemented a `SIREN` in python with the hope of reconstructing the image to a more perfect one. But my efforts were in vain, it did not work. I finally abandoned the plan of writing `SIREN` after few failures to pursue something else.
+
+While my network used Sigmoid, SIREN uses Sine waves, which are naturally better at capturing the 'sharp edges' of a drawing. Even though I failed to implement it then, it changed how I looked at the 'frequency' of my data.
 
 In my next attempt, I actually achieved a sharper, more detailed reconstruction.
 

@@ -22,8 +22,11 @@ const variableMap = {
     commonPath + "iron-learn/iron-learn-7-epoch-error.png",
   "iron-learn-8-math-chits":
     commonPath + "iron-learn/iron-learn-math-chits.png",
-    "iron-learn-8-actual-plot":
-    commonPath + "iron-learn/actual-plot.png",
+  "iron-learn-8-actual-plot": commonPath + "iron-learn/actual-plot.png",
+  "iron-learn-9-original": commonPath + "iron-learn/iron-learn-9-original.png",
+  "iron-learn-9-plot_FINAL_1024": commonPath + "iron-learn/iron-learn-9-plot_FINAL_1024.png",
+  "iron-learn-9-plot_final": commonPath + "iron-learn/iron-learn-9-plot_final.png",
+  "iron-learn-9-plot_static": commonPath + "iron-learn/iron-learn-9-plot_static.png",
 };
 
 // Function to replace patterns in a file
