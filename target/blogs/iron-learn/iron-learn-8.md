@@ -1,4 +1,4 @@
-# Neural Network in Rust and Proof of Universal Approximation Theorem
+# Proving the Universal Approximation Theorem with Rust
 
 Once I was done with the CUDA Integration in Python, it was time to return to the Rust program. I had to replicate the Neural Network into my Rust program.
 

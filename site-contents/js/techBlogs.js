@@ -113,6 +113,12 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
         publishDate: "Dec 31, 2025",
         contentType: "swe"
+    },{
+        id: "iron-learn-8",
+        title: "Iron Learn: Proving the Universal Approximation Theorem with Rust",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-8.md",
+        publishDate: "Jan 01, 2026",
+        contentType: "swe"
     }
 ];
 
