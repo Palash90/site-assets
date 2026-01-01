@@ -27,7 +27,7 @@ With this new idea, I abandoned all my plans and started fresh with writing GPU-
 
 However, this also did not go well, after a few more rounds of errors I stopped GPU programming completely.
 
-It was really a devastating and deeply demoralizing moment for me. My dream was shattering in front of my eyes. I knew, no way a heavy workload would be completed by my CPU. I need to work on the GPU side. But something in my mind told me quietly, 'don't worry, you will do it, but just not right now'. Somehow, I followed my inner voice and kept aside my thinking brain for few hours. I wrote the Rust CPU-bound neural network, following the Python script.
+It was really a devastating and deeply demoralizing moment for me. My dream was shattering in front of my eyes. I knew there was no way a heavy workload would be completed by my CPU. I need to work on the GPU side. But something in my mind told me quietly, 'don't worry, you will do it, but just not right now'. Somehow, I followed my inner voice and kept aside my thinking brain for few hours. I wrote the Rust CPU-bound neural network, following the Python script.
 
 ```rust
 /// Element-wise sigmoid activation.
@@ -111,7 +111,7 @@ where
 /// Fully-connected linear layer holding weights and an optional input cache.
 pub struct LinearLayer<T>
 where
-    CpuTensor<f32>,
+   T: CpuTensor<f32>,
 {
     weights: T,
     input_cache: Option<T>,
@@ -250,7 +250,7 @@ where
     T: CpuTensor<f32>,
 {
     pub layers: Vec<Box<dyn Layer<T>>>,
-    pub loss_fn: Box<dyn LossFunction<T>,
+    pub loss_fn: Box<dyn LossFunction<T>>,
 }
 
 impl<T> NeuralNet<T>
@@ -259,7 +259,7 @@ where
 {
     pub fn new(
         layers: Vec<Box<dyn Layer<T>>>,
-        loss_fn: Box<dyn LossFunction<T>,
+        loss_fn: Box<dyn LossFunction<T>>,
     ) -> Self {
         Self {
             layers,
@@ -346,9 +346,9 @@ a(x) = (x² + x³ + x⁴ + x⁶) / x⁵
 
 And this gave me this plot
 
-![Function Plot](https://palash90.github.io/site-assets/blogs/iron-learn/actual-plot.png.png, "Actual Plot")
+![Function Plot](https://palash90.github.io/site-assets/blogs/iron-learn/actual-plot.png "Actual Plot")
 
-I made an arbitary rule, the blue points are `true` and red points are `false`. I sampled 25 points for training and 6 for testing and tested my neural network against it.
+I made an arbitrary rule, the blue points are `true` and red points are `false`. I sampled 25 points for training and 6 for testing and tested my neural network against it.
 
  First attempt went unsuccessful. I could not find the reason. I tried it with the Python script. That also failed. At that point, I had doubt if UAT actually can be applied to this function.
  
