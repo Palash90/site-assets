@@ -119,6 +119,18 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-8.md",
         publishDate: "Jan 01, 2026",
         contentType: "swe"
+    },{
+        id: "iron-learn-9",
+        title: "Iron Learn: Generating Simba Network with Rust",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-9.md",
+        publishDate: "Jan 06, 2026",
+        contentType: "swe"
+    },{
+        id: "iron-learn-10",
+        title: "Iron Learn: The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
+        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
+        publishDate: "Jan 07, 2026",
+        contentType: "swe"
     }
 ];
 
