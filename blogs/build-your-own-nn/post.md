@@ -88,22 +88,8 @@ $$
 
 Let's take an example,
 
-$$
-\begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix}
-+
-\begin{bmatrix}
-5 & 6 \\
-7 & 8
-\end{bmatrix}
-=
-\begin{bmatrix}
-6 & 8 \\
-10 & 12
-\end{bmatrix}
-$$
+$$ \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} + \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} = \begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix} $$
+
 
 ### Element Wise Subtraction
 Element wise subtraction is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A-B$ is calculated as:
