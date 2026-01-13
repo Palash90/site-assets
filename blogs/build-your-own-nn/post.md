@@ -3,7 +3,7 @@
 ## Prologue
 Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. But they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
-I have spent many years trying to Rust perfectly. After experimenting with various methods (The Book, RBE, Rustlings etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
+I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
 This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of this writing, I am still building on it.
 
