@@ -67,10 +67,7 @@ Here is a visual representation of the concept:
 $$
 \begin{array}{ccc}
 \mathbf{Scalar} & \mathbf{Vector} & \mathbf{Matrix} \\
-
-1 & 
-\begin{bmatrix} 1 \\ 2 \end{bmatrix} & 
-\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+1 & \begin{bmatrix} 1 \\ 2 \end{bmatrix} & \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
 \end{array}
 $$
 
