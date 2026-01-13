@@ -24,7 +24,7 @@ This series is designed with a specific philosophy in mind: **Radical Transparen
 And that’s where the story begins...
 
 ## The Tensor
-To build a neural network from scratch, we need to build its building block first. In the world of Machine Learning, that building block would be a **Tensor**. In simple term, a tensor is a collection of numbers, organized in a grid.
+To build a neural network from scratch, we need to build its building block first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
 
 ###  Journey from Scalar to Tensor
 To understand the data structure we would be building, we first need an intuition. Let's start building it from scratch as well.
@@ -72,10 +72,10 @@ $$
 $$
 
 
-**Note:** Mathematics and programming differs in how we index collection of numbers. Mathematics prefers to use 1-based index but programming uses 0-based index.
+**Note:** Mathematics and programming differ in how we index collection of numbers. Mathematics prefers to use 1-based index but programming uses 0-based index.
 
 ### Basic Arithmetic on Matrix
-We have defined our Matrix and established it's notations. Now let's see how we operate on them.
+We have defined our Matrix and established its notations. Now let's see how we operate on them.
 
 For tensor of any size, we define the following operations:
 
@@ -83,7 +83,7 @@ For tensor of any size, we define the following operations:
 Element wise addition is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A+B$ is calculated as:
 
 $$
-C_{i,j}​=A_{i,j}​+B_{i,j}​
+C_{i,j}​=A_{i,j}​ + B_{i,j}​
 $$
 
 Let's take an example,
@@ -95,18 +95,18 @@ $$ \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} + \begin{bmatrix} 5 & 6 \\\ 7 &
 Element wise subtraction is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A-B$ is calculated as:
 
 $$
-C_{i,j}​=A_{i,j}​-B_{i,j}​
+C_{i,j}​=A_{i,j}​ - B_{i,j}​
 $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} $$
+$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 4 & 4 \\\ 4 & 4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
 Element wise multiplication (a.k.a Hadamard Product) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
 
 $$
-C_{i,j}​=A_{i,j}​*B_{i,j}​
+C_{i,j}​=A_{i,j}​ \odot B_{i,j}​
 $$
 
 Let's take an example,
