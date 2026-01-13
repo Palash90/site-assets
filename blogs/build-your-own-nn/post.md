@@ -3,7 +3,7 @@
 ## Prologue
 Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. But they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
-I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
+I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
 This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of this writing, I am still building on it.
 
@@ -35,14 +35,14 @@ To understand the data structure we would be building, we first need an intuitio
 - **Vector:** When we arrange a collection of numbers, we get a `Vector`.
     In the world of tensors, we would define them as tensor of rank 1.
     In programming, this would be an array or `Vec` of numeric variables: `a = [1, 2, 3]`
-- **Matrix:** When we arrange multiple vectors in an array, we get matrix.
+- **Matrix:** When we arrange multiple vectors in an array, we get a matrix.
     In the world of tensors, we would define them as tensor of rank 2.
     In programming, this would be an array of arrays (or `Vec` of `Vec`s): `a = [[1, 2], [3, 4]]`
 - **Tensor:** When we arrange multiple matrices in an array or `Vec`, we get higher rank tensors. This would be beyond our scope in this post and we will keep things simple by restricting ourselves to _2D_ tensors only.
 
 ### Matrix Notation and Indexing
 
-When we want to refer to an element inside the matrix, we need a notation to identify specific element.
+When we want to refer to an element inside the matrix, we need a notation to identify a specific element.
 
 A Matrix A with m rows and n columns is referred to as an m×n matrix. We denote an individual element within that matrix using subscripts:
 
@@ -59,7 +59,7 @@ In code, we usually achieve this by indexing into the array:
 
 ```rust
 a = [[1, 2], [3, 4]];
-println!("{}", a[0][0]); // This would print 1
+println!("{}", a[0][0]); // Output: 1
 ```
 
 Here is a visual representation of the concept:
@@ -74,7 +74,7 @@ $$
 
 **Note:** Mathematics and programming differ in how we index collection of numbers. Mathematics typically uses 1-based indexing whereas, programming uses 0-based indexing.
 
-### Basic Arithmetic on Matrix
+### Basic Arithmetic on Matrices
 We have defined our Matrix and established its notations. Now let's see how we operate on them.
 
 For tensor of any size, we define the following operations:
@@ -118,7 +118,7 @@ Now that we have the mathematical blueprint, let's translate these concepts into
 ## Tensor Implementation
 With the math background, now we'll design and implement the `Tensor`. We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
-Array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
+An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
 1. **Indirection (Pointer Chasing):** `Vec` of `Vec` is very performance intensive operations. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
 2. **Rigidity:** `Vec` of `Vec` would permanently limit our application to a 2D matrix and later, if we want to support higher dimension tensors, we would have to change our code.
@@ -275,4 +275,17 @@ running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
+```
+
+**Note:** We will be using standard Rust module system throughout.
+
+Currently the directory structure should look like the following:
+
+```shell
+src
+├── lib.rs
+├── main.rs
+└── tensor.rs
+tests
+└── test_tensor.rs
 ```
