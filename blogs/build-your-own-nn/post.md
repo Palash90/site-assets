@@ -100,22 +100,7 @@ $$
 
 Let's take an example,
 
-$$
-\begin{bmatrix}
-5 & 6 \\
-7 & 8
-\end{bmatrix}
--
-\begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix}
-=
-\begin{bmatrix}
-4 & 4 \\
-4 & 4
-\end{bmatrix}
-$$
+$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
 Element wise multiplication (a.k.a Hadamard Product) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
@@ -126,21 +111,6 @@ $$
 
 Let's take an example,
 
-$$
-\begin{bmatrix}
-5 & 6 \\
-7 & 8
-\end{bmatrix}
-\odot
-\begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix}
-=
-\begin{bmatrix}
-5 & 12 \\
-21 & 32
-\end{bmatrix}
-$$
+$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} \odot \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 5 & 12 \\\ 21 & 32 \end{bmatrix} $$
 
 This much operation will do much wonders for us. We'll implement a few more down the line but let's get our hands dirty building this first.
