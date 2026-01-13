@@ -101,7 +101,7 @@ $$
 =
 \begin{bmatrix}
 6 & 8 \\
-10 & 11
+10 & 12
 \end{bmatrix}
 $$
 
