@@ -67,7 +67,7 @@ Here is a visual representation of the concept:
 $$
 \begin{array}{ccc}
 \mathbf{Scalar} & \mathbf{Vector} & \mathbf{Matrix} \\
-1 & \begin{bmatrix} 1 \\ 2 \end{bmatrix} & \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+1 & \begin{bmatrix} 1 \\ 2 \end{bmatrix} & \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix}
 \end{array}
 $$
 
@@ -113,4 +113,4 @@ Let's take an example,
 
 $$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} \odot \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 5 & 12 \\\ 21 & 32 \end{bmatrix} $$
 
-This much operation will do much wonders for us. We'll implement a few more down the line but let's get our hands dirty building this first.
+We now have enough mathematical background to start with the first set of implementations.
