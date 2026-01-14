@@ -474,54 +474,6 @@ $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} 
 
 For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
-### Reduction
-A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
-
-Let's look at an example of a matrix which represents sales records of cars in the last three months:
-
-$$
-\begin{array}{cccc}
-\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
-\hline
-Oct  & 1000 & 2000 & 3000 \\
-Nov  & 1200 & 1800 & 2000 \\
-Dec  & 1500 & 2500 & 2200 \\
-\end{array}
-$$
-
-This individual representation is great for individual sales of a particular brand in a particular month.
-
-However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
-
-Using reduction we can represent this:
-
-$$
-\begin{array}{ccccc}
-{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-Brand\ Total  & 3700 & 6300 & 7200 & \\
-\end{array}
-$$
-
-The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
-
-If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
-
-$$
-\begin{array}{ccccc}
-\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{17200} \\
-\end{array}
-$$
 
 ### Dot Product
 We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
