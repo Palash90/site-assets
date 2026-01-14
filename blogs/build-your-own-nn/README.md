@@ -434,15 +434,7 @@ fn main() -> Result<(), TensorError> {
 }
 ```
 
-```text
-  |  1.0000,   2.0000|
-  |  3.0000,   4.0000|
 
-  |  1.0000,   2.0000,   3.0000|
-  |  4.0000,   5.0000,   6.0000|
-  |  7.0000,   8.0000,   9.0000|
-
-```
 
 **Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
 
@@ -450,6 +442,29 @@ fn main() -> Result<(), TensorError> {
 In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well.
 
 The following are a few operations we are going to describe, write tests for and implement in our `Tensor`.
+
+### Transpose
+One of the most fundamental transformations in linear algebra involves changing the very orientation of the data. This is known as the **Transpose**. In a transposition operation, the rows of the matrix become columns and the columns become rows.
+
+$$
+(A^T​)_{i,j}=A_{j,i}​
+$$
+
+Let's take a few examples:
+
+#### Vector Transpose
+
+$$\begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}$$
+
+#### Square Matrix Transpose
+$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}$$
+
+#### Rectangular Matrix Transpose
+$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
+
+**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
+
+For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
 ### Reduction
 A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
