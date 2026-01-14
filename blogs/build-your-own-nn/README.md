@@ -549,6 +549,7 @@ To perform a dot product between a matrix $A$ and a vector $v$, the number of co
 If matrix $A$ has the shape $(m \times n)$ and vector $v$ has the shape $(n \times 1)$, the resulting vector w will have the shape $(m \times 1)$.
 
 Matrix Vector dot product is defined as:
+
 $$
 C_{m,1} = A_{m, n}v_{n. 1}
 $$
