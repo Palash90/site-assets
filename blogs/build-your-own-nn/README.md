@@ -569,6 +569,7 @@ To perform a dot product between matrix $A$ and matrix $B$, the number of column
 If $A$ is $(m \times n)$ and $B$ is $(n \times p)$, the resulting matrix $C$ will have the shape $(m \times p)$.
 
 Matrix Multiplication is defined as:
+
 $$
 C_{m,p} = A_{m, n}B_{n. p}
 $$
@@ -582,17 +583,13 @@ $$
 \color{red}1 & \color{red}2 & \color{red}3 \\ 
 \color{yellow}4 & \color{yellow}5 & \color{yellow}6
 \end{bmatrix} 
-
 \cdot
-
 \begin{bmatrix}
 \color{cyan}7 & \color{magenta}8 \\
 \color{cyan}9 & \color{magenta}10 \\
 \color{cyan}11 & \color{magenta}12
 \end{bmatrix} 
-
 =
-
 \begin{bmatrix}
 \color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{red}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\
 \color{yellow}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{yellow}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\
