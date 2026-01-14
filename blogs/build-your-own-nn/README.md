@@ -77,7 +77,7 @@ $$
 ### Basic Arithmetic on Matrices
 We have defined our matrix and established its notation. Now let's see how we operate on them.
 
-For tensors of any size, we define the following operations:
+For tensors of any size or rank, we define the following operations:
 
 #### Element Wise Addition
 Element wise addition is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A+B$ is calculated as:
@@ -88,7 +88,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \color{red}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{yellow}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{yellow}10 & \color{red}12 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#FFFF00}3 & \color{red}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#FFFF00}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#FFFF00}10 & \color{red}12 \end{bmatrix} $$
 
 
 ### Element Wise Subtraction
