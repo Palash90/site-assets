@@ -154,7 +154,7 @@ pub struct Tensor {
 
 These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`. For error handling, we'll use the `TensorError` enum.
 
-Let's write these definitions. Later we'll implement them one by one.
+Let's write these definitions first in a new file `tensor.rs`. Later we'll implement them one by one.
 
 ```rust
 #[derive(Debug, PartialEq)]
@@ -199,6 +199,9 @@ impl Tensor {
     }
 }
 ```
+
+Once the definitions are written, we should expose the `struct` publicly. To do that, we create another file `lib.rs` and write the following line in it:
+
 
 ```rust
 pub mod tensor;
