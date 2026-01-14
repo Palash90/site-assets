@@ -67,7 +67,7 @@ Here is a visual representation of the concept:
 $$
 \begin{array}{ccc}
 \mathbf{Scalar} & \mathbf{Vector} & \mathbf{Matrix} \\
-1 & \begin{bmatrix} 1 \\ 2 \end{bmatrix} & \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix}
+\color{#E74C3C}{1} & \begin{bmatrix} \color{cyan}1 \\ \color{cyan}2 \end{bmatrix} & \begin{bmatrix} \color{magenta}{1} & \color{magenta}{2} \\\ \color{magenta}{3} & \color{magenta}{4} \end{bmatrix}
 \end{array}
 $$
 
