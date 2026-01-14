@@ -480,7 +480,7 @@ A matrix or a vector gives us information about individual elements, but at time
 Let's look at an example of a matrix which represents sales records of cars in the last three months:
 
 $$
-\begin{array}{cccc}
+\begin{array}{c|ccc}
 \mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
 \hline
 Oct  & 1000 & 2000 & 3000 \\
@@ -496,7 +496,7 @@ However, if we need to know how many cars were sold in October or how many Marut
 Using reduction we can represent this:
 
 $$
-\begin{array}{ccccc}
+\begin{array}{c|ccc|c}
 {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
 \hline
 Oct  & 1000 & 2000 & 3000 & 6000 \\
@@ -512,7 +512,7 @@ The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction a
 If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
 
 $$
-\begin{array}{ccccc}
+\begin{array}{c|ccc|c}
 \mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
 \hline
 Oct  & 1000 & 2000 & 3000 & 6000 \\
