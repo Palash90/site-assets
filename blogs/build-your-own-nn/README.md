@@ -1,5 +1,23 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
+## Table of Contents
+- [Prologue](#prologue)
+- [Modus Operandi](#modus-operandi)
+  - [The Roadmap](#the-roadmap-from-zero-to-image-reconstruction)
+- [The Tensor and Its Operations](#the-tensor)
+  - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
+  - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
+  - [Basic Arithmetic of Tensor](#basic-arithmetic-on-tensor)
+- [Tensor Implementation](#tensor-implementation)
+- [Tensor Display](#tensor-display)
+- [2D Matrix Operations](#2d-matrix-operations)
+  - [Transpose](#transpose)
+  - [Dot Product](#dot-product)
+  - [Reduction](#reduction)
+- [2D Matrix Operations Implementation](#2d-operations-implementations)
+  - [Transpose](#transpose-1)
+  - [Matrix Multiplication](#matrix-multiplication)
+
 ## Prologue
 Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as a baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
@@ -26,7 +44,7 @@ And that’s where the story begins...
 ## The Tensor
 To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms a tensor is a collection of numbers, organized in a grid.
 
-###  Journey from Scalar to Tensor
+### Journey from Scalar to Tensor
 To understand the data structure we are building, we need to develop an intuition first. Let's start building it from scratch as well.
 
 - **Scalar:** We are familiar with this and use it every time we perform arithmetic operations: a single number (e.g. 5). 
@@ -73,7 +91,7 @@ println!("{}", a[0][0]); // Output: 1
 
 >**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
-### Basic Arithmetic on Matrices
+### Basic Arithmetic on Tensor
 We have defined our matrix and established its notation. Now let's see how we operate on them.
 
 For tensors of any size or rank, we define the following operations:
@@ -90,7 +108,7 @@ Let's take an example,
 $$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#D4A017}10 & \color{#2ECC71}12 \end{bmatrix} $$
 
 
-### Element Wise Subtraction
+#### Element Wise Subtraction
 Element wise subtraction is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A-B$ is calculated as:
 
 $$
@@ -101,7 +119,7 @@ Let's take an example,
 
 $$ \begin{bmatrix} \color{cyan}{5} & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}7 \end{bmatrix} - \begin{bmatrix} \color{cyan}1 & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{#D4A017}4 & \color{#2ECC71}4 \end{bmatrix} $$
 
-### Element Wise Multiplication
+#### Element Wise Multiplication
 Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A \odot B$ is calculated as:
 
 $$
