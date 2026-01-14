@@ -519,7 +519,7 @@ Oct  & 1000 & 2000 & 3000 & 6000 \\
 Nov  & 1200 & 1800 & 2000 & 5000 \\
 Dec  & 1500 & 2500 & 2200 & 6200 \\
 \hline
-\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{17200} \\
+\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{\color{green}17200} \\
 \end{array}
 $$
 
