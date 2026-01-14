@@ -220,6 +220,13 @@ use build_your_own_nn::tensor::TensorError;
 
 #[cfg(test)]
 #[test]
+fn test_invalid_shape_creation() {
+    let result = Tensor::new(vec![1.0], vec![2, 2]);
+    assert!(result.is_err());
+    assert_eq!(result.unwrap_err(), TensorError::InconsistentData);
+}
+
+#[test]
 pub fn test_tensor_operations() -> Result<(), TensorError>  {
     use std::vec;
 
@@ -331,7 +338,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ```
 
-**Note:** We will be using standard Rust module system throughout.
+>**Note:** We will be using standard Rust module system throughout.
 
 Currently the directory structure should look like the following:
 
@@ -370,7 +377,7 @@ The shape `Vec` will help us here. First we define what do the elements map to a
 1. If the length of `shape` is 1, it is a _vector_, we can simply return the default debug formatted data.
 1. If the length of `shape` is 2, it is a _matrix_, the first element of the `shape` vector defines number of rows and the second element defines number of columns. By the way, this convention of defining matrix order is known as **Row-major**.
 1. We don't go beyond _2D_
-1. For each row we'll pick out elements matching column length indexing $(row \times cols) + col$
+1. For each row we'll pick out elements matching column length indexing $(\mathbf{row} \times \mathbf{cols}) + \mathbf{col}$
 
 Let's take an example,
 
@@ -500,7 +507,7 @@ $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bm
 #### Rectangular Matrix Transpose
 $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
 
-**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
+>**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
 
 For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
@@ -601,7 +608,7 @@ If $A$ is $(m \times n)$ and $B$ is $(n \times p)$, the resulting matrix $C$ wil
 Matrix Multiplication is defined as:
 
 $$
-C_{m,p} = A_{m, n}B_{n. p}
+C_{m,p} = A_{m, n}B_{n, p}
 $$
 
 A simple way to think about matrix multiplication is to think of dot product of $A$ and $B^T$.
@@ -611,3 +618,82 @@ Let's take an example:
 $$
 \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix} \cdot \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix} = \begin{bmatrix} \color{#2ECC71}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{#2ECC71}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\\ \color{#D4A017}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{#D4A017}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\\ \end{bmatrix} = \begin{bmatrix} (\color{#2ECC71}{1} \times \color{cyan}{7} + \color{#2ECC71}{2} \times \color{cyan}{9} + \color{#2ECC71}{3} \times \color{cyan}{11}) & (\color{#2ECC71}{1} \times \color{magenta}{8} + \color{#2ECC71}{2} \times \color{magenta}{10} + \color{#2ECC71}{3} \times \color{magenta}{12}) \\\ (\color{#D4A017}{4} \times \color{cyan}{7} + \color{#D4A017}{5} \times \color{cyan}{9} + \color{#D4A017}{6} \times \color{cyan}{11}) & (\color{#D4A017}{4} \times \color{magenta}{8} + \color{#D4A017}{5} \times \color{magenta}{10} + \color{#D4A017}{6} \times \color{magenta}{12}) \end{bmatrix} = \begin{bmatrix} 58 & 64 \\\ 139 & 154 \end{bmatrix}
 $$
+
+## _2D_ Operations Implementations
+We defined a few more operations that our tensor needs to support. Let's implement them one by one.
+
+Let's start with the transpose operation.
+
+We'll first add these tests:
+
+```rust
+    #[test]
+    fn test_transpose_square() -> Result<(), TensorError> {
+        // 1.0, 2.0
+
+        // 3.0, 4.0
+
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+
+        let swapped = a.transpose()?;
+
+        // Should become:
+
+        // 1.0, 3.0
+
+        // 2.0, 4.0
+
+        assert_eq!(swapped.data(), &[1.0, 3.0, 2.0, 4.0]);
+
+        assert_eq!(swapped.shape(), &[2, 2]);
+        Ok(())
+    }
+
+    
+
+    #[test]
+    fn test_transpose_rectangular() -> Result<(), TensorError> {
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![2, 3])?;
+        let swapped = a.transpose()?;
+
+        assert_eq!(swapped.data(), &[1.0, 4.0, 2.0, 5.0, 3.0, 6.0]);
+        assert_eq!(swapped.shape(), &[3, 2]);
+        Ok(())
+    }
+
+    #[test]
+    fn test_transpose_1d() -> Result<(), TensorError> {
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![6])?;
+        let swapped = a.transpose()?;
+
+        assert_eq!(swapped.data(), &[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
+        assert_eq!(swapped.shape(), &[6]);
+        Ok(())
+    }
+```
+Now, we'll add the transpose function in our tensor `impl` as follows:
+
+```rust
+    pub fn transpose(&self) -> Result<Tensor, TensorError> {
+        if self.shape.len() != 1 && self.shape.len() != 2 {
+            return Err(TensorError::InvalidRank);
+        }
+
+        if self.shape.len() == 1 {
+            return Tensor::new(self.data.clone(), self.shape.clone());
+        }
+
+        let rows = self.shape[0];
+        let cols = self.shape[1];
+        let mut transposed_data = vec![0.0; self.data.len()];
+
+        for r in 0..rows {
+            for c in 0..cols {
+                transposed_data[c * rows + r] = self.data[r * cols + c];
+            }
+        }
+
+        Tensor::new(transposed_data, vec![cols, rows])
+    }
+```
+
