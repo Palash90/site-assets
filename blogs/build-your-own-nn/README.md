@@ -40,6 +40,15 @@ To understand the data structure we would be building, we need to develop an int
     In programming, this would be an array of arrays (or `Vec` of `Vec`s): `a = [[1, 2], [3, 4]]`
 - **Tensor:** When we arrange multiple matrices in an array or `Vec`, we get higher rank tensors. This would be beyond our scope in this guide and we will keep things simple by restricting ourselves to _2D_ tensors only.
 
+Here is a visual representation of the concept:
+
+$$
+\begin{array}{ccc}
+\mathbf{Scalar} & \mathbf{Vector} & \mathbf{Matrix} \\
+\color{#E74C3C}{1} & \begin{bmatrix} \color{cyan}1 \\ \color{cyan}2 \end{bmatrix} & \begin{bmatrix} \color{magenta}{1} & \color{magenta}{2} \\\ \color{magenta}{3} & \color{magenta}{4} \end{bmatrix}
+\end{array}
+$$
+
 ### Matrix Notation and Indexing
 
 When we want to refer to an element inside the matrix, we need a notation to identify a specific element.
@@ -62,14 +71,7 @@ a = [[1, 2], [3, 4]];
 println!("{}", a[0][0]); // Output: 1
 ```
 
-Here is a visual representation of the concept:
 
-$$
-\begin{array}{ccc}
-\mathbf{Scalar} & \mathbf{Vector} & \mathbf{Matrix} \\
-\color{#E74C3C}{1} & \begin{bmatrix} \color{cyan}1 \\ \color{cyan}2 \end{bmatrix} & \begin{bmatrix} \color{magenta}{1} & \color{magenta}{2} \\\ \color{magenta}{3} & \color{magenta}{4} \end{bmatrix}
-\end{array}
-$$
 
 
 **Note:** Mathematics and programming differ in how we index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
