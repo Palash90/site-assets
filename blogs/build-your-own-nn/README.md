@@ -539,7 +539,7 @@ Here is an example of a dot product between two vectors:
 
 $$
 \begin{bmatrix}
-\color{red}1 \\ \color{blue}2 \\ \color{green}3 \\ \color{yellow}4
+\color{red}{1} \\\ \color{blue}{2} \\\ \color{green}{3} \\\ \color{yellow}{4}
 \end{bmatrix}
 \cdot
 \begin{bmatrix} 
