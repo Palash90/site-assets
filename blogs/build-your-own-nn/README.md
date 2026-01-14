@@ -152,7 +152,9 @@ pub struct Tensor {
 }
 ```
 
-These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`.
+These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`. For error handling, we'll use the `TensorError` enum.
+
+Let's write these definitions. Later we'll implement them one by one.
 
 ```rust
 #[derive(Debug, PartialEq)]
@@ -160,6 +162,14 @@ pub enum TensorError {
     ShapeMismatch,
     InvalidRank,
     InconsistentData,
+}
+
+impl Error for TensorError {}
+
+impl std::fmt::Display for TensorError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq)]
