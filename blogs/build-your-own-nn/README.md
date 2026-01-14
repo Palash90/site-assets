@@ -88,7 +88,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#FFFF00}3 & \color{red}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#FFFF00}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#FFFF00}10 & \color{red}12 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{red}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#D4A017}10 & \color{red}12 \end{bmatrix} $$
 
 
 ### Element Wise Subtraction
@@ -481,7 +481,7 @@ Let's look at an example of a matrix which represents sales records of cars in t
 
 $$
 \begin{array}{cccc}
-\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
 \hline
 Oct  & 1000 & 2000 & 3000 \\
 Nov  & 1200 & 1800 & 2000 \\
@@ -513,7 +513,7 @@ If we sum across row first and then do another sum of the resultant vector, it w
 
 $$
 \begin{array}{ccccc}
-\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
 \hline
 Oct  & 1000 & 2000 & 3000 & 6000 \\
 Nov  & 1200 & 1800 & 2000 & 5000 \\
