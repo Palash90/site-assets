@@ -12,6 +12,8 @@ This guide is designed with a specific philosophy in mind: **Radical Transparenc
 
 ### The Roadmap: From Zero to Image Reconstruction
 
+This is the roadmap I wish I had two years ago. Whether you are a Rustacean curious about AI or an ML practitioner looking to understand systems-level implementation, this journey is for you.
+
 - **The Blank Canvas:** Initializing the environment and establishing the foundational data structures.
 - **The Mathematical Engine:** Implementing tensors, gradients, and backpropagation from scratch.
 - **Building the Network:** Constructing layers and activation functions.
@@ -19,15 +21,13 @@ This guide is designed with a specific philosophy in mind: **Radical Transparenc
 
 ![Image Reconstruction]()
 
-**Note to the Reader:** This is the roadmap I wish I had two years ago. Whether you are a Rustacean curious about AI or an ML practitioner looking to understand systems-level implementation, this journey is for you.
-
 And that’s where the story begins...
 
 ## The Tensor
 To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
 
 ###  Journey from Scalar to Tensor
-To understand the data structure we would be building, we need to develop an intuition first. Let's start building it from scratch as well.
+To understand the data structure we are building, we need to develop an intuition first. Let's start building it from scratch as well.
 
 - **Scalar:** We are familiar with this and use it every time we perform arithmetic operations: a single number (e.g. 5). 
     In the world of tensors, we would define them as a tensor of rank 0.
@@ -74,7 +74,7 @@ println!("{}", a[0][0]); // Output: 1
 
 
 
-**Note:** Mathematics and programming differ in how we index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
+>**Note:** Mathematical notation and programming differ in indexing a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
 ### Basic Arithmetic on Matrices
 We have defined our matrix and established its notation. Now let's see how we operate on them.
@@ -130,13 +130,13 @@ That's it. Nothing else. Now let's start putting our thoughts into code.
 
 We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
-An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
+An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. A basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
 1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is a very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
 
 $$
 \begin{array}{c|l}
-\text{Outer Index} & \text{Pointer (Memory Address)} \\\\ \hline
+\text{Outer Index} & \text{Pointer to Inner Vec} \\\\ \hline
 0 & \color{#3498DB}{\rightarrow [v_{0,0}, v_{0,1}, v_{0,2}]} \\\\
 1 & \color{#E74C3C}{\rightarrow [v_{1,0}, v_{1,1}, v_{1,2}]} \\\\
 2 & \color{#2ECC71}{\rightarrow [v_{2,0}, v_{2,1}, v_{2,2}]} \\\\
@@ -367,14 +367,16 @@ As you can see, the output is a linear array of data. It does not preserve the d
 
 The shape `Vec` will help us here. First we define what do the elements map to and here we decide the rules:
 
-1. If the length of `shape` is 1, it is a _vector_ or tensor of rank 1
-1. If the length of `shape` is 2, it is a _matrix_ or tensor of rank 2 and the first element of the `shape` vector defines rows and the second element defines columns. By the way, this convention is known as **Row-major**.
+1. If the length of `shape` is 1, it is a _vector_, we can simply return the default debug formatted data.
+1. If the length of `shape` is 2, it is a _matrix_, the first element of the `shape` vector defines number of rows and the second element defines number of columns. By the way, this convention of defining matrix order is known as **Row-major**.
 1. We don't go beyond _2D_
 1. For each row we'll pick out elements matching column length indexing $(row \times cols) + col$
 
 Let's take an example,
 
 $$\begin{bmatrix} \color{cyan}1_{0} & \color{magenta}2_{1} & \color{#2ECC71}3_{2} & \color{purple}4_{3} \end{bmatrix} \implies \begin{bmatrix} \color{cyan}1_{(0)} & \color{magenta}2_{(1)} \\\ \color{#2ECC71}3_{(2)} & \color{purple}4_{(3)} \end{bmatrix}$$
+
+Here, we have a `Vec` of length 4 with 2 rows and 2 columns. The first row is formed by the elements at index 0 and index 1 and the second row is formed by the elements at index 2 and index 3.
 
 Let's implement these rules for our tensor now.
 
@@ -412,7 +414,7 @@ fn test_tensor_display_1d() -> Result<(), TensorError> {
 }
 ```
 
-And then we implement matching rules to make the tests green.
+And then we implement the `Display` trait for our `Tensor`, matching the rules to make the tests pass.
 
 ```rust
 impl std::fmt::Display for Tensor {
@@ -441,7 +443,8 @@ impl std::fmt::Display for Tensor {
     }
 }
 ```
-Let's rewrite the `main` function and look at the output:
+
+Now we run and the tests pass. Let's rewrite the `main` function and look at our tensor getting displayed:
 
 ```rust
 use build_your_own_nn::tensor::{Tensor, TensorError};
@@ -474,7 +477,7 @@ fn main() -> Result<(), TensorError> {
 **Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
 
 ## _2D_ Matrix Operations
-In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well.
+In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well. To perform these, we need to move around a little.
 
 The following are a few operations we are going to describe, write tests for and implement in our `Tensor`.
 
@@ -536,7 +539,7 @@ $$
 
 The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
 
-If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
+If we sum across the rows first and then do another sum of the resulting vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
 
 $$
 \begin{array}{c|ccc|c}
@@ -569,7 +572,7 @@ $$
 $$
 
 #### Matrix Vector Dot Product
-In a Matrix-Vector dot product, we calculate the dot product of every row from the matrix with the single the column of the vector.
+In a Matrix-Vector dot product, we calculate the dot product of every row from the matrix with the single column of the vector.
 
 To perform a dot product between a matrix $A$ and a vector $v$, the number of columns in the matrix must equal the number of elements (rows) in the vector.
 
@@ -578,7 +581,7 @@ If matrix $A$ has the shape $(m \times n)$ and vector $v$ has the shape $(n \tim
 Matrix Vector dot product is defined as:
 
 $$
-C_{m,1} = A_{m, n}v_{n. 1}
+C_{m,1} = A_{m, n}v_{n, 1}
 $$
 
 Let's take an example:
