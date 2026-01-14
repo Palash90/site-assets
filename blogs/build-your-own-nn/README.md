@@ -826,9 +826,7 @@ This exactly replicates the logic in the [Dot Product](#dot-product) section. We
 Let's use our previous example. To find just the first element (top-left) of the result:
 
 $$
-
 A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}
-
 $$
 
 1. Calculating $C_{0,0}$​ (The first cell)
