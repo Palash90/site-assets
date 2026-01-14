@@ -210,7 +210,7 @@ pub mod tensor;
 
 Now we have defined our data structure, required functions and methods. Let's write a few tests now.
 
-We put all the test outside `src` directory; in a separate directory named `tests`.
+We put all the tests outside `src` directory; in a separate directory named `tests`.
 
 ```rust
 use build_your_own_nn::tensor::Tensor;
