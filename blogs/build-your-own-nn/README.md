@@ -854,28 +854,70 @@ $$
 $$
    
 
-2. Calculating $C_{0,1}$​ (Moving across the result row)
+1. Calculating $C_{0,1}$​ (Moving across the result row)
 
 The code sets `i = 0` and `j = 1` (second column of $B$).
 
   - k = 0: 
   
 $$
-    \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}8) \color{white}= 8
+    \color{#2ECC71}A_{0,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{magenta}8) \color{white}= 8
 $$
 
   - k = 1: 
 
 $$
-    8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{cyan}10\color{white}) = 28
+    8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{magenta}10\color{white}) = 28
 $$
 
   - k = 2
   
 $$
-    28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{cyan}12\color{white}) = 64
+    28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{magenta}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{magenta}12\color{white}) = 64
 $$
 
   
+1. Calculating $C_{1,0}$​ (Bottom Left)
 
+The code sets `i = 1` and `j = 0`.
+
+  - k = 0: 
+  
+$$
+    \color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7) \color{white}= 28
+$$
+
+  - k = 1: 
+
+$$
+    28 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 28+(\color{#D4A017}5 \times \color{cyan}9\color{white}) = 73
+$$
+
+  - k = 2
+  
+$$
+    73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{cyan}11\color{white}) = 139
+$$
+
+1. Calculating $C_{1,1}$​ (Bottom Left)
+
+The code sets `i = 1` and `j = 1`.
+
+  - k = 0: 
+  
+$$
+    \color{#2ECC71}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
+$$
+
+  - k = 1: 
+
+$$
+    28 + (\color{#2ECC71}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
+$$
+
+  - k = 2
+  
+$$
+    73 + (\color{#2ECC71}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
+$$
 
