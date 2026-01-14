@@ -380,7 +380,7 @@ The shape `Vec` will help us here. First we define what do the elements map to a
 
 1. If the length of `shape` is 1, it is a _vector_, we can simply return the default debug formatted data.
 1. If the length of `shape` is 2, it is a _matrix_, the first element of the `shape` vector defines number of rows and the second element defines number of columns. By the way, this convention of defining matrix order is known as **Row-major**.
-1. We don't go beyond _2D_
+1. We won't go beyond _2D_
 1. For each row we'll pick out elements matching column length indexing $(\mathbf{row} \times \mathbf{cols}) + \mathbf{col}$
 
 Let's take an example,
@@ -832,15 +832,15 @@ $$
 
 1. Calculating $C_{0,0}$​ (The first cell)
 
-The code sets `i = 0` (first row of A) and `j = 0` (first column of B). The `k` loop then performs the dot product:
+   The code sets `i = 0` (first row of A) and `j = 0` (first column of B). The `k` loop then performs the dot product:
 
-  - k = 0: 
+- k = 0: 
     
 $$
     \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7) \color{white}= 7
 $$
 
-  - k = 1: 
+- k = 1: 
   
 $$
     7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25
@@ -855,7 +855,7 @@ $$
 
 1. Calculating $C_{0,1}$​ (Moving across the result row)
 
-The code sets `i = 0` and `j = 1` (second column of $B$).
+  The code sets `i = 0` and `j = 1` (second column of $B$).
 
   - k = 0: 
   
@@ -878,7 +878,7 @@ $$
   
 1. Calculating $C_{1,0}$​ (Bottom Left)
 
-The code sets `i = 1` and `j = 0`.
+  The code sets `i = 1` and `j = 0`.
 
   - k = 0: 
   
@@ -900,23 +900,23 @@ $$
 
 1. Calculating $C_{1,1}$​ (Bottom Left)
 
-The code sets `i = 1` and `j = 1`.
+  The code sets `i = 1` and `j = 1`.
 
   - k = 0: 
   
 $$
-    \color{#2ECC71}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
+    \color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
 $$
 
   - k = 1: 
 
 $$
-    28 + (\color{#2ECC71}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
+    32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
 $$
 
   - k = 2
   
 $$
-    73 + (\color{#2ECC71}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
+    73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
 $$
 
