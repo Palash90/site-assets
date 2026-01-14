@@ -451,29 +451,54 @@ In the previous operations, we treated matrices like rigid containers—adding o
 
 The following are a few operations we are going to describe, write tests for and implement in our `Tensor`.
 
-### Transpose
-One of the most fundamental transformations in linear algebra involves changing the very orientation of the data. This is known as the **Transpose**. In a transposition operation, the rows of the matrix become columns and the columns become rows.
+### Reduction
+A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
+
+Let's look at an example of a matrix which represents sales records of cars in the last three months:
 
 $$
-(A^T​)_{i,j}=A_{j,i}​
+\begin{array}{cccc}
+\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
+\hline
+Oct  & 1000 & 2000 & 3000 \\
+Nov  & 1200 & 1800 & 2000 \\
+Dec  & 1500 & 2500 & 2200 \\
+\end{array}
 $$
 
-Let's take a few examples:
+This individual representation is great for individual sales of a particular brand in a particular month.
 
-#### Vector Transpose
+However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
 
-$$\begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}$$
+Using reduction we can represent this:
 
-#### Square Matrix Transpose
-$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}$$
+$$
+\begin{array}{ccccc}
+{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+Brand\ Total  & 3700 & 6300 & 7200 & \\
+\end{array}
+$$
 
-#### Rectangular Matrix Transpose
-$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
+The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
 
-**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
+If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
 
-For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
-
+$$
+\begin{array}{ccccc}
+\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{17200} \\
+\end{array}
+$$
 
 ### Dot Product
 We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
