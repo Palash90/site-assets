@@ -557,32 +557,8 @@ $$
 Let's take an example:
 
 $$
-
-\begin{bmatrix}
-\color{red}{1} & \color{red}{2} & \color{red}{3} \\ 
-\color{yellow}{4} & \color{yellow}{5} & \color{yellow}{6}
-\end{bmatrix} 
-\cdot
-\begin{bmatrix}
-\color{cyan}{7} \\
-\color{cyan}{8} \\
-\color{cyan}{9}
-\end{bmatrix} 
-=
-\begin{bmatrix}
-\color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 8, 9]} \\
-\color{yellow}{[4, 5, 6]} \cdot \color{cyan}{[7, 8, 9]}
-\end{bmatrix}
-=
-\begin{bmatrix}
-(\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{8} + \color{red}{3} \times \color{cyan}{9}) \\
-(\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{8} + \color{yellow}{6} \times \color{cyan}{9})
-\end{bmatrix}
-=
-\begin{bmatrix}
-50 \\
-122
-\end{bmatrix}
+\begin{bmatrix} \color{red}{1} & \color{red}{2} & \color{red}{3} \\ \color{yellow}{4} & \color{yellow}{5} & \color{yellow}{6} \end{bmatrix} \cdot \begin{bmatrix} \color{cyan}{7} \\ \color{cyan}{8} \\ \color{cyan}{9} \end{bmatrix} = \begin{bmatrix} \color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 8, 9]} \\ \color{yellow}{[4, 5, 6]} \cdot \color{cyan}{[7, 8, 9]} \end{bmatrix} = \begin{bmatrix} (\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{8} + \color{red}{3} \times \color{cyan}{9}) \\ (\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{8} + \color{yellow}{6} \times \color{cyan}{9})
+\end{bmatrix} = \begin{bmatrix} 50 \\ 122 \end{bmatrix}
 $$
 
 #### Matrix Matrix Dot Product
