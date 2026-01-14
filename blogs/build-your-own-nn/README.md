@@ -145,6 +145,14 @@ pub struct Tensor {
 These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`.
 
 ```rust
+#[derive(Debug, PartialEq)]
+pub enum TensorError {
+    ShapeMismatch,
+    InvalidRank,
+    InconsistentData,
+}
+
+#[derive(Debug, PartialEq)]
 impl Tensor {
     pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Tensor, TensorError> {
         todo!()
@@ -181,6 +189,7 @@ Now we have defined our data structure and required functions and methods. Let's
 
 ```rust
 use build_your_own_nn::tensor::Tensor;
+use build_your_own_nn::tensor::TensorError;
 
 #[cfg(test)]
 #[test]
@@ -346,8 +355,8 @@ First we add the tests as per our desirable matrix look:
 
 ```rust
 #[test]
-fn test_tensor_display_2d() {
-    let tensor = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+fn test_tensor_display_2d() -> Result<(), TensorError> {
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
 
     let output = format!("{}", tensor);
 
@@ -358,7 +367,7 @@ fn test_tensor_display_2d() {
 }
 
 #[test]
-fn test_tensor_display_alignment() {
+fn test_tensor_display_alignment() -> Result<(), TensorError> {
     let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2]);
 
     let output = format!("{}", tensor);
@@ -368,7 +377,7 @@ fn test_tensor_display_alignment() {
 }
 
 #[test]
-fn test_tensor_display_1d() {
+fn test_tensor_display_1d() -> Result<(), TensorError> {
     let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3]);
 
     let output = format!("{}", tensor);
@@ -518,8 +527,11 @@ $$
 We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
 
 The dot product of two matrices A and B of length n is defined as:
+
 $$
+
 A \cdot B = \sum_{i=1}^{n} A_i B_i
+
 $$
 
 Let's take a few examples.
