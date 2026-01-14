@@ -92,7 +92,7 @@ $$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \col
 
 
 ### Element Wise Subtraction
-Element wise subtraction is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A-B$ is calculated as:
+Element wise subtraction is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A-B$ is calculated as:
 
 $$
 C_{i,j}​=A_{i,j}​ - B_{i,j}​
@@ -103,7 +103,7 @@ Let's take an example,
 $$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \color{red}4 \end{bmatrix} - \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{yellow}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{yellow}4 & \color{red}4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
-Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
+Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A \odot B$ is calculated as:
 
 $$
 C_{i,j}​=A_{i,j}​ \odot B_{i,j}​
