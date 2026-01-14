@@ -515,55 +515,6 @@ $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} 
 
 For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
-### Reduction
-A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
-
-Let's look at an example of a matrix which represents sales records of cars in the last three months:
-
-$$
-\begin{array}{c|ccc}
-\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
-\hline
-Oct  & 1000 & 2000 & 3000 \\
-Nov  & 1200 & 1800 & 2000 \\
-Dec  & 1500 & 2500 & 2200 \\
-\end{array}
-$$
-
-This individual representation is great for individual sales of a particular brand in a particular month.
-
-However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
-
-Using reduction we can represent this:
-
-$$
-\begin{array}{c|ccc|c}
-{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-Brand\ Total  & 3700 & 6300 & 7200 & \\
-\end{array}
-$$
-
-The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
-
-If we sum across the rows first and then do another sum of the resulting vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
-
-$$
-\begin{array}{c|ccc|c}
-\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{\color{green}17200} \\
-\end{array}
-$$
-
 ### Dot Product
 We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
 
@@ -623,8 +574,59 @@ $$
 \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix} \cdot \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix} = \begin{bmatrix} \color{#2ECC71}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{#2ECC71}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\\ \color{#D4A017}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{#D4A017}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\\ \end{bmatrix} = \begin{bmatrix} (\color{#2ECC71}{1} \times \color{cyan}{7} + \color{#2ECC71}{2} \times \color{cyan}{9} + \color{#2ECC71}{3} \times \color{cyan}{11}) & (\color{#2ECC71}{1} \times \color{magenta}{8} + \color{#2ECC71}{2} \times \color{magenta}{10} + \color{#2ECC71}{3} \times \color{magenta}{12}) \\\ (\color{#D4A017}{4} \times \color{cyan}{7} + \color{#D4A017}{5} \times \color{cyan}{9} + \color{#D4A017}{6} \times \color{cyan}{11}) & (\color{#D4A017}{4} \times \color{magenta}{8} + \color{#D4A017}{5} \times \color{magenta}{10} + \color{#D4A017}{6} \times \color{magenta}{12}) \end{bmatrix} = \begin{bmatrix} 58 & 64 \\\ 139 & 154 \end{bmatrix}
 $$
 
+### Reduction
+A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
+
+Let's look at an example of a matrix which represents sales records of cars in the last three months:
+
+$$
+\begin{array}{c|ccc}
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
+\hline
+Oct  & 1000 & 2000 & 3000 \\
+Nov  & 1200 & 1800 & 2000 \\
+Dec  & 1500 & 2500 & 2200 \\
+\end{array}
+$$
+
+This individual representation is great for individual sales of a particular brand in a particular month.
+
+However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
+
+Using reduction we can represent this:
+
+$$
+\begin{array}{c|ccc|c}
+{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+Brand\ Total  & 3700 & 6300 & 7200 & \\
+\end{array}
+$$
+
+The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
+
+If we sum across the rows first and then do another sum of the resulting vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
+
+$$
+\begin{array}{c|ccc|c}
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{\color{green}17200} \\
+\end{array}
+$$
+
 ## _2D_ Operations Implementations
 We defined a few more operations that our tensor needs to support. Let's implement them one by one.
+
+### Transpose
 
 Let's start with the transpose operation.
 
@@ -675,7 +677,17 @@ We'll first add these tests:
         Ok(())
     }
 ```
-Now, we'll add the transpose function in our tensor `impl` as follows:
+To implement transpose, we have to physically move our numbers into a new Vec. While some advanced libraries just change the "metadata" (using something called strides), we are going to actually rebuild the data. This keeps our memory "contiguous," which makes our other operations faster because the CPU can predict where the next number is.
+
+#### The Logic:
+
+1. Check the Rank: We only support transposing 1D or 2D tensors.
+
+1. The 1D Shortcut: If it's a 1D vector, there's no "grid" to flip, so we just return a copy.
+
+1. The 2D Re-map: We create a new Vec of the same size. Then, we use a nested loop to visit every "cell" of our grid.
+
+>Note the Index Swap: In our original data, we find an element at row * cols + col. In our new data, the dimensions are swapped, so the position becomes col * rows + row.
 
 ```rust
     pub fn transpose(&self) -> Result<Tensor, TensorError> {
@@ -700,4 +712,123 @@ Now, we'll add the transpose function in our tensor `impl` as follows:
         Tensor::new(transposed_data, vec![cols, rows])
     }
 ```
+
+### Matrix Multiplication
+Matrix multiplication is the ultimate work horse in any neural network library and arguably the most complex operation too. In a single step with the most simple network architecture we can count matrix multiplication is used thrice, element wise functional operations are called thrice, addition/subtraction once and transpose twice. Don't worry if you did not understand this claim. We'll soon dive into this counting. For now, just understand Matrix Multiplication is the most frequent operation in a training cycle.
+
+Unfortunately by nature a matrix multiplication is $O(n^3)$ operation. There are tons of optimizations had been done over the decades on this operation both on Software front as well as Hardware front. Those optimization techniques are itself worthy of their own book.
+
+However, to make our tensor useful, we'll avoid the textbook naive implementation technique and will use a bit sophisticated technique with compiler optimizations. To understand the basics, we'll keep both the versions in our library.
+
+First we'll write tests for matrix multiplications with correct assumptions and then we'll jump into both the implementations.
+
+#### Tests for Matrix Multiplication
+This test will capture many scenarios based one 1D, 2D matrix operations. We will add this to our existing tests:
+
+```rust
+#[test]
+    fn test_matmul_naive() -> Result<(), TensorError> {
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+        let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2])?;
+        let c = a.matmul_naive(&b)?;
+        
+        assert_eq!(c.data(), &[19.0, 22.0, 43.0, 50.0]);
+        assert_eq!(c.shape(), &[2, 2]);
+
+        let d = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![2, 3])?;
+        let e = Tensor::new(vec![7.0, 8.0, 9.0, 10.0, 11.0, 12.0], vec![3, 2])?;
+        let f = d.matmul_naive(&e)?;
+        assert_eq!(f.data(), &[58.0, 64.0, 139.0, 154.0]);
+        assert_eq!(f.shape(), &[2, 2]);
+
+        let g = Tensor::new(vec![1.0, 2.0, 3.0], vec![3, 1])?;
+        let h = Tensor::new(vec![4.0, 5.0, 6.0], vec![1, 3])?;
+        let i = g.matmul_naive(&h)?;
+        assert_eq!(i.data(), &[4.0, 5.0, 6.0, 8.0, 10.0, 12.0, 12.0, 15.0, 18.0]);;
+        assert_eq!(i.shape(), &[3, 3]);
+
+        let j = Tensor::new(vec![1.0, 2.0, 3.0], vec![1, 3])?;
+        let k = Tensor::new(vec![4.0, 5.0, 6.0], vec![3, 1])?;
+        let l = j.matmul_naive(&k)?;
+        assert_eq!(l.data(), &[32.0]);
+        assert_eq!(l.shape(), &[1, 1]);
+
+        let m = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
+        let n = Tensor::new(vec![4.0, 5.0, 6.0], vec![3])?;
+        let o = m.matmul_naive(&n)?;
+        assert_eq!(o.data(), &[32.0]);
+        assert_eq!(o.shape(), &[1]);
+
+        let p = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
+        let q = Tensor::new(vec![4.0, 5.0, 6.0], vec![1, 3])?;
+        let r = q.matmul_naive(&p)?;
+        assert_eq!(r.data(), &[32.0]);
+        assert_eq!(r.shape(), &[1]);
+
+        let s = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
+        let t = Tensor::new(vec![4.0, 5.0, 6.0], vec![3, 1])?;
+        let u = s.matmul_naive(&t)?;
+        assert_eq!(u.data(), &[32.0]);
+        assert_eq!(u.shape(), &[1]);
+
+        Ok(())
+    }
+```
+
+#### The Naive Implementation (IJK)
+
+[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the next section if you want to.
+
+In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
+
+```rust
+    pub fn matmul_naive(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        let (a_rows, a_cols) = match self.shape.len() {
+            1 => (1, self.shape[0]),
+            2 => (self.shape[0], self.shape[1]),
+            _ => return Err(TensorError::InvalidRank),
+        };
+
+        let (b_rows, b_cols) = match other.shape.len() {
+            1 => (other.shape[0], 1),
+            2 => (other.shape[0], other.shape[1]),
+            _ => return Err(TensorError::InvalidRank),
+        };
+
+        if a_cols != b_rows {
+            return Err(TensorError::ShapeMismatch);
+        }
+
+        let mut result_data = vec![0.0; a_rows * b_cols];
+
+        for i in 0..a_rows {
+            for j in 0..b_cols {
+                for k in 0..a_cols {
+                    result_data[i * b_cols + j] +=
+                        self.data[i * a_cols + k] * other.data[k * b_cols + j];
+                }
+            }
+        }
+
+        let out_shape = match (self.shape.len(), other.shape.len()) {
+            (1, 1) => vec![1],
+            (1, 2) => vec![b_cols],
+            (2, 1) => vec![a_rows],
+            _ => vec![a_rows, b_cols],
+        };
+
+        Tensor::new(result_data, out_shape)
+    }
+```
+
+This exactly replicates the logic in the [Dot Product](#dot-product) section. We perform shape normalizations and then directly go into a three level nested for loop to calculate each cell of the resulting matrix (or vector).
+
+Let's use our previous example. To find just the first element (top-left) of the result:
+
+$$
+
+
+
+
+
 
