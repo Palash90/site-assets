@@ -848,7 +848,8 @@ $$
 $$
 
   - k = 2:
-  $$
+
+$$
     25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58
 $$
    
@@ -869,7 +870,7 @@ $$
     8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{cyan}10\color{white}) = 28
 $$
 
-  - k = 
+  - k = 2
   
 $$
     28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{cyan}12\color{white}) = 64
