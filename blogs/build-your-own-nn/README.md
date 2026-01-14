@@ -523,12 +523,18 @@ Dec  & 1500 & 2500 & 2200 & 6200 \\
 \end{array}
 $$
 
+next
+
 ### Dot Product
 We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
 
 The dot product of two matrices A and B of length n is defined as:
 
+$$
 
+A \cdot B = \sum_{i=1}^{n} A_i B_i
+
+$$
 
 Let's take a few examples.
 
