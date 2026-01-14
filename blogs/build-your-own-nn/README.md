@@ -1,14 +1,14 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Prologue
-Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
+Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
 I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
-This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of this writing, I am still building on it.
+This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of this writing, the project is still evolving.
 
 ## Modus Operandi
-This series is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries (we do not even install any of them). We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
+This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries (we do not even install any of them). We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
 
 ### The Roadmap: From Zero to Image Reconstruction
 
@@ -30,15 +30,15 @@ To build a neural network from scratch, we need to build its building block firs
 To understand the data structure we would be building, we first need an intuition. Let's start building it from scratch as well.
 
 - **Scalar:** We are familiar with this and use it every time we perform arithmetic operations: a single number (e.g. 5). 
-    In the world of tensors, we would define them as tensor of rank 0.
+    In the world of tensors, we would define them as a tensor of rank 0.
     In programming, this would be a single numeric variable: `x=5`
 - **Vector:** When we arrange a collection of numbers, we get a `Vector`.
-    In the world of tensors, we would define them as tensor of rank 1.
+    In the world of tensors, we would define them as a tensor of rank 1.
     In programming, this would be an array or `Vec` of numeric variables: `a = [1, 2, 3]`
 - **Matrix:** When we arrange multiple vectors in an array, we get a matrix.
-    In the world of tensors, we would define them as tensor of rank 2.
+    In the world of tensors, we would define them as a tensor of rank 2.
     In programming, this would be an array of arrays (or `Vec` of `Vec`s): `a = [[1, 2], [3, 4]]`
-- **Tensor:** When we arrange multiple matrices in an array or `Vec`, we get higher rank tensors. This would be beyond our scope in this post and we will keep things simple by restricting ourselves to _2D_ tensors only.
+- **Tensor:** When we arrange multiple matrices in an array or `Vec`, we get higher rank tensors. This would be beyond our scope in this guide and we will keep things simple by restricting ourselves to _2D_ tensors only.
 
 ### Matrix Notation and Indexing
 
@@ -305,9 +305,9 @@ tests
 ```
 
 ## Tensor Display
-So far we have written tests for everything to verify operations but we'll need to look at the matrices to see them in a comprehensive and aesthetic format. Looking at the data directly from `Vec` isn't very intuitive.
+So far we have written tests for everything to verify operations but we'll need to look at the matrices to see them in a comprehensive and readable format. Looking at the data directly from `Vec` isn't very intuitive.
 
-Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function as follows to look at the data inside the tensor:
+Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function to inspect the data inside the tensor:
 
 ```rust
 use build_your_own_nn::tensor::Tensor;
@@ -425,3 +425,78 @@ fn main() {
 ```
 
 **Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
+
+## _2D_ Matrix Operations
+In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well.
+
+The following are a few operations we are going to describe, write tests for and implement in our `Tensor`.
+
+### Transpose
+One of the most fundamental transformations in linear algebra involves changing the very orientation of the data. This is known as the **Transpose**. In a transposition operation, the rows of the matrix become columns and the columns become rows.
+
+$$
+(A^T​)_{i,j}=A_{j,i}​
+$$
+
+Let's take a few examples:
+
+#### Vector Transpose
+
+$$\begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}$$
+
+#### Square Matrix Transpose
+$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}$$
+
+#### Rectangular Matrix Transpose
+$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
+
+**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. For example, here a $3 \times 2$ matrix changed to a $2 \times 3$ matrix.
+
+### Reduction
+A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
+
+Let's take an example of a matrix which represents sales records of cars in last 3 months:
+
+$$
+\begin{array}{c|c|c|c}
+\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
+\hline
+Oct  & 1000 & 2000 & 3000 \\
+Nov  & 1200 & 1800 & 2000 \\
+Dec  & 1500 & 2500 & 2200 \\
+\end{array}
+$$
+
+This individual representation is great for individual sales of a particular brand in a particular month.
+
+However, if we need to know how many cars sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
+
+Using reduction we can represent this:
+
+$$
+\begin{array}{c|ccc|c}
+{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+Brand\ Total  & 3700 & 6300 & 7200 & \\
+\end{array}
+$$
+
+The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
+
+If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix.
+
+$$
+\begin{array}{c|ccc|c}
+\mathbf {} & {Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{17200} \\
+\end{array}
+$$

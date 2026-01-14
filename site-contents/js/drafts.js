@@ -22,5 +22,13 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },
+    {
+        id: "build-your-own-nn",
+        title: "Build Your Own Neural Network",
+        mdUrl: getCommon("cdn") + "/target/blogs/build-your-own-nn/README.md",
+        publishDate: "",
+        contentType: "swe",
+        draft: true
     }
 ];
