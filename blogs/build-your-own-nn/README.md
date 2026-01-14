@@ -1,7 +1,7 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Prologue
-Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as the baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
+Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as a baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
 I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
@@ -24,7 +24,7 @@ This is the roadmap I wish I had two years ago. Whether you are a Rustacean curi
 And that’s where the story begins...
 
 ## The Tensor
-To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
+To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms a tensor is a collection of numbers, organized in a grid.
 
 ###  Journey from Scalar to Tensor
 To understand the data structure we are building, we need to develop an intuition first. Let's start building it from scratch as well.
@@ -70,9 +70,6 @@ In code, we usually achieve this by indexing into the array:
 a = [[1, 2], [3, 4]];
 println!("{}", a[0][0]); // Output: 1
 ```
-
-
-
 
 >**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
@@ -159,6 +156,8 @@ These two fields should not be accessible directly, we need to define accessors 
 Let's write these definitions first in a new file `tensor.rs`. Later, we'll implement them one by one.
 
 ```rust
+use std::error::Error;
+
 #[derive(Debug, PartialEq)]
 pub enum TensorError {
     ShapeMismatch,
@@ -178,7 +177,7 @@ impl std::fmt::Display for TensorError {
     }
 }
 
-#[derive(Debug, PartialEq)]
+
 impl Tensor {
     pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Tensor, TensorError> {
         todo!()
@@ -503,13 +502,20 @@ Let's take a few examples:
 
 #### Vector Transpose
 
-$$\begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \end{bmatrix}$$
+$$
+\begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 \\\ 2 \\\ 3 \\\ 4 \end{bmatrix}
+$$
 
 #### Square Matrix Transpose
-$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 \\ 2 & 4 \end{bmatrix}$$
+
+$$
+\begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 \\\ 2 & 4 \end{bmatrix}
+$$
 
 #### Rectangular Matrix Transpose
-$$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
+$$
+\begin{bmatrix} 1 & 2 \\\ 3 & 4 \\\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\\ 2 & 4 & 6 \end{bmatrix}
+$$
 
 >**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
 
@@ -716,7 +722,7 @@ To implement transpose, we have to physically move our numbers into a new Vec. W
 ### Matrix Multiplication
 Matrix multiplication is the ultimate work horse in any neural network library and arguably the most complex operation too. In a single step with the most simple network architecture we can count matrix multiplication is used thrice, element wise functional operations are called thrice, addition/subtraction once and transpose twice. Don't worry if you did not understand this claim. We'll soon dive into this counting. For now, just understand Matrix Multiplication is the most frequent operation in a training cycle.
 
-Unfortunately by nature a matrix multiplication is $O(n^3)$ operation. There are tons of optimizations had been done over the decades on this operation both on Software front as well as Hardware front. Those optimization techniques are itself worthy of their own book.
+Unfortunately by nature a matrix multiplication is $O(n^3)$ operation. There are tons of optimizations have been done over the decades on this operation both on Software front as well as Hardware front. Those optimization techniques are itself worthy of their own book.
 
 However, to make our tensor useful, we'll avoid the textbook naive implementation technique and will use a bit sophisticated technique with compiler optimizations. To understand the basics, we'll keep both the versions in our library.
 
@@ -777,7 +783,7 @@ This test will capture many scenarios based one 1D, 2D matrix operations. We wil
 
 #### The Naive Implementation (IJK)
 
-[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the next section if you want to.
+[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the [next section](#the-optimized-implementation) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
 
@@ -920,3 +926,6 @@ $$
     73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
 $$
 
+
+#### The Optimized Implementation
+Now we have seen the naive implementation and how the math unfolds, let's take a look at how we can leverage the 
