@@ -1,7 +1,7 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Prologue
-Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. But they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
+Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
 I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
@@ -52,8 +52,8 @@ $$
 
 Where:
 
-- _i_ is the row index (1≤ _i_ ≤_m_)
-- _j_ is the column index (1≤ _j_ ≤ _n_)
+- _i_ is the row index (1 ≤ _i_ ≤ _m_)
+- _j_ is the column index (1 ≤ _j_ ≤ _n_)
 
 In code, we usually achieve this by indexing into the array:
 
@@ -72,12 +72,12 @@ $$
 $$
 
 
-**Note:** Mathematics and programming differ in how we index collection of numbers. Mathematics typically uses 1-based indexing whereas, programming uses 0-based indexing.
+**Note:** Mathematics and programming differ in how we index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
 ### Basic Arithmetic on Matrices
-We have defined our Matrix and established its notations. Now let's see how we operate on them.
+We have defined our matrix and established its notation. Now let's see how we operate on them.
 
-For tensor of any size, we define the following operations:
+For tensors of any size, we define the following operations:
 
 #### Element Wise Addition
 Element wise addition is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A+B$ is calculated as:
@@ -103,7 +103,7 @@ Let's take an example,
 $$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 4 & 4 \\\ 4 & 4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
-Element wise multiplication (a.k.a Hadamard Product) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
+Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
 
 $$
 C_{i,j}​=A_{i,j}​ \odot B_{i,j}​
@@ -116,11 +116,21 @@ $$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} \odot \begin{bmatrix} 1 & 2 \\\
 Now that we have the mathematical blueprint, let's translate these concepts into Rust code.
 
 ## Tensor Implementation
-With the math background, now we'll design and implement the `Tensor`. We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
+With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use default `cargo new` for this:
+
+```shell
+$ cargo new build_your_own_nn
+    Creating binary (application) `build_your_own_nn` package
+note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+```
+And that's it. Nothing else. Now let's start putting our thoughts into code.
+
+We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
 An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
-1. **Indirection (Pointer Chasing):** `Vec` of `Vec` is very performance intensive operations. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
+1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
 2. **Rigidity:** `Vec` of `Vec` would permanently limit our application to a 2D matrix and later, if we want to support higher dimension tensors, we would have to change our code.
 
 To avoid these problems, we'll use two `Vec`s instead. One will hold the data in a flat _1D_ structure and the other will hold the _shape_ definition like this:
@@ -196,7 +206,7 @@ pub fn test_tensor_operations() {
 
 If we try to run the tests now, it will break. We need to first complete the implementations.
 
-All the implementations till now operate on the data element wise and must match the shape of those two tensors. So, we will add a common method inside the `impl` block and use it to unify all the element wise logic using function pointers. So, the modified `impl` looks like:
+All the implementations so far operate on the data element wise and must match the shape of those two tensors. So, we will add a common method inside the `impl` block and use it to unify all the element wise logic using function pointers. So, the modified `impl` looks like:
 
 ```rust
 impl Tensor {
@@ -216,6 +226,10 @@ impl Tensor {
     }
 
     pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Self {
+        if shape.len() == 0 || shape.len() > 2 {
+            panic!("Only 1D and 2D tensors are supported");
+        }
+
         if data.len() != shape.iter().product::<usize>() {
             panic!("Data length does not match shape");
         }
@@ -246,7 +260,7 @@ impl Tensor {
 
 Now, if we run the tests, we can see the tests passing.
 
-```shell
+```text
 ~/git/build-your-own-nn$ cargo test
    Compiling build-your-own-nn v0.1.0 (/home/palash/git/build-your-own-nn)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s
@@ -281,7 +295,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 Currently the directory structure should look like the following:
 
-```shell
+```text
 src
 ├── lib.rs
 ├── main.rs
@@ -289,3 +303,125 @@ src
 tests
 └── test_tensor.rs
 ```
+
+## Tensor Display
+So far we have written tests for everything to verify operations but we'll need to look at the matrices to see them in a comprehensive and aesthetic format. Looking at the data directly from `Vec` isn't very intuitive.
+
+Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function as follows to look at the data inside the tensor:
+
+```rust
+use build_your_own_nn::tensor::Tensor;
+
+fn main() {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+
+    println!("Tensor data: {:?} {:?}", a.data(), a.shape()); // Output: Tensor data: [1.0, 2.0, 3.0, 4.0] [2, 2]
+}
+
+```
+
+As you can see, the output is a linear array of data. It does not preserve the dimensionality of the tensor. To fix this linear display of tensors and a nice matrix-like format, we'll implement the `Display` trait for our `Tensor` struct, such that any time we want to display the tensor, it will show in a nice formatted way.
+
+The shape `Vec` will help us here. First we define what do the elements map to and here we decide the rules:
+
+1. If the length of `shape` is 1, it is a _vector_ or tensor of rank 1
+1. If the length of `shape` is 2, it is a _matrix_ or tensor of rank 2 and the first element of the `shape` vector defines rows and the second element defines columns. By the way, this convention is known as **Row-major**.
+1. We don't go beyond _2D_
+1. For each row we'll pick out elements matching column length indexing $(row \times cols) + col$
+
+Let's take an example,
+
+$$\begin{bmatrix} 1_{0} & 2_{1} & 3_{2} & 4_{3} \end{bmatrix} \implies \begin{bmatrix} 1_{(0)} & 2_{(1)} \\ 3_{(2)} & 4_{(3)} \end{bmatrix}$$
+
+Let's implement these rules for our tensor now.
+
+First we add the tests as per our desirable matrix look:
+
+```rust
+#[test]
+fn test_tensor_display_2d() {
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+
+    let output = format!("{}", tensor);
+
+    println!("{}", output);
+
+    assert!(output.contains("|  1.0000,   2.0000|"));
+    assert!(output.contains("|  3.0000,   4.0000|"));
+}
+
+#[test]
+fn test_tensor_display_alignment() {
+    let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2]);
+
+    let output = format!("{}", tensor);
+
+    assert!(output.contains("  1.2346"));
+    assert!(output.contains("  0.0000"));
+}
+
+#[test]
+fn test_tensor_display_1d() {
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3]);
+
+    let output = format!("{}", tensor);
+    assert!(output.contains("[1.0, 2.0, 3.0]"));
+}
+```
+
+And then we implement matching rules to make the tests green.
+
+```rust
+impl std::fmt::Display for Tensor {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // As we are dealing with 2D tensors max, we can simply return the debug format for 1D tensors
+        if self.shape.len() != 2 {
+            return write!(f, "{:?}", self.data);
+        }
+
+        let rows = self.shape[0];
+        let cols = self.shape[1];
+
+        for row in 0..rows {
+            write!(f, "  |")?;
+            for col in 0..cols {
+                let index = row * cols + col;
+                write!(f, "{:>8.4}", self.data[index])?;
+
+                if col < cols - 1 {
+                    write!(f, ", ")?;
+                }
+            }
+            writeln!(f, "|")?;
+        }
+        Ok(())
+    }
+}
+```
+Let's rewrite the `main` function and look at the output:
+
+```rust
+use build_your_own_nn::tensor::Tensor;
+
+fn main() {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+
+    let b = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], vec![3, 3]);
+
+    println!("{}", a);
+
+    println!("{}", b);
+}
+```
+
+```text
+  |  1.0000,   2.0000|
+  |  3.0000,   4.0000|
+
+  |  1.0000,   2.0000,   3.0000|
+  |  4.0000,   5.0000,   6.0000|
+  |  7.0000,   8.0000,   9.0000|
+
+```
+
+**Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
