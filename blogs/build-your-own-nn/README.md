@@ -827,7 +827,7 @@ Let's use our previous example. To find just the first element (top-left) of the
 
 $$
 
-A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, B=\begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
+A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, B=\begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\ \color{cyan}9 & \color{magenta}10 \\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 
 $$
 
