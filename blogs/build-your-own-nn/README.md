@@ -434,7 +434,15 @@ fn main() -> Result<(), TensorError> {
 }
 ```
 
+```text
+  |  1.0000,   2.0000|
+  |  3.0000,   4.0000|
 
+  |  1.0000,   2.0000,   3.0000|
+  |  4.0000,   5.0000,   6.0000|
+  |  7.0000,   8.0000,   9.0000|
+
+```
 
 **Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
 
