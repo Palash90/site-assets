@@ -134,7 +134,7 @@ An array matches our requirements and is super fast. However, in Rust arrays can
 
 $$
 \begin{array}{c|l}
-\text{Index} & \text{Pointer (Memory Address)} \\\\ \hline
+\text{Outer Index} & \text{Pointer (Memory Address)} \\\\ \hline
 0 & \color{#3498DB}{\rightarrow [v_{0,0}, v_{0,1}, v_{0,2}]} \\\\
 1 & \color{#E74C3C}{\rightarrow [v_{1,0}, v_{1,1}, v_{1,2}]} \\\\
 2 & \color{#2ECC71}{\rightarrow [v_{2,0}, v_{2,1}, v_{2,2}]} \\\\
