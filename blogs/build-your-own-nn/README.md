@@ -80,7 +80,7 @@ We have defined our matrix and established its notation. Now let's see how we op
 For tensors of any size, we define the following operations:
 
 #### Element Wise Addition
-Element wise addition is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A+B$ is calculated as:
+Element wise addition is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A+B$ is calculated as:
 
 $$
 C_{i,j}​=A_{i,j}​ + B_{i,j}​
@@ -88,7 +88,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} + \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} = \begin{bmatrix} 6 & 8 \\\ 10 & 12 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \color{red}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{yellow}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{yellow}10 & \color{red}12 \end{bmatrix} $$
 
 
 ### Element Wise Subtraction
@@ -100,7 +100,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 4 & 4 \\\ 4 & 4 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \color{red}4 \end{bmatrix} - \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{yellow}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{yellow}4 & \color{red}4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
 Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If A and B are both $m \times n$, then $C=A \odot B$ is calculated as:
@@ -111,7 +111,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} 5 & 6 \\\ 7 & 8 \end{bmatrix} \odot \begin{bmatrix} 1 & 2 \\\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 5 & 12 \\\ 21 & 32 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{yellow}3 & \color{red}4 \end{bmatrix} \odot \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{yellow}7 & \color{red}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}5 & \color{magenta}12\\\ \color{yellow}21 & \color{red}32 \end{bmatrix} $$
 
 Now that we have the mathematical blueprint, let's translate these concepts into Rust code.
 
