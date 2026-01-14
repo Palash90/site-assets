@@ -579,31 +579,5 @@ A simple way to think about matrix multiplication is to think of dot product of 
 Let's take an example:
 
 $$
-\begin{bmatrix}
-\color{red}1 & \color{red}2 & \color{red}3 \\ 
-\color{yellow}4 & \color{yellow}5 & \color{yellow}6
-\end{bmatrix} 
-\cdot
-\begin{bmatrix}
-\color{cyan}7 & \color{magenta}8 \\
-\color{cyan}9 & \color{magenta}10 \\
-\color{cyan}11 & \color{magenta}12
-\end{bmatrix} 
-=
-\begin{bmatrix}
-\color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{red}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\
-\color{yellow}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{yellow}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-(\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{9} + \color{red}{3} \times \color{cyan}{11}) & 
-(\color{red}{1} \times \color{magenta}{8} + \color{red}{2} \times \color{magenta}{10} + \color{red}{3} \times \color{magenta}{12}) \\
-(\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{9} + \color{yellow}{6} \times \color{cyan}{11}) & 
-(\color{yellow}{4} \times \color{magenta}{8} + \color{yellow}{5} \times \color{magenta}{10} + \color{yellow}{6} \times \color{magenta}{12})
-\end{bmatrix}
-=
-\begin{bmatrix}
-58 & 64 \\
-139 & 154
-\end{bmatrix}
+\begin{bmatrix} \color{red}1 & \color{red}2 & \color{red}3 \\ \color{yellow}4 & \color{yellow}5 & \color{yellow}6 \end{bmatrix} \cdot \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\ \color{cyan}9 & \color{magenta}10 \\ \color{cyan}11 & \color{magenta}12 \end{bmatrix} = \begin{bmatrix} \color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{red}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\ \color{yellow}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{yellow}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\ \end{bmatrix} = \begin{bmatrix} (\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{9} + \color{red}{3} \times \color{cyan}{11}) & (\color{red}{1} \times \color{magenta}{8} + \color{red}{2} \times \color{magenta}{10} + \color{red}{3} \times \color{magenta}{12}) \\ (\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{9} + \color{yellow}{6} \times \color{cyan}{11}) & (\color{yellow}{4} \times \color{magenta}{8} + \color{yellow}{5} \times \color{magenta}{10} + \color{yellow}{6} \times \color{magenta}{12}) \end{bmatrix} = \begin{bmatrix} 58 & 64 \\ 139 & 154 \end{bmatrix}
 $$
