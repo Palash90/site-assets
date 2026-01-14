@@ -540,18 +540,13 @@ Here is an example of a dot product between two vectors:
 $$
 \begin{bmatrix}
 \color{red}1 \\ \color{blue}2 \\ \color{green}3 \\ \color{yellow}4
-\end{bmatrix} 
- 
-\cdot 
- 
+\end{bmatrix}
+\cdot
 \begin{bmatrix} 
 \color{red}1 \\ \color{blue}2 \\ \color{green}3 \\ \color{yellow}4
 \end{bmatrix}
- 
 =
-
 \color{red}{(1 \times 1)} \color{white}+ \color{blue}{(2 \times 2)} \color{white}+ \color{green}{(3 \times 3)} \color{white}+ \color{yellow}{(4 \times 4)}
-
 \color{white}=30
 $$
 
