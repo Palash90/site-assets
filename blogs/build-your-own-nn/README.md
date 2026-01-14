@@ -44,7 +44,7 @@ To understand the data structure we would be building, we need to develop an int
 
 When we want to refer to an element inside the matrix, we need a notation to identify a specific element.
 
-A Matrix A with m rows and n columns is referred to as an m×n matrix. We denote an individual element within that matrix using subscripts:
+A matrix $A$ with $m$ rows and $n$ columns is referred to as an $m \times n$ matrix. We denote an individual element within that matrix using subscripts:
 
 $$
 A_{i,j}
