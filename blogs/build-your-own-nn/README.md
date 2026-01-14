@@ -124,13 +124,23 @@ $ cargo new build_your_own_nn
 note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 ```
-And that's it. Nothing else. Now let's start putting our thoughts into code.
+That's it. Nothing else. Now let's start putting our thoughts into code.
 
 We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
 An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
 1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is a very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
+
+$$
+\begin{array}{c|l}
+\text{Index} & \text{Pointer (Memory Address)} \\\\ \hline
+0 & \color{#3498DB}{\rightarrow [v_{0,0}, v_{0,1}, v_{0,2}]} \\\\
+1 & \color{#E74C3C}{\rightarrow [v_{1,0}, v_{1,1}, v_{1,2}]} \\\\
+2 & \color{#2ECC71}{\rightarrow [v_{2,0}, v_{2,1}, v_{2,2}]} \\\\
+\end{array}
+$$
+
 2. **Rigidity:** `Vec` of `Vec` would permanently limit our application to a 2D matrix and later, if we want to support higher dimension tensors, we would have to change our code.
 
 To avoid these problems, we'll use two `Vec`s instead. One will hold the data in a flat _1D_ structure and the other will hold the _shape_ definition like this:
