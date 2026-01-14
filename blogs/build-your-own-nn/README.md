@@ -1,21 +1,21 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Prologue
-Machine Learning often felt like a "black box" to me. Every time I started learning it, I was introduced to `Numpy` at the very least. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
+Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as the baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
 I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
 
-This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of this writing, the project is still evolving.
+This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of today, the project is still evolving.
 
 ## Modus Operandi
-This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries (we do not even install any of them). We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
+This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries. We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
 
 ### The Roadmap: From Zero to Image Reconstruction
 
 - **The Blank Canvas:** Initializing the environment and establishing the foundational data structures.
 - **The Mathematical Engine:** Implementing tensors, gradients, and backpropagation from scratch.
 - **Building the Network:** Constructing layers and activation functions.
-- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just high-dimensional calculus written in a language that doesn't forgive.
+- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just high-dimensional calculus written in a language with high standards.
 
 ![Image Reconstruction]()
 
@@ -24,10 +24,10 @@ This guide is designed with a specific philosophy in mind: **Radical Transparenc
 And that’s where the story begins...
 
 ## The Tensor
-To build a neural network from scratch, we need to build its building block first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
+To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
 
 ###  Journey from Scalar to Tensor
-To understand the data structure we would be building, we first need an intuition. Let's start building it from scratch as well.
+To understand the data structure we would be building, we need to develop an intuition first. Let's start building it from scratch as well.
 
 - **Scalar:** We are familiar with this and use it every time we perform arithmetic operations: a single number (e.g. 5). 
     In the world of tensors, we would define them as a tensor of rank 0.
@@ -130,7 +130,7 @@ We need a way to store multiple data points and we should be able to index the d
 
 An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. So a basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
-1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
+1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is a very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
 2. **Rigidity:** `Vec` of `Vec` would permanently limit our application to a 2D matrix and later, if we want to support higher dimension tensors, we would have to change our code.
 
 To avoid these problems, we'll use two `Vec`s instead. One will hold the data in a flat _1D_ structure and the other will hold the _shape_ definition like this:
@@ -146,7 +146,7 @@ These two fields should not be accessible directly, we need to define accessors 
 
 ```rust
 impl Tensor {
-    pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Self {
+    pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Tensor, TensorError> {
         todo!()
     }
 
@@ -158,15 +158,15 @@ impl Tensor {
         todo!()
     }
 
-    pub fn add(&self, other: &Tensor) -> Tensor {
+    pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         todo!()
     }
 
-    pub fn sub(&self, other: &Tensor) -> Tensor {
+    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         todo!()
     }
 
-    pub fn mul(&self, other: &Tensor) -> Tensor {
+    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         todo!()
     }
 }
@@ -184,11 +184,11 @@ use build_your_own_nn::tensor::Tensor;
 
 #[cfg(test)]
 #[test]
-pub fn test_tensor_operations() {
+pub fn test_tensor_operations() -> Result<(), TensorError>  {
     use std::vec;
 
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
-    let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2]);
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+    let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2])?;
 
     let c = a.add(&b);
     assert_eq!(c.data(), &[6.0, 8.0, 10.0, 12.0]);
@@ -210,9 +210,13 @@ All the implementations so far operate on the data element wise and must match t
 
 ```rust
 impl Tensor {
-    pub fn _element_wise_op(&self, other: &Tensor, op: fn(f32, f32) -> f32) -> Tensor {
+    pub fn _element_wise_op(
+        &self,
+        other: &Tensor,
+        op: fn(f32, f32) -> f32,
+    ) -> Result<Tensor, TensorError> {
         if self.shape != other.shape {
-            panic!("Shapes do not match for element-wise operation");
+            return Err(TensorError::ShapeMismatch);
         }
 
         let data: Vec<f32> = self
@@ -225,15 +229,15 @@ impl Tensor {
         Tensor::new(data, self.shape.clone())
     }
 
-    pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Self {
+    pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Tensor, TensorError> {
         if shape.len() == 0 || shape.len() > 2 {
-            panic!("Only 1D and 2D tensors are supported");
+            return Err(TensorError::InvalidRank);
         }
 
         if data.len() != shape.iter().product::<usize>() {
-            panic!("Data length does not match shape");
+            return Err(TensorError::InconsistentData);
         }
-        Tensor { data, shape }
+        Ok(Tensor { data, shape })
     }
 
     pub fn data(&self) -> &[f32] {
@@ -244,15 +248,15 @@ impl Tensor {
         &self.shape
     }
 
-    pub fn add(&self, other: &Tensor) -> Tensor {
+    pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         self._element_wise_op(other, |a, b| a + b)
     }
 
-    pub fn sub(&self, other: &Tensor) -> Tensor {
+    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         self._element_wise_op(other, |a, b| a - b)
     }
 
-    pub fn mul(&self, other: &Tensor) -> Tensor {
+    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
         self._element_wise_op(other, |a, b| a * b)
     }
 }
@@ -311,11 +315,14 @@ Let's first try to understand the problem and then we'll fix it. We rewrite the 
 
 ```rust
 use build_your_own_nn::tensor::Tensor;
+use build_your_own_nn::tensor::TensorError;
 
-fn main() {
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+fn main() -> Result<(), TensorError> {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
 
     println!("Tensor data: {:?} {:?}", a.data(), a.shape()); // Output: Tensor data: [1.0, 2.0, 3.0, 4.0] [2, 2]
+
+    Ok(())
 }
 
 ```
@@ -401,16 +408,20 @@ impl std::fmt::Display for Tensor {
 Let's rewrite the `main` function and look at the output:
 
 ```rust
-use build_your_own_nn::tensor::Tensor;
+use build_your_own_nn::tensor::{Tensor, TensorError};
 
-fn main() {
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2]);
+fn main() -> Result<(), TensorError> {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
 
-    let b = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0], vec![3, 3]);
+    let b = Tensor::new(
+        vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0],
+        vec![3, 3],
+    )?;
 
     println!("{}", a);
 
     println!("{}", b);
+    Ok(())
 }
 ```
 
@@ -450,12 +461,14 @@ $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \xrightarrow{transpose} \begin{bm
 #### Rectangular Matrix Transpose
 $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\ 2 & 4 & 6 \end{bmatrix}$$
 
-**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. For example, here a $3 \times 2$ matrix changed to a $2 \times 3$ matrix.
+**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
+
+For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
 ### Reduction
 A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
 
-Let's take an example of a matrix which represents sales records of cars in last 3 months:
+Let's look at an example of a matrix which represents sales records of cars in the last three months:
 
 $$
 \begin{array}{c|c|c|c}
@@ -469,7 +482,7 @@ $$
 
 This individual representation is great for individual sales of a particular brand in a particular month.
 
-However, if we need to know how many cars sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
+However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
 
 Using reduction we can represent this:
 
@@ -487,7 +500,7 @@ $$
 
 The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
 
-If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix.
+If we sum across row first and then do another sum of the resultant vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
 
 $$
 \begin{array}{c|ccc|c}
@@ -499,4 +512,128 @@ Dec  & 1500 & 2500 & 2200 & 6200 \\
 \hline
 \mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{17200} \\
 \end{array}
+$$
+
+### Dot Product
+We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
+
+The dot product of two matrices A and B of length n is defined as:
+$$
+A \cdot B = \sum_{i=1}^{n} A_i B_i
+$$
+
+Let's take a few examples.
+
+#### Vector Vector Dot Product
+Here is an example of a dot product between two vectors:
+
+$$
+\begin{bmatrix}
+\color{red}1 \\ \color{blue}2 \\ \color{green}3 \\ \color{yellow}4
+\end{bmatrix} 
+ 
+\cdot 
+ 
+\begin{bmatrix} 
+\color{red}1 \\ \color{blue}2 \\ \color{green}3 \\ \color{yellow}4
+\end{bmatrix}
+ 
+=
+
+\color{red}{(1 \times 1)} \color{white}+ \color{blue}{(2 \times 2)} \color{white}+ \color{green}{(3 \times 3)} \color{white}+ \color{yellow}{(4 \times 4)}
+
+\color{white}=30
+$$
+
+#### Matrix Vector Dot Product
+In a Matrix-Vector dot product, we calculate the dot product of every row from the matrix with the single the column of the vector.
+
+To perform a dot product between a matrix $A$ and a vector $v$, the number of columns in the matrix must equal the number of elements (rows) in the vector.
+
+If matrix $A$ has the shape $(m \times n)$ and vector $v$ has the shape $(n \times 1)$, the resulting vector w will have the shape $(m \times 1)$.
+
+Matrix Vector dot product is defined as:
+$$
+C_{m,1} = A_{m, n}v_{n. 1}
+$$
+
+Let's take an example:
+
+$$
+
+\begin{bmatrix}
+\color{red}{1} & \color{red}{2} & \color{red}{3} \\ 
+\color{yellow}{4} & \color{yellow}{5} & \color{yellow}{6}
+\end{bmatrix} 
+\cdot
+\begin{bmatrix}
+\color{cyan}{7} \\
+\color{cyan}{8} \\
+\color{cyan}{9}
+\end{bmatrix} 
+=
+\begin{bmatrix}
+\color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 8, 9]} \\
+\color{yellow}{[4, 5, 6]} \cdot \color{cyan}{[7, 8, 9]}
+\end{bmatrix}
+=
+\begin{bmatrix}
+(\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{8} + \color{red}{3} \times \color{cyan}{9}) \\
+(\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{8} + \color{yellow}{6} \times \color{cyan}{9})
+\end{bmatrix}
+=
+\begin{bmatrix}
+50 \\
+122
+\end{bmatrix}
+$$
+
+#### Matrix Matrix Dot Product
+In a Matrix-Matrix dot product (often simply called **Matrix Multiplication**), we don't just multiply corresponding "neighborhoods." Instead, we calculate the dot product of every row from the first matrix with every column of the second matrix.
+
+To perform a dot product between matrix $A$ and matrix $B$, the number of columns in $A$ must equal the number of rows in $B$.
+
+If $A$ is $(m \times n)$ and $B$ is $(n \times p)$, the resulting matrix $C$ will have the shape $(m \times p)$.
+
+Matrix Multiplication is defined as:
+$$
+C_{m,p} = A_{m, n}B_{n. p}
+$$
+
+A simple way to think about matrix multiplication is to think of dot product of $A$ and $B^T$.
+
+Let's take an example:
+
+$$
+\begin{bmatrix}
+\color{red}1 & \color{red}2 & \color{red}3 \\ 
+\color{yellow}4 & \color{yellow}5 & \color{yellow}6
+\end{bmatrix} 
+
+\cdot
+
+\begin{bmatrix}
+\color{cyan}7 & \color{magenta}8 \\
+\color{cyan}9 & \color{magenta}10 \\
+\color{cyan}11 & \color{magenta}12
+\end{bmatrix} 
+
+=
+
+\begin{bmatrix}
+\color{red}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{red}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\
+\color{yellow}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{yellow}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+(\color{red}{1} \times \color{cyan}{7} + \color{red}{2} \times \color{cyan}{9} + \color{red}{3} \times \color{cyan}{11}) & 
+(\color{red}{1} \times \color{magenta}{8} + \color{red}{2} \times \color{magenta}{10} + \color{red}{3} \times \color{magenta}{12}) \\
+(\color{yellow}{4} \times \color{cyan}{7} + \color{yellow}{5} \times \color{cyan}{9} + \color{yellow}{6} \times \color{cyan}{11}) & 
+(\color{yellow}{4} \times \color{magenta}{8} + \color{yellow}{5} \times \color{magenta}{10} + \color{yellow}{6} \times \color{magenta}{12})
+\end{bmatrix}
+=
+\begin{bmatrix}
+58 & 64 \\
+139 & 154
+\end{bmatrix}
 $$
