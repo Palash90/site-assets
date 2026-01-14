@@ -827,8 +827,54 @@ Let's use our previous example. To find just the first element (top-left) of the
 
 $$
 
+A = \begin{bmatrix}\color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, B=\begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 
+$$
 
+1. Calculating $C_{0,0}$​ (The first cell)
 
+The code sets `i = 0` (first row of A) and `j = 0` (first column of B). The `k` loop then performs the dot product:
+
+  - k = 0: 
+    
+$$
+    \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7) \color{white}= 7
+$$
+
+  - k = 1: 
+  
+$$
+    7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25
+$$
+
+  - k = 2:
+  $$
+    25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58
+$$
+   
+
+2. Calculating $C_{0,1}$​ (Moving across the result row)
+
+The code sets `i = 0` and `j = 1` (second column of $B$).
+
+  - k = 0: 
+  
+$$
+    \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}8) \color{white}= 8
+$$
+
+  - k = 1: 
+
+$$
+    8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{cyan}10\color{white}) = 28
+$$
+
+  - k = 
+  
+$$
+    28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{cyan}12\color{white}) = 64
+$$
+
+  
 
 
