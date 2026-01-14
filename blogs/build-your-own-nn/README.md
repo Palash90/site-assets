@@ -17,7 +17,7 @@ This is the roadmap I wish I had two years ago. Whether you are a Rustacean curi
 - **The Blank Canvas:** Initializing the environment and establishing the foundational data structures.
 - **The Mathematical Engine:** Implementing tensors, gradients, and backpropagation from scratch.
 - **Building the Network:** Constructing layers and activation functions.
-- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just high-dimensional calculus written in a language with high standards.
+- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just high-dimensional calculus written in a language with strict safety guarantees.
 
 ![Image Reconstruction]()
 
@@ -74,7 +74,7 @@ println!("{}", a[0][0]); // Output: 1
 
 
 
->**Note:** Mathematical notation and programming differ in indexing a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
+>**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
 ### Basic Arithmetic on Matrices
 We have defined our matrix and established its notation. Now let's see how we operate on them.
@@ -102,7 +102,7 @@ $$
 
 Let's take an example,
 
-$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} - \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{#D4A017}4 & \color{#2ECC71}4 \end{bmatrix} $$
+$$ \begin{bmatrix} \color{cyan}{5} & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}7 \end{bmatrix} - \begin{bmatrix} \color{cyan}1 & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{#D4A017}4 & \color{#2ECC71}4 \end{bmatrix} $$
 
 ### Element Wise Multiplication
 Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A \odot B$ is calculated as:
@@ -118,7 +118,7 @@ $$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \co
 Now that we have the mathematical blueprint, let's translate these concepts into Rust code.
 
 ## Tensor Implementation
-With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use default `cargo new` for this:
+With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use the default `cargo new` command for this:
 
 ```shell
 $ cargo new build_your_own_nn
@@ -126,7 +126,7 @@ $ cargo new build_your_own_nn
 note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 ```
-That's it. Nothing else. Now let's start putting our thoughts into code.
+That's it. Nothing else. Let's begin translating our design into code.
 
 We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
@@ -156,7 +156,7 @@ pub struct Tensor {
 
 These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`. For error handling, we'll use the `TensorError` enum.
 
-Let's write these definitions first in a new file `tensor.rs`. Later we'll implement them one by one.
+Let's write these definitions first in a new file `tensor.rs`. Later, we'll implement them one by one.
 
 ```rust
 #[derive(Debug, PartialEq)]
@@ -170,7 +170,11 @@ impl Error for TensorError {}
 
 impl std::fmt::Display for TensorError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        match self {
+            TensorError::ShapeMismatch => write!(f, "Tensor shapes do not match for the operation."),
+            TensorError::InvalidRank => write!(f, "Tensor rank is invalid (must be 1D or 2D)."),
+            TensorError::InconsistentData => write!(f, "Data length does not match tensor shape."),
+        }
     }
 }
 
@@ -687,9 +691,9 @@ Now, we'll add the transpose function in our tensor `impl` as follows:
         let cols = self.shape[1];
         let mut transposed_data = vec![0.0; self.data.len()];
 
-        for r in 0..rows {
-            for c in 0..cols {
-                transposed_data[c * rows + r] = self.data[r * cols + c];
+        for row in 0..rows {
+            for col in 0..cols {
+                transposed_data[col * rows + row] = self.data[row * cols + col];
             }
         }
 
