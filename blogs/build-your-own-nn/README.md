@@ -944,19 +944,19 @@ The code sets `i = 1` and `j = 1` (second column of $B$).
 - k = 0:
 
 $$
-\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8\color{white}) = 32
+\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#D4A017}4 \times \color{magenta}8\color{white}) = 32
 $$
 
 - k = 1:
 
 $$
-32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
+32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#D4A017}5 \times \color{magenta}10\color{white}) = 82
 $$
 
 - k = 2
 
 $$
-73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
+73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{magenta}12\color{white}) = 154
 $$
 
 And the final matrix becomes:
