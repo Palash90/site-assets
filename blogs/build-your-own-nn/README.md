@@ -7,7 +7,7 @@
 - [The Tensor and Its Operations](#the-tensor)
   - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
   - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
-  - [Basic Arithmetic of Tensor](#basic-arithmetic-on-tensor)
+  - [Basic Tensor Arithmetic](#basic-arithmetic-on-tensor)
 - [Tensor Implementation](#tensor-implementation)
 - [Tensor Display](#tensor-display)
 - [2D Matrix Operations](#2d-matrix-operations)
@@ -44,7 +44,7 @@ This is the roadmap I wish I had two years ago. Whether you are a Rustacean curi
 And that’s where the story begins...
 
 ## The Tensor
-To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms a tensor is a collection of numbers, organized in a grid.
+To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
 
 ### Journey from Scalar to Tensor
 To understand the data structure we are building, we need to develop an intuition first. Let's start building it from scratch as well.
@@ -372,6 +372,7 @@ src
 └── tensor.rs
 tests
 └── test_tensor.rs
+Cargo.toml
 ```
 
 ## Tensor Display
@@ -542,7 +543,7 @@ $$
 For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
 
 ### Dot Product
-We have already seen how to multiply two matrices or vectors element-wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element-wise multiplication and a reduction operation into a single step.
+We have already seen how to multiply two matrices or vectors element wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element wise multiplication and a reduction operation into a single step.
 
 The dot product of two vectors $A$ and $B$ of length n is defined as:
 
@@ -874,102 +875,6 @@ A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \
 B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 $$
 
-##### Calculating $C_{0,0}$​ (Top Left)
-    
-The code sets `i = 0` (first row of $A$) and `j = 0` (first column of $B$). The `k` loop then performs the dot product:
-- k = 0:
-
-$$
-\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7
-$$
-
-- k = 1:
-       
-$$
-7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25
-$$
-
-- k = 2:
- 
-$$
-25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58
-$$
-
-##### Calculating $C_{0,1}$​ (Top Right)
-
-The code sets `i = 0` and `j = 1` (second column of $B$).
-
-- k = 0:
-
-$$
-\color{#2ECC71}A_{0,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{magenta}8) \color{white}= 8
-$$
-
-- k = 1: 
-
-$$
-8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{magenta}10\color{white}) = 28
-$$
-
-- k = 2
- 
-$$
-28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{magenta}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{magenta}12\color{white}) = 64
-$$
-
-##### Calculating $C_{1,0}$​ (Bottom Left)
-
-The code sets `i = 1` (second row of $A$) and `j = 0` (first column of $B$)
-
-- k = 0: 
-  
-$$
-\color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7\color{white}) = 28
-$$
-
-- k = 1: 
-
-$$
-28 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 28+(\color{#D4A017}5 \times \color{cyan}9\color{white}) = 73
-$$
-
-- k = 2
-  
-$$
-73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{cyan}11\color{white}) = 139
-$$
-
-##### Calculating $C_{1,1}$​ (Bottom Right)
-
-The code sets `i = 1` and `j = 1` (second column of $B$).
-
-- k = 0:
-
-$$
-\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#D4A017}4 \times \color{magenta}8\color{white}) = 32
-$$
-
-- k = 1:
-
-$$
-32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#D4A017}5 \times \color{magenta}10\color{white}) = 82
-$$
-
-- k = 2
-
-$$
-73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{magenta}12\color{white}) = 154
-$$
-
-And the final matrix becomes:
-
-$$
-\begin{bmatrix}
-58 & 64 \\\
-139 & 154
-\end{bmatrix}
-$$
-
 
 #### The Optimized Implementation (IKJ)
 We have seen the naive implementation and how the math unfolds. While the naive version is mathematically intuitive, it is a nightmare to work with for the following reasons:
@@ -1127,7 +1032,7 @@ Matrix Multiplication using optimized method:
 
 Time taken (optimized): 12.845µs
  ```
-We can clearly see that the optmized method performs the task faster than the naive method, that too for very small input tensors. If we increase the number of rows and columns in both the input matrices, we'll see a much larger benefit of using the optimized method:
+We can clearly see that the optimized method performs the task faster than the naive method, that too for very small input tensors. If we increase the number of rows and columns in both the input matrices, we'll see a much larger benefit of using the optimized method:
 
 ```text
 $ target/release/build-your-own-nn 
@@ -1205,3 +1110,5 @@ Final Result:
   | 58.0000,  64.0000|
   |139.0000, 154.0000|
 ```
+>**Note:** We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
+
