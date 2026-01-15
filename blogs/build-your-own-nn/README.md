@@ -878,6 +878,7 @@ $$
 ##### Calculation of $C_{0,0}$​ (Top Left)
 
 $$
+\begin{array}{}
 \begin{array}{c|c|c|c|c}
 C_{0,0} & i=0  & j=0 & k=0 & 0 + (\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white})​= 0 + (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7 \\
 \hline
@@ -885,13 +886,21 @@ C_{0,0} & i=0  & j=0 & k=1 & 7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times 
 \hline
 C_{0,0} & i=0  & j=0 & k=2 & 25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58 \\
 \end{array}
+\implies
+\begin{bmatrix}
+\mathbf{\color{lightgray}58} & 0 \\\
+0 & 0
+\end{bmatrix}
+\end{array}
 $$
 
-- Result after this step:
+$$
+\downarrow
+$$
 
 $$
 \begin{bmatrix}
-58 & 0 \\\
+\mathbf{\color{lightgray}58} & 0 \\\
 0 & 0
 \end{bmatrix}
 $$
@@ -908,11 +917,13 @@ C_{0,1} & i=0  & j=1 & k=2 & 28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 \end{array}
 $$
 
-- Result after this step:
+$$
+\downarrow
+$$
 
 $$
 \begin{bmatrix}
-58 & 64 \\\
+58 & \mathbf{\color{lightgray}64} \\\
 0 & 0
 \end{bmatrix}
 $$
@@ -930,12 +941,14 @@ C_{1,0} & i=1  & j=0 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-- Result after this step:
+$$
+\downarrow
+$$
 
 $$
 \begin{bmatrix}
 58 & 64 \\\
-139 & 0
+\mathbf{\color{lightgray}139} & 0
 \end{bmatrix}
 $$
 
@@ -951,12 +964,14 @@ C_{1,1} & i=1  & j=1 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-- The Final Result:
+$$
+\downarrow
+$$
 
 $$
 \begin{bmatrix}
 58 & 64 \\\
-139 & 154
+139 & \mathbf{\color{lightgray}154}
 \end{bmatrix}
 $$
 
