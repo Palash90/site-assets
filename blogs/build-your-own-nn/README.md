@@ -887,6 +887,15 @@ C_{0,0} & i=0  & j=0 & k=2 & 25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 \end{array}
 $$
 
+Result after this step:
+
+$$
+\begin{bmatrix}
+58 & 0 \\\
+0 & 0
+\end{bmatrix}
+$$
+
 ##### Calculation of $C_{0,1}$​ (Top Right)
 
 $$
@@ -897,6 +906,15 @@ C_{0,1} & i=0  & j=1 & k=1 & 8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times 
 \hline
 C_{0,1} & i=0  & j=1 & k=2 & 28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{magenta}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{magenta}12\color{white}) = 64\\
 \end{array}
+$$
+
+Result after this step:
+
+$$
+\begin{bmatrix}
+58 & 64 \\\
+0 & 0
+\end{bmatrix}
 $$
 
 
@@ -912,6 +930,15 @@ C_{1,0} & i=1  & j=0 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
+Result after this step:
+
+$$
+\begin{bmatrix}
+58 & 64 \\\
+139 & 0
+\end{bmatrix}
+$$
+
 ##### Calculating $C_{1,1}$​ (Bottom Right)
 
 $$
@@ -924,8 +951,7 @@ C_{1,1} & i=1  & j=1 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-
-And the final matrix becomes:
+The Final Result:
 
 $$
 \begin{bmatrix}
@@ -1117,57 +1143,76 @@ Matrix Multiplication using naive method:
             Multiplying A[0,0] = 1 with B[0,0] = 7
             Multiplying A[0,1] = 2 with B[1,0] = 9
             Multiplying A[0,2] = 3 with B[2,0] = 11
+        Completed row 0, column 0, data now [58.0, 0.0, 0.0, 0.0]
+        
         Processing column 1
             Multiplying A[0,0] = 1 with B[0,1] = 8
             Multiplying A[0,1] = 2 with B[1,1] = 10
             Multiplying A[0,2] = 3 with B[2,1] = 12
+        Completed row 0, column 1, data now [58.0, 64.0, 0.0, 0.0]
+    
     Completed row 0, data now [58.0, 64.0, 0.0, 0.0]
-
+    
     Processing row 1
         Processing column 0
             Multiplying A[1,0] = 4 with B[0,0] = 7
             Multiplying A[1,1] = 5 with B[1,0] = 9
             Multiplying A[1,2] = 6 with B[2,0] = 11
+        Completed row 1, column 0, data now [58.0, 64.0, 139.0, 0.0]
+        
         Processing column 1
             Multiplying A[1,0] = 4 with B[0,1] = 8
             Multiplying A[1,1] = 5 with B[1,1] = 10
             Multiplying A[1,2] = 6 with B[2,1] = 12
-
+        Completed row 1, column 1, data now [58.0, 64.0, 139.0, 154.0]
+    
     Completed row 1, data now [58.0, 64.0, 139.0, 154.0]
 
 Final Result:
-  | 58.0000,  64.0000|
-  |139.0000, 154.0000|
+    | 58.0000,  64.0000|
+    |139.0000, 154.0000|
 
 Matrix Multiplication using optimized method:
     Processing row 0 of A
         Multiplying A[0,0] = 1 with row 0 of B
             Adding 1 * 7 to output position (0,0)
             Adding 1 * 8 to output position (0,1)
+        Completed processing A[0,0], output row now [7.0, 8.0]
+        
         Multiplying A[0,1] = 2 with row 1 of B
             Adding 2 * 9 to output position (0,0)
             Adding 2 * 10 to output position (0,1)
+        Completed processing A[0,1], output row now [25.0, 28.0]
+        
         Multiplying A[0,2] = 3 with row 2 of B
             Adding 3 * 11 to output position (0,0)
             Adding 3 * 12 to output position (0,1)
+        Completed processing A[0,2], output row now [58.0, 64.0]
+    
     Completed row 0 of A, data now [58.0, 64.0, 0.0, 0.0]
-
+    
     Processing row 1 of A
         Multiplying A[1,0] = 4 with row 0 of B
             Adding 4 * 7 to output position (1,0)
             Adding 4 * 8 to output position (1,1)
+        Completed processing A[1,0], output row now [28.0, 32.0]
+        
         Multiplying A[1,1] = 5 with row 1 of B
             Adding 5 * 9 to output position (1,0)
             Adding 5 * 10 to output position (1,1)
+        Completed processing A[1,1], output row now [73.0, 82.0]
+        
         Multiplying A[1,2] = 6 with row 2 of B
             Adding 6 * 11 to output position (1,0)
             Adding 6 * 12 to output position (1,1)
-
+        Completed processing A[1,2], output row now [139.0, 154.0]
+    
     Completed row 1 of A, data now [58.0, 64.0, 139.0, 154.0]
 
 Final Result:
   | 58.0000,  64.0000|
   |139.0000, 154.0000|
+
 ```
 >**Note:** We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
 
