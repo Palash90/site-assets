@@ -903,59 +903,58 @@ $$
 \color{#2ECC71}A_{0,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{magenta}8) \color{white}= 8
 $$
 
-    - k = 1: 
+- k = 1: 
 
-        $$
-            8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{magenta}10\color{white}) = 28
-        $$
+$$
+8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{magenta}10\color{white}) = 28
+$$
 
-    - k = 2
+- k = 2
+ 
+$$
+28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{magenta}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{magenta}12\color{white}) = 64
+$$
+
+##### Calculating $C_{1,0}$​ (Bottom Left)
+
+The code sets `i = 1` (second row of $A$) and `j = 0` (first column of $B$)
+
+- k = 0: 
   
-        $$
-            28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{magenta}B_{1,2}\color{white}) ​= 28+(\color{#2ECC71}3 \times \color{magenta}12\color{white}) = 64
-        $$
+$$
+\color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7) \color{white}= 28
+$$
 
-1. Calculating $C_{1,0}$​ (Bottom Left)
+- k = 1: 
 
-    The code sets `i = 1` and `j = 0`.
+$$
+28 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 28+(\color{#D4A017}5 \times \color{cyan}9\color{white}) = 73
+$$
 
-    - k = 0: 
+- k = 2
   
-        $$
-            \color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7) \color{white}= 28
-        $$
+$$
+73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{cyan}11\color{white}) = 139
+$$
 
-    - k = 1: 
+##### Calculating $C_{1,1}$​ (Bottom Right)
 
-        $$
-            28 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 28+(\color{#D4A017}5 \times \color{cyan}9\color{white}) = 73
-        $$
+The code sets `i = 1` and `j = 1` (second column of $B$).
 
-    - k = 2
-  
-        $$
-            73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= 73+(\color{#D4A017}6 \times \color{cyan}11\color{white}) = 139
-        $$
+- k = 0:
+$$
+\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
+$$
 
-1. Calculating $C_{1,1}$​ (Bottom Right)
+- k = 1:
+$$
+32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
+$$
 
-    The code sets `i = 1` and `j = 1`.
-
-    - k = 0:
-        $$
-            \color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
-        $$
-
-    - k = 1:
-        $$
-            32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
-        $$
-
-    - k = 2
-        $$
-            73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
-        $$
-
+- k = 2
+$$
+73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
+$$
 
 #### The Optimized Implementation (IKJ)
 We have seen the naive implementation and how the math unfolds. While the naive version is mathematically intuitive, it is a nightmare to work with for the following reasons:
