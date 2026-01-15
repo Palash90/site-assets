@@ -993,66 +993,63 @@ for i in 0..a_rows {
 }
 ```
 
-Instead of the standard $i \xrightarrow j \xrightarrow k$ loop order, if we switch to $i \xrightarrow k \xrightarrow j$ we can unlock two major hardware optimizations:
+Instead of the standard $i \xrightarrow{} j \xrightarrow{} k$ loop order, if we switch to $i \xrightarrow{} k \xrightarrow{} j$ we can unlock two major hardware optimizations:
 
-1. **Perfect Cache Locality:** In the IKJ order, the innermost loop moves across index `j`. This means we are reading `other.data` and writing to data in a straight, continuous line. The CPU can predict this "streaming" access and pre-fetch the data into the cache before we even ask for it.
+1. **Cache Locality:** In the IKJ order, the innermost loop moves across index `j`. This means we are reading `other.data` and writing to data in a straight, continuous line. The CPU can predict this "streaming" access and pre-fetch the data into the cache avoiding the RAM fetch.
 
 1. **Seamless Vectorization (SIMD):** Because we are operating on contiguous slices of memory in the inner loop, the Rust compiler can easily apply SIMD. It can load 4 or 8 values from Matrix $B$, multiply them by the constant `aik` in one go, and add them to the result slice in a single CPU instruction.
 
-Let's verify the mathematics in this case to ensure we are not missing any crucial point:
+We have an intuition how it will work under the hood but we also need to make sure that the mathematics involved is intact and we end up in same result. Let's verify the mathematics in this case to ensure we are not missing any crucial point:
 
 $$
 A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, 
 B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\ \color{cyan}9 & \color{magenta}10 \\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 $$
 
-1. Processing Row $i = 0$ (First row of A)
+##### Processing Row $i = 0$ (First row of A)
+We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
+- **k = 0:**
 
-   We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
-   - **k = 0:**
-
-    Multiply $A_{0,0}$ by the first row of $B$.
+Multiply $A_{0,0}$ by the first row of $B$.
         
-    $$
-    C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
-    $$
+$$
+C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
+$$
 
-   - **k = 1:**
-        Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
-        
-        $$
-            C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
-        $$
-    
-    - **k = 2:**
-        Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
-        
-        $$
-            C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
-        $$
+- **k = 1:**
+Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
 
-2. Processing Row $i = 1$ (Second row of A)
-   
-   We move to the second row of our result $C$.
-   
-   - **k = 0:**
-        Multiply $A_{1,0}$ by the first row of $B$.
+$$
+C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
+$$
 
-        $$
-        C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8] = [28, 32]
-        $$
+- **k = 2:**
+Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
+     
+$$
+C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
+$$
+
+##### Processing Row $i = 1$ (Second row of A)
+We move to the second row of our result $C$.
+ 
+- **k = 0:**
+Multiply $A_{1,0}$ by the first row of $B$.
+
+$$
+C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8] = [28, 32]
+$$
     
-    - **k = 1:**
-    
-      Multiply $A_{1,1}$ by the second row of $B$.
+- **k = 1:**
+Multiply $A_{1,1}$ by the second row of $B$.
       
-      $$
-      C_{row 1} = [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10] = [28+45, 32+50] = [73, 82]
-      $$
+$$
+C_{row 1} = [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10] = [28+45, 32+50] = [73, 82]
+$$
     
-    - **k = 2:**
-      
-       Multiply $A_{1,2}$ by the third row of $B$.
-       $$
-        C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12] = [73+66, 82+72] = \mathbf{[139, 154]}
-       $$
+- **k = 2:**
+Multiply $A_{1,2}$ by the third row of $B$.
+
+$$
+C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12] = [73+66, 82+72] = \mathbf{[139, 154]}
+$$
