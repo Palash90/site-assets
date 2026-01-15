@@ -1000,11 +1000,11 @@ $$
    We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
    - **k = 0:**
 
-        Multiply $A_{0,0}$ by the first row of $B$.
+    Multiply $A_{0,0}$ by the first row of $B$.
         
-        $$
-            C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
-        $$
+    $$
+        C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
+    $$
 
    - **k = 1:**
         Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
