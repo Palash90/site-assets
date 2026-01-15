@@ -1053,3 +1053,157 @@ Multiply $A_{1,2}$ by the third row of $B$.
 $$
 C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12] = [73+66, 82+72] = \mathbf{[139, 154]}
 $$
+
+##### Full Implementation
+Here is the full implementation of the optimized method:
+
+```rust
+pub fn matmul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        let (a_rows, a_cols) = match self.shape.len() {
+            1 => (1, self.shape[0]),
+            2 => (self.shape[0], self.shape[1]),
+            _ => return Err(TensorError::InvalidRank),
+        };
+
+        let (b_rows, b_cols) = match other.shape.len() {
+            1 => (other.shape[0], 1),
+            2 => (other.shape[0], other.shape[1]),
+            _ => return Err(TensorError::InvalidRank),
+        };
+
+        if a_cols != b_rows {
+            return Err(TensorError::ShapeMismatch);
+        }
+
+        let mut data = vec![0.0; a_rows * b_cols];
+
+        for i in 0..a_rows {
+            let out_row_offset = i * b_cols;
+
+            for k in 0..a_cols {
+                let aik = self.data[i * a_cols + k];
+                let rhs_row_offset = k * b_cols;
+                let rhs_slice = &other.data[rhs_row_offset..rhs_row_offset + b_cols];
+                let out_slice = &mut data[out_row_offset..out_row_offset + b_cols];
+
+                for j in 0..b_cols {
+                    out_slice[j] = out_slice[j] + aik * rhs_slice[j];
+                }
+            }
+        }
+
+        let out_shape = match (self.shape.len(), other.shape.len()) {
+            (1, 1) => vec![1],
+            (1, 2) => vec![b_cols],
+            (2, 1) => vec![a_rows],
+            _ => vec![a_rows, b_cols],
+        };
+
+        Ok(Tensor { data, shape: out_shape })
+ }
+ ```
+
+ Now we have both the methods, let's run some accuracy check and performance check:
+
+ ```text
+$ target/release/build-your-own-nn 
+Input Tensor A:
+  |  1.0000,   2.0000,   3.0000|
+  |  4.0000,   5.0000,   6.0000|
+
+Input Tensor B:
+  |  7.0000,   8.0000|
+  |  9.0000,  10.0000|
+  | 11.0000,  12.0000|
+
+
+Matrix Multiplication using naive method:
+  | 58.0000,  64.0000|
+  |139.0000, 154.0000|
+
+Time taken (naive): 61.729µs
+
+Matrix Multiplication using optimized method:
+  | 58.0000,  64.0000|
+  |139.0000, 154.0000|
+
+Time taken (optimized): 12.845µs
+ ```
+We can clearly see that the optmized method performs the task faster than the naive method, that too for very small input tensors. If we increase the number of rows and columns in both the input matrices, we'll see a much larger benefit of using the optimized method:
+
+```text
+$ target/release/build-your-own-nn 
+Input Tensor A Dimensions:
+[50, 60]
+Input Tensor B Dimensions:
+[60, 40]
+
+Matrix Multiplication using naive method:
+Time taken (naive): 396.712µs
+
+Matrix Multiplication using optimized method:
+Time taken (optimized): 26.23µs
+
+Results match!
+```
+Here is how both the methods performed the calculations:
+
+```text
+Matrix Multiplication using naive method:
+    Processing row 0
+        Processing column 0
+            Multiplying A[0,0] = 1 with B[0,0] = 7
+            Multiplying A[0,1] = 2 with B[1,0] = 9
+            Multiplying A[0,2] = 3 with B[2,0] = 11
+        Processing column 1
+            Multiplying A[0,0] = 1 with B[0,1] = 8
+            Multiplying A[0,1] = 2 with B[1,1] = 10
+            Multiplying A[0,2] = 3 with B[2,1] = 12
+    Completed row 0, data now [58.0, 64.0, 0.0, 0.0]
+
+    Processing row 1
+        Processing column 0
+            Multiplying A[1,0] = 4 with B[0,0] = 7
+            Multiplying A[1,1] = 5 with B[1,0] = 9
+            Multiplying A[1,2] = 6 with B[2,0] = 11
+        Processing column 1
+            Multiplying A[1,0] = 4 with B[0,1] = 8
+            Multiplying A[1,1] = 5 with B[1,1] = 10
+            Multiplying A[1,2] = 6 with B[2,1] = 12
+
+    Completed row 1, data now [58.0, 64.0, 139.0, 154.0]
+
+Final Result:
+  | 58.0000,  64.0000|
+  |139.0000, 154.0000|
+
+Matrix Multiplication using optimized method:
+    Processing row 0 of A
+        Multiplying A[0,0] = 1 with row 0 of B
+            Adding 1 * 7 to output position (0,0)
+            Adding 1 * 8 to output position (0,1)
+        Multiplying A[0,1] = 2 with row 1 of B
+            Adding 2 * 9 to output position (0,0)
+            Adding 2 * 10 to output position (0,1)
+        Multiplying A[0,2] = 3 with row 2 of B
+            Adding 3 * 11 to output position (0,0)
+            Adding 3 * 12 to output position (0,1)
+    Completed row 0 of A, data now [58.0, 64.0, 0.0, 0.0]
+
+    Processing row 1 of A
+        Multiplying A[1,0] = 4 with row 0 of B
+            Adding 4 * 7 to output position (1,0)
+            Adding 4 * 8 to output position (1,1)
+        Multiplying A[1,1] = 5 with row 1 of B
+            Adding 5 * 9 to output position (1,0)
+            Adding 5 * 10 to output position (1,1)
+        Multiplying A[1,2] = 6 with row 2 of B
+            Adding 6 * 11 to output position (1,0)
+            Adding 6 * 12 to output position (1,1)
+
+    Completed row 1 of A, data now [58.0, 64.0, 139.0, 154.0]
+
+Final Result:
+  | 58.0000,  64.0000|
+  |139.0000, 154.0000|
+```
