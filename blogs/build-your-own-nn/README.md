@@ -933,7 +933,7 @@ C_{1,0} & i=1  & j=0 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-##### Calculating $C_{1,1}$​ (Bottom Right)
+##### Calculation of $C_{1,1}$​ (Bottom Right)
 
 $$
 \begin{array}{}
@@ -991,48 +991,44 @@ $$
 
 ##### Processing Row $i = 0$ (First row of A)
 We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
-- **k = 0:** Multiply $A_{0,0}$ by the first row of $B$.
         
 $$
-C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] = [7, 8]
-$$
-
-- **k = 1:** Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
-
-$$
-C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
-$$
-
-- **k = 2:** Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
-     
-$$
-C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12\color{white}] = [25+33, 28+36] = \mathbf{[58, 64]}
+\begin{array}{}
+\begin{array}{c|c|c|c|}
+C_{row 0} & k = 0 & C_{row 0} + (A_{0,0} \times B_{row0}) & [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] = [7, 8] \\
+\hline
+C_{row 0} & k = 1 & C_{row 0} + (A_{0,1} \times B_{row1}) & [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28] \\
+\hline
+C_{row 0} & k = 2 & C_{row 0} + (A_{0,2} \times B_{row2}) & [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12\color{white}] = [25+33, 28+36] = \mathbf{[58, 64]}
+\end{array}
+\implies
+\begin{bmatrix}
+\mathbf{\color{lightgray}{58}} & \mathbf{\color{lightgray}{64}} \\\
+0 & 0
+\end{bmatrix}
+\end{array}
 $$
 
 ##### Processing Row $i = 1$ (Second row of A)
 We move to the second row of our result $C$.
+
+$$
+\begin{array}{}
+\begin{array}{c|c|c|c}
+C_{row 1} & k = 0 & C_{row 1} + (A_{1,0} \times B_{row0}) & [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8\color{white}] = [28, 32] \\
+\hline
+C_{row 1} & k = 1 & C_{row 1} + (A_{1,1} \times B_{row1}) & [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10\color{white}] = [28+45, 32+50] = [73, 82] \\
+\hline
+C_{row 1} & k = 2 & C_{row 1} + (A_{1,2} \times B_{row2}) & [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12]\color{white} = [73+66, 82+72] = \mathbf{[139, 154]} \\
+\end{array}
+\implies
+\begin{bmatrix}
+58 & 64 \\\
+\mathbf{\color{lightgray}139} & \mathbf{\color{lightgray}154}
+\end{bmatrix}
+\end{array}
+$$
  
-- **k = 0:**
-Multiply $A_{1,0}$ by the first row of $B$.
-
-$$
-C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8\color{white}] = [28, 32]
-$$
-    
-- **k = 1:**
-Multiply $A_{1,1}$ by the second row of $B$.
-      
-$$
-C_{row 1} = [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10\color{white}] = [28+45, 32+50] = [73, 82]
-$$
-    
-- **k = 2:**
-Multiply $A_{1,2}$ by the third row of $B$.
-
-$$
-C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12]\color{white} = [73+66, 82+72] = \mathbf{[139, 154]}
-$$
-
 ##### Full Implementation
 Here is the full implementation of the optimized method:
 
