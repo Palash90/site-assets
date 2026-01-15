@@ -1001,18 +1001,21 @@ $$
    - **k = 0:**
 
         Multiply $A_{0,0}$ by the first row of $B$.
+        
         $$
             C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
         $$
 
    - **k = 1:**
         Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
+        
         $$
             C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
         $$
     
     - **k = 2:**
         Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
+        
         $$
             C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
         $$
