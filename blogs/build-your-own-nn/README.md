@@ -976,7 +976,7 @@ We have seen the naive implementation and how the math unfolds. While the naive 
 1. In the standard implementation, to calculate one element, the CPU has to jump across different rows of Matrix $B$ (`other.data[k * b_cols + j]`). Because memory itself is a one-dimensional array, jumping between rows means the CPU has to constantly fetch new data from the slow RAM into its fast Cache.
 1. Modern CPU cores use SIMD (Single Instruction, Multiple Data) to perform the same operation on multiple values simultaneously as long as the operations can be performed independently of each other. The naive implementation is sequential. So, it cannot leverage the parallel processing power of the CPU.
 
-To avoid these two problems, we can re-arrange our code a little bit and it will boost performance significantly. 
+To avoid these two problems, we can re-arrange the multiplication code a little bit and it will boost performance significantly. 
 
 ```rust
 for i in 0..a_rows {
@@ -1010,26 +1010,22 @@ $$
 
 ##### Processing Row $i = 0$ (First row of A)
 We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
-- **k = 0:**
-
-Multiply $A_{0,0}$ by the first row of $B$.
+- **k = 0:** Multiply $A_{0,0}$ by the first row of $B$.
         
 $$
-C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
+C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] = [7, 8]
 $$
 
-- **k = 1:**
-Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
+- **k = 1:** Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
 
 $$
 C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
 $$
 
-- **k = 2:**
-Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
+- **k = 2:** Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
      
 $$
-C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
+C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12\color{white}] = [25+33, 28+36] = \mathbf{[58, 64]}
 $$
 
 ##### Processing Row $i = 1$ (Second row of A)
@@ -1039,21 +1035,21 @@ We move to the second row of our result $C$.
 Multiply $A_{1,0}$ by the first row of $B$.
 
 $$
-C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8] = [28, 32]
+C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8\color{white}] = [28, 32]
 $$
     
 - **k = 1:**
 Multiply $A_{1,1}$ by the second row of $B$.
       
 $$
-C_{row 1} = [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10] = [28+45, 32+50] = [73, 82]
+C_{row 1} = [28, 32] + \color{#D4A017}5 \times [\color{cyan}9, \color{magenta}10\color{white}] = [28+45, 32+50] = [73, 82]
 $$
     
 - **k = 2:**
 Multiply $A_{1,2}$ by the third row of $B$.
 
 $$
-C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12] = [73+66, 82+72] = \mathbf{[139, 154]}
+C_{row 1} = [73, 82] + \color{#D4A017}6 \times [\color{cyan}11, \color{magenta}12]\color{white} = [73+66, 82+72] = \mathbf{[139, 154]}
 $$
 
 ##### Full Implementation
