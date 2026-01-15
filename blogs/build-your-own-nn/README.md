@@ -11,18 +11,9 @@ Part I
  - [The Tensor and Its Operations](#the-tensor)
    - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
    - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
-   - [Basic Tensor Arithmetic](#basic-arithmetic-on-tensor)
- - [Tensor Implementation](#tensor-implementation)
- - [Tensor Display](#tensor-display)
- - [2D Matrix Operations](#2d-matrix-operations)
-   - [Transpose](#transpose)
-   - [Dot Product](#dot-product)
-   - [Reduction](#reduction)
- - [2D Matrix Operations Implementation](#2d-operations-implementations)
-   - [Transpose](#transpose-1)
-   - [Matrix Multiplication](#matrix-multiplication)
-     - [The Naive Matrix Multiplication](#the-naive-implementation-ijk)
-     - [The Optimized Matrix Multiplication](#the-optimized-implementation-ikj)
+   - [Implementation](#implementation)
+   - [Display](#display)
+
 
 ## Prologue: Breaking the Black Box
 Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as a baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
