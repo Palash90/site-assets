@@ -942,20 +942,17 @@ $$
 
     The code sets `i = 1` and `j = 1`.
 
-    - k = 0: 
-  
+    - k = 0:
         $$
             \color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
         $$
 
-    - k = 1: 
-
+    - k = 1:
         $$
             32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#2ECC71}5 \times \color{magenta}10\color{white}) = 82
         $$
 
     - k = 2
-  
         $$
             73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
         $$
@@ -1002,40 +999,34 @@ $$
 
    We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
    - **k = 0:**
-    
-     Multiply $A_{0,0}$ by the first row of $B$.
-    
-    $$
-    C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
-    $$
+
+        Multiply $A_{0,0}$ by the first row of $B$.
+        $$
+            C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
+        $$
 
    - **k = 1:**
-   
-     Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
-     
-     $$
-     C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
-     $$
+        Multiply $A_{0,1}$ by the second row of $B$ and add to the current slice.
+        $$
+            C_{row 0} = [7, 8] + \color{#2ECC71}2 \color{white}\times [\color{cyan}9, \color{magenta}10\color{white}] = [7+18, 8+20] = [25, 28]
+        $$
     
     - **k = 2:**
-    
-      Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
-    
-    $$
-    C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
-    $$
+        Multiply $A_{0,2}$ by the third row of $B$ to finish the row.
+        $$
+            C_{row 0} = [25, 28] + \color{#2ECC71}3 \times [\color{cyan}11, \color{magenta}12] = [25+33, 28+36] = \mathbf{[58, 64]}
+        $$
 
 2. Processing Row $i = 1$ (Second row of A)
    
    We move to the second row of our result $C$.
    
    - **k = 0:**
-    
-     Multiply $A_{1,0}$ by the first row of $B$.
+        Multiply $A_{1,0}$ by the first row of $B$.
 
-    $$
-    C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8] = [28, 32]
-    $$
+        $$
+        C_{row 1} = [0, 0] + \color{#D4A017}4 \times [\color{cyan}7, \color{magenta}8] = [28, 32]
+        $$
     
     - **k = 1:**
     
