@@ -808,7 +808,8 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
 
 ##### The Naive Implementation (IJK)
 
-[!CAUTION] We will not use this function this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
+>[!CAUTION] 
+>We will not use this function this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
 
