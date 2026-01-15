@@ -101,48 +101,7 @@ println!("{}", a[0][0]); // Output: 1
 
 >**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
-### Basic Arithmetic on Tensor
-We have defined our matrix and established its notation. Now let's see how we operate on them.
-
-For tensors of any size or rank, we define the following operations:
-
-#### Element Wise Addition
-Element wise addition is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A+B$ is calculated as:
-
-$$
-C_{i,j}​=A_{i,j}​ + B_{i,j}​
-$$
-
-Let's take an example,
-
-$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#D4A017}10 & \color{#2ECC71}12 \end{bmatrix} $$
-
-
-#### Element Wise Subtraction
-Element wise subtraction is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A-B$ is calculated as:
-
-$$
-C_{i,j}​=A_{i,j}​ - B_{i,j}​
-$$
-
-Let's take an example,
-
-$$ \begin{bmatrix} \color{cyan}{5} & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}7 \end{bmatrix} - \begin{bmatrix} \color{cyan}1 & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{#D4A017}4 & \color{#2ECC71}4 \end{bmatrix} $$
-
-#### Element Wise Multiplication
-Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A \odot B$ is calculated as:
-
-$$
-C_{i,j}​=A_{i,j}​ \odot B_{i,j}​
-$$
-
-Let's take an example,
-
-$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} \odot \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}5 & \color{magenta}12\\\ \color{#D4A017}21 & \color{#2ECC71}32 \end{bmatrix} $$
-
-Now that we have the mathematical blueprint, let's translate these concepts into Rust code.
-
-## Tensor Implementation
+### Implementation
 With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use the default `cargo new` command for this:
 
 ```shell
@@ -179,7 +138,7 @@ pub struct Tensor {
 }
 ```
 
-These two fields should not be accessible directly, we need to define accessors for them and also, we should expose methods for `add`, `sub` and `mul`. For error handling, we'll use the `TensorError` enum.
+These two fields should not be accessible directly, we need to define accessors for them, we'll also use the `TensorError` enum for error handling.
 
 Let's write these definitions first in a new file `tensor.rs`. Later, we'll implement them one by one.
 
@@ -218,28 +177,14 @@ impl Tensor {
     pub fn shape(&self) -> &[usize] {
         todo!()
     }
-
-    pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        todo!()
-    }
-
-    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        todo!()
-    }
-
-    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        todo!()
-    }
 }
 ```
 
 Once the definitions are written, we should expose the `struct` publicly. To do that, we create another file `lib.rs` and write the following line in it:
 
-
 ```rust
 pub mod tensor;
 ```
-
 
 Now we have defined our data structure, required functions and methods. Let's write a few tests now.
 
@@ -256,53 +201,12 @@ fn test_invalid_shape_creation() {
     assert!(result.is_err());
     assert_eq!(result.unwrap_err(), TensorError::InconsistentData);
 }
-
-#[test]
-pub fn test_tensor_operations() -> Result<(), TensorError>  {
-    use std::vec;
-
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
-    let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2])?;
-
-    let c = a.add(&b)?;
-    assert_eq!(c.data(), &[6.0, 8.0, 10.0, 12.0]);
-    assert_eq!(c.shape(), &[2, 2]);
-
-    let d = a.sub(&b)?;
-    assert_eq!(d.data(), &[-4.0, -4.0, -4.0, -4.0]);
-    assert_eq!(d.shape(), &[2, 2]);
-
-    let e = a.mul(&b)?;
-    assert_eq!(e.data(), &[5.0, 12.0, 21.0, 32.0]);
-    assert_eq!(e.shape(), &[2, 2]);
-}
 ```
 
 If we try to run the tests now, it will break. We need to first complete the implementations.
 
-All the implementations so far operate on the data element wise and must match the shape of those two tensors. So, we will add a common method inside the `impl` block and use it to unify all the element wise logic using function pointers. So, the modified `impl` looks like:
-
 ```rust
 impl Tensor {
-    pub fn _element_wise_op(
-        &self,
-        other: &Tensor,
-        op: fn(f32, f32) -> f32,
-    ) -> Result<Tensor, TensorError> {
-        if self.shape != other.shape {
-            return Err(TensorError::ShapeMismatch);
-        }
-
-        let data: Vec<f32> = self
-            .data
-            .iter()
-            .zip(other.data.iter())
-            .map(|(a, b)| op(*a, *b))
-            .collect();
-
-        Tensor::new(data, self.shape.clone())
-    }
-
     pub fn new(data: Vec<f32>, shape: Vec<usize>) -> Result<Tensor, TensorError> {
         if shape.len() == 0 || shape.len() > 2 {
             return Err(TensorError::InvalidRank);
@@ -320,18 +224,6 @@ impl Tensor {
 
     pub fn shape(&self) -> &[usize] {
         &self.shape
-    }
-
-    pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        self._element_wise_op(other, |a, b| a + b)
-    }
-
-    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        self._element_wise_op(other, |a, b| a - b)
-    }
-
-    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
-        self._element_wise_op(other, |a, b| a * b)
     }
 }
 ```
@@ -356,9 +248,6 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
      Running tests/test_tensor.rs (target/debug/deps/test_tensor-25b5f99a2a90f9bb)
 
-running 1 test
-test test_tensor_operations ... ok
-
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
    Doc-tests build_your_own_nn
@@ -382,6 +271,127 @@ tests
 └── test_tensor.rs
 Cargo.toml
 ```
+
+
+
+## Basic Tensor Arithmetic
+We have defined our tensor and established its notation. Now let's see how we operate on them.
+
+For tensors of any size or rank, we define the following operations:
+
+### Element Wise Addition
+Element wise addition is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A+B$ is calculated as:
+
+$$
+C_{i,j}​=A_{i,j}​ + B_{i,j}​
+$$
+
+Let's take an example,
+
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} + \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}6 & \color{magenta}8 \\\ \color{#D4A017}10 & \color{#2ECC71}12 \end{bmatrix} $$
+
+
+### Element Wise Subtraction
+Element wise subtraction is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A-B$ is calculated as:
+
+$$
+C_{i,j}​=A_{i,j}​ - B_{i,j}​
+$$
+
+Let's take an example,
+
+$$ \begin{bmatrix} \color{cyan}{5} & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}7 \end{bmatrix} - \begin{bmatrix} \color{cyan}1 & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} = \begin{bmatrix} \color{cyan}4 & \color{magenta}4\\\ \color{#D4A017}4 & \color{#2ECC71}4 \end{bmatrix} $$
+
+### Element Wise Multiplication
+Element wise multiplication (a.k.a. _Hadamard Product_) is only defined for two matrices of the same shape. If $A$ and $B$ are both $m \times n$, then $C=A \odot B$ is calculated as:
+
+$$
+C_{i,j}​=A_{i,j}​ \odot B_{i,j}​
+$$
+
+Let's take an example,
+
+$$ \begin{bmatrix} \color{cyan}{1} & \color{magenta}2 \\\ \color{#D4A017}3 & \color{#2ECC71}4 \end{bmatrix} \odot \begin{bmatrix} \color{cyan}5 & \color{magenta}6 \\\ \color{#D4A017}7 & \color{#2ECC71}8 \end{bmatrix} = \begin{bmatrix} \color{cyan}5 & \color{magenta}12\\\ \color{#D4A017}21 & \color{#2ECC71}32 \end{bmatrix} $$
+
+Now that we have the mathematical blueprint, let's translate these concepts into Rust code.
+
+### Implementation
+We should expose methods for `add`, `sub` and `mul`. We'll first add these method definitions into our existing tensor `impl` block.
+
+```rust
+    pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        todo!()
+    }
+
+    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        todo!()
+    }
+
+    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        todo!()
+    }
+```
+
+Now we'll write tests for these methods:
+
+```rust
+#[test]
+pub fn test_tensor_operations() -> Result<(), TensorError>  {
+    use std::vec;
+
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+    let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2])?;
+
+    let c = a.add(&b)?;
+    assert_eq!(c.data(), &[6.0, 8.0, 10.0, 12.0]);
+    assert_eq!(c.shape(), &[2, 2]);
+
+    let d = a.sub(&b)?;
+    assert_eq!(d.data(), &[-4.0, -4.0, -4.0, -4.0]);
+    assert_eq!(d.shape(), &[2, 2]);
+
+    let e = a.mul(&b)?;
+    assert_eq!(e.data(), &[5.0, 12.0, 21.0, 32.0]);
+    assert_eq!(e.shape(), &[2, 2]);
+}
+```
+
+Now we'll implement these operations. All the implementations so far operate on the data element wise and the shape of those two tensors must match. So, we will add a common method inside the `impl` block and use it to unify all the element wise logic using function pointers:
+
+```rust
+    pub fn _element_wise_op(
+        &self,
+        other: &Tensor,
+        op: fn(f32, f32) -> f32,
+    ) -> Result<Tensor, TensorError> {
+        if self.shape != other.shape {
+            return Err(TensorError::ShapeMismatch);
+        }
+
+        let data: Vec<f32> = self
+            .data
+            .iter()
+            .zip(other.data.iter())
+            .map(|(a, b)| op(*a, *b))
+            .collect();
+
+        Tensor::new(data, self.shape.clone())
+    }
+	
+	
+	pub fn add(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        self._element_wise_op(other, |a, b| a + b)
+    }
+
+    pub fn sub(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        self._element_wise_op(other, |a, b| a - b)
+    }
+
+    pub fn mul(&self, other: &Tensor) -> Result<Tensor, TensorError> {
+        self._element_wise_op(other, |a, b| a * b)
+    }
+```
+
 
 ## Tensor Display
 So far we have written tests for everything to verify operations but we'll need to look at the matrices to see them in a comprehensive and readable format. Looking at the data directly from `Vec` isn't very intuitive.
