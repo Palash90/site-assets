@@ -1,8 +1,9 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Table of Contents
-- [Prologue](#prologue)
-- [Modus Operandi](#modus-operandi)
+- [Prologue: Breaking the Black Box](#prologue)
+- [Prerequisites](#prerequisites)
+- [Project Philosophy](#modus-operandi)
   - [The Roadmap](#the-roadmap-from-zero-to-image-reconstruction)
 - [The Tensor and Its Operations](#the-tensor)
   - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
@@ -27,7 +28,14 @@ I have spent years trying to learn Rust. After experimenting with various method
 
 This project began as a month-long deep dive into Linear Regression. However, my momentum gradually slowed and after numerous iterations, I have finally reached a milestone where I can document this journey. As of today, the project is still evolving.
 
-## Modus Operandi
+To be clear: This project is not meant to replace PyTorch, TensorFlow, or ndarray. It is a 'toy' engine by design. Its purpose is to replace the 'I don't know' in your head when you call torch.matmul() with a clear, mental model of memory buffers and cache lines. We aren't building for production; we are building for mastery.
+
+
+## Prerequisites
+- **Rust Fundamentals:** You should be comfortable with structs, enums, and the concept of Ownership, module system etc.
+- **The Toolchain:** You’ll need rustc and cargo installed. No external crates (like ndarray) are required—we are building everything ourselves.
+
+## Project Philosophy
 This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries. We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
 
 ### The Roadmap: From Zero to Image Reconstruction
@@ -147,7 +155,7 @@ That's it. Nothing else. Let's begin translating our design into code.
 
 We need a way to store multiple data points and we should be able to index the data structure to access or modify the data inside.
 
-An array matches our requirements and is super fast. However, in Rust arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. A basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
+An array matches our requirements and is super fast. However, in Rust, arrays can't grow or shrink dynamically at run time. To maintain flexibility, we'll use `Vec` instead. A basic implementation of our `Tensor` can work well with `Vec<Vec<f32>>`. However, there are two problems in that approach.
 
 1. **Indirection (Pointer Chasing):** A `Vec` of `Vec`s is a very performance-intensive structure. Each inner `Vec` is a separate heap allocation. Accessing elements requires jumping to different memory locations. 
 
@@ -978,9 +986,9 @@ for i in 0..a_rows {
 
 Instead of the standard $i \xrightarrow{} j \xrightarrow{} k$ loop order, if we switch to $i \xrightarrow{} k \xrightarrow{} j$ we can unlock two major hardware optimizations:
 
-1. **Cache Locality:** In the IKJ order, the innermost loop moves across index `j`. This means we are reading `other.data` and writing to data in a straight, continuous line. The CPU can predict this "streaming" access and pre-fetch the data into the cache avoiding the RAM fetch.
+1. **Improved Cache Locality:** In the IKJ order, the innermost loop moves across index `j`. This means we are reading `other.data` and writing to data in a straight, continuous line. The CPU can predict this "streaming" access and pre-fetch the data into the cache avoiding the RAM fetch.
 
-1. **Seamless Vectorization (SIMD):** Because we are operating on contiguous slices of memory in the inner loop, the Rust compiler can easily apply SIMD. It can load 4 or 8 values from Matrix $B$, multiply them by the constant `aik` in one go, and add them to the result slice in a single CPU instruction.
+1. **Autovectorization (SIMD) Potential:** Because we are operating on contiguous slices of memory in the inner loop, the Rust compiler can easily apply SIMD. It can load 4 or 8 values from Matrix $B$, multiply them by the constant `aik` in one go, and add them to the result slice in a single CPU instruction.
 
 We have an intuition how it will work under the hood but we also need to make sure that the mathematics involved is intact and we end up in same result. Let's verify the mathematics in this case to ensure we are not missing any crucial point:
 
@@ -1202,4 +1210,130 @@ Final Result:
 
 ```
 >**Note:** We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
+
+
+### Reduction
+We are almost coming to an end to our tensor journey. The only remaining tensor operation we'll implement is a sum reducer.
+
+Following our mathematical definitions, let's start defining our method first. We should be able to sum across rows or columns or reduce the whole tensor into a single scalar value. We would need the axis on which to sum but for a global sum, we don't have anything to pass. We will use `Option` type for the `axis` parameter and we will return a tensor object.
+
+Let's put the definition in a function in the existing tensor `impl`
+
+```rust
+pub fn sum(&self, axis: Option<usize>) -> Result<Tensor, TensorError> {
+    todo!()
+}
+```
+
+We now have the definition ready, let's start writing a few tests. The following set of tests should cover most of the cases.
+
+```rust
+fn setup_matrix_for_reduction() -> Tensor {
+        let data = vec![
+            1000.0, 2000.0, 3000.0, 1200.0, 1800.0, 2000.0, 1500.0, 2500.0, 2200.0,
+        ];
+        Tensor::new(data, vec![3, 3]).expect("Failed to create matrix for reduction tests")
+    }
+
+    #[test]
+    fn test_reduce_sum_global() {
+        let tensor = setup_matrix_for_reduction();
+        let res = tensor.sum(None).unwrap();
+
+        assert_eq!(res.data(), &[17200.0]);
+        assert_eq!(res.shape(), &[1]);
+    }
+
+    #[test]
+    fn test_reduce_sum_axis_0_brand_total() {
+        let tensor = setup_matrix_for_reduction();
+        let res = tensor.sum(Some(0)).unwrap();
+
+        assert_eq!(res.data(), &[3700.0, 6300.0, 7200.0]);
+        assert_eq!(res.shape(), &[3]);
+    }
+
+    #[test]
+    fn test_reduce_sum_axis_1_monthly_total() {
+        let tensor = setup_matrix_for_reduction();
+        let res = tensor.sum(Some(1)).unwrap();
+
+        assert_eq!(res.data(), &[6000.0, 5000.0, 6200.0]);
+        assert_eq!(res.shape(), &[3]);
+    }
+
+    #[test]
+    fn test_reduce_sum_1d_tensor() {
+        let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3]).unwrap();
+        let res = tensor.sum(Some(0)).unwrap();
+
+        assert_eq!(res.data(), &[6.0]);
+        assert_eq!(res.shape(), &[1]);
+    }
+
+    #[test]
+    fn test_reduce_sum_invalid_axis() {
+        let tensor = setup_matrix_for_reduction();
+        let res = tensor.sum(Some(2));
+
+        assert_eq!(res.err(), Some(TensorError::InvalidRank));
+    }
+
+    #[test]
+    fn test_reduce_sum_empty() {
+        let tensor = Tensor::new(vec![], vec![0]).unwrap();
+        let res = tensor.sum(Some(2));
+
+        assert_eq!(res.err(), Some(TensorError::InvalidRank));
+    }
+```
+
+Now let's complete the implementation of reduction operation and run the tests
+
+```rust
+pub fn sum(&self, axis: Option<usize>) -> Result<Tensor, TensorError> {
+        match axis {
+            None => {
+                let sum: f32 = self.data.iter().sum();
+                Tensor::new(vec![sum], vec![1])
+            }
+
+            Some(0) => {
+                if self.shape.len() < 2 {
+                    return self.sum(None);
+                }
+                let rows = self.shape[0];
+                let cols = self.shape[1];
+                let mut result_data = vec![0.0; cols];
+
+                for r in 0..rows {
+                    for c in 0..cols {
+                        result_data[c] += self.data[r * cols + c];
+                    }
+                }
+                Tensor::new(result_data, vec![cols])
+            }
+
+            Some(1) => {
+                if self.shape.len() < 2 {
+                    return self.sum(None);
+                }
+                let rows = self.shape[0];
+                let cols = self.shape[1];
+                let mut result_data = vec![0.0; rows];
+
+                for r in 0..rows {
+                    for c in 0..cols {
+                        result_data[r] += self.data[r * cols + c];
+                    }
+                }
+                Tensor::new(result_data, vec![rows])
+            }
+
+            _ => Err(TensorError::InvalidRank),
+        }
+    }
+```
+
+That's all the mathematics that we care for now and all the implementations are completed. Next we'll be able to dive deep into our first ML algorithm which we'll use to train a model to learn from data.
 
