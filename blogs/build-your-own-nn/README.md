@@ -25,13 +25,13 @@ Part I: The Foundation
      - [Rectangular Matrix Transpose](#rectangular-matrix-transpose)
      - [Implementation](#implementation-1)
    - [Dot Product](#dot-product)
-    - [Vector Vector Dot Product](#vector-vector-dot-product)
-    - [Matrix Vector Dot Product](#matrix-vector-dot-product)
-    - [Matrix Matrix Dot Product](#matrix-matrix-dot-product)
-    - [Implementation](#implementation-2)
-      - [Tests for Matrix Multiplication](#tests-for-matrix-multiplication)
-      - [The Naive Implementation](#the-naive-implementation-ijk)
-      - [The Optimized Implementation](#the-optimized-implementation-ikj)
+     - [Vector Vector Dot Product](#vector-vector-dot-product)
+     - [Matrix Vector Dot Product](#matrix-vector-dot-product)
+     - [Matrix Matrix Dot Product](#matrix-matrix-dot-product)
+     - [Implementation](#implementation-2)
+       - [Tests for Matrix Multiplication](#tests-for-matrix-multiplication)
+       - [The Naive Implementation](#the-naive-implementation-ijk)
+       - [The Optimized Implementation](#the-optimized-implementation-ikj)
       
 
 
@@ -75,7 +75,7 @@ This is the roadmap I wish I had two years ago. Whether you are a Rustacean curi
 And that’s where the story begins...
 
 ## The Tensor
-To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers, organized in a grid.
+To build a neural network from scratch, we need to construct the fundamental building blocks first. In the world of Machine Learning, that building block would be a **Tensor**. In simple terms, a tensor is a collection of numbers organized in a grid.
 
 ### Journey from Scalar to Tensor
 To understand the data structure we are building, we need to develop an intuition first. Let's start building it from scratch as well.
@@ -808,7 +808,7 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
 
 ##### The Naive Implementation (IJK)
 
-[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
+[!CAUTION] We will not use this function this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
 
@@ -852,7 +852,7 @@ In a standard textbook, you learn to calculate one cell of the result matrix at 
     }
 ```
 
-This exactly mirrors the logic in the [Dot Product](#dot-product) section. We perform shape normalizations and then directly go into a three-level nested for loop to calculate each cell of the resulting matrix (or vector).
+This exactly mirrors the math. We perform shape normalizations and then directly go into a three-level nested for loop to calculate each cell of the resulting matrix (or vector).
 
 Let's use our previous example. To find just the first element (top-left) of the result:
 
