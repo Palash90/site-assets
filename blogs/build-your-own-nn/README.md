@@ -123,7 +123,7 @@ a = [[1, 2], [3, 4]];
 println!("{}", a[0][0]); // Output: 1
 ```
 
->[!Note]
+>[!NOTE]
 >Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
 ### Implementation: Memory Buffers and Layout
@@ -283,7 +283,8 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 ```
 
->**Note:** We will be using standard Rust module system throughout.
+>[!NOTE]
+>We will be using standard Rust module system throughout.
 
 Currently the directory structure should look like the following:
 
@@ -579,7 +580,8 @@ $$
 \begin{bmatrix} 1 & 2 \\\ 3 & 4 \\\ 5 & 6 \end{bmatrix} \xrightarrow{transpose} \begin{bmatrix} 1 & 3 & 5 \\\ 2 & 4 & 6 \end{bmatrix}
 $$
 
->**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
+>[!NOTE]
+>In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
 
 For example, here transposition converts $(3 \times 2) \xrightarrow{} (2 \times 3)$.
 
@@ -642,7 +644,8 @@ To implement transpose, we have to physically move our numbers into a new Vec. W
 
 1. The 2D Re-map: We create a new Vec of the same size. Then, we use a nested loop to visit every "cell" of our grid.
 
->Note the Index Swap: In our original data, we find an element at row * cols + col. In our new data, the dimensions are swapped, so the position becomes col * rows + row.
+>[!NOTE]
+>The Index Swap: In our original data, we find an element at $row * cols + col$. In our new data, the dimensions are swapped, so the position becomes $col * rows + row$.
 
 ```rust
     pub fn transpose(&self) -> Result<Tensor, TensorError> {
@@ -811,7 +814,7 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
 ##### The Naive Implementation (IJK)
 
 >[!TIP] 
->We will not use this function this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
+>We will not use this function, this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
 
@@ -1190,7 +1193,7 @@ Final Result:
   |139.0000, 154.0000|
 
 ```
->[!Note] 
+>[!NOTE] 
 >We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
 
 
