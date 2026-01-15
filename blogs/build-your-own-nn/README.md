@@ -879,29 +879,12 @@ $$
 
 $$
 \begin{array}{c|c|c|c|c}
-\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
 C_{0,0} & i=0  & j=0 & k=0 & \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7 \\
+\hline
+C_{0,0} & i=0  & j=0 & k=1 & 7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25 \\
+\hline
+C_{0,0} & i=0  & j=0 & k=2 & 25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58 \\
 \end{array}
-$$
-
-The code sets `i = 0` (first row of $A$) and `j = 0` (first column of $B$). The `k` loop then performs the dot product:
-- k = 0:
-
-$$
-\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7
-$$
-
-- k = 1:
-       
-$$
-7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25
-$$
-
-- k = 2:
- 
-$$
-25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times \color{cyan}B_{2,0}\color{white}) ​= (\color{#2ECC71}3 \times \color{cyan}11\color{white}) = 58
 $$
 
 ##### Calculating $C_{0,1}$​ (Top Right)
