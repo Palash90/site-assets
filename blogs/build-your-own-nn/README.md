@@ -272,6 +272,137 @@ tests
 Cargo.toml
 ```
 
+### Display
+The definition and implementation of the tensor is now clear. But how can we intuitively inspect the data if we need to. Looking at the data directly from `Vec` isn't very intuitive.
+
+Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function to inspect the data inside the tensor:
+
+```rust
+use build_your_own_nn::tensor::Tensor;
+use build_your_own_nn::tensor::TensorError;
+
+fn main() -> Result<(), TensorError> {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+
+    println!("Tensor data: {:?} {:?}", a.data(), a.shape()); // Output: Tensor data: [1.0, 2.0, 3.0, 4.0] [2, 2]
+
+    Ok(())
+}
+
+```
+
+As you can see, the output is a linear array of data. It does not preserve the dimensionality of the tensor. To fix this linear display of tensors and a nice matrix-like format, we'll implement the `Display` trait for our `Tensor` struct, such that any time we want to display the tensor, it will show in a nice formatted way.
+
+The shape `Vec` will help us here. First we define what do the elements map to and here we decide the rules:
+
+1. If the length of `shape` is 1, it is a _vector_, we can simply return the default debug formatted data.
+1. If the length of `shape` is 2, it is a _matrix_, the first element of the `shape` vector defines number of rows and the second element defines number of columns. By the way, this convention of defining matrix order is known as **Row-major**.
+1. We won't go beyond _2D_
+1. For each row we'll pick out elements matching column length indexing $(\mathbf{row} \times \mathbf{cols}) + \mathbf{col}$
+
+Let's take an example,
+
+$$\begin{bmatrix} \color{cyan}1_{0} & \color{magenta}2_{1} & \color{#2ECC71}3_{2} & \color{purple}4_{3} \end{bmatrix} \implies \begin{bmatrix} \color{cyan}1_{(0)} & \color{magenta}2_{(1)} \\\ \color{#2ECC71}3_{(2)} & \color{purple}4_{(3)} \end{bmatrix}$$
+
+Here, we have a `Vec` of length 4 with 2 rows and 2 columns. The first row is formed by the elements at index 0 and index 1 and the second row is formed by the elements at index 2 and index 3.
+
+Let's implement these rules for our tensor now.
+
+First we add the tests as per our desirable matrix look:
+
+```rust
+#[test]
+fn test_tensor_display_2d() -> Result<(), TensorError> {
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+
+    let output = format!("{}", tensor);
+
+    println!("{}", output);
+
+    assert!(output.contains("|  1.0000,   2.0000|"));
+    assert!(output.contains("|  3.0000,   4.0000|"));
+}
+
+#[test]
+fn test_tensor_display_alignment() -> Result<(), TensorError> {
+    let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2])?;
+
+    let output = format!("{}", tensor);
+
+    assert!(output.contains("  1.2346"));
+    assert!(output.contains("  0.0000"));
+}
+
+#[test]
+fn test_tensor_display_1d() -> Result<(), TensorError> {
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
+
+    let output = format!("{}", tensor);
+    assert!(output.contains("[1.0, 2.0, 3.0]"));
+}
+```
+
+And then we implement the `Display` trait for our `Tensor`, matching the rules to make the tests pass.
+
+```rust
+impl std::fmt::Display for Tensor {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // As we are dealing with 2D tensors max, we can simply return the debug format for 1D tensors
+        if self.shape.len() != 2 {
+            return write!(f, "{:?}", self.data);
+        }
+
+        let rows = self.shape[0];
+        let cols = self.shape[1];
+
+        for row in 0..rows {
+            write!(f, "  |")?;
+            for col in 0..cols {
+                let index = row * cols + col;
+                write!(f, "{:>8.4}", self.data[index])?;
+
+                if col < cols - 1 {
+                    write!(f, ", ")?;
+                }
+            }
+            writeln!(f, "|")?;
+        }
+        Ok(())
+    }
+}
+```
+
+Let's rewrite the `main` function and look at our tensor getting displayed:
+
+```rust
+use build_your_own_nn::tensor::{Tensor, TensorError};
+
+fn main() -> Result<(), TensorError> {
+    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+
+    let b = Tensor::new(
+        vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0],
+        vec![3, 3],
+    )?;
+
+    println!("{}", a);
+
+    println!("{}", b);
+    Ok(())
+}
+```
+
+```text
+  |  1.0000,   2.0000|
+  |  3.0000,   4.0000|
+
+  |  1.0000,   2.0000,   3.0000|
+  |  4.0000,   5.0000,   6.0000|
+  |  7.0000,   8.0000,   9.0000|
+
+```
+
+**Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
 
 
 ## Basic Tensor Arithmetic
@@ -391,139 +522,6 @@ Now we'll implement these operations. All the implementations so far operate on 
         self._element_wise_op(other, |a, b| a * b)
     }
 ```
-
-
-## Tensor Display
-So far we have written tests for everything to verify operations but we'll need to look at the matrices to see them in a comprehensive and readable format. Looking at the data directly from `Vec` isn't very intuitive.
-
-Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function to inspect the data inside the tensor:
-
-```rust
-use build_your_own_nn::tensor::Tensor;
-use build_your_own_nn::tensor::TensorError;
-
-fn main() -> Result<(), TensorError> {
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
-
-    println!("Tensor data: {:?} {:?}", a.data(), a.shape()); // Output: Tensor data: [1.0, 2.0, 3.0, 4.0] [2, 2]
-
-    Ok(())
-}
-
-```
-
-As you can see, the output is a linear array of data. It does not preserve the dimensionality of the tensor. To fix this linear display of tensors and a nice matrix-like format, we'll implement the `Display` trait for our `Tensor` struct, such that any time we want to display the tensor, it will show in a nice formatted way.
-
-The shape `Vec` will help us here. First we define what do the elements map to and here we decide the rules:
-
-1. If the length of `shape` is 1, it is a _vector_, we can simply return the default debug formatted data.
-1. If the length of `shape` is 2, it is a _matrix_, the first element of the `shape` vector defines number of rows and the second element defines number of columns. By the way, this convention of defining matrix order is known as **Row-major**.
-1. We won't go beyond _2D_
-1. For each row we'll pick out elements matching column length indexing $(\mathbf{row} \times \mathbf{cols}) + \mathbf{col}$
-
-Let's take an example,
-
-$$\begin{bmatrix} \color{cyan}1_{0} & \color{magenta}2_{1} & \color{#2ECC71}3_{2} & \color{purple}4_{3} \end{bmatrix} \implies \begin{bmatrix} \color{cyan}1_{(0)} & \color{magenta}2_{(1)} \\\ \color{#2ECC71}3_{(2)} & \color{purple}4_{(3)} \end{bmatrix}$$
-
-Here, we have a `Vec` of length 4 with 2 rows and 2 columns. The first row is formed by the elements at index 0 and index 1 and the second row is formed by the elements at index 2 and index 3.
-
-Let's implement these rules for our tensor now.
-
-First we add the tests as per our desirable matrix look:
-
-```rust
-#[test]
-fn test_tensor_display_2d() -> Result<(), TensorError> {
-    let tensor = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
-
-    let output = format!("{}", tensor);
-
-    println!("{}", output);
-
-    assert!(output.contains("|  1.0000,   2.0000|"));
-    assert!(output.contains("|  3.0000,   4.0000|"));
-}
-
-#[test]
-fn test_tensor_display_alignment() -> Result<(), TensorError> {
-    let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2])?;
-
-    let output = format!("{}", tensor);
-
-    assert!(output.contains("  1.2346"));
-    assert!(output.contains("  0.0000"));
-}
-
-#[test]
-fn test_tensor_display_1d() -> Result<(), TensorError> {
-    let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
-
-    let output = format!("{}", tensor);
-    assert!(output.contains("[1.0, 2.0, 3.0]"));
-}
-```
-
-And then we implement the `Display` trait for our `Tensor`, matching the rules to make the tests pass.
-
-```rust
-impl std::fmt::Display for Tensor {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        // As we are dealing with 2D tensors max, we can simply return the debug format for 1D tensors
-        if self.shape.len() != 2 {
-            return write!(f, "{:?}", self.data);
-        }
-
-        let rows = self.shape[0];
-        let cols = self.shape[1];
-
-        for row in 0..rows {
-            write!(f, "  |")?;
-            for col in 0..cols {
-                let index = row * cols + col;
-                write!(f, "{:>8.4}", self.data[index])?;
-
-                if col < cols - 1 {
-                    write!(f, ", ")?;
-                }
-            }
-            writeln!(f, "|")?;
-        }
-        Ok(())
-    }
-}
-```
-
-Now we run and the tests pass. Let's rewrite the `main` function and look at our tensor getting displayed:
-
-```rust
-use build_your_own_nn::tensor::{Tensor, TensorError};
-
-fn main() -> Result<(), TensorError> {
-    let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
-
-    let b = Tensor::new(
-        vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0],
-        vec![3, 3],
-    )?;
-
-    println!("{}", a);
-
-    println!("{}", b);
-    Ok(())
-}
-```
-
-```text
-  |  1.0000,   2.0000|
-  |  3.0000,   4.0000|
-
-  |  1.0000,   2.0000,   3.0000|
-  |  4.0000,   5.0000,   6.0000|
-  |  7.0000,   8.0000,   9.0000|
-
-```
-
-**Challenge to the readers:** I encourage the readers to implement their own formatting. I chose this formatting because I like it, you don't have to stick to this.
 
 ## _2D_ Matrix Operations
 In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well. To perform these, we need to move around a little.
