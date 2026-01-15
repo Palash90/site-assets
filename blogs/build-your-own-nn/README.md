@@ -873,10 +873,11 @@ B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{
 $$
 
 1. Calculating $C_{0,0}$​ (Top Left)
+    
     The code sets `i = 0` (first row of A) and `j = 0` (first column of B). The `k` loop then performs the dot product:
     - k = 0:
         $$
-            \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7) \color{white}= 7
+        \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7) \color{white}= 7
         $$
 
     - k = 1:
