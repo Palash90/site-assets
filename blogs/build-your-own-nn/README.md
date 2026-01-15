@@ -7,12 +7,34 @@ Front Matter
  - [Project Philosophy](#project-philosophy)
    - [The Roadmap](#the-roadmap-from-zero-to-image-reconstruction)
 
-Part I
- - [The Tensor and Its Operations](#the-tensor)
+Part I: The Foundation
+ - [The Tensor](#the-tensor)
    - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
    - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
+   - [Implementation: Memory Layout and Buffers](#implementation-memory-buffers-and-layout)
+   - [Display](#display-pretty-printing-matrix)
+ - [Basic Tensor Arithmetic](#basic-tensor-arithmetic)
+   - [Element Wise Addition](#element-wise-addition)
+   - [Element Wise Subtraction](#element-wise-subtraction)
+   - [Element Wise Multiplication](#element-wise-multiplication)
    - [Implementation](#implementation)
-   - [Display](#display)
+ - [Linear Transformations and Aggregations](#linear-transformations-and-aggregations)
+   - [Transpose](#transpose)
+     - [Vector Transpose](#vector-transpose)
+     - [Square Matrix Transpose](#square-matrix-transpose)
+     - [Rectangular Matrix Transpose](#rectangular-matrix-transpose)
+     - [Implementation](#implementation-1)
+   - [Dot Product](#dot-product)
+    - [Vector Vector Dot Product](#vector-vector-dot-product)
+    - [Matrix Vector Dot Product](#matrix-vector-dot-product)
+    - [Matrix Matrix Dot Product](#matrix-matrix-dot-product)
+    - [Implementation](#implementation-2)
+      - [Tests for Matrix Multiplication](#tests-for-matrix-multiplication)
+      - [The Naive Implementation](#the-naive-implementation-ijk)
+      - [The Optimized Implementation](#the-optimized-implementation-ikj)
+      
+
+
 
 
 ## Prologue: Breaking the Black Box
@@ -102,7 +124,7 @@ println!("{}", a[0][0]); // Output: 1
 
 >**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
-### Implementation
+### Implementation: Memory Buffers and Layout
 With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use the default `cargo new` command for this:
 
 ```shell
@@ -273,7 +295,7 @@ tests
 Cargo.toml
 ```
 
-### Display
+### Display: Pretty Printing Matrix
 The definition and implementation of the tensor is now clear. But how can we intuitively inspect the data if we need to. Looking at the data directly from `Vec` isn't very intuitive.
 
 Let's first try to understand the problem and then we'll fix it. We rewrite the `main` function to inspect the data inside the tensor:
@@ -524,13 +546,13 @@ Now we'll implement these operations. All the implementations so far operate on 
     }
 ```
 
-## _2D_ Matrix Operations
+## Linear Transformations and Aggregations
 In the previous operations, we treated matrices like rigid containers—adding or multiplying elements that lived in the exact same "neighborhood." However, to build a neural network, we need to support a few _2D_ operations as well. To perform these, we need to move around a little.
 
 The following are a few operations we are going to describe, write tests for and implement in our `Tensor`.
 
 ### Transpose
-One of the most fundamental transformations in linear algebra involves changing the very orientation of the data. This is known as the **Transpose**. In a transposition operation, the rows of the matrix become columns and the columns become rows.
+One of the most fundamental transformations in linear algebra involves changing the very orientation of the data. This is known as **Transpose**. In a transposition operation, the rows of the matrix become columns and the columns become rows.
 
 $$
 (A^T​)_{i,j}=A_{j,i}​
@@ -557,10 +579,96 @@ $$
 
 >**Note:** In the matrix transpose examples, take a note that the main diagonal elements ($A_{i,j}$ where $i=j$) stay in their positions and don't move. Additionally, in the case of rectangular matrix transposition the shape changes. 
 
-For example, here a $(3 \times 2) \xrightarrow{} (2 \times 3)$ matrix.
+For example, here transposition converts $(3 \times 2) \xrightarrow{} (2 \times 3)$.
+
+#### Implementation
+With this mathematical background, we can now understand what transpose operation will transform the data. With that understanding, we'll first add these tests:
+
+```rust
+    #[test]
+    fn test_transpose_square() -> Result<(), TensorError> {
+        // 1.0, 2.0
+
+        // 3.0, 4.0
+
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
+
+        let swapped = a.transpose()?;
+
+        // Should become:
+
+        // 1.0, 3.0
+
+        // 2.0, 4.0
+
+        assert_eq!(swapped.data(), &[1.0, 3.0, 2.0, 4.0]);
+
+        assert_eq!(swapped.shape(), &[2, 2]);
+        Ok(())
+    }
+
+    
+
+    #[test]
+    fn test_transpose_rectangular() -> Result<(), TensorError> {
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![2, 3])?;
+        let swapped = a.transpose()?;
+
+        assert_eq!(swapped.data(), &[1.0, 4.0, 2.0, 5.0, 3.0, 6.0]);
+        assert_eq!(swapped.shape(), &[3, 2]);
+        Ok(())
+    }
+
+    #[test]
+    fn test_transpose_1d() -> Result<(), TensorError> {
+        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![6])?;
+        let swapped = a.transpose()?;
+
+        assert_eq!(swapped.data(), &[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
+        assert_eq!(swapped.shape(), &[6]);
+        Ok(())
+    }
+```
+
+To implement transpose, we have to physically move our numbers into a new Vec. While some advanced libraries just change the "metadata" (using something called strides), we are going to actually rebuild the data. This keeps our memory "contiguous," which makes our other operations faster because the CPU can predict where the next number is.
+
+##### The Logic:
+
+1. Check the Rank: We only support transposing 1D or 2D tensors.
+
+1. The 1D Shortcut: If it's a 1D vector, there's no "grid" to flip, so we just return a copy.
+
+1. The 2D Re-map: We create a new Vec of the same size. Then, we use a nested loop to visit every "cell" of our grid.
+
+>Note the Index Swap: In our original data, we find an element at row * cols + col. In our new data, the dimensions are swapped, so the position becomes col * rows + row.
+
+```rust
+    pub fn transpose(&self) -> Result<Tensor, TensorError> {
+        if self.shape.len() != 1 && self.shape.len() != 2 {
+            return Err(TensorError::InvalidRank);
+        }
+
+        if self.shape.len() == 1 {
+            return Tensor::new(self.data.clone(), self.shape.clone());
+        }
+
+        let rows = self.shape[0];
+        let cols = self.shape[1];
+        let mut transposed_data = vec![0.0; self.data.len()];
+
+        for row in 0..rows {
+            for col in 0..cols {
+                transposed_data[col * rows + row] = self.data[row * cols + col];
+            }
+        }
+
+        Tensor::new(transposed_data, vec![cols, rows])
+    }
+```
+
 
 ### Dot Product
-We have already seen how to multiply two matrices or vectors element wise. However, there is another multiplication operation we can perform, known as the **Dot Product**. It is slightly more involved, as it combines element wise multiplication and a reduction operation into a single step.
+We have already seen how to multiply two matrices or vectors element wise. However, there is another multiplication operation we can perform on tensors, known as the **Dot Product**. It is slightly more involved, as it combines element wise multiplication and a reduction operation into a single step.
 
 The dot product of two vectors $A$ and $B$ of length n is defined as:
 
@@ -616,147 +724,8 @@ $$
 \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix} \cdot \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix} = \begin{bmatrix} \color{#2ECC71}{[1, 2, 3]} \cdot \color{cyan}{[7, 9, 11]} & \color{#2ECC71}{[1, 2, 3]}\cdot \color{magenta}{[8, 10, 12]} \\\ \color{#D4A017}[4, 5, 6] \cdot \color{cyan}{[7, 9, 11]} & \color{#D4A017}[4, 5, 6] \cdot \color{magenta}{[8, 10, 12]} \\\ \end{bmatrix} = \begin{bmatrix} (\color{#2ECC71}{1} \times \color{cyan}{7} + \color{#2ECC71}{2} \times \color{cyan}{9} + \color{#2ECC71}{3} \times \color{cyan}{11}) & (\color{#2ECC71}{1} \times \color{magenta}{8} + \color{#2ECC71}{2} \times \color{magenta}{10} + \color{#2ECC71}{3} \times \color{magenta}{12}) \\\ (\color{#D4A017}{4} \times \color{cyan}{7} + \color{#D4A017}{5} \times \color{cyan}{9} + \color{#D4A017}{6} \times \color{cyan}{11}) & (\color{#D4A017}{4} \times \color{magenta}{8} + \color{#D4A017}{5} \times \color{magenta}{10} + \color{#D4A017}{6} \times \color{magenta}{12}) \end{bmatrix} = \begin{bmatrix} 58 & 64 \\\ 139 & 154 \end{bmatrix}
 $$
 
-### Reduction
-A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
-
-Let's look at an example of a matrix which represents sales records of cars in the last three months:
-
-$$
-\begin{array}{c|ccc}
-\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
-\hline
-Oct  & 1000 & 2000 & 3000 \\
-Nov  & 1200 & 1800 & 2000 \\
-Dec  & 1500 & 2500 & 2200 \\
-\end{array}
-$$
-
-This individual representation is great for individual sales of a particular brand in a particular month.
-
-However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
-
-Using reduction we can represent this:
-
-$$
-\begin{array}{c|ccc|c}
-{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-Brand\ Total  & 3700 & 6300 & 7200 & \\
-\end{array}
-$$
-
-The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
-
-If we sum across the rows first and then do another sum of the resulting vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
-
-$$
-\begin{array}{c|ccc|c}
-\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
-\hline
-Oct  & 1000 & 2000 & 3000 & 6000 \\
-Nov  & 1200 & 1800 & 2000 & 5000 \\
-Dec  & 1500 & 2500 & 2200 & 6200 \\
-\hline
-\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{\color{green}17200} \\
-\end{array}
-$$
-
-## _2D_ Operations Implementations
-We defined a few more operations that our tensor needs to support. Let's implement them one by one.
-
-### Transpose
-
-Let's start with the transpose operation.
-
-We'll first add these tests:
-
-```rust
-    #[test]
-    fn test_transpose_square() -> Result<(), TensorError> {
-        // 1.0, 2.0
-
-        // 3.0, 4.0
-
-        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
-
-        let swapped = a.transpose()?;
-
-        // Should become:
-
-        // 1.0, 3.0
-
-        // 2.0, 4.0
-
-        assert_eq!(swapped.data(), &[1.0, 3.0, 2.0, 4.0]);
-
-        assert_eq!(swapped.shape(), &[2, 2]);
-        Ok(())
-    }
-
-    
-
-    #[test]
-    fn test_transpose_rectangular() -> Result<(), TensorError> {
-        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![2, 3])?;
-        let swapped = a.transpose()?;
-
-        assert_eq!(swapped.data(), &[1.0, 4.0, 2.0, 5.0, 3.0, 6.0]);
-        assert_eq!(swapped.shape(), &[3, 2]);
-        Ok(())
-    }
-
-    #[test]
-    fn test_transpose_1d() -> Result<(), TensorError> {
-        let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0, 5.0, 6.0], vec![6])?;
-        let swapped = a.transpose()?;
-
-        assert_eq!(swapped.data(), &[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
-        assert_eq!(swapped.shape(), &[6]);
-        Ok(())
-    }
-```
-To implement transpose, we have to physically move our numbers into a new Vec. While some advanced libraries just change the "metadata" (using something called strides), we are going to actually rebuild the data. This keeps our memory "contiguous," which makes our other operations faster because the CPU can predict where the next number is.
-
-#### The Logic:
-
-1. Check the Rank: We only support transposing 1D or 2D tensors.
-
-1. The 1D Shortcut: If it's a 1D vector, there's no "grid" to flip, so we just return a copy.
-
-1. The 2D Re-map: We create a new Vec of the same size. Then, we use a nested loop to visit every "cell" of our grid.
-
->Note the Index Swap: In our original data, we find an element at row * cols + col. In our new data, the dimensions are swapped, so the position becomes col * rows + row.
-
-```rust
-    pub fn transpose(&self) -> Result<Tensor, TensorError> {
-        if self.shape.len() != 1 && self.shape.len() != 2 {
-            return Err(TensorError::InvalidRank);
-        }
-
-        if self.shape.len() == 1 {
-            return Tensor::new(self.data.clone(), self.shape.clone());
-        }
-
-        let rows = self.shape[0];
-        let cols = self.shape[1];
-        let mut transposed_data = vec![0.0; self.data.len()];
-
-        for row in 0..rows {
-            for col in 0..cols {
-                transposed_data[col * rows + row] = self.data[row * cols + col];
-            }
-        }
-
-        Tensor::new(transposed_data, vec![cols, rows])
-    }
-```
-
-### Matrix Multiplication
-Matrix multiplication is the ultimate workhorse in any neural network library and arguably the most complex operation too. In a single step with the most simple network architecture we can count matrix multiplication is used thrice, element wise functional operations are called thrice, addition/subtraction once and transpose twice. Don't worry if you did not understand this claim. We'll soon dive into this counting. For now, just understand Matrix Multiplication is the most frequent operation in a training cycle.
+#### Implementation
+Matrix multiplication is the ultimate workhorse in any neural network library and arguably the most complex operation too. In a single step of neural network with the most simple network architecture we can count matrix multiplication is used three times, element wise functional operations are called three times, addition/subtraction once and transpose twice. Don't worry if you did not understand this claim. We'll soon dive into this counting. For now, just understand Matrix Multiplication is the most frequent operation in a training cycle.
 
 Unfortunately, by nature, matrix multiplication is an $O(n^3)$ operation. Tons of optimizations have been done over the decades on this operation both on Software front as well as Hardware front. Those optimization techniques are themselves worthy of their own book.
 
@@ -764,7 +733,7 @@ However, to make our tensor useful, we'll avoid the textbook naive implementatio
 
 First we'll write tests for matrix multiplications with correct assumptions and then we'll jump into both the implementations.
 
-#### Tests for Matrix Multiplication
+##### Tests for Matrix Multiplication
 This test will capture many scenarios based on 1D, 2D matrix operations. We will add this to our existing tests:
 
 ```rust
@@ -837,7 +806,7 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
     }
 ```
 
-#### The Naive Implementation (IJK)
+##### The Naive Implementation (IJK)
 
 [!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
@@ -892,7 +861,7 @@ A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \
 B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 $$
 
-##### Calculation of $C_{0,0}$​ (Top Left)
+###### Calculation of $C_{0,0}$​ (Top Left)
 
 $$
 \begin{array}{}
@@ -911,7 +880,7 @@ C_{0,0} & i=0  & j=0 & k=2 & 25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 \end{array}
 $$
 
-##### Calculation of $C_{0,1}$​ (Top Right)
+###### Calculation of $C_{0,1}$​ (Top Right)
 
 $$
 \begin{array}{}
@@ -931,7 +900,7 @@ C_{0,1} & i=0  & j=1 & k=2 & 28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 $$
 
 
-##### Calculation of $C_{1,0}$​ (Bottom Left)
+###### Calculation of $C_{1,0}$​ (Bottom Left)
 
 $$
 \begin{array}{}
@@ -950,7 +919,7 @@ C_{1,0} & i=1  & j=0 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-##### Calculation of $C_{1,1}$​ (Bottom Right)
+###### Calculation of $C_{1,1}$​ (Bottom Right)
 
 $$
 \begin{array}{}
@@ -969,7 +938,7 @@ C_{1,1} & i=1  & j=1 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-#### The Optimized Implementation (IKJ)
+##### The Optimized Implementation (IKJ)
 We have seen the naive implementation and how the math unfolds. While the naive version is mathematically intuitive, it is a nightmare to work with for the following reasons:
 1. In the standard implementation, to calculate one element, the CPU has to jump across different rows of Matrix $B$ (`other.data[k * b_cols + j]`). Because memory itself is a one-dimensional array, jumping between rows means the CPU has to constantly fetch new data from the slow RAM into its fast Cache.
 1. Modern CPU cores use SIMD (Single Instruction, Multiple Data) to perform the same operation on multiple values simultaneously as long as the operations can be performed independently of each other. The naive implementation is sequential. So, it cannot leverage the parallel processing power of the CPU.
@@ -1006,7 +975,7 @@ A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \
 B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 $$
 
-##### Processing Row $i = 0$ (First row of A)
+###### Processing Row $i = 0$ (First row of A)
 We work on the first row of the result $C$. The inner loop $j$ updates the entire row slice at once.
         
 $$
@@ -1026,7 +995,7 @@ C_{row 0} & k = 2 & C_{row 0} + (A_{0,2} \times B_{row2}) & [25, 28] + \color{#2
 \end{array}
 $$
 
-##### Processing Row $i = 1$ (Second row of A)
+###### Processing Row $i = 1$ (Second row of A)
 We move to the second row of our result $C$.
 
 $$
@@ -1046,7 +1015,7 @@ C_{row 1} & k = 2 & C_{row 1} + (A_{1,2} \times B_{row2}) & [73, 82] + \color{#D
 \end{array}
 $$
  
-##### Full Implementation
+###### Full Implementation
 Here is the full implementation of the optimized method:
 
 ```rust
@@ -1222,6 +1191,55 @@ Final Result:
 
 
 ### Reduction
+A matrix or a vector gives us information about individual elements, but at times we need an aggregation of those individual elements.
+
+Let's look at an example of a matrix which represents sales records of cars in the last three months:
+
+$$
+\begin{array}{c|ccc}
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} \\
+\hline
+Oct  & 1000 & 2000 & 3000 \\
+Nov  & 1200 & 1800 & 2000 \\
+Dec  & 1500 & 2500 & 2200 \\
+\end{array}
+$$
+
+This individual representation is great for individual sales of a particular brand in a particular month.
+
+However, if we need to know how many cars were sold in October or how many Maruti cars were sold in the last three months, we need to reduce all the row-wise or column-wise entries into a single number. This operation is known as **Reduction**.
+
+Using reduction we can represent this:
+
+$$
+\begin{array}{c|ccc|c}
+{} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+Brand\ Total  & 3700 & 6300 & 7200 & \\
+\end{array}
+$$
+
+The 'Brand Total' is a column wise (later represented as Axis 0 sum) reduction and the 'Monthly Total' is a row wise (later represented as Axis 1 sum) reduction.
+
+If we sum across the rows first and then do another sum of the resulting vector, it will result in the grand sum (the bottom right corner '17200'). This sums up every element in the whole matrix into a single scalar value.
+
+$$
+\begin{array}{c|ccc|c}
+\mathbf {} & \mathbf{Maruti} & \mathbf{Hyundai} & \mathbf{Toyota} & \mathbf{Monthly\ Total} \\
+\hline
+Oct  & 1000 & 2000 & 3000 & 6000 \\
+Nov  & 1200 & 1800 & 2000 & 5000 \\
+Dec  & 1500 & 2500 & 2200 & 6200 \\
+\hline
+\mathbf{Brand\ Total}  & 3700 & 6300 & 7200 & \mathbf{\color{green}17200} \\
+\end{array}
+$$
+
+#### Implementation
 We are almost coming to an end to our tensor journey. The only remaining tensor operation we'll implement is a sum reducer.
 
 Following our mathematical definitions, let's start defining our method first. We should be able to sum across rows or columns or reduce the whole tensor into a single scalar value. We would need the axis on which to sum but for a global sum, we don't have anything to pass. We will use `Option` type for the `axis` parameter and we will return a tensor object.
