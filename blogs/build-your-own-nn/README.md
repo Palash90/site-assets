@@ -56,7 +56,8 @@ While this guide does not assume mastery in Rust, a basic understanding of the f
 - **The Module System:** Familiarity with how Rust organizes code across files.
 - **The Toolchain:** You’ll need `rustc` and `cargo` installed and ready.
 
-**Note on Dependencies:** In keeping with our philosophy of Radical Transparency, we will not rely on external linear algebra crates like ndarray. Our only dependency is the Rust Standard Library.
+>[!NOTE]
+>In keeping with our philosophy of Radical Transparency, we will not rely on external linear algebra crates like ndarray. Our only dependency is the Rust Standard Library.
 
 ## Project Philosophy
 This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries. We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
@@ -122,7 +123,8 @@ a = [[1, 2], [3, 4]];
 println!("{}", a[0][0]); // Output: 1
 ```
 
->**Note:** Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
+>[!Note]
+>Mathematical notation and programming differ in how they index a collection of numbers. Mathematics typically uses 1-based indexing, whereas programming uses 0-based indexing.
 
 ### Implementation: Memory Buffers and Layout
 With the mathematical background, now we'll design and implement the `Tensor`. Let's first kick off the project and then we'll add elements to it. We'll use the default `cargo new` command for this:
@@ -808,7 +810,7 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
 
 ##### The Naive Implementation (IJK)
 
->[!CAUTION] 
+>[!TIP] 
 >We will not use this function this is here for reference and validation purposes. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
@@ -1188,7 +1190,8 @@ Final Result:
   |139.0000, 154.0000|
 
 ```
->**Note:** We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
+>[!Note] 
+>We use raw loops here for educational clarity, though Rust iterators can offer similar or better performance via bounds-check elimination. If we switch to `chunk`, we can even squeeze some more performance.
 
 
 ### Reduction
