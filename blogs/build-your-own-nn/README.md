@@ -879,7 +879,7 @@ $$
 
 $$
 \begin{array}{c|c|c|c|c}
-C_{0,0} & i=0  & j=0 & k=0 & \color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7 \\
+C_{0,0} & i=0  & j=0 & k=0 & 0 + (\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white})​= 0 + (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7 \\
 \hline
 C_{0,0} & i=0  & j=0 & k=1 & 7 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 7+(\color{#2ECC71}2 \times \color{cyan}9\color{white}) = 25 \\
 \hline
@@ -900,7 +900,7 @@ $$
 
 $$
 \begin{array}{c|c|c|c|c}
-C_{0,1} & i=0  & j=1 & k=0 & \color{#2ECC71}A_{0,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}1 \times \color{magenta}8) \color{white}= 8 \\
+C_{0,1} & i=0  & j=1 & k=0 & 0 +(\color{#2ECC71}A_{0,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white})​= 0 +(\color{#2ECC71}1 \times \color{magenta}8) \color{white}= 8 \\
 \hline
 C_{0,1} & i=0  & j=1 & k=1 & 8 + (\color{#2ECC71}A_{0,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 8+(\color{#2ECC71}2 \times \color{magenta}10\color{white}) = 28 \\
 \hline
@@ -922,7 +922,7 @@ $$
 
 $$
 \begin{array}{c|c|c|c|c}
-C_{1,0} & i=1  & j=0 & k=0 & \color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7\color{white}) = 28 \\
+C_{1,0} & i=1  & j=0 & k=0 & 0+(\color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white})​=0+ (\color{#D4A017}4 \times \color{cyan}7\color{white}) = 28 \\
 \hline
 C_{1,0} & i=1  & j=0 & k=1 & 28 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{cyan}B_{1,0}\color{white}) ​= 28+(\color{#D4A017}5 \times \color{cyan}9\color{white}) = 73 \\
 \hline
@@ -943,7 +943,7 @@ $$
 
 $$
 \begin{array}{c|c|c|c|c}
-C_{1,1} & i=1  & j=1 & k=0 & \color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#D4A017}4 \times \color{magenta}8\color{white}) = 32 \\
+C_{1,1} & i=1  & j=1 & k=0 & 0+(\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white})​= 0+ (\color{#D4A017}4 \times \color{magenta}8\color{white}) = 32 \\
 \hline
 C_{1,1} & i=1  & j=1 & k=1 & 32 + (\color{#D4A017}A_{1,1}​ \color{white}\times \color{magenta}B_{1,1}\color{white}) ​= 32+(\color{#D4A017}5 \times \color{magenta}10\color{white}) = 82 \\
 \hline
