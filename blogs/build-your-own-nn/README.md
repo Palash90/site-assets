@@ -254,15 +254,15 @@ pub fn test_tensor_operations() -> Result<(), TensorError>  {
     let a = Tensor::new(vec![1.0, 2.0, 3.0, 4.0], vec![2, 2])?;
     let b = Tensor::new(vec![5.0, 6.0, 7.0, 8.0], vec![2, 2])?;
 
-    let c = a.add(&b);
+    let c = a.add(&b)?;
     assert_eq!(c.data(), &[6.0, 8.0, 10.0, 12.0]);
     assert_eq!(c.shape(), &[2, 2]);
 
-    let d = a.sub(&b);
+    let d = a.sub(&b)?;
     assert_eq!(d.data(), &[-4.0, -4.0, -4.0, -4.0]);
     assert_eq!(d.shape(), &[2, 2]);
 
-    let e = a.mul(&b);
+    let e = a.mul(&b)?;
     assert_eq!(e.data(), &[5.0, 12.0, 21.0, 32.0]);
     assert_eq!(e.shape(), &[2, 2]);
 }
@@ -425,7 +425,7 @@ fn test_tensor_display_2d() -> Result<(), TensorError> {
 
 #[test]
 fn test_tensor_display_alignment() -> Result<(), TensorError> {
-    let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2]);
+    let tensor = Tensor::new(vec![1.23456, 2.0, 100.1, 0.00001], vec![2, 2])?;
 
     let output = format!("{}", tensor);
 
@@ -435,7 +435,7 @@ fn test_tensor_display_alignment() -> Result<(), TensorError> {
 
 #[test]
 fn test_tensor_display_1d() -> Result<(), TensorError> {
-    let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3]);
+    let tensor = Tensor::new(vec![1.0, 2.0, 3.0], vec![3])?;
 
     let output = format!("{}", tensor);
     assert!(output.contains("[1.0, 2.0, 3.0]"));
@@ -589,8 +589,6 @@ Matrix Multiplication is defined as:
 $$
 C_{m,p} = A_{m, n}B_{n, p}
 $$
-
-A simple way to think about matrix multiplication is to think of dot product of $A$ and $B^T$.
 
 Let's take an example:
 
