@@ -1003,7 +1003,7 @@ $$
     Multiply $A_{0,0}$ by the first row of $B$.
         
     $$
-        C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
+    C_{row 0} = [0, 0] + \color{#2ECC71}1 \color{white}\times [\color{cyan}7, \color{magenta}8\color{white}] \color{white}= [7, 8]
     $$
 
    - **k = 1:**
