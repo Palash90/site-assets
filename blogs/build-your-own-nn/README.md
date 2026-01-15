@@ -887,7 +887,7 @@ C_{0,0} & i=0  & j=0 & k=2 & 25 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 \end{array}
 $$
 
-Result after this step:
+- Result after this step:
 
 $$
 \begin{bmatrix}
@@ -908,7 +908,7 @@ C_{0,1} & i=0  & j=1 & k=2 & 28 + (\color{#2ECC71}A_{0,2}​ \color{white}\times
 \end{array}
 $$
 
-Result after this step:
+- Result after this step:
 
 $$
 \begin{bmatrix}
@@ -930,7 +930,7 @@ C_{1,0} & i=1  & j=0 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-Result after this step:
+- Result after this step:
 
 $$
 \begin{bmatrix}
@@ -951,7 +951,7 @@ C_{1,1} & i=1  & j=1 & k=2 & 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times
 \end{array}
 $$
 
-The Final Result:
+- The Final Result:
 
 $$
 \begin{bmatrix}
