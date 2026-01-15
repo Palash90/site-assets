@@ -819,7 +819,7 @@ This test will capture many scenarios based on 1D, 2D matrix operations. We will
 
 #### The Naive Implementation (IJK)
 
-[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the [next section](#the-optimized-implementation) if you want to.
+[!CAUTION] We will not use this function this is here for reference and validation purpose. You may skip to the [next section](#the-optimized-implementation-ikj) if you want to.
 
 In a standard textbook, you learn to calculate one cell of the result matrix at a time by taking the dot product of a row from $A$ and a column from $B$. In code, it looks like this:
 
@@ -1002,8 +1002,8 @@ Instead of the standard $i \xrightarrow{} j \xrightarrow{} k$ loop order, if we 
 We have an intuition how it will work under the hood but we also need to make sure that the mathematics involved is intact and we end up in same result. Let's verify the mathematics in this case to ensure we are not missing any crucial point:
 
 $$
-A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, 
-B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\ \color{cyan}9 & \color{magenta}10 \\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
+A = \begin{bmatrix} \color{#2ECC71}1 & \color{#2ECC71}2 & \color{#2ECC71}3 \\\ \color{#D4A017}4 & \color{#D4A017}5 & \color{#D4A017}6 \end{bmatrix}, 
+B = \begin{bmatrix} \color{cyan}7 & \color{magenta}8 \\\ \color{cyan}9 & \color{magenta}10 \\\ \color{cyan}11 & \color{magenta}12 \end{bmatrix}
 $$
 
 ##### Processing Row $i = 0$ (First row of A)
