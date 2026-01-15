@@ -1,27 +1,30 @@
 # Build Your Own Neural Network from Scratch in Rust: From Zero to Image Reconstruction
 
 ## Table of Contents
-- [Prologue: Breaking the Black Box](#prologue)
-- [Prerequisites](#prerequisites)
-- [Project Philosophy](#modus-operandi)
-  - [The Roadmap](#the-roadmap-from-zero-to-image-reconstruction)
-- [The Tensor and Its Operations](#the-tensor)
-  - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
-  - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
-  - [Basic Tensor Arithmetic](#basic-arithmetic-on-tensor)
-- [Tensor Implementation](#tensor-implementation)
-- [Tensor Display](#tensor-display)
-- [2D Matrix Operations](#2d-matrix-operations)
-  - [Transpose](#transpose)
-  - [Dot Product](#dot-product)
-  - [Reduction](#reduction)
-- [2D Matrix Operations Implementation](#2d-operations-implementations)
-  - [Transpose](#transpose-1)
-  - [Matrix Multiplication](#matrix-multiplication)
-    - [The Naive Matrix Multiplication](#the-naive-implementation-ijk)
-    - [The Optimized Matrix Multiplication](#the-optimized-implementation-ikj)
+Front Matter
+ - [Prologue: Breaking the Black Box](#prologue-breaking-the-black-box)
+ - [Prerequisites](#prerequisites)
+ - [Project Philosophy](#project-philosophy)
+   - [The Roadmap](#the-roadmap-from-zero-to-image-reconstruction)
 
-## Prologue
+Part I
+ - [The Tensor and Its Operations](#the-tensor)
+   - [Journey from Scalar to Tensor](#journey-from-scalar-to-tensor)
+   - [Matrix Notation and Indexing](#matrix-notation-and-indexing)
+   - [Basic Tensor Arithmetic](#basic-arithmetic-on-tensor)
+ - [Tensor Implementation](#tensor-implementation)
+ - [Tensor Display](#tensor-display)
+ - [2D Matrix Operations](#2d-matrix-operations)
+   - [Transpose](#transpose)
+   - [Dot Product](#dot-product)
+   - [Reduction](#reduction)
+ - [2D Matrix Operations Implementation](#2d-operations-implementations)
+   - [Transpose](#transpose-1)
+   - [Matrix Multiplication](#matrix-multiplication)
+     - [The Naive Matrix Multiplication](#the-naive-implementation-ijk)
+     - [The Optimized Matrix Multiplication](#the-optimized-implementation-ikj)
+
+## Prologue: Breaking the Black Box
 Machine Learning often felt like a "black box" to me. Every tutorial I found introduced `NumPy` as a baseline requirement. Libraries like `scikit-learn`, `PyTorch`, `TensorFlow`, etc. are excellent for building quick prototypes as well as production-grade models. However, they heavily obscure the underlying mechanics. Hence, I decided to start learning this technology by building it from scratch. 
 
 I have spent years trying to learn Rust. After experimenting with various methods (The Book, RBE, Rustlings, etc.) over the years, I found the missing link: the difficulty lay not in the language, but in the lack of a motivating end-goal.
@@ -32,8 +35,15 @@ To be clear: This project is not meant to replace PyTorch, TensorFlow, or ndarra
 
 
 ## Prerequisites
-- **Rust Fundamentals:** You should be comfortable with structs, enums, and the concept of Ownership, module system etc.
-- **The Toolchain:** You’ll need rustc and cargo installed. No external crates (like ndarray) are required—we are building everything ourselves.
+This guide is designed as a self-contained journey. We do not assume a prior mathematical background. Instead, we derive the necessary mathematical principles as they arise.
+
+While this guide does not assume mastery in Rust, a basic understanding of the following concepts will make the progression smoother:
+- **Rust Fundamentals:** The use of `structs`, `enums`, and basic pattern matching.
+- **The Memory Model:** A conceptual understanding of Ownership, Borrowing, and Slicing.
+- **The Module System:** Familiarity with how Rust organizes code across files.
+- **The Toolchain:** You’ll need `rustc` and `cargo` installed and ready.
+
+**Note on Dependencies:** In keeping with our philosophy of Radical Transparency, we will not rely on external linear algebra crates like ndarray. Our only dependency is the Rust Standard Library.
 
 ## Project Philosophy
 This guide is designed with a specific philosophy in mind: **Radical Transparency**. We do not start with frameworks or pre-built third-party libraries. We start with a blank file and a single `fn main()`. From there, we will incrementally build the mathematical and structural architecture required to perform complex tasks.
@@ -45,7 +55,7 @@ This is the roadmap I wish I had two years ago. Whether you are a Rustacean curi
 - **The Blank Canvas:** Initializing the environment and establishing the foundational data structures.
 - **The Mathematical Engine:** Implementing tensors, gradients, and backpropagation from scratch.
 - **Building the Network:** Constructing layers and activation functions.
-- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just high-dimensional calculus written in a language with strict safety guarantees.
+- **The Visual Goal:** Training our library to interpret and reconstruct images, proving that 'magic' is just linear algebra and high-dimensional calculus written in a language with strict safety guarantees.
 
 ![Image Reconstruction]()
 
