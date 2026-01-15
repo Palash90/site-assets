@@ -874,11 +874,11 @@ $$
 
 ##### Calculating $C_{0,0}$​ (Top Left)
     
-The code sets `i = 0` (first row of A) and `j = 0` (first column of B). The `k` loop then performs the dot product:
+The code sets `i = 0` (first row of $A$) and `j = 0` (first column of $B$). The `k` loop then performs the dot product:
 - k = 0:
 
 $$
-\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7) \color{white}= 7
+\color{#2ECC71}A_{0,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#2ECC71}1 \times \color{cyan}7\color{white}) = 7
 $$
 
 - k = 1:
@@ -922,7 +922,7 @@ The code sets `i = 1` (second row of $A$) and `j = 0` (first column of $B$)
 - k = 0: 
   
 $$
-\color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7) \color{white}= 28
+\color{#D4A017}A_{1,0}​ \color{white}\times \color{cyan}B_{0,0} \color{white}​= (\color{#D4A017}4 \times \color{cyan}7\color{white}) = 28
 $$
 
 - k = 1: 
@@ -943,7 +943,7 @@ The code sets `i = 1` and `j = 1` (second column of $B$).
 
 - k = 0:
 $$
-\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8) \color{white}= 32
+\color{#D4A017}A_{1,0}​ \color{white}\times \color{magenta}B_{0,1} \color{white}​= (\color{#2ECC71}4 \times \color{magenta}8\color{white}) = 32
 $$
 
 - k = 1:
@@ -955,6 +955,16 @@ $$
 $$
 73 + (\color{#D4A017}A_{1,2}​ \color{white}\times \color{magenta}B_{2,0}\color{white}) ​= 73+(\color{#2ECC71}6 \times \color{magenta}12\color{white}) = 154
 $$
+
+And the final matrix becomes:
+
+$$
+\begin{bmatrix}
+58 & 64 \\\
+139 & 154
+\end{bmatrix}
+$$
+
 
 #### The Optimized Implementation (IKJ)
 We have seen the naive implementation and how the math unfolds. While the naive version is mathematically intuitive, it is a nightmare to work with for the following reasons:
