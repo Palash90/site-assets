@@ -131,6 +131,12 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
         publishDate: "Jan 07, 2026",
         contentType: "swe"
+    },{
+        id: "terminal-plotter",
+        title: "Writing a Minimal Terminal Plotter",
+        mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/readme.md",
+        publishDate: "Jan 22, 2026",
+        contentType: "swe"
     }
 ];
 
