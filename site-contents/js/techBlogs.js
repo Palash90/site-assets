@@ -134,7 +134,7 @@ var sweContents = [
     },{
         id: "terminal-plotter",
         title: "Writing a Minimal Terminal Plotter",
-        mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/readme.md",
+        mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/read.md",
         publishDate: "Jan 22, 2026",
         contentType: "swe"
     }
