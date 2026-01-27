@@ -8,7 +8,10 @@ const staticLinks = [
     "https://music.palashkantikundu.in/",
     "https://guitalele-tutorials.palashkantikundu.in/",
     "https://vi-essentials.palashkantikundu.in/",
-    "https://go-essentials.palashkantikundu.in/"
+    "https://go-essentials.palashkantikundu.in/",
+    "https://ai.palashkantikundu.in",
+    "https://ai.palashkantikundu.in/visualizers/linear-regression.html",
+    "https://ai.palashkantikundu.in/visualizers/neural-network.html",
 ]
 
 const allNavLinks = findProp("navLinks").map(n => siteUrl + n.link)
