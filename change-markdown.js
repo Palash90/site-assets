@@ -85,7 +85,7 @@ const processDirectory = (dirPath) => {
         processDirectory(fullPath);
       } else {
         // Process file
-        if (path.extname(file.name) === ".md") {
+        if (path.extname(file.name) === ".md" || path.extname(file.name) === ".json") {
           console.log("\tChanging", fullPath);
           replaceVariablesInFile(fullPath);
         }
