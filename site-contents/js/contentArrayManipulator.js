@@ -44,13 +44,9 @@ const modifyArray = (arr) => {
 
     return arr.map(c => {
         return {
-            id: c.id,
-            title: c.title,
+            ...c,
             publishDate: getDateString(c.publishDate),
             lastUpdated: getDateString(c.lastUpdated),
-            mdUrl: c.mdUrl,
-            videoId: c.videoId,
-            guitalele: c.guitalele
         }
     })
 }
