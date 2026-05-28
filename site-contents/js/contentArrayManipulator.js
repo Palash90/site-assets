@@ -32,6 +32,7 @@ const getDateString = (date) => {
 const modifyArray = (arr) => {
 
     arr = arr.map(c => {
+        c = { ...c }
         c.publishDate = c.publishDate ? new Date(c.publishDate) : undefined
         c.lastUpdated = c.lastUpdated ? new Date(c.lastUpdated) : undefined
 
@@ -48,7 +49,8 @@ const modifyArray = (arr) => {
             publishDate: getDateString(c.publishDate),
             lastUpdated: getDateString(c.lastUpdated),
             mdUrl: c.mdUrl,
-            videoId: c.videoId
+            videoId: c.videoId,
+            guitalele: c.guitalele
         }
     })
 }
