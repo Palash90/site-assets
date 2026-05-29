@@ -231,4 +231,8 @@ INFORMATION CONVEYED:
 
 ---
 
+## Practice
+
+Below this section, you will find a Guitalele Tab section. Please hover over the notes to read about it.
+
 **Happy Playing! 🎸 May your melodies flow as smoothly as an open string!**
