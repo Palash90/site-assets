@@ -3,15 +3,15 @@
   "description": "A comprehensive beginner exercise covering all fret ranges, rhythm variations, rests, and ties in 4/4 time.",
   "timeSignature": "4/4",
   "notes": [
-    { "fret": 0, "string": 3, "duration": 1.0 },
-    { "fret": 2, "string": 3, "duration": 1.0 },
-    { "fret": 3, "string": 3, "duration": 1.0 },
-    { "fret": 5, "string": 3, "duration": 1.0 },
-    { "fret": 3, "string": 1, "duration": 2.0 },
+    { "fret": 0, "string": 3, "duration": 1.0, "description": "Third String Open, the Middle C, played for one beat" },
+    { "fret": 2, "string": 3, "duration": 1.0, "description": "Third String Second fret, the Middle D, played for one beat" },
+    { "fret": 3, "string": 3, "duration": 1.0, "description": "Third String Third fret, note is D#, notice the '#' on the Staff Notation" },
+    { "fret": 5, "string": 3, "duration": 1.0, "description": "Third String Fourth fret, the Middle F, played for one beat" },
+    { "fret": 3, "string": 1, "duration": 2.0, "description": "Third fret on first string, the high C, played for two beats" },
 
     { "duration": 1.0 },
-    { "fret": 3, "string": 2, "duration": 1.5 },
-    { "fret": 5, "string": 2, "duration": 0.5 },
+    { "fret": 3, "string": 2, "duration": 1.5, "description": "Third fret on second string, played for one and a half beats" },
+    { "fret": 5, "string": 2, "duration": 0.5, "description": "Fourth fret on second string, played for half a beat" },
 
     { "fret": 5, "string": 1, "duration": 1.0, "tie": true },
     { "fret": 5, "string": 1, "duration": 1.0 },
