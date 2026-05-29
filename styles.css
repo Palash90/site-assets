@@ -289,3 +289,16 @@ table th {
     padding: 15px;
     font-style: italic;
 }
+
+/* Code Blocks */
+.blog-content pre,
+.blog-content code {
+    color: #3f3a30;
+    font-family: "Fira Code", monospace;
+    border-radius: 4px;
+}
+
+.blog-content code {
+    font-size: 0.95rem;
+    color: #de6ce2;
+}
