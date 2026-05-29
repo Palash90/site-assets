@@ -4,7 +4,6 @@ var musicContents = [
         publishDate: "Oct 16, 2024",
         title: "Sliding Shape Guitalele",
         videoId: "hMBpAPGqX8k",
-        tab: getCommon("cdn") + "/target/blogs/sliding-shape-guitalele/tab.json",
     },
     {
         id: "guitalele-tuning",
