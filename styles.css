@@ -49,6 +49,16 @@ table td,
 table th {
     padding: 0.5em 1em;
 }
+
+.note-group {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.note-group:hover .note-element {
+  stroke: #e11d48 !important;
+  fill: #e11d48 !important;
+}
 .markdown-color p {
   color: var(--md-body-text);
 }
