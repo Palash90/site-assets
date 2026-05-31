@@ -24,7 +24,7 @@ var musicContents = [
         publishDate: "May 30, 2026",
         title: "Guitalele Tab Reading Guide",
         mdUrl: getCommon("cdn") + "/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md",
-        tab: getCommon("cdn") + "/target/blogs/tab-reading-quick-ref/guitaleleFoundations.json",
+        tab: getCommon("cdn") + "/target/blogs/tab-reading-quick-ref/guitaleleFoundations.txt",
     }
 ]
 
