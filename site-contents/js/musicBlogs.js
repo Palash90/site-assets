@@ -30,7 +30,7 @@ var musicContents = [
         id: "guitalele-tuning-only-tab",
         publishDate: "May 30, 2026",
         title: "Guitalele Tuning Only Tab",
-        tab: getCommon("cdn") + "/target/blogs/tab-reading-quick-ref/guitaleleTuningOnly.txt",
+        tab: getCommon("cdn") + "/target/blogs/tab-reading-quick-ref/tab.txt",
     }
 ]
 
