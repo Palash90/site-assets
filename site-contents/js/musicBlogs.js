@@ -11,7 +11,7 @@ var musicContents = [
         title: "Guitalele Introduction and Tuning",
         videoId: "wBUBEBuk2Jo",
         mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tuning/README.md",
-        tab: getCommon("cdn") + "/target/blogs/guitalele-tuning/tab.json",
+        tab: getCommon("cdn") + "/target/blogs/guitalele-tuning/tab.txt",
     },
     {
         id: "guitalele-tab-quick-view",
