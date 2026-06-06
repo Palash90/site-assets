@@ -1,0 +1,14 @@
+================================================================================
+Score: Unnamed Musical Score
+Time Signature: 4/4
+Instrument: Guitalele
+Capo: 0
+Description: 
+================================================================================
+3f1sq  5f1se 2f1se 3f1sq 5f1se 2f1se
+3f1sq 5f1se 2f1se 3f1se 7f1ss 5f1se.  3f1se
+3f1sq  5f1se 2f1se 3f1sq 5f1se 2f1se
+3f1sq 5f1se 2f1se 3f1se 7f1ss 5f1se.  3f1se
+3f1sq  5f1se 2f1se 3f1sq 5f1se 2f1se
+3f1sq 5f1se 2f1se 3f1se 7f1ss 5f1se.  3f1se
+3f1sh.t -q

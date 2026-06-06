@@ -36,9 +36,15 @@ var musicContents = [
         id: "guitalele-tab-guide",
         publishDate: "Jun 06, 2026",
         title: "Guitalele Tab Shorthand Guide",
-        mdUrl:
+        mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tab-guide/README.md"
+    },
+    {
+        id: "guitalele-unnamed-musical-tab",
+        publishDate: "Jun 07, 2026",
+        title: "Unnamed Musical Score",
+        tab:
             getCommon("cdn") +
-            "/target/blogs/guitalele-tab-guide/README.md",
+            "/target/blogs/guitalele-tabs/Unnamed.txt"
     }
 ];
 
