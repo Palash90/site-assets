@@ -35,6 +35,14 @@ var musicContents = [
             getCommon("cdn") +
             "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
     },
+     {
+        id: "twinkle-twinkle-tab",
+        publishDate: "Jun 07, 2026",
+        title: "Twinkle Twinkle Little Star",
+        tab:
+            getCommon("cdn") +
+            "/target/blogs/guitalele-tabs/twinkle-twinkle.txt"
+    },
     {
         id: "guitalele-unnamed-musical-tab",
         publishDate: "Jun 07, 2026",

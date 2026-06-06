@@ -1,0 +1,19 @@
+================================================================================
+Score: Twinkle Twinkle Little Star
+Time Signature: 4/4
+Instrument: Guitalele
+Capo: 0
+Description: A famous rhyme
+================================================================================
+0f3sq 0f3sq 3f2sq 3f2sq
+5f2sq 5f2sq 3f2sh
+1f2sq 1f2sq 0f2sq 0f2sq
+2f3sq 2f3sq 0f3sh
+3f2sq 3f2sq 1f2sq 1f2sq
+0f2sq 0f2sq 2f3sh
+3f2sq 3f2sq 1f2sq 1f2sq
+0f2sq 0f2sq 2f3sh
+0f3sq 0f3sq 3f2sq 3f2sq
+5f2sq 5f2sq 3f2sh
+1f2sq 1f2sq 0f2sq 0f2sq
+2f3sq 2f3sq 0f3sh
