@@ -1,0 +1,22 @@
+================================================================================
+Score: Mary Had a Little Lamb
+Time Signature: 2/4
+Instrument: Guitalele
+Capo: 0
+Description: A classic nursery rhyme arrangement mapped accurately to standard Guitalele tuning (ADGCEA)
+================================================================================
+4f3sq 2f3sq
+0f3sq 2f3sq
+4f3sq 4f3sq
+4f3sh
+2f3sq 2f3sq
+2f3sh
+4f3sq 3f2sq
+3f2sh
+4f3sq 2f3sq
+0f3sq 2f3sq
+4f3sq 4f3sq
+4f3sq 4f3sq
+2f3sq 2f3sq
+4f3sq 2f3sq
+0f3sh

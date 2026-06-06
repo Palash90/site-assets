@@ -22,21 +22,18 @@ var musicContents = [
             "/target/blogs/tab-reading-quick-ref/GUITALELE_QUICK_REFERENCE.md"
     },
     {
-        id: "guitalele-tab-reading-guide",
-        publishDate: "May 30, 2026",
-        title: "Guitalele Tab Reading Guide",
-        mdUrl:
-            getCommon("cdn") +
-            "/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md",
-        tab:
-            getCommon("cdn") +
-            "/target/blogs/tab-reading-quick-ref/guitaleleFoundations.txt"
-    },
-    {
         id: "guitalele-tab-guide",
         publishDate: "Jun 06, 2026",
         title: "Guitalele Tab Shorthand Guide",
         mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tab-guide/README.md"
+    },
+    {
+        id: "mary-had-a-little-lamb-tab",
+        publishDate: "Jun 07, 2026",
+        title: "Mary Had A Little Lamb",
+        tab:
+            getCommon("cdn") +
+            "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
     },
     {
         id: "guitalele-unnamed-musical-tab",
