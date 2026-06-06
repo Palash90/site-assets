@@ -33,7 +33,7 @@ var musicContents = [
             "/target/blogs/tab-reading-quick-ref/guitaleleFoundations.txt"
     },
     {
-        id: "guitalele-tab-shorthand-guide",
+        id: "guitalele-tab-guide",
         publishDate: "Jun 06, 2026",
         title: "Guitalele Tab Shorthand Guide",
         mdUrl:
