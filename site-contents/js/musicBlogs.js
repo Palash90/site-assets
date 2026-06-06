@@ -38,7 +38,7 @@ var musicContents = [
         title: "Guitalele Tab Shorthand Guide",
         mdUrl:
             getCommon("cdn") +
-            "/target/blogs/guitatele-tab-guide/README.md",
+            "/target/blogs/guitalele-tab-guide/README.md",
     }
 ];
 
