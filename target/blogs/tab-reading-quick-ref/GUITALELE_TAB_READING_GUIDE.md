@@ -1,4 +1,4 @@
-# 𝄞 Guitalele Tab Viewer: Musician's Practice Manual
+# 𝄞 Guitalele Tab Viewer: Reader's Guide
 
 Welcome to the **Guitalele Tab Viewer**! This interactive songbook is a practice tool made specifically for the guitalele—a travel-friendly 6-string instrument tuned like a classical guitar but downsized to the body of a ukulele.
 
