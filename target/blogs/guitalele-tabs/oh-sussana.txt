@@ -2,7 +2,7 @@
 Score: Oh sussana
 Time Signature: 4/4
 Instrument: Guitalele
-Capo: -2
+Capo: 0
 Description: 
 ================================================================================
 -h -q 2f3se 4f3se
