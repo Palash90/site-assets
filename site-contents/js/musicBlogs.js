@@ -16,10 +16,10 @@ var musicContents = [
     {
         id: "guitalele-tab-quick-view",
         publishDate: "May 29, 2026",
-        title: "Guitalele Tab Reading Quick Reference",
+        title: "Guitalele Tab Reading Guide",
         mdUrl:
             getCommon("cdn") +
-            "/target/blogs/tab-reading-quick-ref/GUITALELE_QUICK_REFERENCE.md"
+            "/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md"
     },
     {
         id: "guitalele-tab-guide",

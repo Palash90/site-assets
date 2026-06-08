@@ -1,238 +1,118 @@
-# 𝄞 Guitalele Tabs Guide: Learn Sheet Music & Tab Reading for Beginners
+# 𝄞 Guitalele Tab Viewer: Musician's Practice Manual
 
-## Table of Contents
-1. [Why Sheet Music Exists](#why-sheet-music-exists)
-2. [What Are Tabs?](#what-are-tabs)
-3. [The Guitalele Viewer: Features & Capabilities](#the-guitalele-viewer-features--capabilities)
-4. [Reading the Code-Based Tabs](#reading-the-code-based-tabs)
-5. [A Complete 4/4 Score Example](#a-complete-44-score-example)
-6. [Understanding Each Notation Layer](#understanding-each-notation-layer)
+Welcome to the **Guitalele Tab Viewer**! This interactive songbook is a practice tool made specifically for the guitalele—a travel-friendly 6-string instrument tuned like a classical guitar but downsized to the body of a ukulele.
+
+This guide focuses strictly on what you need to know as a musician reading the music, tracking your place, and using the player to practice effectively.
 
 ---
 
-## Why Sheet Music Exists
+## 1. Interface & Layout Overview
 
-### The Problem Without Sheet Music
-Imagine trying to describe a melody to a friend without any symbols—you'd say things like "go up a little, then down a lot, then hold for a moment." This is vague, non-standardized, and impossible to replicate precisely across different performers and instruments.
+When you open a song, the viewer dynamically arranges itself to fit your screen. On a computer or large tablet, it displays up to **4 measures per line** so you can see long musical phrases at once. On a mobile phone, it automatically refolds down to **1 or 2 measures per line** so you never have to pinch or zoom to see your music.
 
-### The Solution: Universal Notation
-**Sheet music is a visual language that solves three critical problems:**
+The screen is split into three main regions:
 
-#### 1. **Pitch (What notes to play)**
-Music notation uses a **staff** (five horizontal lines) to represent different pitches. The higher a note sits on the staff, the higher the pitch. This allows musicians to:
-- Know exactly which note to play
-- Transpose songs to different keys
-- Understand harmonic structure
-
-#### 2. **Duration (How long to play each note)**
-Different note shapes tell you how long to hold a note:
-- **Whole note** (𝅝): 4 beats
-- **Half note** (𝅗𝅥): 2 beats  
-- **Quarter note** (♩): 1 beat
-- **Eighth note** (♪): 0.5 beats
-- **Sixteenth note** (𝅘𝅥𝅘𝅥): 0.25 beats
-
-#### 3. **Rhythm (When to play it)**
-Time signatures, rests, and tempo markings tell you the rhythmic framework—like a musical heartbeat. They answer questions like "How many beats per measure?" and "When do I pause?"
-
-### Why Multiple Notations Matter
-- **Standard Staff**: Shows the absolute pitch and maintains theoretical understanding
-- **Tablature (Tabs)**: Shows the *physical location* on an instrument—beginner-friendly and intuitive
+* **The Top Control Bar**: Where you play, pause, stop, and change the speed of the song.
+* **The Main Notation Canvas**: The interactive sheet music running down the center of the page.
+* **The Floating Sidebar**: A context window on the right side of your screen that dynamically updates with information about whatever note you are playing or hovering over.
 
 ---
 
-## What Are Tabs?
+## 2. Reading the Interactive Sheet Music
 
-### Simple Definition
-Tablature (or "tabs") is a **visual map of your instrument** showing:
-- **Which string to play** (horizontal line)
-- **Which fret to press** (number on the line)
-- **When to play it** (left to right, time flows forward)
-
-### Guitalele Tuning
-A guitalele has **6 strings**, tuned from lowest (thickest) to highest (thinnest):
+Each musical line combines three different views stacked vertically. This layout helps you track your melody, accompaniment, string positions, and rhythms simultaneously.
 
 ```
-String 6: A2  (lowest, thickest)
-String 5: D3
-String 4: G3
-String 3: C4  (Middle C)
-String 2: E4
-String 1: A4  (highest, thinnest)
++------------------------------------------------------------+
+| [1] Standard Staves  --> Classic sheet music notation      |
+|                                                            |
+| [2] Guitalele TAB    --> String lines and fret numbers     |
+|                                                            |
+| [3] Rhythm Lane      --> Quick-reference timing symbols    |
++------------------------------------------------------------+
+
 ```
 
-### Reading a Tab Line
-```
-A simple tab might look like this:
+### [1] Standard Notation Staves (Top Rows)
 
-TAB
-String 1: ——3————5————0————
-String 2: ——0————0————3————
-String 3: ——2————1————2————
-String 4: ——1————0————1————
-String 5: ——0————2————0————
-String 6: ————————————————
-```
+To give you a complete picture of the music, the viewer splits notes across two traditional clefs:
 
-**What it means:**
-- Play fret 3 on string 1 (thinnest)
-- Then play fret 0 (open string) on string 2
-- Then fret 2 on string 3
-- And so on...
+* **Treble Clef Staff**: Displays your higher-pitched notes (usually your melody).
+* **Bass Clef Staff**: Displays your lower-pitched notes (usually your basslines).
+* **Stem Directions (Multi-Voice Coding)**: If a song has two independent parts playing at the same time—such as a thumb-picked bassline and a fingerpicked melody line—the notes for the melody will have their stems pointing **up**, while the bass notes will have their stems pointing **down**.
+
+### [2] Guitalele Tablature / TAB (Middle Rows)
+
+The 6 horizontal lines represent the 6 strings of your guitalele, viewed as if you were looking down at the fretboard while holding it.
+
+* **The String Tuning**: Because a guitalele is tuned a perfect fourth higher than a regular guitar (**A - D - G - C - E - A**), the lines represent:
+* **Top Line (String 1)**: The thinnest, highest-pitched string (**A4**).
+* **Bottom Line (String 6)**: The thickest, lowest-pitched string (**A2**).
+
+
+* **Fret Numbers**: Numbers placed on these lines tell you exactly where to press your finger. A `0` indicates an open string (pluck it without holding down any fret).
+
+### [3] Rhythm Lane (Bottom Row)
+
+At the base of the layout is a dedicated rhythm guide. It uses clean, text-based shorthand symbols underneath the notes so you can instantly judge note lengths without counting complex flags:
+
+* **`o`** = Whole note (4 beats)
+* **`.`** = Half note (2 beats)
+* **`:`** = Quarter note (1 beat)
+* **`+`** = Eighth note (1/2 beat)
+* **`=`** = Sixteenth note (1/4 beat)
+* *A dot right next to a symbol (e.g., `:.`) multiplies its baseline duration by 1.5.*
+* *Any symbol starting with **`r`** (such as `r`, `r+`, `r=`) represents a **rest**—a period of explicit silence lasting for that exact length.*
 
 ---
 
-## The Guitalele Tab Viewer: Features & Capabilities
-As Guitalele is not a very common instrument and even lacks a lot of tutorials compared to its mainstream instruments like Guitar or Ukulele. Consequently, not many websites encourage writing tabs for Guitalele. 
+## 3. Playback Controls & Practice Tools
 
-Another problem I feel, even guitar tabs also lack a certain features.
+The top dashboard houses tools to customize how you listen and play along with a piece.
 
-Hence to solve this problem, I have came up with this idea of the Guitalele Tab Viewer, which currently only features already written tabs. In future I have plans to even support editing tabs.
-
-However, to use the tabs I would share now onwards specific for guitalele, will be available here free of cost and no sign up required.
-
-Following are few features that this tool will support:
-
-### 🎯 Core Features
-
-#### 1. **Dual Staff Notation (Grand Staff)**
-```
-┌─────────────────────────────┐
-│  Treble Clef (𝄞)            │  ← High notes
-│  for higher pitches         │
-├─────────────────────────────┤
-│  Bass Clef (𝄢)              │  ← Low notes  
-│  for lower pitches          │
-└─────────────────────────────┘
-```
-
-**Why staves?**
-
-In my opinion, posing the knowledge of classical musical notation is always a good idea. This lets you communicate with other musicians freely. In this tool I have kept stave notations along with Guitalele Tabs such that you can view side by side and form a habit of looking at the staff notations and play.
-
-**Why two staves?**
-- **Treble Clef** (𝄞): Shows notes from frets on strings 1-3 (higher pitches)
-- **Bass Clef** (𝄢): Shows notes from frets on strings 4-6 (lower pitches)
-- Together they form the **Grand Staff**, allowing a wider pitch range for 78 notes of Guitalele
+* **Play (`▶`) & Pause (`||`)**: Click Play to kick off the audio engine, which synthesizes a nylon-string acoustic guitalele sound on the fly. Click Pause to freeze the song at an exact spot so you can adjust your fingers or practice an awkward chord shift.
+* **Stop (`■`)**: Instantly silences all ringing notes and rewinds the tracking cursor back to the absolute beginning of the song.
+* **BPM (Beats Per Minute) Slider**: Slowing down a piece is one of the best ways to practice. Drag the slider to the left to decelerate a blazing fast solo, or drag it to the right to pick up the tempo.
+* *Note: To protect the audio timing loop from glitching, the speed slider locks while a song is playing. Simply hit Stop to unlock it, slide to your new speed, and restart.*
 
 
-#### 2. **Six-Line Tablature System**
-The guitalele's 6 strings are represented as 6 horizontal lines:
-- String numbers (1-6) displayed on the left
-- Fret numbers appear on their respective lines
-- **Rest symbol (𝄾)** appears when no note is played
-
-#### 3. **Rhythm Notation Layer (which many standard Guitar tabs miss)**
-A dedicated lane below the staff showing:
-- The **rhythm symbol** for each note (e.g., 'o', '.', ':', 'x')
-- **Rhythmic feel** of the piece at a glance
-- **Ties** (curved lines) connecting notes that sustain across beats
-
-#### 4. **Note Duration Recognition**:
-
-The following rhythm durations are based on a standard 4/4 time signature, which is the most common signature. The tool also supports many other common time signatures like 3/4, 2/4, 6/8, 2/2 etc.
-
-| Duration | Rhythm Symbol | Appearance |
-|----------|---------------|------------|
-| 4.0 beats | `o` | Whole note (hollow) |
-| 3.0 beats | `..` | Dotted half note |
-| 2.0 beats | `.` | Half note (hollow) |
-| 1.5 beats | `:.` | Dotted quarter |
-| 1.0 beat | `:` | Quarter note (filled) |
-| 0.5 beats | `+` | Eighth note |
-| 0.25 beats | `=` | Sixteenth note |
-
-#### 5. **Ledger Lines Beyond the Staff**
-For notes that go beyond the 5 staff lines:
-- **Upper ledgers**: For very high notes on strings 1-2
-- **Lower ledgers**: For very low notes on strings 5-6
-
-#### 6. **Visual Accidentals (Sharps)**
-The symbol **♯** appears after notes that are sharp:
-- Moves down 1 fret from natural note
-- Placed cleanly before the notehead for clarity
-
-#### 7. **Measure Management**
-- **Automatic line wrapping**: Fits up to 4 measures per row
-- **Barlines**: Vertical lines separating measures
-- **Time signature display**: Shown at the beginning of each row
-
-
+* **Automatic View Tracking**: As the song plays, a bright highlighter tracks the current notes. When the tracker moves to a new row, the screen automatically scrolls smoothly to position the active line at the top of your screen, keeping your hands free for your instrument.
 
 ---
 
-## Understanding Each Notation Layer
+## 4. Using the Interactive Sidebar
 
-### Visual Breakdown of Measure 7 (Complex Example)
+The sidebar on the right side of the screen functions as a live translator for your sheet music.
 
 ```
-WHAT YOU SEE IN GUITALELE VIEWER:
++------------------------------+
+|     CURRENT NOTE DETAILS     |
+|==============================|
+| MEASURE: 4                   |
+| VOICE: 1 (Melody)            |
+| TYPE: QUARTER NOTE    |
+|                              |
+| FRETBOARD POSITIONS:         |
+| • Note: E4  -> String 2, F0  |
+| • Note: C4  -> String 3, F0  |
++------------------------------+
 
-┌─────────────────────────────────────────────────────┐
-│ Standard Music Notation (Grand Staff)               │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  𝄞  ═══════════════════════════════════════════     | Treble
-│      (High notes, string 1-3)                       │
-│                                                     │
-│  𝄢  ═══════════════════════════════════════════     | Bass  
-│      (Low notes, string 4-6)                        │
-│                                                     │
-├─────────────────────────────────────────────────────┤
-│ Tablature (6 Strings)                               │
-├─────────────────────────────────────────────────────┤
-│ 1: 12 13 14 15 12      14     —                     │ Highest
-│ 2: ── ── ── ── ── ── ── ── ──                       │
-│ 3: ── ── ── ── ── ── ── ── ──                       │
-│ 4: ── ── ── ── ── ── ── ── ──                       │
-│ 5: ── ── ── ── ── ── ── ── ──                       │
-│ 6: ── ── ── ── ── ── ── ── ──                       │ Lowest
-├─────────────────────────────────────────────────────┤
-│ Rhythm Lane (Bottom)                                │
-├─────────────────────────────────────────────────────┤
-│  = = = =           :.              +       x        │
-│  (Four sixteenths, dotted quarter, eighth, rest)    │
-└─────────────────────────────────────────────────────┘
-
-INFORMATION CONVEYED:
-✓ Pitch (which notes) - from staff position
-✓ Duration (how long) - from note shape + rhythm symbols
-✓ String & Fret (how to play) - from tab numbers
-✓ Timing (when exactly) - from left-to-right position
-✓ Sustained notes (ties) - from curve lines in rhythm lane
 ```
+
+Whenever you pause the music and hover your mouse over or tap into a note cluster on the canvas, the sidebar decodes it into plain English. It tells you:
+
+1. **The Measure Number** and which structural track layer (Voice 1 melody or Voice 2 bass) the note belongs to.
+2. **The Exact Rhythmic Value** typed out cleanly (e.g., `"Eighth Note"` or `"Dotted Quarter Note"`).
+3. **The Note Map**: A bulleted breakdown of every single note in that chord, showing the traditional letter name (like `C#` or `E`), which string to play, and which fret to press.
 
 ---
 
-## Key Features Summary
+## 5. Identifying Song Errors (Red Measures)
 
-### ✅ What This Viewer Handles
+The viewer is equipped with an automated time checker. If a song file has a rhythmic error (for instance, if a bar accidentally contains 4.5 beats instead of 4 beats), the viewer marks it right on your screen.
 
-| Feature | Implementation | Benefit |
-|---------|-----------------|---------|
-| **Dual Clefs** | Treble + Bass staves | Shows full range A2→A5 |
-| **Register Tracking** | Auto-switches clefs | Pitch stays legible |
-| **All Note Values** | Whole to sixteenth | Complete rhythmic notation |
-| **Dotted Notes** | `.` symbol in notation | Recognizes triplet feel |
-| **Rests** | Special notation `x*` | Shows where NOT to play |
-| **Ties Across Beats** |tie arc connecting two notes | Sustains notes naturally |
-| **Ledger Lines** | Auto-generated | Handles extreme ranges |
-| **Sharp Notation** | `♯` symbol | Affects pitch display |
-| **Syncopation** | Beat offset support | Complex rhythms possible |
-| **Multi-Row Layout** | Auto-wrapping | Fits long pieces on screen |
+If a measure turns a **translucent red color** and displays a warning symbol ($\triangle$) near the measure number, that signifies a time imbalance.
 
-### 🎯 Guitalele-Specific
-
-- **6-String Mapping**: Each string shows its number + fret positions
-- **Tuning Aware**: C4 anchor point (Middle C on string 3)
-- **TAB Labeling**: "TAB" indicator + string numbers
-- **Measure Boundaries**: Barlines + time signatures
-- **Fret Range**: Supports 0-16 frets per string
-
----
-
-## Practice
-
-Below this section, you will find a Guitalele Tab section. Please hover over the notes to read about it.
-
-**Happy Playing! 🎸 May your melodies flow as smoothly as an open string!**
+* Look right below the TAB lines for a status stamp like `v1: 3.50 / 4.00`.
+* This tells you that Voice 1 in this bar only adds up to 3.5 beats instead of the required 4.0.
+* While the player will still attempt to play through the mistake, seeing this red block lets you know why a specific measure might sound rushed, skipped, or structurally uneven.
