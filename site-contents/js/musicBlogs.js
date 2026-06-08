@@ -19,13 +19,10 @@ var musicContents = [
         title: "Guitalele Tab Reading Guide",
         mdUrl:
             getCommon("cdn") +
-            "/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md"
-    },
-    {
-        id: "guitalele-tab-guide",
-        publishDate: "Jun 06, 2026",
-        title: "Guitalele Tab Shorthand Guide",
-        mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tab-guide/README.md"
+            "/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md",
+        tab:
+            getCommon("cdn") +
+            "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
     },
     {
         id: "mary-had-a-little-lamb-tab",
@@ -35,7 +32,7 @@ var musicContents = [
             getCommon("cdn") +
             "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
     },
-     {
+    {
         id: "twinkle-twinkle-tab",
         publishDate: "Jun 07, 2026",
         title: "Twinkle Twinkle Little Star",

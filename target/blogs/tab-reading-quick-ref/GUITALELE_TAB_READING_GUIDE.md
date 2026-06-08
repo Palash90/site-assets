@@ -116,3 +116,7 @@ If a measure turns a **translucent red color** and displays a warning symbol ($\
 * Look right below the TAB lines for a status stamp like `v1: 3.50 / 4.00`.
 * This tells you that Voice 1 in this bar only adds up to 3.5 beats instead of the required 4.0.
 * While the player will still attempt to play through the mistake, seeing this red block lets you know why a specific measure might sound rushed, skipped, or structurally uneven.
+
+## 6.Sample
+
+For a quick review, the notations for the song 'Mary Had A Little Lamb' has been associated with this guide.
