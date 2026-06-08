@@ -47,6 +47,14 @@ var musicContents = [
         tab:
             getCommon("cdn") +
             "/target/blogs/guitalele-tabs/Unnamed.txt"
+    },
+    {
+        id: "oh-sussana-tab",
+        publishDate: "Jun 08, 2026",
+        title: "Oh Sussana",
+        tab:
+            getCommon("cdn") +
+            "/target/blogs/guitalele-tabs/oh-sussana.txt"
     }
 ];
 
