@@ -1,122 +1,161 @@
-# 𝄞 Guitalele Tab Viewer: Reader's Guide
+# Guitalele Tab Viewer – Quick Start Guide
 
-Welcome to the **Guitalele Tab Viewer**! This interactive songbook is a practice tool made specifically for the guitalele—a travel-friendly 6-string instrument tuned like a classical guitar but downsized to the body of a ukulele.
+Welcome!
+This site helps you learn fingerpicked songs and melodies on the guitalele using TAB, notation, and built-in playback.
 
-This guide focuses strictly on what you need to know as a musician reading the music, tracking your place, and using the player to practice effectively.
-
----
-
-## 1. Interface & Layout Overview
-
-When you open a song, the viewer dynamically arranges itself to fit your screen. On a computer or large tablet, it displays up to **4 measures per line** so you can see long musical phrases at once. On a mobile phone, it automatically refolds down to **1 or 2 measures per line** so you never have to pinch or zoom to see your music.
-
-The screen is split into three main regions:
-
-* **The Top Control Bar**: Where you play, pause, stop, and change the speed of the song.
-* **The Main Notation Canvas**: The interactive sheet music running down the center of the page.
-* **The Floating Sidebar**: A context window on the right side of your screen that dynamically updates with information about whatever note you are playing or hovering over.
+If you already know a few basic chords, you're ready to start playing these arrangements right away.
 
 ---
 
-## 2. Reading the Interactive Sheet Music
+## What You're Looking At
 
-Each musical line combines three different views stacked vertically. This layout helps you track your melody, accompaniment, string positions, and rhythms simultaneously.
+Each line of music is shown in three parts:
 
-```
-+------------------------------------------------------------+
-| [1] Standard Staves  --> Classic sheet music notation      |
-|                                                            |
-| [2] Guitalele TAB    --> String lines and fret numbers     |
-|                                                            |
-| [3] Rhythm Lane      --> Quick-reference timing symbols    |
-+------------------------------------------------------------+
+### Standard Notation (Top)
 
-```
+Traditional sheet music showing the notes and rhythm.
 
-### [1] Standard Notation Staves (Top Rows)
+If you don't read standard notation yet, don't worry—the TAB directly underneath contains everything you need to play the song.
 
-To give you a complete picture of the music, the viewer splits notes across two traditional clefs:
+### Guitalele TAB (Middle)
 
-* **Treble Clef Staff**: Displays your higher-pitched notes (usually your melody).
-* **Bass Clef Staff**: Displays your lower-pitched notes (usually your basslines).
-* **Stem Directions (Multi-Voice Coding)**: If a song has two independent parts playing at the same time—such as a thumb-picked bassline and a fingerpicked melody line—the notes for the melody will have their stems pointing **up**, while the bass notes will have their stems pointing **down**.
+The TAB tells you exactly where to place your fingers.
 
-### [2] Guitalele Tablature / TAB (Middle Rows)
+The six lines represent the six strings of your guitalele:
 
-The 6 horizontal lines represent the 6 strings of your guitalele, viewed as if you were looking down at the fretboard while holding it.
+String 1 (highest pitch)  ─ Top line
+String 6 (lowest pitch)   ─ Bottom line
 
-* **The String Tuning**: Because a guitalele is tuned a perfect fourth higher than a regular guitar (**A - D - G - C - E - A**), the lines represent:
-* **Top Line (String 1)**: The thinnest, highest-pitched string (**A4**).
-* **Bottom Line (String 6)**: The thickest, lowest-pitched string (**A2**).
+The number tells you which fret to press.
 
+Examples:
 
-* **Fret Numbers**: Numbers placed on these lines tell you exactly where to press your finger. A `0` indicates an open string (pluck it without holding down any fret).
+0 = Open string
+2 = Second fret
+4 = Fourth fret
 
-### [3] Rhythm Lane (Bottom Row)
+Read TAB from left to right.
 
-At the base of the layout is a dedicated rhythm guide. It uses clean, text-based shorthand symbols underneath the notes so you can instantly judge note lengths without counting complex flags:
+### Rhythm Lane (Bottom)
 
-* **`o`** = Whole note (4 beats)
-* **`.`** = Half note (2 beats)
-* **`:`** = Quarter note (1 beat)
-* **`+`** = Eighth note (1/2 beat)
-* **`=`** = Sixteenth note (1/4 beat)
-* *A dot right next to a symbol (e.g., `:.`) multiplies its baseline duration by 1.5.*
-* *Any symbol starting with **`r`** (such as `r`, `r+`, `r=`) represents a **rest**—a period of explicit silence lasting for that exact length.*
+The Rhythm Lane gives you a quick way to see note lengths at a glance.
 
----
+`=`  Sixteenth note (¼ beat)
 
-## 3. Playback Controls & Practice Tools
+`+`  Eighth note (½ beat)
+  
+`:` Quarter note (1 beat)
 
-The top dashboard houses tools to customize how you listen and play along with a piece.
+`.` Half note (2 beats)
 
-* **Play (`▶`) & Pause (`||`)**: Click Play to kick off the audio engine, which synthesizes a nylon-string acoustic guitalele sound on the fly. Click Pause to freeze the song at an exact spot so you can adjust your fingers or practice an awkward chord shift.
-* **Stop (`■`)**: Instantly silences all ringing notes and rewinds the tracking cursor back to the absolute beginning of the song.
-* **BPM (Beats Per Minute) Slider**: Slowing down a piece is one of the best ways to practice. Drag the slider to the left to decelerate a blazing fast solo, or drag it to the right to pick up the tempo.
-* *Note: To protect the audio timing loop from glitching, the speed slider locks while a song is playing. Simply hit Stop to unlock it, slide to your new speed, and restart.*
+`o` Whole note (4 beats)
 
+A dot after a symbol makes the note 50% longer.
 
-* **Automatic View Tracking**: As the song plays, a bright highlighter tracks the current notes. When the tracker moves to a new row, the screen automatically scrolls smoothly to position the active line at the top of your screen, keeping your hands free for your instrument.
+Examples:
 
----
+`+.` = Dotted eightth note
 
-## 4. Using the Interactive Sidebar
+`:.` = Dotted quarter note
 
-The sidebar on the right side of the screen functions as a live translator for your sheet music.
+`..` = Dotted half note
 
-```
-+------------------------------+
-|     CURRENT NOTE DETAILS     |
-|==============================|
-| MEASURE: 4                   |
-| VOICE: 1 (Melody)            |
-| TYPE: QUARTER NOTE    |
-|                              |
-| FRETBOARD POSITIONS:         |
-| • Note: E4  -> String 2, F0  |
-| • Note: C4  -> String 3, F0  |
-+------------------------------+
+`o.` = Dotted whole note
 
-```
+Rests begin with "r":
 
-Whenever you pause the music and hover your mouse over or tap into a note cluster on the canvas, the sidebar decodes it into plain English. It tells you:
+`r:` = Quarter rest
+`r+` = Eighth rest
 
-1. **The Measure Number** and which structural track layer (Voice 1 melody or Voice 2 bass) the note belongs to.
-2. **The Exact Rhythmic Value** typed out cleanly (e.g., `"Eighth Note"` or `"Dotted Quarter Note"`).
-3. **The Note Map**: A bulleted breakdown of every single note in that chord, showing the traditional letter name (like `C#` or `E`), which string to play, and which fret to press.
+If you're already comfortable counting beats, the rhythm lane is usually all you'll need.
 
 ---
 
-## 5. Identifying Song Errors (Red Measures)
+## Do The TAB And The Notes Match?
 
-The viewer is equipped with an automated time checker. If a song file has a rhythmic error (for instance, if a bar accidentally contains 4.5 beats instead of 4 beats), the viewer marks it right on your screen.
+Yes. The notation and TAB represent the same notes. The notation shows the music, while the TAB shows exactly where to play it on the guitalele.
 
-If a measure turns a **translucent red color** and displays a warning symbol ($\triangle$) near the measure number, that signifies a time imbalance.
+---
 
-* Look right below the TAB lines for a status stamp like `v1: 3.50 / 4.00`.
-* This tells you that Voice 1 in this bar only adds up to 3.5 beats instead of the required 4.0.
-* While the player will still attempt to play through the mistake, seeing this red block lets you know why a specific measure might sound rushed, skipped, or structurally uneven.
+## Playing A Song
 
-## 6.Sample
+### Play
 
-For a quick review, the notations for the song 'Mary Had A Little Lamb' has been associated with this guide.
+Press ▶ to start playback.
+
+The viewer highlights the notes currently being played so you can follow along.
+
+### Pause
+
+Press || to stop at your current position.
+
+Use this when practicing difficult passages.
+
+### Stop
+
+Press ■ to stop playback and return to the beginning.
+
+---
+
+## Adjusting Practice Speed
+
+Use the BPM slider to control tempo.
+
+Lower BPM = slower playback
+
+Higher BPM = faster playback
+
+A good practice approach is:
+
+1. Start slowly.
+2. Play cleanly.
+3. Increase speed gradually.
+
+---
+
+## Following The Music
+
+As the song plays:
+
+* The current notes are highlighted.
+* The viewer automatically scrolls to keep the active measure visible.
+* You can focus on your instrument instead of manually scrolling.
+
+---
+
+## Note Information
+
+Click or hover over a note to see additional details.
+
+The information panel shows:
+
+* Measure number
+* Note duration
+* Note names
+* String and fret positions
+* Performance notes and annotations
+
+This is especially useful when learning unfamiliar passages.
+
+---
+
+## Suggested Practice Method
+
+1. Listen to the song once.
+2. Reduce the BPM if necessary.
+3. Follow the TAB while listening.
+4. Play one measure at a time.
+5. Gradually connect measures together.
+6. Increase tempo only after you can play the passage cleanly.
+
+Remember: accuracy first, speed second.
+
+---
+
+## Example
+
+Attached is a simple nursery rhymes for you to get started.
+
+Follow the TAB, listen to the playback, and practice one measure at a time.
+
+Enjoy playing!
