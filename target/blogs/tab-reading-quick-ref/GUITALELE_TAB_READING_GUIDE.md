@@ -64,7 +64,10 @@ Examples:
 
 Rests begin with "r":
 
+`r=` = Sixteenth rest
+
 `r:` = Quarter rest
+
 `r+` = Eighth rest
 
 If you're already comfortable counting beats, the rhythm lane is usually all you'll need.
