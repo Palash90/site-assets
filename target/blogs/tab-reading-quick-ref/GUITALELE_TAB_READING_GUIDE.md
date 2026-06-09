@@ -95,6 +95,12 @@ Use this when practicing difficult passages.
 
 Press ■ to stop playback and return to the beginning.
 
+### Metronome
+
+The built-in basic metronome helps you stay in time while practicing.
+
+The first beat of each measure is highlighted and accented differently from the remaining beats, making it easier to hear and follow the rhythm.
+
 ---
 
 ## Adjusting Practice Speed
@@ -133,7 +139,6 @@ The information panel shows:
 * Note duration
 * Note names
 * String and fret positions
-* Performance notes and annotations
 
 This is especially useful when learning unfamiliar passages.
 
@@ -149,6 +154,18 @@ This is especially useful when learning unfamiliar passages.
 6. Increase tempo only after you can play the passage cleanly.
 
 Remember: accuracy first, speed second.
+
+---
+
+## Advanced Feature
+
+### Multiple Voices (V1 / V2)
+
+Some arrangements contain separate melody and bass lines that are played simultaneously.
+
+Voice 1 typically contains the melody.
+
+Voice 2 typically contains the bass or accompaniment.
 
 ---
 
