@@ -170,6 +170,8 @@ Voice 1 typically contains the melody.
 
 Voice 2 typically contains the bass or accompaniment.
 
+When both are present, they are played at the same time.
+
 ---
 
 ## Example
