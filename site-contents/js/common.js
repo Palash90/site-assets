@@ -1,6 +1,6 @@
 const staticMap = {
     cdn: "https://palash90.github.io/site-assets",
-    path_var: "/#",
+    path_var: "/",
     raw_content_cdn: "https://raw.githubusercontent.com/Palash90",
     
     themeHeaderColor: "", // tomato -- dealt in app.css custom theme
