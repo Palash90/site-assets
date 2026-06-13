@@ -13,7 +13,7 @@ Description:
 -hv2 0f2sq 0f2sq [1f2s 0f3s 2f4s]hv2d:F_Major_Chord 1f2sq 3f2sq
 -hv2 3f2sq 1f2sq [0f2s 0f3s 0f4s]hv2d:C_Major_Chord 0f2sq 2f3sq
 [0f4s 0f3s]wv2d:C5_Chord 0f3sq 0f3sq 2f3sq 0f2sq
-[2f3s 0f4s]hv2 -q -e -hv2 0f3se 0f3sh
+[2f3s 0f4s]hv2d:G5_Chord -q -e -hv2 0f3se 0f3sh
 
 [2f3s 0f4s]wv2 -q 2f3sq 0f2sq 0f3sq
 [2f3s 0f4s]wv2 -q 0f2se 1f2se 0f2sq 0f3sq
