@@ -33,11 +33,11 @@ const projects = [
         githubUrl: ""
     },
     {
-        id: "math-study",
+        id: "study",
         name: "Math Quiz",
-        desc: "A simple basic arithmatic operation quiz game for kids.",
+        desc: "A simple quiz game for kids.",
         type: "react",
-        playUrl: getCommon('path_var') + "/component/math-study",
+        playUrl: getCommon('path_var') + "/component/study",
         githubUrl: ""
     }
 ]
