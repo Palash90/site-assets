@@ -26,7 +26,7 @@ Once the states were completely disintegrated, I laid out the design of the word
 
 It has to be a collection of simple tasks:
 
-1. Have a few set of checkboxes for each language (almost copy paste from the Math App)
+1. Have a set of checkboxes for each language (almost copy paste from the Math App)
    ![Word Study Design Layout](https://palash90.github.io/site-assets/blogs//building-a-word-quiz/word-study-layout.png)
 2. Collect alphabets and words from a static context (similar to how I drove the equation handling)
 3. Show them on UI
@@ -39,7 +39,7 @@ A textbox that essentially takes input of another provided text with zero proces
 
 The kid has to do something for the input. The missing link was, the kid had to recognize the given letter or word. That's the processing step I completely overlooked.
 
-## Phase 3: Nannah Sipahi at Rescue
+## Phase 3: Nanah Sipahi at Rescue
 
 There comes the power of feedback from actual users. I routed my dilemma to my elder daughter and asked what would be a good way to handle the situation. Well, a very simple thought occured to her which I completely failed to recognize - "Why don't you simply ask her to read the word?"
 
@@ -81,7 +81,7 @@ To my surprise, I got to know Firefox does not support it. Thinking about the sc
 
 I ignored the first problem but could not escape the next one. The Speech Recognition api can't deal with single syllable voices. So, `a`, `b`, `क`, `ম`, `ಅ` are pretty difficult to manage. I read on internet about handling these stuffs with some tips and tricks.
 
-I tried a few but none of these actually worked for me reliably. So, I completely resorted to another solution. Instead of trying to recognize a letter, what if I try to recognize words.
+I tried a few, but none worked reliably. So, I completely resorted to another solution. Instead of trying to recognize a letter, what if I try to recognize words.
 
 And so I did.
 
@@ -91,11 +91,11 @@ I was happy I could actually use some words for the app to work with. I tested f
 
 Over excited me populated a list of 1000 common words for each language and re-ran the application.
 
-Nothing broke, everything worked fine. The app loads, the recoginitions work smoothly and everything.
+Nothing broke, everything worked fine. The app loads, the recognitions work smoothly and everything.
 
 Then I opened the network tab in the Inspect window. I saw megabytes of data transfer.
 
-If you are actually following my articles, you might already know that I am using `github pages` for hosting my static website and there is absolutely no server running for backend. Github although very generous in its usage limits for free tier, I still felt I should stop this data transfer. Data transfer rate was definitely one reason but the another reasons are very me:
+If you are actually following my articles, you might already know that I am using `github pages` for hosting my static website and there is absolutely no server running for backend. Github although very generous in its usage limits for free tier, I still felt I should stop this data transfer. Data transfer rate was definitely one reason. The other reasons are classic ‘me’.:
 
 1. I wanted to use lazy loading
 2. I was a little afraid of slowing down my website as it already handles a very big script file. If interested, [read here](https://palashkantikundu.in/content/setting-up-a-site-3)
