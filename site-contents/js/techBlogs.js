@@ -137,6 +137,12 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/read.md",
         publishDate: "Jan 22, 2026",
         contentType: "swe"
+    },{
+        id: "building-a-word-quiz",
+        title: "Building a Real-Time Voice-Driven Word Quiz from Scratch",
+        mdUrl: getCommon("cdn") + "/target/blogs/building-a-word-quiz/part-1.md",
+        publishDate: "Jun 15, 2026",
+        contentType: "swe"
     }
 ];
 

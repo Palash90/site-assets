@@ -35,6 +35,9 @@ const variableMap = {
     commonPath + "iron-learn/output803000.png",
   "iron-learn-10-timeline": commonPath + "iron-learn/timeline.gif",
   "iron-learn-10-512": commonPath + "iron-learn/output-512-reconstruction.png",
+  "word-quiz-study-layout": commonPath + "/building-a-word-quiz/word-study-layout.png",
+  "word-quiz-flawed-design": commonPath + "/building-a-word-quiz/flawed-design.png",
+  "word-quiz-current-design": commonPath + "/building-a-word-quiz/current-design.png"
 };
 
 // Function to replace patterns in a file
