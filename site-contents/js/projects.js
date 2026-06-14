@@ -34,7 +34,7 @@ const projects = [
     },
     {
         id: "study",
-        name: "Math Quiz",
+        name: "Quiz App",
         desc: "A simple quiz game for kids.",
         type: "react",
         playUrl: getCommon('path_var') + "/component/study",
