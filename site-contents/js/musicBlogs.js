@@ -29,7 +29,7 @@ var musicContents = [
         publishDate: "Aug 03, 2022",
         title: "Guitalele All Open Chords",
         videoId: "goFLzPdH7D4",
-        tab: getCommon("cdn") + "/target/blogs/guitalele-tuning/all-open-chords.txt"
+        tab: getCommon("cdn") + "/target/blogs/guitalele-tabs/all-open-chords.txt"
     },
     {
         id: "oh-sussana-tab",
