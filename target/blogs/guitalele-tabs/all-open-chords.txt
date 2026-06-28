@@ -1,0 +1,18 @@
+================================================================================
+Score: All Open Chords
+Time Signature: 4/4
+Instrument: Guitalele
+Capo: 0
+Description: 
+================================================================================
+[2f1s 3f2s 2f3s of4s xf5s xf6s]wd:G_Major_Chord
+[of1s 2f2s 2f3s 2f4s 0f5s xf6s]wd:D_Major_Chord
+[of1s 0f2s 1f3s 2f4s 2f5s 0f6s]wd:A_Major_Chord
+[of1s 0f2s of3s 2f4s 2f5s 0f6s]wd:A_Minor_Chord
+[of1s 1f2s 2f3s 2f4s 0f5s xf6s]wd:D_Minor_Chord
+[1f1s 3f2s 2f3s 0f4s xf5s xf6s]wd:G_Minor_Chord
+[0f1s 1f2s 0f3s 2f4s 3f5s xf6s]wd:F_Major_Chord
+[3f1s 0f2s 0f3s 0f4s 2f5s 3f6s]wd:Standard_C_Major_Chord
+[3f1s 0f2s 0f3s 0f4s xf5s 3f6s]wd:C_Major_Chord_Justin_Version
+[3f1s 3f2s 0f3s 0f4s 2f5s 3f6s]wd:C_Major_Chord_Stuck_Fingers_Version
+[2f1s 3f2s 4f3s 0f4s xf5s xf6s]wd:E_Minor_Chord

@@ -25,28 +25,11 @@ var musicContents = [
             "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
     },
     {
-        id: "mary-had-a-little-lamb-tab",
-        publishDate: "Jun 07, 2026",
-        title: "Mary Had A Little Lamb",
-        tab:
-            getCommon("cdn") +
-            "/target/blogs/guitalele-tabs/maryHadALittleLamb.txt"
-    },
-    {
-        id: "twinkle-twinkle-tab",
-        publishDate: "Jun 07, 2026",
-        title: "Twinkle Twinkle Little Star",
-        tab:
-            getCommon("cdn") +
-            "/target/blogs/guitalele-tabs/twinkle-twinkle.txt"
-    },
-    {
-        id: "guitalele-unnamed-musical-tab",
-        publishDate: "Jun 07, 2026",
-        title: "Unnamed Musical Score",
-        tab:
-            getCommon("cdn") +
-            "/target/blogs/guitalele-tabs/Unnamed.txt"
+        id: "all-open-chords",
+        publishDate: "Aug 03, 2022",
+        title: "Guitalele All Open Chords",
+        videoId: "goFLzPdH7D4",
+        tab: getCommon("cdn") + "/target/blogs/guitalele-tuning/all-open-chords.txt"
     },
     {
         id: "oh-sussana-tab",
