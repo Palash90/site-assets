@@ -32,14 +32,6 @@ var musicContents = [
         tab: getCommon("cdn") + "/target/blogs/guitalele-tabs/all-open-chords.txt"
     },
     {
-        id: "oh-sussana-tab",
-        publishDate: "Jun 08, 2026",
-        title: "Oh Sussana",
-        tab:
-            getCommon("cdn") +
-            "/target/blogs/guitalele-tabs/oh-sussana.txt"
-    },
-    {
         id: "ode-to-joy",
         publishDate: "Jun 13, 2026",
         title: "Ode to Joy - Chord Melody",
