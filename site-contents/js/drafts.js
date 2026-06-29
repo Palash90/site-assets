@@ -22,5 +22,11 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },{
+        id: "building-a-tab-viewer",
+        title: "Building a Audio Visual Synchronized Tab Reader/Write from scratch",
+        mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
+        publishDate: "Jun 15, 2026",
+        contentType: "swe"
     }
 ];
