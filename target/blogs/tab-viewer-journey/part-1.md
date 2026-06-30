@@ -241,7 +241,7 @@ function highlightShorthand(text) {
 
 Two functions and about 80 lines of regex. But those 80 lines make the difference between "what did I just type?" and "oh, I see, the quarter note is missing on beat 3."
 
-Although I am the only one using it and may be would always be the only one using it. Still it feels to put a logical end.
+Although I am the only one using it and may be, I would always be the only one using it. Still it feels to put a logical end to anything I start.
 
 ## The Inventory
 
