@@ -1,0 +1,252 @@
+{
+  "contents": {
+    "swe": [
+      {
+        "id": "building-a-tab-viewer",
+        "title": "Building a Web Audio and SVG Synchronized Tab Reader/Writer from scratch",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/tab-viewer-journey/part-1.md",
+        "publishDate": "Jun 30, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-06-29T18:30:00.000Z"
+      },
+      {
+        "id": "building-a-word-quiz",
+        "title": "Building a Real-Time Voice-Driven Word Quiz from Scratch",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/building-a-word-quiz/part-1.md",
+        "publishDate": "Jun 15, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-06-14T18:30:00.000Z"
+      },
+      {
+        "id": "terminal-plotter",
+        "title": "Writing a Minimal Terminal Plotter",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/writing-terminal-plotter/read.md",
+        "publishDate": "Jan 22, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-01-21T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-10",
+        "title": "Iron Learn: The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-10.md",
+        "publishDate": "Jan 07, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-01-06T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-9",
+        "title": "Iron Learn: Generating Simba Network with Rust",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-9.md",
+        "publishDate": "Jan 06, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-01-05T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-8",
+        "title": "Iron Learn: Proving the Universal Approximation Theorem with Rust",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-8.md",
+        "publishDate": "Jan 01, 2026",
+        "contentType": "swe",
+        "sortBy": "2025-12-31T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-7",
+        "title": "Iron Learn: CUDA Integration with Python",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-7.md",
+        "publishDate": "Dec 31, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-12-30T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-6",
+        "title": "Iron Learn: Building the First Neural Network",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-6.md",
+        "publishDate": "Dec 06, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-12-05T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-5",
+        "title": "Iron Learn: The Comeback",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-5.md",
+        "publishDate": "Dec 03, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-12-02T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-4",
+        "title": "Iron Learn: The Bubble Burst",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-4.md",
+        "publishDate": "Nov 27, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-11-26T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-3",
+        "title": "Iron Learn: The Joy of Running Parallel",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-3.md",
+        "publishDate": "Nov 23, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-11-22T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-2",
+        "title": "Iron Learn: Making my Machine Decide Based on Data",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-2.md",
+        "publishDate": "Nov 22, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-11-21T18:30:00.000Z"
+      },
+      {
+        "id": "iron-learn-1",
+        "title": "Iron Learn: Resuming my journey on learning the basics of AI",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/iron-learn/iron-learn-1.md",
+        "publishDate": "Nov 18, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-11-17T18:30:00.000Z"
+      },
+      {
+        "id": "fearless-rust-non-blocking-1",
+        "title": "Fearless Rust: Write a Non Blocking TCP Server From Scratch - Part 1",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/fearless-rust/non-blocking-1.md",
+        "publishDate": "Feb 13, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-02-12T18:30:00.000Z"
+      },
+      {
+        "id": "fearless-rust-write-test",
+        "title": "Fearless Rust: Write Test",
+        "videoId": "ng5FK6wkR58",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/fearless-rust/write-test.md",
+        "publishDate": "Feb 08, 2025",
+        "contentType": "swe",
+        "sortBy": "2025-02-07T18:30:00.000Z"
+      },
+      {
+        "id": "setting-up-a-site-4",
+        "title": "Hosting a website on the cloud: The User Experience",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/setting-up-a-site/part-4.md",
+        "publishDate": "Dec 19, 2024",
+        "contentType": "swe",
+        "sortBy": "2024-12-18T18:30:00.000Z"
+      },
+      {
+        "id": "setting-up-a-site-3",
+        "title": "Hosting a website on the cloud - The Database",
+        "publishDate": "Nov 24, 2024",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/setting-up-a-site/part-3.md",
+        "contentType": "swe",
+        "sortBy": "2024-11-23T18:30:00.000Z"
+      },
+      {
+        "id": "setting-up-a-site-2",
+        "title": "Hosting a website on the cloud - Low Level Design and Implementation",
+        "publishDate": "Nov 20, 2024",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/setting-up-a-site/part-2.md",
+        "sortBy": "2024-11-19T18:30:00.000Z"
+      },
+      {
+        "id": "setting-up-a-site-1",
+        "title": "Hosting a website on the cloud - The Design",
+        "publishDate": "Nov 14, 2024",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/setting-up-a-site/part-1.md",
+        "sortBy": "2024-11-13T18:30:00.000Z"
+      },
+      {
+        "id": "static-file-hosting",
+        "title": "Simple Static File Hosting",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/static-file-hosting/README.md",
+        "publishDate": "Nov 08, 2024",
+        "sortBy": "2024-11-07T18:30:00.000Z"
+      },
+      {
+        "id": "grafana-on-aws",
+        "title": "Configure Grafana on AWS",
+        "mdUrl": "https://palash90.github.io/site-assets/target//blogs/aws-grafana/README.md",
+        "publishDate": "Jun 11, 2024",
+        "sortBy": "2024-06-10T18:30:00.000Z"
+      },
+      {
+        "id": "vi-essentials",
+        "title": "vi Essentials",
+        "publishDate": "Nov 01, 2020",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/vi/README.md",
+        "sortBy": "2020-10-31T18:30:00.000Z"
+      },
+      {
+        "id": "go-essentials",
+        "title": "Go Essentials",
+        "publishDate": "Nov 01, 2020",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/go-tut/README.md",
+        "sortBy": "2020-10-31T18:30:00.000Z"
+      }
+    ],
+    "music": [
+      {
+        "id": "ode-to-joy",
+        "publishDate": "Jun 13, 2026",
+        "title": "Ode to Joy - Chord Melody",
+        "tab": "https://palash90.github.io/site-assets/target/blogs/guitalele-tabs/ode-to-joy.txt",
+        "sortBy": "2026-06-12T18:30:00.000Z"
+      },
+      {
+        "id": "guitalele-tab-quick-view",
+        "publishDate": "May 29, 2026",
+        "title": "Guitalele Tab Reading Guide",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/tab-reading-quick-ref/GUITALELE_TAB_READING_GUIDE.md",
+        "tab": "https://palash90.github.io/site-assets/target/blogs/guitalele-tabs/maryHadALittleLamb.txt",
+        "sortBy": "2026-05-28T18:30:00.000Z"
+      },
+      {
+        "id": "sliding-shape-guitalele",
+        "publishDate": "Oct 16, 2024",
+        "title": "Sliding Shape Guitalele",
+        "videoId": "hMBpAPGqX8k",
+        "sortBy": "2024-10-15T18:30:00.000Z"
+      },
+      {
+        "id": "all-open-chords",
+        "publishDate": "Aug 03, 2022",
+        "title": "Guitalele All Open Chords",
+        "videoId": "goFLzPdH7D4",
+        "tab": "https://palash90.github.io/site-assets/target/blogs/guitalele-tabs/all-open-chords.txt",
+        "sortBy": "2022-08-02T18:30:00.000Z"
+      },
+      {
+        "id": "guitalele-tuning",
+        "publishDate": "Sep 19, 2021",
+        "title": "Guitalele Introduction and Tuning",
+        "videoId": "wBUBEBuk2Jo",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/guitalele-tuning/README.md",
+        "tab": "https://palash90.github.io/site-assets/target/blogs/guitalele-tuning/tab.txt",
+        "sortBy": "2021-09-18T18:30:00.000Z"
+      }
+    ],
+    "drafts": [
+      {
+        "id": "setting-up-a-site",
+        "title": "Simple Static File Hosting",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/setting-up-a-site/README.md",
+        "publishDate": "Nov 08, 2021",
+        "contentType": "swe",
+        "draft": true
+      },
+      {
+        "id": "distributed-systems",
+        "title": "Internet is Ubiquitos",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/distributed-systems/01.md",
+        "publishDate": "",
+        "contentType": "swe",
+        "draft": true
+      },
+      {
+        "id": "writing-process",
+        "title": "Add a new element in website",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/writing-process/README.md",
+        "publishDate": "",
+        "contentType": "swe",
+        "draft": true
+      }
+    ]
+  }
+}
