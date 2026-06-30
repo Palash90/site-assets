@@ -118,9 +118,9 @@ The moment they saw it, they had this question, "But how would I know which lett
 
 I received the feedback, "The app is only useful if I already know the alphabet, but the first step is missing".
 
->> No matter how hard you try, a developer can only be a tester to an extent.
->> No matter how hard you try, a tester can only be a user to an extent
->> No matter how hard you try, you will always have scope for improvement
+> No matter how hard you try, a developer can only be a tester to an extent.
+> No matter how hard you try, a tester can only be a user to an extent
+> No matter how hard you try, you will always have scope for improvement
 
 ## Conclusion
 

@@ -143,6 +143,12 @@ var sweContents = [
         mdUrl: getCommon("cdn") + "/target/blogs/building-a-word-quiz/part-1.md",
         publishDate: "Jun 15, 2026",
         contentType: "swe"
+    },{
+        id: "building-a-tab-viewer",
+        title: "Building a Audio Visual Synchronized Tab Reader/Write from scratch",
+        mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
+        publishDate: "Jun 15, 2026",
+        contentType: "swe"
     }
 ];
 
