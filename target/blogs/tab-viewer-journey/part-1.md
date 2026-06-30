@@ -1,4 +1,4 @@
-# The Snowball That Became a Compiler
+# Part I
 
 When I started this project around 3 weeks ago, I never thought this one project would compel me to face so many challenges.
 

@@ -145,7 +145,7 @@ var sweContents = [
         contentType: "swe"
     },{
         id: "building-a-tab-viewer",
-        title: "Building a Audio Visual Synchronized Tab Reader/Write from scratch",
+        title: "Building a Web Audio and SVG Synchronized Tab Reader/Writer from scratch",
         mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
         publishDate: "Jun 30, 2026",
         contentType: "swe"
