@@ -80,108 +80,108 @@ var sweContents = [
   },
   {
     id: "iron-learn-1",
-    title: "Iron Learn: Resuming my journey on learning the basics of AI",
+    title: " Resuming my journey on learning the basics of AI",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-1.md",
     publishDate: "Nov 18, 2025",
     contentType: "swe",
-    series: "Iron Learn",
+    series: "Building a Neural Network from Scratch in Rust",
     seriesOrder: 1
   },
   {
     id: "iron-learn-2",
     title:
-      "Iron Learn: Making my Machine Decide Based on Data",
+      " Making my Machine Decide Based on Data",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
     publishDate: "Nov 22, 2025",
     contentType: "swe",
-    series: "Iron Learn",
+    series: "Building a Neural Network from Scratch in Rust",
     seriesOrder: 2
-  }, 
-    {
-        id: "iron-learn-3",
-        title: "Iron Learn: The Joy of Running Parallel",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
-        publishDate: "Nov 23, 2025",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 3
-    },
-    {
-        id: "iron-learn-4",
-        title: "Iron Learn: The Bubble Burst",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
-        publishDate: "Nov 27, 2025",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 4
-    },
-    {
-        id: "iron-learn-5",
-        title: "Iron Learn: The Comeback",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-5.md",
-        publishDate: "Dec 03, 2025",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 5
-    },{
-        id: "iron-learn-6",
-        title: "Iron Learn: Building the First Neural Network",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
-        publishDate: "Dec 06, 2025",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 6
-    },{
-        id: "iron-learn-7",
-        title: "Iron Learn: CUDA Integration with Python",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
-        publishDate: "Dec 31, 2025",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 7
-    },{
-        id: "iron-learn-8",
-        title: "Iron Learn: Proving the Universal Approximation Theorem with Rust",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-8.md",
-        publishDate: "Jan 01, 2026",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 8
-    },{
-        id: "iron-learn-9",
-        title: "Iron Learn: Generating Simba Network with Rust",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-9.md",
-        publishDate: "Jan 06, 2026",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 9
-    },{
-        id: "iron-learn-10",
-        title: "Iron Learn: The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
-        mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
-        publishDate: "Jan 07, 2026",
-        contentType: "swe",
-        series: "Iron Learn",
-        seriesOrder: 10
-    },{
-        id: "terminal-plotter",
-        title: "Writing a Minimal Terminal Plotter",
-        mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/read.md",
-        publishDate: "Jan 22, 2026",
-        contentType: "swe"
-    },{
-        id: "building-a-word-quiz",
-        title: "Building a Real-Time Voice-Driven Word Quiz from Scratch",
-        mdUrl: getCommon("cdn") + "/target/blogs/building-a-word-quiz/part-1.md",
-        publishDate: "Jun 15, 2026",
-        contentType: "swe"
-    },{
-        id: "building-a-tab-viewer",
-        title: "Building a Web Audio and SVG Synchronized Tab Reader/Writer from scratch",
-        mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
-        publishDate: "Jun 30, 2026",
-        contentType: "swe"
-    }
+  },
+  {
+    id: "iron-learn-3",
+    title: " The Joy of Running Parallel",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
+    publishDate: "Nov 23, 2025",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 3
+  },
+  {
+    id: "iron-learn-4",
+    title: " The Bubble Burst",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
+    publishDate: "Nov 27, 2025",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 4
+  },
+  {
+    id: "iron-learn-5",
+    title: "The Comeback",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-5.md",
+    publishDate: "Dec 03, 2025",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 5
+  }, {
+    id: "iron-learn-6",
+    title: "Building the First Neural Network",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
+    publishDate: "Dec 06, 2025",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 6
+  }, {
+    id: "iron-learn-7",
+    title: "CUDA Integration with Python",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
+    publishDate: "Dec 31, 2025",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 7
+  }, {
+    id: "iron-learn-8",
+    title: "Proving the Universal Approximation Theorem with Rust",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-8.md",
+    publishDate: "Jan 01, 2026",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 8
+  }, {
+    id: "iron-learn-9",
+    title: "Generating Simba Network with Rust",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-9.md",
+    publishDate: "Jan 06, 2026",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 9
+  }, {
+    id: "iron-learn-10",
+    title: "The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
+    publishDate: "Jan 07, 2026",
+    contentType: "swe",
+    series: "Building a Neural Network from Scratch in Rust",
+    seriesOrder: 10
+  }, {
+    id: "terminal-plotter",
+    title: "Writing a Minimal Terminal Plotter",
+    mdUrl: getCommon("cdn") + "/target/blogs/writing-terminal-plotter/read.md",
+    publishDate: "Jan 22, 2026",
+    contentType: "swe"
+  }, {
+    id: "building-a-word-quiz",
+    title: "Building a Real-Time Voice-Driven Word Quiz from Scratch",
+    mdUrl: getCommon("cdn") + "/target/blogs/building-a-word-quiz/part-1.md",
+    publishDate: "Jun 15, 2026",
+    contentType: "swe"
+  }, {
+    id: "building-a-tab-viewer",
+    title: "Building a Web Audio and SVG Synchronized Tab Reader/Writer from scratch",
+    mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
+    publishDate: "Jun 30, 2026",
+    contentType: "swe"
+  }
 ];
 
 sweContents = modifyArray(sweContents);
