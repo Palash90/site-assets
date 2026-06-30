@@ -22,17 +22,17 @@ So the editor grew. A dropdown to switch between existing scores — all stored 
 
 Once the basic editor was ready, the next itch started. There is a classic dialogue in the movie 'Yeh Jawaani Hai Deewani' -
 
->>Yaadein mithai ke dibbe ki tarah hoti hain...
->>Ek baar khula toh sirf ek tukda nahi kha paoge.
+>Yaadein mithai ke dibbe ki tarah hoti hain...
+>Ek baar khula toh sirf ek tukda nahi kha paoge.
 
 (_*English Translation:*_ "Memories are like a box of sweets... Once it opens, you won't be able to stop at just one piece.")
 
 Well, here is Baba Palashananda Version of it:
 
->>Features mithai ke dibbe ki tarah hoti hain...
->>Ek baar scope khula toh sirf ek editor pe nahi rukoge.
->>
->>Poora app hi banaoge...
+>Features mithai ke dibbe ki tarah hoti hain...
+>Ek baar scope khula toh sirf ek editor pe nahi rukoge.
+>
+>Poora app hi banaoge...
 
 (_*English Translation:*_ "Features are like a box of sweets... Once the scope opens up, you won't just stop at a single code editor. You'll end up building the whole damn app...")
 
