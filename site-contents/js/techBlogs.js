@@ -28,6 +28,8 @@ var sweContents = [
     title: "Hosting a website on the cloud - The Design",
     publishDate: "Nov 14, 2024",
     mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-1.md",
+    series: "Setting Up a Site",
+    seriesOrder: 1
   },
   {
     id: "setting-up-a-site-2",
@@ -35,6 +37,8 @@ var sweContents = [
       "Hosting a website on the cloud - Low Level Design and Implementation",
     publishDate: "Nov 20, 2024",
     mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-2.md",
+    series: "Setting Up a Site",
+    seriesOrder: 2
   },
   {
     id: "setting-up-a-site-3",
@@ -42,6 +46,8 @@ var sweContents = [
     publishDate: "Nov 24, 2024",
     mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-3.md",
     contentType: "swe",
+    series: "Setting Up a Site",
+    seriesOrder: 3
   },
   {
     id: "setting-up-a-site-4",
@@ -49,6 +55,8 @@ var sweContents = [
     mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/part-4.md",
     publishDate: "Dec 19, 2024",
     contentType: "swe",
+    series: "Setting Up a Site",
+    seriesOrder: 4
   },
   {
     id: "fearless-rust-write-test",
@@ -57,6 +65,8 @@ var sweContents = [
     mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/write-test.md",
     publishDate: "Feb 08, 2025",
     contentType: "swe",
+    series: "Fearless Rust",
+    seriesOrder: 1
   },
   {
     id: "fearless-rust-non-blocking-1",
@@ -65,13 +75,17 @@ var sweContents = [
     mdUrl: getCommon("cdn") + "/target/blogs/fearless-rust/non-blocking-1.md",
     publishDate: "Feb 13, 2025",
     contentType: "swe",
+    series: "Fearless Rust",
+    seriesOrder: 2
   },
   {
     id: "iron-learn-1",
     title: "Iron Learn: Resuming my journey on learning the basics of AI",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-1.md",
     publishDate: "Nov 18, 2025",
-    contentType: "swe"
+    contentType: "swe",
+    series: "Iron Learn",
+    seriesOrder: 1
   },
   {
     id: "iron-learn-2",
@@ -79,58 +93,76 @@ var sweContents = [
       "Iron Learn: Making my Machine Decide Based on Data",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-2.md",
     publishDate: "Nov 22, 2025",
-    contentType: "swe"
+    contentType: "swe",
+    series: "Iron Learn",
+    seriesOrder: 2
   }, 
     {
         id: "iron-learn-3",
         title: "Iron Learn: The Joy of Running Parallel",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-3.md",
         publishDate: "Nov 23, 2025",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 3
     },
     {
         id: "iron-learn-4",
         title: "Iron Learn: The Bubble Burst",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-4.md",
         publishDate: "Nov 27, 2025",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 4
     },
     {
         id: "iron-learn-5",
         title: "Iron Learn: The Comeback",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-5.md",
         publishDate: "Dec 03, 2025",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 5
     },{
         id: "iron-learn-6",
         title: "Iron Learn: Building the First Neural Network",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-6.md",
         publishDate: "Dec 06, 2025",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 6
     },{
         id: "iron-learn-7",
         title: "Iron Learn: CUDA Integration with Python",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-7.md",
         publishDate: "Dec 31, 2025",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 7
     },{
         id: "iron-learn-8",
         title: "Iron Learn: Proving the Universal Approximation Theorem with Rust",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-8.md",
         publishDate: "Jan 01, 2026",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 8
     },{
         id: "iron-learn-9",
         title: "Iron Learn: Generating Simba Network with Rust",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-9.md",
         publishDate: "Jan 06, 2026",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 9
     },{
         id: "iron-learn-10",
         title: "Iron Learn: The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
         mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
         publishDate: "Jan 07, 2026",
-        contentType: "swe"
+        contentType: "swe",
+        series: "Iron Learn",
+        seriesOrder: 10
     },{
         id: "terminal-plotter",
         title: "Writing a Minimal Terminal Plotter",
