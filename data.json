@@ -2,6 +2,14 @@
   "contents": {
     "swe": [
       {
+        "id": "building-a-private-cloud",
+        "title": "Building a Private Cloud: WireGuard, Docker Desktop, and the Silent Linux Kernel Drops",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/private-cloud/part-1.md",
+        "publishDate": "Jul 17, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-07-16T18:30:00.000Z"
+      },
+      {
         "id": "building-a-tab-viewer",
         "title": "Building a Web Audio and SVG Synchronized Tab Reader/Writer from scratch",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/tab-viewer-journey/part-1.md",

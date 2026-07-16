@@ -181,6 +181,12 @@ var sweContents = [
     mdUrl: getCommon("cdn") + "/target/blogs/tab-viewer-journey/part-1.md",
     publishDate: "Jun 30, 2026",
     contentType: "swe"
+  }, {
+    id: "building-a-private-cloud",
+    title: "Building a Private Cloud: WireGuard, Docker Desktop, and the Silent Linux Kernel Drops",
+    mdUrl: getCommon("cdn") + "/target/blogs/private-cloud/part-1.md",
+    publishDate: "Jul 17, 2026",
+    contentType: "swe"
   }
 ];
 
