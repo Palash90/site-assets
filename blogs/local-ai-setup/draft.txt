@@ -11,3 +11,5 @@ Sequence of events:
 	9. Tried different models like Realistic, SD 1.5, SD 3.5 and finally stuck with Z-Image
 	10. Then tried coding construct, it was easier than I thought
 	11. Tried continue.dev but did not work and then finally stuck to opencode with llama.cpp (~/.config/opencode)
+
+The setup is slow but it works
