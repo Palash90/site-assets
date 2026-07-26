@@ -13,3 +13,5 @@ Sequence of events:
 	11. Tried continue.dev but did not work and then finally stuck to opencode with llama.cpp (~/.config/opencode)
 
 The setup is slow but it works
+Won't recommend as a local coding assistance
+All models were taken q4km
