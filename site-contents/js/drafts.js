@@ -22,5 +22,13 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },
+    {
+        id: "local-ai",
+        title: "Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050",
+        mdUrl: getCommon("cdn") + "/target/blogs/local-ai/README.md",
+        publishDate: "Aug 01, 2026",
+        contentType: "swe",
+        draft: true
     }
 ];
