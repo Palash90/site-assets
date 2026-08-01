@@ -1,4 +1,4 @@
-# Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050
+# Private AI on a Budget: Multi-Functional LLM on a 4GB RTX 3050
 
 With recent advancements in AI research, we can ~~dream of running~~ actually run a private AI on our own machines, avoiding data sharing and token fees. The results are not 100% perfect but astonishingly capable for day to day tasks.
 
