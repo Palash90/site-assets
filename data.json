@@ -2,6 +2,14 @@
   "contents": {
     "swe": [
       {
+        "id": "local-ai",
+        "title": "Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/local-ai/README.md",
+        "publishDate": "Aug 01, 2026",
+        "contentType": "swe",
+        "sortBy": "2026-07-31T18:30:00.000Z"
+      },
+      {
         "id": "building-a-private-cloud",
         "title": "Building a Private Cloud: WireGuard, Docker Desktop, and the Silent Linux Kernel Drops",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/private-cloud/part-1.md",
@@ -292,14 +300,6 @@
         "title": "Add a new element in website",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/writing-process/README.md",
         "publishDate": "",
-        "contentType": "swe",
-        "draft": true
-      },
-      {
-        "id": "local-ai",
-        "title": "Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050",
-        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/local-ai/README.md",
-        "publishDate": "Aug 01, 2026",
         "contentType": "swe",
         "draft": true
       }
