@@ -122,8 +122,6 @@ So, I block the users on having multiple requests at one by:
 * `_llm_pool` (1 Worker): Enforces strict single-LLM inference to prevent memory thrashing.
 * `_tool_pool` (2 Workers): Handles parallel tool calls like running `SearXNG` queries or reverse geocoding via Nominatim simultaneously.
 
----
-
 ## 🚀 How to Launch the Stack
 
 1. **Start `llama-server` (CUDA enabled):**
@@ -152,8 +150,6 @@ cd ~/git/local-ai && python chat-webui.py
 ```
 
 For a detailed installation steps and other usage methods please check - [TL;DR](#tldr)
-
----
 
 ## Architecture at a Glance
 
@@ -210,8 +206,6 @@ graph LR
 
 ```
 
----
-
 ## Future Scope of Enhancement
 
 The following are a few planned activities. I am not sure when or how I will handle them. But if I achieve these, I will keep you posted.
@@ -220,8 +214,6 @@ The following are a few planned activities. I am not sure when or how I will han
 - Extend the llm to an agentic work flow
 - Working Audio Interface
 - Connect to my Private AI using Internet
-
----
 
 ## 💭 Lessons Learned
 
