@@ -1,11 +1,9 @@
 # The writing process
-
 The writing process involves simple steps. I have automated most of the processes, however some processes are still not working as expected. Hence, I have to keep all the writing process handy.
 
 Follow this process for general blog writing process.
 
 ## Pre-requisite
-
 1. If you are on desktop, use `VS Code` and clone the `site-assets` repository
 1. Then in the `.git/hooks` directory, add a `pre-commit` file with just one line - `sh pre-commit.sh`
 1. The majority of work is done in `pre-commit.sh`  file
@@ -13,11 +11,9 @@ Follow this process for general blog writing process.
 1. On `Acode` editor, install the `Acode Terminal` extension. This extension uses afore-mentioned `acodex-server`. This should be running in termux.
 
 ## The Writing process
-
 1. Create a new folder under `blogs` folder in this repository with the name of the blog. This usually can serve the purpose of making the blog id as well. Then add your `markdown` file inside this directory.
 1. Then add a json object in the `drafts.js` file under `site-contents/js` and commit the changes.
-
-```json
+```
 {
         id: "writing-process",
         title: "How to write a new blog",
@@ -26,13 +22,11 @@ Follow this process for general blog writing process.
         contentType:"swe"
 }
 ```
-
-1. This will enable you to see the draft version on the website, which will be in this location of the site- `/#/content/:contentId`
-1. If you are on PC, usually the `pre-commit` hook works. However, if you are on mobile devices like mobile or tab and using `Acode` and `Acode Terminal`, you should run `sh pre-commit.sh` from the root directory of this repository.
+1.  This will enable you to see the draft version on the website, which will be in this location of the site- `/#/content/:contentId`
+1.  If you are on PC, usually the `pre-commit` hook works. However, if you are on mobile devices like mobile or tab and using `Acode` and `Acode Terminal`, you should run `sh pre-commit.sh` from the root directory of this repository.
 1. Once these steps are done, simply commit the changes and push to the repository. Then wait for the deployment to complete and check on the site. The blog should be available to you only. There will be no link on the main pages of the site.
 
 ## Adding images or other links
-
 1. If you want to host images or any other file links on your markdown, there is a process to do that too.
 1. If it is an internal link, simply use the relative path. For example, if I want to link to static file hosting page, a simple way to add this relative link is this - [Static File Hosting](/#/content/static-file-hosting)
 1. If you want add an image to your blog, it's a bit more involved
@@ -45,13 +39,10 @@ Follow this process for general blog writing process.
     1. Similarly you can add any files using variable mapping
 
 ## Publishing the draft
-
 1. Once you are done with your edits and ready to serve the page to the world, simply remove the entry from `drafts.js` an move it to either `techBlogs.js` or `musicBlogs.js` as per the content type.
 
 ## Changing the color scheme
-
 You can change manythings through css but I won't recommend again changing every aspect of the website. Remember, your major requirement is not to make a beautified web app, your main requirement is to publish blogs. However, I have simplified the process of changing the color scheme for the website. You should be able to change the base colors in `site-contents/css/color-pallete.css`.
 
 ## Important Note
-
 If there is any change in the process, please update here too. Also, this file should not be published. It should be in draft version always.

@@ -1,8 +1,10 @@
 # Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050
 
-With the advancement on the AI reasearch field, we can actually ~~dream of running~~ run a private AI on our own machine and avoid sharing our data on cloud and paying for tokens.
+With the advancement on the AI reasearch field, we can actually ~~dream of running~~ run a private AI on our own machine and avoid sharing our data on cloud and paying for tokens. The results are acceptable (not 100% perfect). Following is the architecture represntation done by the Local AI:
 
-In this post, I will break down step by step what I have achieved with a single NVIDIA RTX 3050 Laptop GPU with 4 GB VRAM only.
+![Local AI Architecture](https://palash90.github.io/site-assets/blogs/local-ai/architecture.png)
+
+In this post, I will break down step by step what I have achieved with a single NVIDIA RTX 3050 Laptop GPU with 4 GB VRAM only and how you can too.
 
 ## The Requirement
 
