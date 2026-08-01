@@ -189,7 +189,7 @@ var sweContents = [
     contentType: "swe"
   },
   {
-    id: "local-ai",
+    id: "private-ai-on-a-budget-multi-functional-llm-on-a-4gb-rtx-3050",
     title: "Private AI on a Budget: Multi-Functional LLMs on a 4GB RTX 3050",
     mdUrl: getCommon("cdn") + "/target/blogs/local-ai/README.md",
     publishDate: "Aug 01, 2026",
