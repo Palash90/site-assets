@@ -4,6 +4,10 @@ I have been working on building a private, secure network accessible from anywhe
 
 I wanted to access my self-hosted services, specifically my Docker-hosted **Open WebUI**, running on my local home Wi-Fi connected laptop, directly from my phone using mobile data.
 
+And can come up with astonishing (although not 100% perfect) results:
+
+
+
 It sounded straightforward. But if you read my other from scratch journeys, you might have already guessed, it was not.
 
 ---

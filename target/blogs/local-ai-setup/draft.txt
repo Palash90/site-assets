@@ -1,0 +1,17 @@
+Sequence of events:
+
+	1. Started with installing llama.cpp
+	2. Then found, it is not capable of web search
+	3. Then I wrote the python script and the small UI
+	4. Then installed searxng and pointed the python script for tool call
+	5. Then found it can't analyze image
+	6. Tried a few models - Qwen3.5 9B, Qwen3 VL 4B, Gemma4 E4B. Finally stuck with Gemma 4 E2B
+	7. Then tried image generation. Does not work out of the box
+	8. Then configured ComfyUI
+	9. Tried different models like Realistic, SD 1.5, SD 3.5 and finally stuck with Z-Image
+	10. Then tried coding construct, it was easier than I thought
+	11. Tried continue.dev but did not work and then finally stuck to opencode with llama.cpp (~/.config/opencode)
+
+The setup is slow but it works
+Won't recommend as a local coding assistance
+All models were taken q4km
