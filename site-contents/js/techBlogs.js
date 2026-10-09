@@ -186,7 +186,9 @@ var sweContents = [
     title: "Building a Private Cloud: WireGuard, Docker Desktop, and the Silent Linux Kernel Drops",
     mdUrl: getCommon("cdn") + "/target/blogs/private-cloud/part-1.md",
     publishDate: "Jul 17, 2026",
-    contentType: "swe"
+    series: "Hosting a Private Cloud",
+    contentType: "swe",
+    seriesOrder: 1
   },
   {
     id: "private-ai-on-a-budget-multi-functional-llm-on-a-4gb-rtx-3050",
@@ -196,12 +198,12 @@ var sweContents = [
     contentType: "swe"
   },{
     id: "hosting-cloud-1",
-    title: "The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
+    title: "My ₹12,000 Mistake: A Lesson in Thermal Failure and Data Backups",
     mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
-    publishDate: "Jan 07, 2026",
+    publishDate: "Oct 09, 2026",
     contentType: "swe",
     series: "Hosting a Private Cloud",
-    seriesOrder: 10
+    seriesOrder: 2
   }
 ];
 
