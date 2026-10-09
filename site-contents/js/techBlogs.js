@@ -199,7 +199,7 @@ var sweContents = [
   },{
     id: "hosting-cloud-1",
     title: "My ₹12,000 Mistake: A Lesson in Thermal Failure and Data Backups",
-    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
+    mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-1.md",
     publishDate: "Oct 09, 2026",
     contentType: "swe",
     series: "Hosting a Private Cloud",
