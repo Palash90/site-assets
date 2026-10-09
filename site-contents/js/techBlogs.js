@@ -194,6 +194,14 @@ var sweContents = [
     mdUrl: getCommon("cdn") + "/target/blogs/local-ai/README.md",
     publishDate: "Aug 01, 2026",
     contentType: "swe"
+  },{
+    id: "hosting-cloud-1",
+    title: "The Grand Finale: The Full Image Reconstruction Network from Scratch in Rust",
+    mdUrl: getCommon("cdn") + "/target/blogs/iron-learn/iron-learn-10.md",
+    publishDate: "Jan 07, 2026",
+    contentType: "swe",
+    series: "Hosting a Private Cloud",
+    seriesOrder: 10
   }
 ];
 
