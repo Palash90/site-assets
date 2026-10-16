@@ -211,7 +211,7 @@ var sweContents = [
     publishDate: "Oct 17, 2026",
     contentType: "swe",
     series: "Hosting a Private Cloud",
-    seriesOrder: 2
+    seriesOrder: 3
   }
 ];
 
