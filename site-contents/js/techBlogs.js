@@ -204,6 +204,14 @@ var sweContents = [
     contentType: "swe",
     series: "Hosting a Private Cloud",
     seriesOrder: 2
+  },{
+    id: "hosting-cloud-2",
+    title: "The Journey Begins: Surviving a Power Cut (No, its not only UPS but something else)",
+    mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-2.md",
+    publishDate: "Oct 17, 2026",
+    contentType: "swe",
+    series: "Hosting a Private Cloud",
+    seriesOrder: 2
   }
 ];
 
