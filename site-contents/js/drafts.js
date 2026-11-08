@@ -22,5 +22,13 @@ var drafts = [
         publishDate: "",
         contentType: "swe",
         draft: true
+    },
+    {
+        id: "ddns-setup",
+        title: "Set up Custom DDNS",
+        mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-3.md",
+        publishDate: "",
+        contentType: "swe",
+        draft: true
     }
 ];

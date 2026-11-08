@@ -132,7 +132,7 @@ The circuit diagram is this -
 
 I found a strip of 10 resistors, a bag full of 1000 leds and few jumper wires. I had to order a new breadboard though, as the old one got dismantled. Connected the circuit, measured the voltage so that it does not cross 3.5V to keep my Pi safe and then finally plugged the jumper to the Pi to build the final power cut detection system:
 
-![Pi with Power Cut Detection](https://palash90.github.io/site-assets/blogs//building-cloud/part3-topology.png)
+![Pi with Power Cut Detection](https://palash90.github.io/site-assets/blogs//building-cloud/IMG20261010135822.jpg)
 
 Now, I wrote a script which detects the rising edge and the falling edge and detects different edge cases with help of `opencode`.
 
