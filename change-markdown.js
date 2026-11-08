@@ -39,7 +39,8 @@ const variableMap = {
   "word-quiz-flawed-design": commonPath + "/building-a-word-quiz/flawed-design.png",
   "word-quiz-current-design": commonPath + "/building-a-word-quiz/current-design.png",
   "local-cloud-part-2-circuit": commonPath + "/building-cloud/circuit.png",
-  "local-cloud-part-2-circuit-pi": commonPath + "/building-cloud/IMG20261010135822.jpg"
+  "local-cloud-part-2-circuit-pi": commonPath + "/building-cloud/IMG20261010135822.jpg",
+  "local-cloud-part-2-circuit-pi": commonPath + "/building-cloud/part3-topology.png"
 };
 
 // Function to replace patterns in a file
