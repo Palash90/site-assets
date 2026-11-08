@@ -1,6 +1,6 @@
-# Setting up Dual-Stack DNS: Routing IPv4 and IPv6 Across Hybrid Cloud Environments
+# Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS
 
-A highly available private cloud needs several pieces configured correctly to minimize downtime. I placed the following components in two locations.
+A highly available private cloud needs several pieces configured correctly to minimize downtime. I placed the following components in three locations.
 
 ## Bangalore Site
 
@@ -68,7 +68,7 @@ def _update_godaddy_aaaa(new_ip):
     return False
 ```
 
-The script checks the Pi's IPv6 address every 5 minutes. Calling the GoDaddy API on every check would be wasteful and could hit rate limits, so the following function only calls it when the address has changed:
+The script checks the Pi’s IPv6 address every 5 minutes. Calling the GoDaddy API on every check would be wasteful and could hit rate limits, so the function below calls it only when the address differs from the last known one. On the first run there is no last known address, so it always pushes one update.
 
 ```python
 def _maybe_update_dns():
@@ -86,8 +86,9 @@ def _maybe_update_dns():
         if _update_godaddy_aaaa(current_ip):
             _last_known_ipv6 = current_ip
 ```
+
 > Note: after a prefix change, the record can stay stale for up to ~15 minutes (5 min check + 10 min TTL). This is acceptable in my case.
-> 
+
 After testing the script, I just added this `systemd` file to start this automatically.
 
 ```

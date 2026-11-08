@@ -327,7 +327,7 @@
       },
       {
         "id": "ddns-setup",
-        "title": "Set up Custom DDNS",
+        "title": "Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/building-cloud/PART-3.md",
         "publishDate": "",
         "contentType": "swe",
