@@ -40,7 +40,30 @@ const variableMap = {
   "word-quiz-current-design": commonPath + "/building-a-word-quiz/current-design.png",
   "local-cloud-part-2-circuit": commonPath + "/building-cloud/circuit.png",
   "local-cloud-part-2-circuit-pi": commonPath + "/building-cloud/IMG20261010135822.jpg",
-  "local-cloud-part-3-network-topology": commonPath + "/building-cloud/part3-topology.png"
+  "local-cloud-part-3-network-topology": commonPath + "/building-cloud/part3-topology.png",
+  "linux-bangla-guide-p01-tux": commonPath + "linux-bangla-guide/p01-tux.png",
+  "linux-bangla-guide-p03-walnut2-700x525": commonPath + "linux-bangla-guide/p03-walnut2-700x525.jpg",
+  "linux-bangla-guide-p03-kd14": commonPath + "linux-bangla-guide/p03-kd14.jpg",
+  "linux-bangla-guide-p03-dec_vt100_terminal": commonPath + "linux-bangla-guide/p03-dec_vt100_terminal.jpg",
+  "linux-bangla-guide-p03-ibm_1620_model_1": commonPath + "linux-bangla-guide/p03-ibm_1620_model_1.jpg",
+  "linux-bangla-guide-p03-untitled": commonPath + "linux-bangla-guide/p03-untitled.png",
+  "linux-bangla-guide-p04-shot-1": commonPath + "linux-bangla-guide/p04-shot-1.png",
+  "linux-bangla-guide-p04-shot-2": commonPath + "linux-bangla-guide/p04-shot-2.png",
+  "linux-bangla-guide-p04-shot-3": commonPath + "linux-bangla-guide/p04-shot-3.png",
+  "linux-bangla-guide-p04-shot-4": commonPath + "linux-bangla-guide/p04-shot-4.png",
+  "linux-bangla-guide-p04-shot-5": commonPath + "linux-bangla-guide/p04-shot-5.png",
+  "linux-bangla-guide-p04-shot-6": commonPath + "linux-bangla-guide/p04-shot-6.png",
+  "linux-bangla-guide-p05-shot-1": commonPath + "linux-bangla-guide/p05-shot-1.png",
+  "linux-bangla-guide-p06-shot-1": commonPath + "linux-bangla-guide/p06-shot-1.png",
+  "linux-bangla-guide-p08-fs-layout": commonPath + "linux-bangla-guide/p08-fs-layout.png",
+  "linux-bangla-guide-p08-inverted-tree": commonPath + "linux-bangla-guide/p08-inverted-tree.jpg",
+  "linux-bangla-guide-p09-shot-1": commonPath + "linux-bangla-guide/p09-shot-1.png",
+  "linux-bangla-guide-p10-shot-1": commonPath + "linux-bangla-guide/p10-shot-1.png",
+  "linux-bangla-guide-p10-shot-2": commonPath + "linux-bangla-guide/p10-shot-2.png",
+  "linux-bangla-guide-p12-shot-1": commonPath + "linux-bangla-guide/p12-shot-1.png",
+  "linux-bangla-guide-p12-shot-2": commonPath + "linux-bangla-guide/p12-shot-2.png",
+  "linux-bangla-guide-p12-shot-3": commonPath + "linux-bangla-guide/p12-shot-3.png",
+  "linux-bangla-guide-p13-shot-1": commonPath + "linux-bangla-guide/p13-shot-1.png"
 };
 
 // Function to replace patterns in a file
