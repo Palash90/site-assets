@@ -1,5 +1,7 @@
 //const fs = require('fs');
-const siteUrl = "https://palashkantikundu.in/"
+const siteUrl = "https://palashkantikundu.in"
+
+const joinUrl = (path) => siteUrl + "/" + String(path).replace(/^\/+/, "")
 
 const staticLinks = [
     "https://palashkantikundu.in/",
@@ -12,13 +14,13 @@ const staticLinks = [
     "https://ai.palashkantikundu.in/visualizers/neural-network.html",
 ]
 
-const allNavLinks = findProp("navLinks").map(n => siteUrl + n.link)
+const allNavLinks = findProp("navLinks").map(n => joinUrl(n.link))
 
 const allBlogs = findProp("contents.swe").concat(findProp("contents.music")).map(
-    b => siteUrl + "content/" + b.id
+    b => joinUrl("content/" + b.id)
 )
 
-const allProjects = findProp("projects").filter(p => p.type === "react" && p.playUrl).map(p => siteUrl + p.playUrl)
+const allProjects = findProp("projects").filter(p => p.type === "react" && p.playUrl).map(p => joinUrl(p.playUrl))
 
 
 const allLinks = [...staticLinks, ...allNavLinks, ...allBlogs, ...allProjects]

@@ -249,6 +249,15 @@
         "publishDate": "Nov 01, 2020",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/go-tut/README.md",
         "sortBy": "2020-10-31T18:30:00.000Z"
+      },
+      {
+        "id": "ddns-setup",
+        "title": "Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/building-cloud/PART-3.md",
+        "contentType": "swe",
+        "series": "Hosting a Private Cloud",
+        "seriesOrder": 4,
+        "sortBy": null
       }
     ],
     "music": [
@@ -321,14 +330,6 @@
         "id": "writing-process",
         "title": "Add a new element in website",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/writing-process/README.md",
-        "publishDate": "",
-        "contentType": "swe",
-        "draft": true
-      },
-      {
-        "id": "ddns-setup",
-        "title": "Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS",
-        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/building-cloud/PART-3.md",
         "publishDate": "",
         "contentType": "swe",
         "draft": true

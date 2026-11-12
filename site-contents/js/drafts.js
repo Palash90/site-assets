@@ -23,14 +23,7 @@ var drafts = [
     contentType: "swe",
     draft: true
   },
-  {
-    id: "ddns-setup",
-    title: "Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS",
-    mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-3.md",
-    publishDate: "",
-    contentType: "swe",
-    draft: true
-  },
+  
   {
     id: "linux-bangla-guide-13",
     title: "bc - বৈজ্ঞানিক হিসেব নিকেশ",

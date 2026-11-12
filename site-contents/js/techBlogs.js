@@ -212,7 +212,16 @@ var sweContents = [
     contentType: "swe",
     series: "Hosting a Private Cloud",
     seriesOrder: 3
-  }
+  },
+  {
+    id: "ddns-setup",
+    title: "Setting up Dual-Stack DNS: Dynamic IPv6 with GoDaddy DDNS",
+    mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-3.md",
+    publishDate: "",
+    contentType: "swe",
+    series: "Hosting a Private Cloud",
+    seriesOrder: 4
+  },
 ];
 
 sweContents = modifyArray(sweContents);
