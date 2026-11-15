@@ -222,6 +222,15 @@ var sweContents = [
     series: "Hosting a Private Cloud",
     seriesOrder: 4
   },
+  {
+    id: "security-setup",
+    title: "Building the Security Layer to Minimize the Risk",
+    mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-4.md",
+    publishDate: "Nov 21, 2026",
+    contentType: "swe",
+    series: "Hosting a Private Cloud",
+    seriesOrder: 5
+  }
 ];
 
 sweContents = modifyArray(sweContents);
