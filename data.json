@@ -269,6 +269,22 @@
         "publishDate": "Nov 01, 2020",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/go-tut/README.md",
         "sortBy": "2020-10-31T18:30:00.000Z"
+      },
+      {
+        "id": "what-is-computer-program",
+        "title": "What is a computer program ?",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/old-blogs/posts/2014-12-what-is-computer-program.md",
+        "publishDate": "Dec 04, 2014",
+        "contentType": "swe",
+        "sortBy": "2014-12-04T18:28:00.000Z"
+      },
+      {
+        "id": "programming-is-fun",
+        "title": "Programming is fun...",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/old-blogs/posts/2014-12-programming-is-fun-70.md",
+        "publishDate": "Dec 04, 2014",
+        "contentType": "swe",
+        "sortBy": "2014-12-04T10:02:00.000Z"
       }
     ],
     "music": [

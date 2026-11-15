@@ -230,6 +230,18 @@ var sweContents = [
     contentType: "swe",
     series: "Hosting a Private Cloud",
     seriesOrder: 5
+  }, {
+    id: "programming-is-fun",
+    title: "Programming is fun...",
+    mdUrl: getCommon("cdn") + "/target/blogs/old-blogs/posts/2014-12-programming-is-fun-70.md",
+    publishDate: "Dec 04, 2014 15:32",
+    contentType: "swe"
+  }, {
+    id: "what-is-computer-program",
+    title: "What is a computer program ?",
+    mdUrl: getCommon("cdn") + "/target/blogs/old-blogs/posts/2014-12-what-is-computer-program.md",
+    publishDate: "Dec 04, 2014 23:58",
+    contentType: "swe"
   }
 ];
 

@@ -10,7 +10,8 @@
   the dated tutorials and config posts were deliberately deleted (recoverable
   from git history if ever needed). A CDX sweep (2026-11-16) proved Wayback
   holds captures for more posts than the original scrape found, including
-  `data`, `internet-defined-simply` (restored here), `website-or-web-application`
+  `data`, `internet-defined-simply` (restored, then dropped again as it adds
+  little beyond the two 2014 essays), `website-or-web-application`
   and ~45 more Java-era posts — see git history and the 2026-11-16 session log.
 - **Converter:** `scrape_wayback.py` (kept in this folder for reference) +
   `postfix.py` — Blogger HTML → markdown, Blogger `<b>`-hanging style healed
