@@ -224,7 +224,7 @@ var sweContents = [
   },
   {
     id: "security-setup",
-    title: "Building the Security Layer to Minimize the Risk",
+    title: "Building the Basic Security Layer to Minimize the Risk",
     mdUrl: getCommon("cdn") + "/target/blogs/building-cloud/PART-4.md",
     publishDate: "Nov 21, 2026",
     contentType: "swe",

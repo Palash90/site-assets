@@ -1,4 +1,4 @@
-# Building the Security Layer to Minimize the Risk
+# Building the Basic Security Layer to Minimize the Risk
 
 In the last [post](https://dev.to/palash90/setting-up-dual-stack-dns-dynamic-ipv6-with-godaddy-ddns-4781) of this series, I have detailed how we can setup dual stack DNS and how to enable serving a simple page from the IPv6 enabled Pi.
 

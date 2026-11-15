@@ -3,7 +3,7 @@
     "swe": [
       {
         "id": "security-setup",
-        "title": "Building the Security Layer to Minimize the Risk",
+        "title": "Building the Basic Security Layer to Minimize the Risk",
         "mdUrl": "https://palash90.github.io/site-assets/target/blogs/building-cloud/PART-4.md",
         "publishDate": "Nov 21, 2026",
         "contentType": "swe",
