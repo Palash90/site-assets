@@ -51,9 +51,10 @@ Follow this process for general blog writing process.
 ## Scheduling a post (future date)
 
 1. While moving the entry from `drafts.js` to `techBlogs.js` or `musicBlogs.js`, you can set the `publishDate` to a **future date** - the day you want the post to become visible. For example, `publishDate: "Nov 21, 2026"` schedules the post for that day.
+1. A date-only `publishDate` releases at **4:00 PM IST** by default. To pick a different moment, include the time in the date, preferably as ISO with offset, e.g. `publishDate: "2026-11-18T16:00:00+05:30"`.
 1. No extra field is needed. The pre-commit pipeline converts the date into the machine readable `sortBy` automatically, which is what the website checks.
 1. The website hides future dated posts from all the blog lists (home page, series cards, standalone lists) on every page load, and the post appears on its own once the date arrives - no redeploy and no manual reveal is required.
-1. Treat the post as scheduled, not secret: the direct content link can still open it. Do not share the link before the publish date.
+1. Scheduled does not mean secret: the direct content link shows an amber notice - "This page will be available on \<date, time\> (your local time)" - rendered in the reader's own timezone, so sharing the link early is harmless; readers simply see the notice.
 1. This applies only to `techBlogs.js` and `musicBlogs.js`. Drafts never need a future date - a draft is invisible until you move it out anyway.
 
 ## Changing the color scheme
