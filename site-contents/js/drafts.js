@@ -1,4 +1,15 @@
 var drafts = [
+  // Planned publish: 2027-01-03T00:00:00+05:30 (Jan 3, 2027, 00:00 IST).
+  // When moving to musicBlogs.js, use that value as publishDate and drop draft:true.
+  {
+    id: "circle-of-fifths-clock-trick",
+    title: "How to Draw the Circle of Fifths From Memory in Seconds (Using a Simple Clock Trick)",
+    mdUrl: getCommon("cdn") + "/target/blogs/circle-of-fifths-clock-trick/README.md",
+    videoId: "VQFV31Z-ZdQ",
+    publishDate: "",
+    contentType: "music",
+    draft: true
+  },
   {
     id: "setting-up-a-site",
     title: "Simple Static File Hosting",

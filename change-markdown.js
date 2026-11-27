@@ -63,7 +63,10 @@ const variableMap = {
   "linux-bangla-guide-p12-shot-1": commonPath + "linux-bangla-guide/p12-shot-1.png",
   "linux-bangla-guide-p12-shot-2": commonPath + "linux-bangla-guide/p12-shot-2.png",
   "linux-bangla-guide-p12-shot-3": commonPath + "linux-bangla-guide/p12-shot-3.png",
-  "linux-bangla-guide-p13-shot-1": commonPath + "linux-bangla-guide/p13-shot-1.png"
+  "linux-bangla-guide-p13-shot-1": commonPath + "linux-bangla-guide/p13-shot-1.png",
+  "circle-fifths-step-1": commonPath + "circle-of-fifths-clock-trick/step1.png",
+  "circle-fifths-step-2": commonPath + "circle-of-fifths-clock-trick/step2.png",
+  "circle-fifths-step-3": commonPath + "circle-of-fifths-clock-trick/step3.png"
 };
 
 // Function to replace patterns in a file
