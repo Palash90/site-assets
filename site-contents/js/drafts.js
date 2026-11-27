@@ -1,13 +1,5 @@
 var drafts = [
-  {
-    id: "guitalele-improvisation-tweaks",
-    title: "Stop Sounding Like a Beginner on the Guitalele: 2 Easy Improvisation Tweaks",
-    mdUrl: getCommon("cdn") + "/target/blogs/guitalele-improvisation-tweaks/README.md",
-    videoId: "oGP8FxJtM84",
-    publishDate: "",
-    contentType: "music",
-    draft: true
-  },
+
   {
     id: "setting-up-a-site",
     title: "Simple Static File Hosting",
@@ -32,7 +24,7 @@ var drafts = [
     contentType: "swe",
     draft: true
   },
-  
+
   {
     id: "linux-bangla-guide-13",
     title: "bc - বৈজ্ঞানিক হিসেব নিকেশ",
