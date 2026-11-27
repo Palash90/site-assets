@@ -33,6 +33,7 @@ var musicContents = [
         publishDate: "Aug 03, 2022",
         title: "Guitalele All Open Chords",
         videoId: "goFLzPdH7D4",
+        mdUrl: getCommon("cdn") + "/target/blogs/guitalele-tabs/README.md",
         tab: getCommon("cdn") + "/target/blogs/guitalele-tabs/all-open-chords.txt",
         series: "Guitalele Basics",
         seriesOrder: 2

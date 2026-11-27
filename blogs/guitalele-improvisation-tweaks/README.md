@@ -16,12 +16,14 @@ Think of it like having a conversation rather than reading from a script: you st
 
 ## The Baseline: Version 1 (Simple)
 
-To hear how much difference small tweaks make, start with a standard four-chord loop in **C Major** (in standard A–D–G–C–E–A guitalele tuning), playing two bars per chord with the classic **Island Strum** (`D – DU – U DU`):
+To hear how much difference small tweaks make, start with a standard four-chord loop in **C Major** (in standard A–D–G–C–E–A guitalele tuning), playing two bars per chord with the classic **Island Strum** (`D- DU -U DU`):
 
 * **C Major** (2 bars) – Island Strum
 * **F Major** (2 bars) – Island Strum
 * **D Minor** (2 bars) – Island Strum
 * **G Major** (2 bars) – Island Strum
+
+If any of these shapes are new, keep the [Guitalele All Open Chords](https://palashkantikundu.in/content/all-open-chords) page open in another tab. Its Tab Viewer and chord chart show every voicing in A–D–G–C–E–A tuning.
 
 There is nothing wrong with this version—it is steady and clean. However, because every single bar uses the exact same rhythmic pattern and static chord voicing, the listener's ear quickly predicts what comes next.
 
@@ -40,10 +42,10 @@ Keep the exact same four chords, the same tempo, and the Island Strum on the **f
 
 | Chord | Bar 1 (Foundation) | Bar 2 (Improvisation / Variation) | Musical Purpose |
 | --- | --- | --- | --- |
-| **C Major** | Island Strum (`D – DU – U DU`) | `DU DU DU DU` | **Rhythmic Variation:** Straight eighth-note strums build forward energy. |
-| **F Major** | Island Strum (`D – DU – U DU`) | `DU DU DU DU` | **Rhythmic Variation:** Straight eighth notes keep the momentum moving. |
-| **D Minor** | Island Strum (`D – DU – U DU`) | Island Strum (`D – DU – U DU`) | **Dynamic Restraint:** Holding back lets the minor chord breathe and creates contrast. |
-| **G Major** | Island Strum (`D – DU – U DU`) | **Gsus2 → G Major** (`DU DU DU DU`) | **Chord Embellishment:** Lifting one finger adds a melodic pull back to C. |
+| **C Major** | Island Strum (`D- DU -U DU`) | `DU DU DU DU` | **Rhythmic Variation:** Straight eighth-note strums build forward energy. |
+| **F Major** | Island Strum (`D- DU -U DU`) | `DU DU DU DU` | **Rhythmic Variation:** Straight eighth notes keep the momentum moving. |
+| **D Minor** | Island Strum (`D- DU -U DU`) | Island Strum (`D- DU -U DU`) | **Dynamic Restraint:** Holding back lets the minor chord breathe and creates contrast. |
+| **G Major** | Island Strum (`D- DU -U DU`) | **Gsus2 → G Major** (`DU DU DU DU`) | **Chord Embellishment:** Lifting one finger adds a melodic pull back to C. |
 
 ---
 
@@ -53,13 +55,17 @@ Keep the exact same four chords, the same tempo, and the Island Strum on the **f
 
 On **C Major** and **F Major**, start with the Island Strum in bar one so the groove stays anchored, then switch to straight eighth-note strums (`DU DU DU DU`) in bar two. Treating your strumming hand like an energy switch pushes the progression forward without requiring your fretting hand to learn new shapes.
 
+![Island Strum and straight eighth-note strumming patterns](${improvisation-strum-patterns} "Two strumming patterns")
+
 ### 2. Dynamic Restraint (Knowing When *Not* to Change)
 
 When you reach **D Minor**, resist the urge to add another busy strumming pattern. Simply play the Island Strum across both bars. Good improvisation isn't about filling every empty space—holding back on the minor chord resets the ear and makes the final build-up feel intentional.
 
 ### 3. Chordal Embellishment (`G` to `Gsus2`)
 
-On **G Major**, play the Island Strum in bar one. At the start of bar two, lift your finger off the first string (the highest string) to let it ring open as a **Gsus2**, then place it back down onto **G Major** while strumming `DU DU DU DU`. That single finger lift introduces a clear melodic note inside the chord that resolves naturally back into **C Major**.
+On **G Major**, play the Island Strum in bar one. At the start of bar two, lift your finger off the highest A string to let it ring open as a **Gsus2**, then place it back down onto **G Major** while strumming `DU DU DU DU`. That single finger lift introduces a clear melodic note inside the chord that resolves naturally back into **C Major**.
+
+![Lifting one finger on G Major to make Gsus2](${improvisation-gsus2-lift} "G Major to Gsus2 and back")
 
 ---
 

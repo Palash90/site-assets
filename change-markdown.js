@@ -66,7 +66,10 @@ const variableMap = {
   "linux-bangla-guide-p13-shot-1": commonPath + "linux-bangla-guide/p13-shot-1.png",
   "circle-fifths-step-1": commonPath + "circle-of-fifths-clock-trick/step1.png",
   "circle-fifths-step-2": commonPath + "circle-of-fifths-clock-trick/step2.png",
-  "circle-fifths-step-3": commonPath + "circle-of-fifths-clock-trick/step3.png"
+  "circle-fifths-step-3": commonPath + "circle-of-fifths-clock-trick/step3.png",
+  "guitalele-all-open-chord-shapes": commonPath + "guitalele-tabs/all-open-chord-shapes.png",
+  "improvisation-strum-patterns": commonPath + "guitalele-improvisation-tweaks/02-strum-patterns.png",
+  "improvisation-gsus2-lift": commonPath + "guitalele-improvisation-tweaks/03-gsus2-lift.png"
 };
 
 // Function to replace patterns in a file
