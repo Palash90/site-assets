@@ -38,7 +38,7 @@ Keep the exact same four chords, the same tempo, and the Island Strum on the **f
 | C Major | Island Strum | Island Strum | Island Strum | `DU DU DU DU` |
 | F Major | Island Strum | Island Strum | Island Strum | `DU DU DU DU` |
 | D Minor | Island Strum | Island Strum | Island Strum | Island Strum |
-| G Major | Island Strum | Island Strum | Island Strum | Gsus2 → G Major |
+| G Major | Island Strum | Island Strum | Island Strum | **Gsus2 → G Major** and `DU DU DU DU` |
 
 | Chord | Bar 1 (Foundation) | Bar 2 (Improvisation / Variation) | Musical Purpose |
 | --- | --- | --- | --- |
