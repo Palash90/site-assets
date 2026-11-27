@@ -19,6 +19,8 @@ Memorize only two spots:
 * **12 o'clock:** **C**
 * **1 o'clock:** **G**
 
+![Circle of Fifths on a 12-hour clock](https://palash90.github.io/site-assets/blogs/circle-of-fifths-clock-trick/step1.png "Circle of Fifths on a 12-hour clock")
+
 ### 2. Fill in the Odd Positions (Whole Steps From G)
 
 Moving clockwise around the odd numbers (`1, 3, 5, 7, 9, 11`), advance by **one whole step** (two frets on your guitalele) at each mark:
@@ -43,8 +45,6 @@ Next, move clockwise around the even numbers (`12, 2, 4, 6, 8, 10`), again advan
 
 Once both passes are complete, every note on the Circle of Fifths is in its exact position.
 
-![Circle of Fifths on a 12-hour clock](https://palash90.github.io/site-assets/blogs/circle-of-fifths-clock-trick/step1.png "Circle of Fifths on a 12-hour clock")
-
 | Clock Position | Note | Step Pattern |
 | --- | --- | --- |
 | **12** | **C** | *Even Anchor* |
@@ -59,6 +59,8 @@ Once both passes are complete, every note on the Circle of Fifths is in its exac
 | **9** | **D#** | +1 whole step from C# |
 | **10** | **A#** | +1 whole step from G# |
 | **11** | **F** | +1 whole step from D# |
+
+![C# Major scale and diatonic chords on the clock](https://palash90.github.io/site-assets/blogs/circle-of-fifths-clock-trick/step2.png "C# Major scale and diatonic chords")
 
 ---
 
@@ -84,8 +86,6 @@ Your root note and its two immediate neighbors are always Major chords: **F# Maj
 The following three clockwise notes give you all three diatonic minor chords: **D# minor (ii)**, **A# minor (vi)**, and **F minor (iii)**.
 * **Diminished Chord (vii°) — The 7th Note (`12`):**
 The final note in your seven-note group is always diminished: **C diminished (vii°)**.
-
-![C# Major scale and diatonic chords on the clock](https://palash90.github.io/site-assets/blogs/circle-of-fifths-clock-trick/step2.png "C# Major scale and diatonic chords")
 
 ---
 

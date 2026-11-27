@@ -46,6 +46,13 @@ var musicContents = [
             "/target/blogs/guitalele-tabs/ode-to-joy.txt",
         series: "Guitalele Tabs & Melodies",
         seriesOrder: 1
+    }, {
+        id: "circle-of-fifths-clock-trick",
+        title: "How to Draw the Circle of Fifths From Memory in Seconds (Using a Simple Clock Trick)",
+        mdUrl: getCommon("cdn") + "/target/blogs/circle-of-fifths-clock-trick/README.md",
+        videoId: "VQFV31Z-ZdQ",
+        publishDate: "Jan 3, 2027",
+        contentType: "music"
     }
 ];
 

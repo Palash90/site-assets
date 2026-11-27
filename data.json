@@ -289,6 +289,15 @@
     ],
     "music": [
       {
+        "id": "circle-of-fifths-clock-trick",
+        "title": "How to Draw the Circle of Fifths From Memory in Seconds (Using a Simple Clock Trick)",
+        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/circle-of-fifths-clock-trick/README.md",
+        "videoId": "VQFV31Z-ZdQ",
+        "publishDate": "Jan 03, 2027",
+        "contentType": "music",
+        "sortBy": "2027-01-03T10:30:00.000Z"
+      },
+      {
         "id": "ode-to-joy",
         "publishDate": "Jun 13, 2026",
         "title": "Ode to Joy - Chord Melody",
@@ -337,15 +346,6 @@
       }
     ],
     "drafts": [
-      {
-        "id": "circle-of-fifths-clock-trick",
-        "title": "How to Draw the Circle of Fifths From Memory in Seconds (Using a Simple Clock Trick)",
-        "mdUrl": "https://palash90.github.io/site-assets/target/blogs/circle-of-fifths-clock-trick/README.md",
-        "videoId": "VQFV31Z-ZdQ",
-        "publishDate": "",
-        "contentType": "music",
-        "draft": true
-      },
       {
         "id": "setting-up-a-site",
         "title": "Simple Static File Hosting",
