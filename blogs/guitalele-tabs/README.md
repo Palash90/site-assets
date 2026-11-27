@@ -1,9 +1,59 @@
 # Guitalele All Open Chords
 
-This page is the reference hub for open chord shapes in standard **A–D–G–C–E–A** guitalele tuning. Use the Tab Viewer above to inspect each voicing, or use the chart below for a quick visual check.
+These are the nine core open chords in standard **A–D–G–C–E–A** guitalele tuning. Use the Tab Viewer above to hear and inspect each voicing, then use the diagrams below as a quick visual reference.
 
-![Guitalele open chord shapes](${guitalele-all-open-chord-shapes} "Guitalele open chord shapes")
+The shapes are written low string → high string: `x` means muted and `0` means open. The Tab Viewer also contains two alternate C Major voicings; this gallery focuses on the nine main shapes.
 
-The chart is drawn left → right from the **low A** string to the **high A** string. The Tab Viewer numbers strings the other way round (`1` = high A, `6` = low A), so its diagrams appear mirrored compared with this chart. `O` means an open string, `X` means a muted string, and a dot shows where to press.
+## G Major
 
-For the C–F–Dm–G loop in the improvisation tutorial, these are the starting shapes. The G Major voicing here is the D-shape version; lifting the finger from the high A string gives the Gsus2 color used in that lesson.
+![G Major chord shape](${guitalele-g-major} "G Major chord shape")
+
+Shape: `xx0232`. This is the D-shape G. Lift the finger on the high A string for a Gsus2 color, then put it back to resolve cleanly into C Major.
+
+## D Major
+
+![D Major chord shape](${guitalele-d-major} "D Major chord shape")
+
+Shape: `x02220`. A bright, open D shape. Keep the low A string muted so the chord stays clear and does not muddy the bass.
+
+## A Major
+
+![A Major chord shape](${guitalele-a-major} "A Major chord shape")
+
+Shape: `022100`. A full, punchy E-shape A. Let the open high strings ring; it is one of the strongest open chords on the guitalele.
+
+## A Minor
+
+![A Minor chord shape](${guitalele-a-minor} "A Minor chord shape")
+
+Shape: `022000`. Only one finger moves from A Major to A Minor. That small change gives you an instant switch from bright to wistful.
+
+## D Minor
+
+![D Minor chord shape](${guitalele-d-minor} "D Minor chord shape")
+
+Shape: `x02210`. A gentle minor chord that sits naturally between F and G in C Major. It is a good place to hold back and let the rhythm breathe.
+
+## G Minor
+
+![G Minor chord shape](${guitalele-g-minor} "G Minor chord shape")
+
+Shape: `xx0231`. The minor cousin of G Major. Keeping the same D-shape feel makes it easy to move between the two while learning minor chords.
+
+## F Major
+
+![F Major chord shape](${guitalele-f-major} "F Major chord shape")
+
+Shape: `x32010`. The standard open F. It needs a little more finger pressure than the surrounding chords, but it is essential for the common C–F–Dm–G loop.
+
+## C Major
+
+![C Major chord shape](${guitalele-c-major} "C Major chord shape")
+
+Shape: `320003`. The familiar open C shape. It is a comfortable home base in C Major and the resolution point for the Gsus2 embellishment.
+
+## E Minor
+
+![E Minor chord shape](${guitalele-e-minor} "E Minor chord shape")
+
+Shape: `xx0432`. A deep, balanced minor chord with two open strings at the top. It is often the first minor shape beginners can play cleanly.

@@ -67,7 +67,15 @@ const variableMap = {
   "circle-fifths-step-1": commonPath + "circle-of-fifths-clock-trick/step1.png",
   "circle-fifths-step-2": commonPath + "circle-of-fifths-clock-trick/step2.png",
   "circle-fifths-step-3": commonPath + "circle-of-fifths-clock-trick/step3.png",
-  "guitalele-all-open-chord-shapes": commonPath + "guitalele-tabs/all-open-chord-shapes.png",
+  "guitalele-g-major": commonPath + "guitalele-tabs/chords/g-major.png",
+  "guitalele-d-major": commonPath + "guitalele-tabs/chords/d-major.png",
+  "guitalele-a-major": commonPath + "guitalele-tabs/chords/a-major.png",
+  "guitalele-a-minor": commonPath + "guitalele-tabs/chords/a-minor.png",
+  "guitalele-d-minor": commonPath + "guitalele-tabs/chords/d-minor.png",
+  "guitalele-g-minor": commonPath + "guitalele-tabs/chords/g-minor.png",
+  "guitalele-f-major": commonPath + "guitalele-tabs/chords/f-major.png",
+  "guitalele-c-major": commonPath + "guitalele-tabs/chords/c-major.png",
+  "guitalele-e-minor": commonPath + "guitalele-tabs/chords/e-minor.png",
   "improvisation-strum-patterns": commonPath + "guitalele-improvisation-tweaks/02-strum-patterns.png",
   "improvisation-gsus2-lift": commonPath + "guitalele-improvisation-tweaks/03-gsus2-lift.png"
 };
