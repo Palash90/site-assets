@@ -77,7 +77,8 @@ const variableMap = {
   "guitalele-c-major": commonPath + "guitalele-tabs/chords/c-major.png",
   "guitalele-e-minor": commonPath + "guitalele-tabs/chords/e-minor.png",
   "improvisation-strum-patterns": commonPath + "guitalele-improvisation-tweaks/02-strum-patterns.png",
-  "improvisation-gsus2-lift": commonPath + "guitalele-improvisation-tweaks/03-gsus2-lift.png"
+  "improvisation-gsus2-lift": commonPath + "guitalele-improvisation-tweaks/03-gsus2-lift.png",
+  "improvisation-gsus2-chord": commonPath + "guitalele-improvisation-tweaks/04-gsus2.png"
 };
 
 // Function to replace patterns in a file

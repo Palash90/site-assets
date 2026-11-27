@@ -65,6 +65,10 @@ When you reach **D Minor**, resist the urge to add another busy strumming patter
 
 On **G Major**, play the Island Strum in bar one. At the start of bar two, lift your finger off the highest A string to let it ring open as a **Gsus2**, then place it back down onto **G Major** while strumming `DU DU DU DU`. That single finger lift introduces a clear melodic note inside the chord that resolves naturally back into **C Major**.
 
+The Gsus2 shape is `xx0230` (low → high): the same D-shape G with the high A string left open.
+
+![Gsus2 chord shape](https://palash90.github.io/site-assets/blogs/guitalele-improvisation-tweaks/04-gsus2.png "Gsus2 chord shape")
+
 ![Lifting one finger on G Major to make Gsus2](https://palash90.github.io/site-assets/blogs/guitalele-improvisation-tweaks/03-gsus2-lift.png "G Major to Gsus2 and back")
 
 ---
