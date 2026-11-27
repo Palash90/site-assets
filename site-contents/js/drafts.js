@@ -1,5 +1,14 @@
 var drafts = [
   {
+    id: "guitalele-improvisation-tweaks",
+    title: "Stop Sounding Like a Beginner on the Guitalele: 2 Easy Improvisation Tweaks",
+    mdUrl: getCommon("cdn") + "/target/blogs/guitalele-improvisation-tweaks/README.md",
+    videoId: "oGP8FxJtM84",
+    publishDate: "",
+    contentType: "music",
+    draft: true
+  },
+  {
     id: "setting-up-a-site",
     title: "Simple Static File Hosting",
     mdUrl: getCommon("cdn") + "/target/blogs/setting-up-a-site/README.md",
